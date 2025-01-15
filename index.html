@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проверка резьбы</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Проверка среднего диаметра метрической резьбы</h1>
+  
+  <form id="thread-form">
+    <label for="thread-designation">Условное обозначение резьбы:</label>
+    <input type="text" id="thread-designation" placeholder="Например, M12x1.75-6g">
+    
+    <button type="submit">Рассчитать</button>
+  </form>
+
+  <div id="results"></div>
+
+  <!-- Скрытые таблицы с данными -->
+  <table class="hidden" id="pitch-table">
+    <thead>
+      <tr>
+        <th>Резьба</th>
+        <th>Шаг</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>M10</td>
+        <td>1.50</td>
+      </tr>
+      <tr>
+        <td>M12</td>
+        <td>1.75</td>
+      </tr>
+      <!-- Добавьте остальные строки -->
+    </tbody>
+  </table>
+
+  <table class="hidden" id="diameter-table">
+    <thead>
+      <tr>
+        <th>Резьба</th>
+        <th>Средний диаметр</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>M10</td>
+        <td>9.91</td>
+      </tr>
+      <tr>
+        <td>M12</td>
+        <td>11.88</td>
+      </tr>
+      <!-- Добавьте остальные строки -->
+    </tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
