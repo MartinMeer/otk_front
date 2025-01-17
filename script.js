@@ -1,58 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('thread-form');
-  const resultsDiv = document.getElementById('results');
-  const pitchTable = document.getElementById('pitch-table').querySelectorAll('tbody tr');
-  const diameterTable = document.getElementById('diameter-table').querySelectorAll('tbody tr');
+    const calculateBtn = document.getElementById('calculate-btn');
+    const threadDesignationInput = document.getElementById('thread-designation');
 
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
+    calculateBtn.addEventListener('click', function() {
+        const designation = threadDesignationInput.value.trim().toUpperCase();
 
-    // Получаем значение из формы
-    const designation = document.getElementById('thread-designation').value.trim().toUpperCase();
+        if (!designation) {
+            alert('Введите условное обозначение резьбы!');
+            return;
+        }
 
-    if (!designation) {
-      alert('Введите условное обозначение резьбы!');
-      return;
-    }
+        // Здесь должна быть логика для получения данных с сервера
+        // Например, вызов AJAX запроса или использование fetch API
+        // После получения данных, обновляйте содержимое полей
 
-    let threadSize = '';
-    let pitch = '';
-    let diameter = '';
+        // Пример заполнения полей для демонстрации
+        document.getElementById('mean-diameter').textContent = '20 мм';
+        document.getElementById('es-mean').textContent = '+0.05 мм';
+        document.getElementById('ei-mean').textContent = '-0.03 мм';
+        document.getElementById('max-mean-diameter').textContent = '20.08 мм';
+        document.getElementById('min-mean-diameter').textContent = '19.97 мм';
+        document.getElementById('mean-image').src = '/path/to/image.jpg'; // Укажите путь к изображению
 
-    // Определяем размер резьбы и шаг
-    for (let i = 0; i < pitchTable.length; i++) {
-      const row = pitchTable[i];
-      if (row.cells[0].innerText === designation.split('x')[0]) {
-        threadSize = row.cells[0].innerText;
-        pitch = row.cells[1].innerText;
-        break;
-      }
-    }
-
-    if (!pitch) {
-      alert(`Не найден шаг резьбы для ${designation}`);
-      return;
-    }
-
-    // Определяем средний диаметр резьбы
-    for (let j = 0; j < diameterTable.length; j++) {
-      const row = diameterTable[j];
-      if (row.cells[0].innerText === threadSize) {
-        diameter = row.cells[1].innerText;
-        break;
-      }
-    }
-
-    if (!diameter) {
-      alert(`Не найден средний диаметр резьбы для ${threadSize}`);
-      return;
-    }
-
-    // Формируем результат
-    resultsDiv.innerHTML = `
-      <p><strong>Размер резьбы:</strong> ${threadSize}</p>
-      <p><strong>Шаг резьбы:</strong> ${pitch} мм</p>
-      <p><strong>Средний диаметр резьбы:</strong> ${diameter} мм</p>
-    `;
-  });
+        document.getElementById('nominal-diameter').textContent = '22 мм';
+        document.getElementById('es-nominal').textContent = '+0.06 мм';
+        document.getElementById('ei-nominal').textContent = '-0.04 мм';
+        document.getElementById('max-nominal-diameter').textContent = '22.09 мм';
+        document.getElementById('min-nominal-diameter').textContent = '21.96 мм';
+        document.getElementById('nominal-image').src = '/path/to/image.jpg'; // Укажите путь к изображению
+    });
 });
