@@ -21,53 +21,26 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: white;
+    background-color: rgba(44, 104, 116, 0.83);
+    color: #ffffff;
     text-align: center;
-    padding: 20px;
+    padding: 26px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 26px;
-}
-
-.menu {
-    float: left;
-    width: 25%;
-    padding: 11px;
-    background-color: #f9f9f9;
-    height: 100vh;
-    position: fixed;
-}
-
-.menu ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.menu li {
-    margin-bottom: 10px;
-}
-
-.menu-button {
-    display: inline-block;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.menu-button:hover {
-    background-color: #0056b3;
+    font-size: 43px;
 }
 
 main {
     margin-left: 27%;
-    padding: 20px;
+    padding: 34px;
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-left: 0; /* Убрать отступ на мобильных устройствах */
+    }
 }
 
 .input-section {
@@ -75,6 +48,8 @@ main {
 }
 
 .input-section label {
+    font-weight: 700;
+    font-size-adjust: cap-height 0.9;
     display: block;
     margin-bottom: 5px;
 }
@@ -88,17 +63,19 @@ main {
 }
 
 #calculate-btn {
-    background-color: #007bff;
+    font-weight: 800;
+    font-size: smaller;
+    background-color: #25956f;
     color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.5s ease;
 }
 
 #calculate-btn:hover {
-    background-color: #0056b3;
+    background-color: rgba(0, 158, 179, 0.44);
 }
 
 .result-section {
@@ -108,23 +85,23 @@ main {
 
 .left-column,
 .right-column {
-    width: 35%;
+    width: 42%;
 }
 
 .left-column dl,
 .right-column dl {
-    margin-bottom: 20px;
+    margin-bottom: 41px;
 }
 
 .left-column dt,
 .right-column dt {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 30px;
 }
 
 .left-column dd,
 .right-column dd {
-    margin-bottom: 10px;
+    margin-bottom: 24px;
 }
 
 figure img {

@@ -1,9 +1,21 @@
+// Скрипт для загрузки меню
 document.addEventListener('DOMContentLoaded', function() {
+    // Загрузка меню
+    fetch('menu.html')
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector('aside.menu').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Ошибка загрузки меню:', error);
+        });
+
+    // Скрипт для обработки нажатия кнопки "Рассчитать"
     const calculateBtn = document.getElementById('calculate-btn');
     const threadDesignationInput = document.getElementById('thread-designation');
 
     calculateBtn.addEventListener('click', function() {
-        const designation = threadDesignationInput.value.trim().toUpperCase();
+        const designation = threadDesignationInput.value.trim().toLowerCase(); // Исправлено toLoverCase на toLowerCase
 
         if (!designation) {
             alert('Введите условное обозначение резьбы!');

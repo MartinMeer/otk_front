@@ -1,0 +1,60 @@
+/* menu.css */
+.menu {
+    position: fixed;
+    top: 11;
+    left: 0;
+    width: 216px;
+    height: 100vh;
+    background-color: rgba(44, 177, 195, 0.87);
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255); /* Цвет шрифта пунктов меню */
+    display: block;
+}
+
+.menu ul li a:hover {
+    color: #007bff; /* Цвет шрифта при наведении */
+    background-color: #e9ecef;
+}
+
+.menu ul li a.active {
+    color: #28a745; /* Цвет шрифта для активного пункта */
+    font-weight: bold;
+}
+
+.menu h4 {
+    color: #333; /* Цвет шрифта заголовков */
+    padding: 10px;
+    margin: 0;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .menu {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .menu ul li {
+        text-align: center;
+    }
+}
