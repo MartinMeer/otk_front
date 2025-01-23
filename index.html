@@ -4,82 +4,68 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наружная резьба</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Ассистент контролера ОТК</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/menu.css">
+   
 </head>
 <body>
     <header>
-        <h1>Наружная резьба</h1>
+        <h1>Ассистент контролера ОТК</h1>
+        <h2>Ваш надежный помощник в расчетах и измерениях</h2>
     </header>
 
-    <aside class="menu">
-        <ul>
-            <li><a href="#" class="menu-button">Наружная резьба</a></li>
-            <li><a href="#" class="menu-button">Классные размеры</a></li>
-            <li><a href="#" class="menu-button">ОСТ 1 00022-81</a></li>
-            <li><a href="#" class="menu-button">Расчет фасок</a></li>            
-        </ul>
-    </aside>
-
     <main>
-        <section class="input-section">
-            <label for="thread-designation">Введите условное обозначение резьбы:</label>
-            <input type="text" id="thread-designation" placeholder="Например: М33х1.5-6е">
-            <button id="calculate-btn">Рассчитать</button>
+        <section class="welcome-section">
+            <h2>Добро пожаловать!</h2>
+            <p>
+                Этот сайт создан для помощи контролерам ОТК в выполнении расчетов и измерений. 
+                Здесь вы найдете инструменты для работы с наружной резьбой, классными размерами, 
+                стандартами ОСТ и расчетом фасок.
+            </p>
         </section>
 
-        <section class="result-section">
-            <div class="left-column">
-                <h2>Данные для измерения среднего диаметра наружной резьбы</h2>
-                <dl>
-                    <dt>Средний диаметр:</dt>
-                    <dd id="mean-diameter"></dd>
-                    <dt>es:</dt>
-                    <dd id="es-mean"></dd>
-                    <dt>ei:</dt>
-                    <dd id="ei-mean"></dd>
-                    <dt>Максимальное значение среднего диаметра:</dt>
-                    <dd id="max-mean-diameter"></dd>
-                    <dt>Минимальное значение среднего диаметра:</dt>
-                    <dd id="min-mean-diameter"></dd>
-                </dl>
-                <figure>
-                    <img src="" alt="Изображение для среднего диаметра" id="mean-image">
-                </figure>
-            </div>
-
-            <div class="right-column">
-                <h2>Данные для измерения номинального диаметра наружной резьбы</h2>
-                <dl>
-                    <dt>Номинальный диаметр:</dt>
-                    <dd id="nominal-diameter"></dd>
-                    <dt>es:</dt>
-                    <dd id="es-nominal"></dd>
-                    <dt>ei:</dt>
-                    <dd id="ei-nominal"></dd>
-                    <dt>Максимальное значение номинального диаметра:</dt>
-                    <dd id="max-nominal-diameter"></dd>
-                    <dt>Минимальное значение номинального диаметра:</dt>
-                    <dd id="min-nominal-diameter"></dd>
-                </dl>
-                <figure>
-                    <img src="" alt="Изображение для номинального диаметра" id="nominal-image">
-                </figure>
+        <section class="features-section">
+            <h2>Основные возможности</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Наружная резьба</h3>
+                    <p>Расчет параметров наружной резьбы по ГОСТ.</p>
+                    <a href="ext-thread.html" class="feature-link">Перейти →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Классные размеры</h3>
+                    <p>Определение допусков и посадок по ГОСТ 25347-82.</p>
+                    <a href="classed-size.html" class="feature-link">Перейти →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>ОСТ 1 00022-81</h3>
+                    <p>Работа с требованиями стандарта ОСТ.</p>
+                    <a href="ost22.html" class="feature-link">Перейти →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Расчет фасок</h3>
+                    <p>Определение параметров фасок для деталей.</p>
+                    <a href="facet.html" class="feature-link">Перейти →</a>
+                </div>
             </div>
         </section>
 
-        <section class="pdf-links">
-            <a href="/path/to/pdf1.pdf" target="_blank">Ссылка на PDF 1</a>
-            <a href="/path/to/pdf2.pdf" target="_blank">Ссылка на PDF 2</a>
-            <a href="/path/to/pdf3.pdf" target="_blank">Ссылка на PDF 3</a>
+        <section class="about-section">
+            <h2>О проекте</h2>
+            <p>
+                Проект "Ассистент контролера ОТК" разработан для упрощения работы с техническими расчетами. 
+                Мы стремимся сделать процесс измерений и контроля более удобным и точным.
+            </p>
         </section>
     </main>
 
     <footer>
-        <p>© 2023 Ваша компания | <a href="mailto:email@example.com">email@example.com</a> | Дата обновления: 01.01.2023</p>
+        <p>© 2023 Ассистент контролера ОТК | <a href="mailto:email@example.com">email@example.com</a> | Дата обновления: 01.01.2023</p>
     </footer>
 
     <script src="script.js"></script>

@@ -3,7 +3,8 @@
     position: fixed;
     top: 11;
     left: 0;
-    width: 216px;
+    
+    width: 211px;
     height: 100vh;
     background-color: rgba(44, 177, 195, 0.87);
     overflow-y: auto;
@@ -56,5 +57,6 @@
 
     .menu ul li {
         text-align: center;
+         margin-right: 10px;
     }
 }

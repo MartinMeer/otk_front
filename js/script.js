@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('ei-mean').textContent = '-0.03 мм';
         document.getElementById('max-mean-diameter').textContent = '20.08 мм';
         document.getElementById('min-mean-diameter').textContent = '19.97 мм';
+        document.getElementById('hypotenuse').textContent = '20 мм';
         document.getElementById('mean-image').src = '/path/to/image.jpg'; // Укажите путь к изображению
 
         document.getElementById('nominal-diameter').textContent = '22 мм';
