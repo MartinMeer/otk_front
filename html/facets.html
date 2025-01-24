@@ -21,9 +21,7 @@
     <aside class="menu"></aside>
 
 
-    <main>
-        
-            
+    <main>            
         <section class="input-section">
             <label for="facet">Введите условное обозначение фаски:</label>
             <input type="text" id="facet" placeholder="Например: 0,6х45">
@@ -32,41 +30,33 @@
         
          <section class="result-section">
             <div class="left-column">
-                <h2>Данные для измерения фаски:</h2>
-                <dl>
-                    <dt>Размер гипотенузы (с):</dt>
-                    <dd id="hypotenuse"></dd>
-                </dl>        
+                <h3>Данные для измерения фаски:</h3>
+                <label for="facet-leg"> Размер гипотенузы </label>
+                <input type="text" id="hypotenuse" placeholder=""> 
             </div>
         </section>
         
          <section class="input-section">
-            <div class="left-column">
-                <h1>Или введите данные с чертежа:</h1>
-            </div>
-            
+            <label for="facet">Или введите данные с чертежа:</label>        
+            <section class="images">
+            <figure>
+                <img src="../img/fac.png" alt="Изображение для фасок" id="mean-image">
+            </figure>
+        </section>
             <label for="facet-leg"> Размер а: </label>
             <input type="text" id="facet-leg" placeholder="">
             <label for="facet-leg"> Угол альфа: </label> 
             <input type="text" id="facet-angle" placeholder="">
             <button id="calculate-btn1">Рассчитать</button>
-        </section>
+        </section> 
         
-        <section class="images">
-            <figure>
-                    <img src="img/fac.png" alt="Изображение для фасок" id="mean-image">
-            </figure>
-        </section>
         
-       
-
+        <!--placeholder="" vs readonly-->
         <section class="result-section">
             <div class="left-column">
                 <h2>Данные для измерения фаски:</h2>
-                <dl>
-                    <dt>Размер гипотенузы (с):</dt>
-                    <dd id="hypotenuse1"></dd>
-                </dl>        
+                <label for="facet-leg"> Размер гипотенузы </label>
+                <input type="text" id="hypotenuse1" readonly>     
             </div>
         </section>
 
