@@ -22,57 +22,62 @@
 
     <aside class="menu"></aside>
 
-    <main>
-        <section class="input-section">
-            <label for="thread-designation">Введите условное обозначение размера:</label>
-            <input type="text" id="thread-designation" placeholder="Например: М33х1.5-6е">
-            <button id="calculate-btn">Рассчитать</button>
-        </section>
-
-        <section class="result-section">
-            <div class="left-column">
-                <h2>Данные для измерения среднего диаметра наружной резьбы</h2>
-                <dl>
-                    <dt>Средний диаметр:</dt>
-                    <dd id="mean-diameter"></dd>
-                    <dt>es:</dt>
-                    <dd id="es-mean"></dd>
-                    <dt>ei:</dt>
-                    <dd id="ei-mean"></dd>
-                    <dt>Максимальное значение среднего диаметра:</dt>
-                    <dd id="max-mean-diameter"></dd>
-                    <dt>Минимальное значение среднего диаметра:</dt>
-                    <dd id="min-mean-diameter"></dd>
-                </dl>
-                <figure>
-                    <img src="" alt="Изображение для среднего диаметра" id="mean-image">
-                </figure>
+   <main>
+        <!-- Раздел 1: Отверстия и валы -->
+        <section class="calculation-section">
+            <h2>Размеры элементов отверстий и валов</h2>
+            
+            <div class="image-row">
+                <img src="../img/ost22-1.jpg" alt="Отверстие">
+                <img src="../img/ost22-2.jpg" alt="Вал">
             </div>
 
-            <div class="right-column">
-                <h2>Данные для измерения номинального диаметра наружной резьбы</h2>
-                <dl>
-                    <dt>Номинальный диаметр:</dt>
-                    <dd id="nominal-diameter"></dd>
-                    <dt>es:</dt>
-                    <dd id="es-nominal"></dd>
-                    <dt>ei:</dt>
-                    <dd id="ei-nominal"></dd>
-                    <dt>Максимальное значение номинального диаметра:</dt>
-                    <dd id="max-nominal-diameter"></dd>
-                    <dt>Минимальное значение номинального диаметра:</dt>
-                    <dd id="min-nominal-diameter"></dd>
-                </dl>
-                <figure>
-                    <img src="" alt="Изображение для номинального диаметра" id="nominal-image">
-                </figure>
+            <div class="input-section">
+                <label>Введите размер с чертежа:</label>
+                <select id="partType">
+                    <option value="shaft">Вал</option>
+                    <option value="hole">Отверстие</option>
+                    <option value="cond_shaft">Условный вал</option>
+                    <option value="cond_hole">Условное отверстие</option>
+                </select>
+                <input type="text" id="inputPart1" placeholder="Например: 45H7">
+                <button id="calculate-btn">Рассчитать</button>
+            </div>
+
+            <div class="result-section">
+                <div class="output-field">
+                    <label>Минимальный размер:</label>
+                    <input type="text" id="minOutput1" readonly>
+                </div>
+                <div class="output-field">
+                    <label>Максимальный размер:</label>
+                    <input type="text" id="maxOutput1" readonly>
+                </div>
             </div>
         </section>
 
-        <section class="pdf-links">
-            <a href="/path/to/pdf1.pdf" target="_blank">Ссылка на PDF 1</a>
-            <a href="/path/to/pdf2.pdf" target="_blank">Ссылка на PDF 2</a>
-            <a href="/path/to/pdf3.pdf" target="_blank">Ссылка на PDF 3</a>
+        <!-- Раздел 2: Другие размеры -->
+        <section class="calculation-section">
+            <h2>Размеры, не относящиеся к отверстиям и валам</h2>
+            
+            <img src="../img/ost22-3.jpg" alt="Общие размеры" class="single-image">
+
+            <div class="input-section">
+                <label>Введите размер с чертежа:</label>
+                <input type="text" id="inputPart2" placeholder="Например: 60±0.1">
+                <button id="calculate-btn1">Рассчитать</button>
+            </div>
+
+            <div class="result-section">
+                <div class="output-field">
+                    <label>Минимальный размер:</label>
+                    <input type="text" id="minOutput2" readonly>
+                </div>
+                <div class="output-field">
+                    <label>Максимальный размер:</label>
+                    <input type="text" id="maxOutput2" readonly>
+                </div>
+            </div>
         </section>
     </main>
 
