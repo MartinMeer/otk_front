@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -8,12 +9,13 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наружная резьба</title>
+    <title>Расчет фасок</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/menu.css"> <!-- Стили для меню -->
     
 </head>
 <body>
+
     <header>
         <h1>Расчет фасок</h1>
     </header>
@@ -22,50 +24,49 @@
 
 
     <main>            
+        <section class="calculation-section">            
+            <div class="input-section">
+                <label>Введите условное обозначение фаски</label>
+                <input type="text" id="facet" placeholder="Например: 0,6х45">
+                <button id="calculate-btn">Рассчитать</button>                 
+            </div>  
+            <div class="result-section">
+                <div class="output-field">
+                    <label>Данные для измерения фаски (гипотенуза):</label>
+                    <input type="text" id="hypotenuse" placeholder=""> 
+                </div>
+            </div>
+        </section>
+        
         <section class="input-section">
-            <label for="facet">Введите условное обозначение фаски:</label>
-            <input type="text" id="facet" placeholder="Например: 0,6х45">
-            <button id="calculate-btn">Рассчитать</button>
-        </section>
-        
-         <section class="result-section">
-            <div class="left-column">
-                <h3>Данные для измерения фаски:</h3>
-                <label for="facet-leg"> Размер гипотенузы </label>
-                <input type="text" id="hypotenuse" placeholder=""> 
+            <div class="input-section">
+                <label>Или введите данные с чертежа:</label>        
+                    <div class="images">
+                        <figure>
+                        <img src="../img/fac.png" alt="Изображение для фасок" id="mean-image">
+                        </figure>
+                    </div>
+                <label>Размер а:</label>
+                <input type="text" id="facet-leg" placeholder="">
+                <label>Угол альфа:</label> 
+                <input type="text" id="facet-angle" placeholder="">
+                <button id="calculate-btn1">Рассчитать</button>
             </div>
-        </section>
-        
-         <section class="input-section">
-            <label for="facet">Или введите данные с чертежа:</label>        
-            <section class="images">
-            <figure>
-                <img src="../img/fac.png" alt="Изображение для фасок" id="mean-image">
-            </figure>
-        </section>
-            <label for="facet-leg"> Размер а: </label>
-            <input type="text" id="facet-leg" placeholder="">
-            <label for="facet-leg"> Угол альфа: </label> 
-            <input type="text" id="facet-angle" placeholder="">
-            <button id="calculate-btn1">Рассчитать</button>
-        </section> 
-        
-        
-        <!--placeholder="" vs readonly-->
-        <section class="result-section">
-            <div class="left-column">
-                <h2>Данные для измерения фаски:</h2>
-                <label for="facet-leg"> Размер гипотенузы </label>
-                <input type="text" id="hypotenuse1" readonly>     
+        <div class="result-section">
+            <div class="output-field">
+                <label>Данные для измерения фаски (гипотенуза):</label>
+                <input type="text" id="hypotenuse1" placeholder="">
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="pdf-links">
+    <section class="pdf-links">
             <a href="/path/to/pdf1.pdf" target="_blank">Ссылка на PDF 1</a>
             <a href="/path/to/pdf2.pdf" target="_blank">Ссылка на PDF 2</a>
             <a href="/path/to/pdf3.pdf" target="_blank">Ссылка на PDF 3</a>
         </section>
     </main>
+    
 
     <footer>
         <p>© 2023 Ваша компания | <a href="mailto:email@example.com">email@example.com</a> | Дата обновления: 01.01.2023</p>
@@ -73,5 +74,6 @@
     
     <script src="../js/common/menu.js"></script>
     <script type="module" src="/js/facets/calculations.js"></script>
-</body>
+   
+    </body>
 </html>

@@ -106,8 +106,14 @@ main {
 
 .result-section {
     display: flex;
-    justify-content:flex-start;
-    margin-bottom: 83px;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: baseline;
+    margin-bottom: 18px;
+}
+.output-field input {
+  flex: 1;
+  max-width: 100px; /* Ограничение ширины поля ввода */
 }
 
 .left-column,

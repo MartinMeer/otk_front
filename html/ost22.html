@@ -8,11 +8,9 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наружная резьба</title>
+    <title>Расчет фасок</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/menu.css"> <!-- Стили для меню -->
-
-    
 </head>
 <body>
     <header>
@@ -37,21 +35,25 @@
                 <select id="partType">
                     <option value="shaft">Вал</option>
                     <option value="hole">Отверстие</option>
-                    <option value="cond_shaft">Условный вал</option>
-                    <option value="cond_hole">Условное отверстие</option>
+                    <option value="quasi_shaft">Условный вал</option>
+                    <option value="quasi_hole">Условное отверстие</option>
                 </select>
-                <input type="text" id="inputPart1" placeholder="Например: 45H7">
+                <input type="text" id="input1" placeholder="Например: 45,55">
                 <button id="calculate-btn">Рассчитать</button>
             </div>
 
             <div class="result-section">
                 <div class="output-field">
+                    <label>Предельное отклонение:</label>
+                    <input type="text" id="devValues" readonly>
+                </div>
+                <div class="output-field">
                     <label>Минимальный размер:</label>
-                    <input type="text" id="minOutput1" readonly>
+                    <input type="text" id="minMesValue" readonly>
                 </div>
                 <div class="output-field">
                     <label>Максимальный размер:</label>
-                    <input type="text" id="maxOutput1" readonly>
+                    <input type="text" id="maxMesValue" readonly>
                 </div>
             </div>
         </section>
@@ -64,25 +66,35 @@
 
             <div class="input-section">
                 <label>Введите размер с чертежа:</label>
-                <input type="text" id="inputPart2" placeholder="Например: 60±0.1">
+                <input type="text" id="input2" placeholder="Например: 60,66">
                 <button id="calculate-btn1">Рассчитать</button>
             </div>
 
             <div class="result-section">
                 <div class="output-field">
-                    <label>Минимальный размер:</label>
-                    <input type="text" id="minOutput2" readonly>
+                    <label>Предельное отклонение:</label>
+                    <input type="text" id="devValues1" readonly>
                 </div>
                 <div class="output-field">
                     <label>Максимальный размер:</label>
-                    <input type="text" id="maxOutput2" readonly>
+                    <input type="text" id="minMesValue1" readonly>
+                </div>
+                <div class="output-field">
+                    <label>Минимальный размер:</label>
+                    <input type="text" id="maxMesValue1" readonly>
                 </div>
             </div>
+        </section>
+       
+        <section class="pdf-links">
+            <a href="/path/to/pdf1.pdf" target="_blank">Ссылка на PDF 1</a>
+            <a href="/path/to/pdf2.pdf" target="_blank">Ссылка на PDF 2</a>
+            <a href="/path/to/pdf3.pdf" target="_blank">Ссылка на PDF 3</a>
         </section>
     </main>
 
     <footer>
-        <p>© 2023 Ваша компания | <a href="mailto:email@example.com">email@example.com</a> | Дата обновления: 01.01.2023</p>
+        <p>© martinmeer 2025  | <a href="mailto:email@example.com">email@example.com</a> | Дата обновления: 01.01.2025</p>
     </footer>
     
     <script src="../js/common/menu.js"></script>
