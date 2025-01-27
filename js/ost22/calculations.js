@@ -21,9 +21,9 @@ document.getElementById('calculate-btn').addEventListener('click', async () => {
     const response = await postData('/ost22', bodyString);
 
     // 5. Обновляем интерфейс
-    document.getElementById('devValues').value = response.val1;
-    document.getElementById('minMesValue').value = response.min;
-    document.getElementById('maxMesValue').value = response.max;
+    document.getElementById('dev_values').value = response.val1;
+    document.getElementById('min_mes_value').value = response.min;
+    document.getElementById('max_mes_value').value = response.max;
 
   } catch (error) {
     alert(`Ошибка: ${error.message}`);
@@ -47,9 +47,9 @@ document.getElementById('calculate-btn').addEventListener('click', async () => {
     const response = await postData('/parts', bodyString);
 
     // 5. Обновляем интерфейс
-    document.getElementById('devValues1').value = response.val1;
-    document.getElementById('minMesValue1').value = response.min;
-    document.getElementById('maxMesValue1').value = response.max;
+    document.getElementById('dev_values1').value = response.val1;
+    document.getElementById('min_mes_value1').value = response.min;
+    document.getElementById('max_mes_value1').value = response.max;
 
   } catch (error) {
     alert(`Ошибка: ${error.message}`);
