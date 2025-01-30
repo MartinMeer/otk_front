@@ -1,5 +1,5 @@
 import { postData } from '../common/api.js';
-import { loadMenu } from '../common/menu.js';
+/*import { loadMenu } from '../common/menu.js';*/
 
 // calculation.js (страница расчёта допусков)
 //Обработчик для раздела 1
@@ -18,7 +18,7 @@ document.getElementById('calculate-btn').addEventListener('click', async () => {
     const bodyString = `${type}:${size}`;
 
     // 4. Отправляем готовую строку
-    const response = await postData('/ost22', bodyString);
+    const response = await postData('/api/process', bodyString);
 
     // 5. Обновляем интерфейс
     document.getElementById('dev_values').value = response.val1;
@@ -30,18 +30,18 @@ document.getElementById('calculate-btn').addEventListener('click', async () => {
   }
 });
 //Обработчик для раздела 2
-document.getElementById('calculate-btn').addEventListener('click', async () => {
+document.getElementById('calculate-btn1').addEventListener('click', async () => {
   try {
     // 1. Получаем данные из формы
     const type = document.getElementById('input2').value;
 
     // 2. Валидация (пример)
-    if (!type || !size) {
+    if (!type) {
       throw new Error('Заполните все поля');
     }
     
     // 3. Формируем строку для сервера (логика этой страницы)
-    const bodyString = `$undef:{type}`;
+    const bodyString = `$undef:${type}`;
 
     // 4. Отправляем готовую строку
     const response = await postData('/parts', bodyString);

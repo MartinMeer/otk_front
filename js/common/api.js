@@ -1,5 +1,5 @@
 // postData.js (общий модуль)
-import AppConfig from './config.js';
+import AppConfig from '../common/config.js';
 export async function postData(endpoint, bodyString) {
   const url = `${AppConfig.API_BASE_URL}${endpoint}`; // Полный URL
   const response = await fetch(url, {
