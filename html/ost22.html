@@ -8,7 +8,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Расчет фасок</title>
+    <title>Расчет по ОСТ 1 00022-80</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/menu.css"> <!-- Стили для меню -->
 </head>
@@ -24,24 +24,25 @@
         <!-- Раздел 1: Отверстия и валы -->
         <section class="calculation-section">
             <h2>Размеры элементов отверстий и валов</h2>
-            
             <div class="image-row">
-                <img src="../img/ost22-1.jpg" alt="Отверстие">
-                <img src="../img/ost22-2.jpg" alt="Вал">
+                <img src="../img/ost22-1.jpg" alt="Отверстия" class="hover-image">
+                <img src="../img/ost22-2.jpg" alt="Валы" class="hover-image">
             </div>
-
+            <h2>Размеры, не относящиеся к отверстиям и валам</h2>
+            <div class="image-row">
+                <img src="../img/ost22-3.jpg" alt="Общие размеры" class="hover-image">
+            </div>
             <div class="input-section">
                 <label>Введите размер с чертежа:</label>
                 <select id="partType">
-                    <option value="shaft">Вал</option>
                     <option value="hole">Отверстие</option>
+                    <option value="shaft">Вал</option>
                     <option value="quasi_shaft">Условный вал</option>
-                    <option value="quasi_hole">Условное отверстие</option>
+                    <option value="undef">Ни отверстие, ни вал</option>
                 </select>
-                <input type="text" id="input1" placeholder="Например: 45,55">
+                <input type="text" id="input" placeholder="Например: 45,55">
                 <button id="calculate-btn">Рассчитать</button>
             </div>
-
             <div class="result-section">
                 <div class="output-field">
                     <label>Предельное отклонение:</label>
@@ -54,34 +55,6 @@
                 <div class="output-field">
                     <label>Максимальный размер:</label>
                     <input type="text" id="max_mes_value" readonly>
-                </div>
-            </div>
-        </section>
-
-        <!-- Раздел 2: Другие размеры -->
-        <section class="calculation-section">
-            <h2>Размеры, не относящиеся к отверстиям и валам</h2>
-            
-            <img src="../img/ost22-3.jpg" alt="Общие размеры" class="single-image">
-
-            <div class="input-section">
-                <label>Введите размер с чертежа:</label>
-                <input type="text" id="input2" placeholder="Например: 60,66">
-                <button id="calculate-btn1">Рассчитать</button>
-            </div>
-
-            <div class="result-section">
-                <div class="output-field">
-                    <label>Предельное отклонение:</label>
-                    <input type="text" id="dev_values1" readonly>
-                </div>
-                <div class="output-field">
-                    <label>Максимальный размер:</label>
-                    <input type="text" id="min_mes_value1" readonly>
-                </div>
-                <div class="output-field">
-                    <label>Минимальный размер:</label>
-                    <input type="text" id="max_mes_value1" readonly>
                 </div>
             </div>
         </section>

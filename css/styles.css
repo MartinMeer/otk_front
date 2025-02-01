@@ -207,6 +207,15 @@ figure img {
     color: #007bff;
 }
 
+.hover-image {
+  width: 20%; /* Сокращаем размер изображений в два раза */
+  transition: transform 0.3s ease; /* Добавляем плавный переход */
+}
+
+.hover-image:hover {
+  transform: scale(3); /* Увеличиваем изображение при наведении */
+}
+
 footer {
     background-color: #333;
     color: white;
