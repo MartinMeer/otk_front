@@ -11,34 +11,11 @@ env:
   DEPLOY_PATH: /www/otk-help.martinmeer.com
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: |
-          npm install
-
-      - name: Build project
-        run: |
-          npm run build
-
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: ./dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: dist
 
       - name: Install sshpass
         run: sudo apt-get update && sudo apt-get install -y sshpass
@@ -47,4 +24,4 @@ jobs:
         env:
           SSH_PASSWORD: ${{ secrets.SSH_PASSWORD_REGRU }}
         run: |
-          sshpass -p $SSH_PASSWORD scp -r dist/* $USERNAME@$SERVER_HOST:$DEPLOY_PATH
+          sshpass -p $SSH_PASSWORD scp -r ./* $USERNAME@$SERVER_HOST:$DEPLOY_PATH
