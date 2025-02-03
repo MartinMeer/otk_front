@@ -2,7 +2,7 @@ name: Deploy to Reg.Ru Hosting
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 env:
   SERVER_HOST: "31.31.198.56"
