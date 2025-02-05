@@ -28,48 +28,49 @@
 
     <main>
         <section class="input-section">
-            <label for="thread-designation">Введите условное обозначение резьбы:</label>
-            <input type="text" id="thread-designation" placeholder="Например: М33х1.5-6е">
+            <label for="mthread_input">Введите условное обозначение резьбы:</label>
+            <input type="text" id="mthread_input" placeholder="Например: М33х1.5-6е">
             <button id="calculate-btn">Рассчитать</button>
         </section>
 
         <section class="result-section">
             <div class="left-column">
-                <h2>Данные для измерения среднего диаметра наружной резьбы</h2>
-                <dl>
-                    <dt>Средний диаметр:</dt>
-                    <dd id="mean-diameter"></dd>
-                    <dt>es:</dt>
-                    <dd id="es-mean"></dd>
-                    <dt>ei:</dt>
-                    <dd id="ei-mean"></dd>
-                    <dt>Максимальное значение среднего диаметра:</dt>
-                    <dd id="max-mean-diameter"></dd>
-                    <dt>Минимальное значение среднего диаметра:</dt>
-                    <dd id="min-mean-diameter"></dd>
-                </dl>
+                <h3>Данные для измерения среднего диаметра наружной резьбы</h3>
                 <figure>
                     <img src="" alt="Изображение для среднего диаметра" id="mean-image">
                 </figure>
+                <dl>
+                    <dt>Средний диаметр:</dt>
+                    <dd id="pitch_diameter"></dd>
+                    <dt>Верхнее отклонение (es):</dt>
+                    <dd id="es_d2"></dd>
+                    <dt>Нижнее отклонение (ei):</dt>
+                    <dd id="ei_d2"></dd>
+                    <dt>Максимальное значение среднего диаметра:</dt>
+                    <dd id="max_mes_value_d2"></dd>
+                    <dt>Минимальное значение среднего диаметра:</dt>
+                    <dd id="min_mes_value_d2"></dd>
+                </dl>                
             </div>
 
             <div class="right-column">
-                <h2>Данные для измерения номинального диаметра наружной резьбы</h2>
-                <dl>
-                    <dt>Номинальный диаметр:</dt>
-                    <dd id="nominal-diameter"></dd>
-                    <dt>es:</dt>
-                    <dd id="es-nominal"></dd>
-                    <dt>ei:</dt>
-                    <dd id="ei-nominal"></dd>
-                    <dt>Максимальное значение номинального диаметра:</dt>
-                    <dd id="max-nominal-diameter"></dd>
-                    <dt>Минимальное значение номинального диаметра:</dt>
-                    <dd id="min-nominal-diameter"></dd>
-                </dl>
+                <h3>Данные для измерения номинального диаметра наружной резьбы</h3>
                 <figure>
                     <img src="" alt="Изображение для номинального диаметра" id="nominal-image">
                 </figure>
+                <dl>
+                    <dt>Номинальный диаметр:</dt>
+                    <dd id="nom_diameter"></dd>
+                    <dt>Верхнее отклонение (es)::</dt>
+                    <dd id="es_d"></dd>
+                    <dt>Нижнее отклонение (ei):</dt>
+                    <dd id="ei_d"></dd>
+                    <dt>Максимальное значение номинального диаметра:</dt>
+                    <dd id="max_mes_value_d"></dd>
+                    <dt>Минимальное значение номинального диаметра:</dt>
+                    <dd id="min_mes_value_d"></dd>
+                </dl>
+                
             </div>
         </section>
 
