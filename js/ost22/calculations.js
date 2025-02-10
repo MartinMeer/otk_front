@@ -69,8 +69,8 @@ import { postData } from '../common/api.js';
 document.getElementById('calculate-btn').addEventListener('click', async () => {
   try {
     // 1. Получаем данные из формы
-    const type = document.getElementById('partType').value.trim(); // Значение из выпадающего списка
-    const size = document.getElementById('input').value.trim();
+    const type = document.getElementById('detail_type').value.trim(); // Значение из выпадающего списка
+    const size = document.getElementById('nominal_dimension').value.trim();
 
     // 2. Валидация
     if (!type) {
