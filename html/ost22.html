@@ -34,27 +34,27 @@
             </div>
             <div class="input-section">
                 <label>Введите размер с чертежа:</label>
-                <select id="partType">
+                <select id="detail_type">
                     <option value="hole">Отверстие</option>
                     <option value="shaft">Вал</option>
                     <option value="quasi_shaft">Условный вал</option>
                     <option value="undef">Ни отверстие, ни вал</option>
                 </select>
-                <input type="text" id="input" placeholder="Например: 45,55">
+                <input type="text" id="nominal_dimension" placeholder="Например: 45,55">
                 <button id="calculate-btn">Рассчитать</button>
             </div>
             <div class="result-section">
                 <div class="output-field">
                     <label>Предельное отклонение:</label>
-                    <input type="text" id="dev_values" readonly>
-                </div>
-                <div class="output-field">
-                    <label>Минимальный размер:</label>
-                    <input type="text" id="min_mes_value" readonly>
+                    <input type="text" id="deviance_values" readonly>
                 </div>
                 <div class="output-field">
                     <label>Максимальный размер:</label>
                     <input type="text" id="max_mes_value" readonly>
+                </div>
+                <div class="output-field">
+                    <label>Минимальный размер:</label>
+                    <input type="text" id="min_mes_value" readonly>
                 </div>
             </div>
         </section>

@@ -1,0 +1,29 @@
+name: Deploy to Reg.Ru Hosting
+
+on:
+  push:
+    branches: [master]
+
+env:
+  SERVER_HOST: "31.31.198.56"
+  USERNAME: "u2970963"
+  PASSWORD: ${{ secrets.SSH_PASSWORD_REGRU }}
+  DEPLOY_PATH: /www/otk-help.martinmeer.com
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Copy files to server
+        env:
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD_REGRU }}
+        run: |
+          sshpass -p $SSH_PASSWORD ssh $USERNAME@$SERVER_HOST 'ls -l $DEPLOY_PATH'
+          sshpass -p $SSH_PASSWORD scp -rv ./* $USERNAME@$SERVER_HOST:$DEPLOY_PATH
+
