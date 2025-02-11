@@ -69,8 +69,8 @@ import { postData } from '../common/api.js';
 document.getElementById('calculate-btn').addEventListener('click', async () => {
   try {
     // 1. Получаем данные из формы
-    const type = document.getElementById('partType').value.trim(); // Значение из выпадающего списка
-    const size = document.getElementById('input').value.trim();
+    const type = document.getElementById('detail_type').value.trim(); // Значение из выпадающего списка
+    const size = document.getElementById('nominal_dimension').value.trim();
 
     // 2. Валидация
     if (!type) {
@@ -81,17 +81,21 @@ document.getElementById('calculate-btn').addEventListener('click', async () => {
     }
 
     // 3. Формируем строку для сервера
+<<<<<<< HEAD
     const page = 'ost22';
+=======
+    const pageId = 'ost';
+>>>>>>> origin/master
     const inputString = `${type}:${size}`;
-    const inputData = { inputData: page, inputString };
+    const inputData = { pageId, inputString };
 
     // 4. Отправляем запрос
     const response = await postData('/api/process', inputData);
 
     // 5. Обновляем интерфейс
-    document.getElementById('dev_values').value = response.val1 || '';
-    document.getElementById('min_mes_value').value = response.min || '';
-    document.getElementById('max_mes_value').value = response.max || '';
+    document.getElementById('deviance_values').value = response.deviation_values || '';
+    document.getElementById('min_mes_value').value = response.min_mes_value  || '';
+    document.getElementById('max_mes_value').value = response.max_mes_value  || '';
   } catch (error) {
     alert(`Ошибка: ${error.message}`);
   }
