@@ -15,7 +15,7 @@ document.getElementById('calculate-btn').addEventListener('click', async () => {
     }*/
 
     // 3. Формируем строку для сервера
-    const pageId = 'm-thread';
+    const pageId = 'thread_m';
     const inputString = `${type}:${size}`;
     const inputData = { pageId, inputString };
 
