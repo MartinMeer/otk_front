@@ -557,6 +557,7 @@ pre code {
   padding-left: 0rem;
   margin-right: auto;
   margin-left: auto;
+
 }
 
 @media (min-width: 576px) {
@@ -3749,6 +3750,7 @@ tbody.collapse.show {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  color: #0b0c0c
 }
 
 .navbar > .container,
@@ -9901,8 +9903,9 @@ body.fixed-header .page {
 .header {
   padding-top: .75rem;
   padding-bottom: .75rem;
-  background: #fff;
+  background: #46c4cf;
   border-bottom: 1px solid rgba(0, 40, 100, 0.12);
+
 }
 
 body.fixed-header .header {
@@ -18195,8 +18198,99 @@ svg {
   content: "\ea06";
 }
 
+.calculation-section {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
+.image-row img {
+  max-width: 100%;
+  margin-bottom: 15px;
+  border: 1px solid #dee2e6;
+  border-radius: 3px;
+}
 
+.input-section {
+  margin-top: 20px;
+}
+
+#calculate-btn {
+  background-color: #467fcf;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#calculate-btn:hover {
+  background-color: #316cbe;
+}
+.calculation-section {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.image-row img {
+  max-width: 100%;
+  margin-bottom: 15px;
+  border: 1px solid #dee2e6;
+  border-radius: 3px;
+}
+
+.input-section {
+  margin-top: 20px;
+}
+
+#calculate-btn {
+  background-color: #467fcf;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#calculate-btn:hover {
+  background-color: #316cbe;
+}
+@media (max-width: 768px) {
+  .calculation-section h2 {
+    font-size: 1.25rem;
+  }
+
+  .image-row img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .result-section .output-field {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-nav .nav-link {
+    margin-right: 10px;
+  }
+
+  .list-group {
+    flex-direction: column;
+  }
+}
+.pdf-links a:hover {
+  text-decoration: underline;
+  color: #2f66b3;
+}
+
+.list-group-item-action:hover {
+  background-color: #edf2fa;
+  color: #467fcf;
+}
 
 
 

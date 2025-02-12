@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta name="description" content="ОСТ 22">
+<meta name="description" content="Метрическая резьба">
 <title>ОСТ 22</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,27 +21,6 @@
 <body>
 <div class="page">
 <div class="page-main">
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "Xhttps://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(97431198, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="Xhttps://mc.yandex.ru/watch/97431198" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
-<!-- Yandex.RTB -->
-<script>window.yaContextCb=window.yaContextCb||[]</script>
-<script src="Xhttps://yandex.ru/ads/system/context.js" async></script>
 
 
 <div class="header py-2  d-xl-none">
@@ -111,42 +90,46 @@
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"><h1 class="h2">ОСТ 22 - <small class="text-muted">неуказанные предельные отклонения</small></h1></div>
 
-<p><strong>ОСТ 22</strong> Неуказанные предельные отклонения</p>
+<!--p><strong>ОСТ 22</strong> Неуказанные предельные отклонения</!--p-->
 
 <section class="calculation-section">
-            <h2>Размеры элементов отверстий и валов</h2>
-            <div class="image-row">
-                <img src="../img/ost22-1.jpg" alt="Отверстия" class="hover-image">
-                <img src="../img/ost22-2.jpg" alt="Валы" class="hover-image">
+           <div class="left-column">
+                <h4>Данные для измерения среднего диаметра наружной резьбы</h4>
+                <figure>
+                    <img src="" alt="Изображение для среднего диаметра" id="mean-image">
+                </figure>
+                <dl>
+                    <dt>Средний диаметр:</dt>
+                    <dd id="pitch_diameter"></dd>
+                    <dt>Верхнее отклонение (es):</dt>
+                    <dd id="es_d2"></dd>
+                    <dt>Нижнее отклонение (ei):</dt>
+                    <dd id="ei_d2"></dd>
+                    <dt>Максимальное значение среднего диаметра:</dt>
+                    <dd id="max_mes_value_d2"></dd>
+                    <dt>Минимальное значение среднего диаметра:</dt>
+                    <dd id="min_mes_value_d2"></dd>
+                </dl>
             </div>
-            <h2>Размеры, не относящиеся к отверстиям и валам</h2>
-            <div class="image-row">
-                <img src="../img/ost22-3.jpg" alt="Общие размеры" class="hover-image">
-            </div>
-            <div class="input-section">
-                <label>Введите размер с чертежа:</label>
-                <select id="detail_type">
-                    <option value="hole">Отверстие</option>
-                    <option value="shaft">Вал</option>
-                    <option value="quasi_shaft">Условный вал</option>
-                    <option value="undef">Ни отверстие, ни вал</option>
-                </select>
-                <input type="text" id="nominal_dimension" placeholder="Например: 45,55">
-                <button id="calculate-btn">Рассчитать</button>
-            </div>
-            <div class="result-section">
-                <div class="output-field">
-                    <label>Предельное отклонение:</label>
-                    <input type="text" id="deviance_values" readonly>
-                </div>
-                <div class="output-field">
-                    <label>Максимальный размер:</label>
-                    <input type="text" id="max_mes_value" readonly>
-                </div>
-                <div class="output-field">
-                    <label>Минимальный размер:</label>
-                    <input type="text" id="min_mes_value" readonly>
-                </div>
+
+            <div class="output-field mb-3">
+                <h4>Данные для измерения номинального диаметра наружной резьбы</h4>
+                <figure>
+                    <img src="" alt="Изображение для номинального диаметра" id="nominal-image">
+                </figure>
+                <dl>
+                    <dt>Номинальный диаметр:</dt>
+                    <dd id="nom_diameter"></dd>
+                    <dt>Верхнее отклонение (es)::</dt>
+                    <dd id="es_d"></dd>
+                    <dt>Нижнее отклонение (ei):</dt>
+                    <dd id="ei_d"></dd>
+                    <dt>Максимальное значение номинального диаметра:</dt>
+                    <dd id="max_mes_value_d"></dd>
+                    <dt>Минимальное значение номинального диаметра:</dt>
+                    <dd id="min_mes_value_d"></dd>
+                </dl>
+
             </div>
         </section>
 
@@ -171,52 +154,74 @@
 
 <div class="sticky-top pt-4 pb-5 d-none d-xl-block">
 
-<!-- Yandex.RTB R-A-9021219-2 -->
-<div id="yandex_rtb_R-A-9021219-2"></div>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="spinner-border text-primary d-none" role="status" id="loading-spinner">
+  <span class="sr-only">Загрузка...</span>
+</div>
+
 <script>
-window.yaContextCb.push(() => {
-    Ya.Context.AdvManager.render({
-        "blockId": "R-A-9021219-2",
-	"renderTo": "yandex_rtb_R-A-9021219-2"
-    })
-})
+document.getElementById('calculate-btn').addEventListener('click', function() {
+  document.getElementById('loading-spinner').classList.remove('d-none');
+  // После завершения расчета
+  setTimeout(() => {
+    document.getElementById('loading-spinner').classList.add('d-none');
+  }, 1000); // примерная задержка
+});
 </script>
 
-</div>
-</div>
 
-</div>
-</div>
-</div>
 
+<a href="#" class="btn btn-sm btn-light back-to-top"><i class="fe fe-chevron-up"></i> Наверх</a>
+
+<style>
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
+
+.window-scroll {
+  display: block;
+}
+</style>
+
+<script>
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 200) {
+    document.querySelector('.back-to-top').classList.add('window-scroll');
+  } else {
+    document.querySelector('.back-to-top').classList.remove('window-scroll');
+  }
+});
+
+document.querySelector('.back-to-top').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+});
+</script>
 
 <footer class="footer">
-
-<!-- Yandex.RTB R-A-9021219-3 -->
-<!--script>
-window.yaContextCb.push(() => {
-    Ya.Context.AdvManager.render({
-        "blockId": "R-A-9021219-3",
-        "type": "floorAd",
-        "platform": "touch"
-    })
-})
-</!--script-->
-
-<div class="container">
-<div class="row flex-row-reverse">
-<div class="col-auto ml-lg-auto">
-<div class="row">
-<div class="col-auto mr-4"><a href="../index.html">На главную</a></div>
-
-</div>
-</div>
-<div class="col-auto ml-4 mr-auto">© MartinMeer.com 2024-2025</div>
-</div>
-</div>
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-auto">
+        © MartinMeer.com 2024-2025
+      </div>
+      <div class="col-auto">
+        <a href="../index.html" class="btn btn-sm btn-secondary">На главную</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
-
+<script type="module" src="../js/ost22/calculations.js"></script>
 
 
 </body>
