@@ -8,7 +8,7 @@ env:
   SERVER_HOST: "31.31.198.56"
   USERNAME: "u2970963"
   PASSWORD: ${{ secrets.SSH_PASSWORD_REGRU }}
-  DEPLOY_PATH: https://otk-help.martinmeer.com/var/www/u2970963/data/www/otk-help.martinmeer.com/
+  DEPLOY_PATH: /var/www/u2970963/data/www/otk-help.martinmeer.com
 
 jobs:
   deploy:
