@@ -3,7 +3,7 @@ import { postData } from '../common/api.js';
 document.getElementById('calculate-btn').addEventListener('click', async () => {
   try {
     // 1. Получаем данные из формы
-    
+
     const size = document.getElementById('mthread_input').value.trim();
 
     // 2. Валидация
@@ -15,7 +15,7 @@ document.getElementById('calculate-btn').addEventListener('click', async () => {
     }*/
 
     // 3. Формируем строку для сервера
-    const pageId = 'm-thread';
+    const pageId = 'thread_m';
     const inputString = `${type}:${size}`;
     const inputData = { pageId, inputString };
 
@@ -27,15 +27,15 @@ document.getElementById('calculate-btn').addEventListener('click', async () => {
     document.getElementById('es_d2').value = response.es_d2 || '';
     document.getElementById('ei_d2').value = response.ei_d2 || '';
     document.getElementById('max_mes_value_d2').value = response.max_mes_value_d2 || '';
-    document.getElementById('min_mes_value_d2').value = response.min_mes_value_d2 || '';  
-    
-    
+    document.getElementById('min_mes_value_d2').value = response.min_mes_value_d2 || '';
+
+
     document.getElementById('nom_diameter').value = response.nom_diameter || '';
     document.getElementById('es_d').value = response.es_d || '';
     document.getElementById('ei_d').value = response.ei_d || '';
     document.getElementById('max_mes_value_d').value = response.max_mes_value_d || '';
     document.getElementById('min_mes_value_d').value = response.min_mes_value_d || '';
-    
+
   } catch (error) {
     alert(`Ошибка: ${error.message}`);
   }

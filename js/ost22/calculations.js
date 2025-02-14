@@ -81,7 +81,8 @@ document.getElementById('calculate-btn').addEventListener('click', async () => {
     }
 
     // 3. Формируем строку для сервера
-    const pageId = 'ost';
+
+    const page = 'ost22';
     const inputString = `${type}:${size}`;
     const inputData = { pageId, inputString };
 
