@@ -80,14 +80,14 @@ document.getElementById('calculate-btn').addEventListener('click', async () => {
       throw new Error('Размер должен быть числом. Используйте точку для дробных чисел: 0.01');
     }
 
-    // 3. Формируем строку для сервера
-
-    const page = 'ost22';
-    const inputString = `${type}:${size}`;
-    const inputData = { pageId, inputString };
+    // 3. Формируем объект ДЛЯ БЭКЕНДА (поля должны совпадать с StringRequest)
+    const requestData = {
+      inputData: "ost22",  // Соответствует полю inputData в StringRequest
+      inputString: `${type}:${size}` // Соответствует полю inputString
+    };
 
     // 4. Отправляем запрос
-    const response = await postData('/api/process', inputData);
+    const response = await postData('/api/process', requestData);
 
     // 5. Обновляем интерфейс
     document.getElementById('deviance_values').value = response.deviation_values || '';
