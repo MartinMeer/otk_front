@@ -1,15 +1,30 @@
 import { postData } from '../common/api.js';
-import { loadMenu } from '../common/menu.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   loadMenu();
 
   // Обработчик для первого варианта ввода (строка)
   document.getElementById('calculate-btn').addEventListener('click', async () => {
-    const facetInput = document.getElementById('facet').value.trim();
-    try {
-      const result = await postData('/api/facets/calculate-string', { input: facetInput });
-      document.getElementById('hypotenuse').value = result.formattedValue;
+     try {
+    const size = document.getElementById('facet').value.trim();
+    // 2. Валидация
+   //?Добавить проверку на формат дробных чисел через точку, НЕ с запятой
+   if (!size) {
+      throw new Error('Введите значение');
+    }
+
+    // 3. Формируем строку для сервера
+
+    const page = 'facets';
+    const inputString = `${size}`;
+    const inputData = { pageId, inputString };
+
+    // 4. Отправляем запрос
+    const response = await postData('/api/process', inputData);
+
+    // 5. Обновляем интерфейс
+    document.getElementById('hypotenuse').value = response.deviation_values || '';
+
     } catch (error) {
       alert(`Ошибка: ${error.message}`);
     }
@@ -17,16 +32,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Обработчик для второго варианта ввода (раздельные поля)
   document.getElementById('calculate-btn1').addEventListener('click', async () => {
+
+    try {
     const facetData = {
-      leg: document.getElementById('facet-leg').value,
+      leg_a: document.getElementById('facet-leg-a').value,
+      leg_b: document.getElementById('facet-leg-b').value,
       angle: document.getElementById('facet-angle').value
     };
-    
-    try {
-      const result = await postData('/api/facets/calculate-params', facetData);
-      document.getElementById('hypotenuse1').value = result.formattedValue;
+    // 2. Валидация
+   /*if (!size) {
+      throw new Error('Введите значение');
+    }*/
+
+    // 3. Формируем строку для сервера
+
+    const page = 'facets';
+    const inputString = `${facetData}`;
+    const inputData = { pageId, inputString };
+
+    // 4. Отправляем запрос
+    const response = await postData('/api/process', inputData);
+
+    // 5. Обновляем интерфейс
+    document.getElementById('hypotenuse1').value = response.deviation_values || '';
+
     } catch (error) {
       alert(`Ошибка: ${error.message}`);
     }
+
   });
 });
