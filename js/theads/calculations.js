@@ -4,19 +4,16 @@ document.getElementById('calculate-btn').addEventListener('click', async () => {
   try {
     // 1. Получаем данные из формы
 
-    const size = document.getElementById('mthread_input').value.trim();
+    const size = document.getElementById('m-tread_dimension').value.trim();
 
     // 2. Валидация
-    /*if (!type) {
-      throw new Error('Выберите тип детали');
-    }*/
-    /*if (!size || isNaN(size)) {
-      throw new Error('Размер должен быть числом. Используйте точку для дробных чисел: 0.01');
-    }*/
+     if (!size) {
+      throw new Error('Введите значение');
+    }
 
     // 3. Формируем строку для сервера
     const pageId = 'thread_m';
-    const inputString = `${type}:${size}`;
+    const inputString = `${size}`;
     const inputData = { pageId, inputString };
 
     // 4. Отправляем запрос

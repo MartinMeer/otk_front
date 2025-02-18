@@ -1,81 +1,134 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="ru">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="description" content="ОСТ 22">
+<title>ОСТ 22</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наружная резьба</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/menu.css"> <!-- Стили для меню -->
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('menu.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.querySelector('aside.menu').innerHTML = data;
-                });
-        });
-    </script> <!-- Стили для меню -->
+
+<link rel="icon" href="https://tebx.ru/favicon.png" type="image/png">
+<link href="../css/styles18.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<script src="../js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
-    <header>
-        <h1>Классные размеры</h1>
-        <h2>Единая система допусков и посадок</h2>
-        <h3>ГОСТ 25347-82</h3>
-    </header>
+<div class="page">
+<div class="page-main">
 
-    <aside class="menu"></aside>
+<div class="header py-2  d-xl-none">
+<nav class="navbar navbar-expand-xl">
+<div class="container">
+<button class="navbar-toggler collapsed" type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarsExample06"
+        aria-controls="navbarsExample06"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+<span></span>
+<span></span>
+<span></span>
+</button>
+<a class="header-brand" href="../index.html">Ассистент контролера ОТК</a>
+<div class="px-5"></div>
+</div>
+</nav>
+</div>
+<div class="header collapse d-xl-flex p-0" id="navbarsExample06">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-xl order-xl-first navbar navbar-expand-xl">
+<ul class="nav nav-tabs border-0 flex-column flex-xl-row">
+<li class="navbar-nav pt-2 mr-5 d-none d-xl-block">
+<a class="header-brand " href="../index.html"><b>Ассистент контролера ОТК</b></a>
+</li>
+<li class="navbar-nav">
+<div class="nav-link" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false"><i class="fe fe-edit"></i>ОСТ 22</div>
+<div class="dropdown-menu dropdown-menu-arrow">
+    <a href="../html/ost22.html" class="dropdown-item" title="ОСТ 22">ОСТ 22</a>
+</div>
+</li>
+<li class="navbar-nav">
+<div class="nav-link" id="dropdown06" data-bs-toggle="dropdown" aria-expanded="false"><i class="fe fe-edit"></i>Допуски и посадки</div>
+<div class="dropdown-menu dropdown-menu-arrow">
+    <a href="../html/classed-size.html" class="dropdown-item" title="Допуски и посадки">Допуски и посадки</a>
+</div>
+</li>
+<li class="navbar-nav">
+<div class="nav-link" id="dropdown08" data-bs-toggle="dropdown" aria-expanded="false"><i class="fe fe-check-square"></i>Метрическая резьба</div>
+<div class="dropdown-menu dropdown-menu-arrow">
+<a href="../html/m-thread.html" class="dropdown-item" title="Метрическая резьба">Метрическая резьба</a>
+</div>
+</li>
+<li class="navbar-nav">
+<div class="nav-link" id="dropdown07" data-bs-toggle="dropdown" aria-expanded="false"><i class="fe fe-box"></i>Расчет фасок</div>
+<div class="dropdown-menu dropdown-menu-arrow">
+<a href="../html/facets.html" class="dropdown-item" title="Расчет фасок">Расчет фасок</a>
 
-    <main>
-        <section class="input-section">
-            <label for="thread-designation">Введите условное обозначение размера:</label>
-            <input type="text" id="thread-designation" placeholder="Например: М33х1.5-6е">
-            <button id="calculate-btn">Рассчитать</button>
-        </section>
+</div>
+</li>
 
-        <section class="result-section">
-            <div class="left-column">
-                <h2>Данные для измерения среднего диаметра наружной резьбы</h2>
-                <dl>
-                    <dt>Средний диаметр:</dt>
-                    <dd id="mean-diameter"></dd>
-                    <dt>es:</dt>
-                    <dd id="es-mean"></dd>
-                    <dt>ei:</dt>
-                    <dd id="ei-mean"></dd>
-                    <dt>Максимальное значение среднего диаметра:</dt>
-                    <dd id="max-mean-diameter"></dd>
-                    <dt>Минимальное значение среднего диаметра:</dt>
-                    <dd id="min-mean-diameter"></dd>
-                </dl>
-                <figure>
-                    <img src="" alt="Изображение для среднего диаметра" id="mean-image">
-                </figure>
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="my-3 my-md-6">
+<div class="container">
+<div class="row">
+
+
+
+<div class="col-xl-9">
+<div class="card">
+<div class="card-body">
+<div class="text-wrap p-xl-6">
+
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"><h1 class="h2">ГОСТ 25347-82 - <small class="text-muted">Единая система допусков и посадок</small></h1></div>
+
+<!--p><strong>ОСТ 22</strong> Неуказанные предельные отклонения</!--p-->
+
+<section class="calculation-section">
+            <h3>Размеры элементов отверстий и валов</h3>
+
+            <div class="input-section">
+                <label>Введите размер с чертежа:</label>
+                <input type="text" id="nominal_dimension" placeholder="Например: 45.5H7">
+                <button id="calculate-btn">Рассчитать</button>
             </div>
-
-            <div class="right-column">
-                <h2>Данные для измерения номинального диаметра наружной резьбы</h2>
-                <dl>
-                    <dt>Номинальный диаметр:</dt>
-                    <dd id="nominal-diameter"></dd>
-                    <dt>es:</dt>
-                    <dd id="es-nominal"></dd>
-                    <dt>ei:</dt>
-                    <dd id="ei-nominal"></dd>
-                    <dt>Максимальное значение номинального диаметра:</dt>
-                    <dd id="max-nominal-diameter"></dd>
-                    <dt>Минимальное значение номинального диаметра:</dt>
-                    <dd id="min-nominal-diameter"></dd>
-                </dl>
-                <figure>
-                    <img src="" alt="Изображение для номинального диаметра" id="nominal-image">
-                </figure>
-            </div>
+            <div class="result-section">
+  <!--
+    <div class="output-field mb-3">
+    <label class="font-weight-bold">Тип элемента:</label>
+    <input type="text" id="element_type" readonly class="form-control">
+  </div>
+-->
+    <div class="output-field mb-3">
+    <label class="font-weight-bold">Верхнее отклонение:</label>
+    <input type="text" id="upper_deviance" readonly class="form-control">
+  </div>
+                <div class="output-field mb-3">
+    <label class="font-weight-bold">Нижнее отклонение:</label>
+    <input type="text" id="lower_deviance" readonly class="form-control">
+  </div>
+  <div class="output-field mb-3">
+    <label class="font-weight-bold">Максимальный размер:</label>
+    <input type="text" id="max_mes_value" readonly class="form-control">
+  </div>
+  <div class="output-field">
+    <label class="font-weight-bold">Минимальный размер:</label>
+    <input type="text" id="min_mes_value" readonly class="form-control">
+  </div>
+</div>
         </section>
 
         <section class="pdf-links">
@@ -83,12 +136,92 @@
             <a href="/path/to/pdf2.pdf" target="_blank">Ссылка на PDF 2</a>
             <a href="/path/to/pdf3.pdf" target="_blank">Ссылка на PDF 3</a>
         </section>
-    </main>
+</div>
+</div>
+</div>
+</div>
 
-    <footer>
-        <p>© 2023 Ваша компания | <a href="mailto:email@example.com">email@example.com</a> | Дата обновления: 01.01.2023</p>
-    </footer>
+<div class="col-xl-3 px-3">
 
-    <script type="module" src="/js/clssizes/calculations.js"></script>
+<div class="list-group list-group-transparent mt-2 mb-2">
+<a href="../html/ost22.html" class="list-group-item list-group-item-action"><span class="icon mr-3"><i class="fe fe-book-open"></i></span>ОСТ 22</a>
+<a href="../html/classed-size.html" class="list-group-item list-group-item-action"><span class="icon mr-3"><i class="fe fe-grid"></i></span>Допуски и посадки</a>
+<a href="../html/m-thread.html" class="list-group-item list-group-item-action"><span class="icon mr-3"><i class="fe fe-grid"></i></span>Метрическая резьба</a>
+<a href="../html/facets.html" class="list-group-item list-group-item-action"><span class="icon mr-3"><i class="fe fe-grid"></i></span>Расчет фасок</a>
+
+</div>
+
+<div class="sticky-top pt-4 pb-5 d-none d-xl-block">
+
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="spinner-border text-primary d-none" role="status" id="loading-spinner">
+  <span class="sr-only">Загрузка...</span>
+</div>
+
+<script>
+document.getElementById('calculate-btn').addEventListener('click', function() {
+  document.getElementById('loading-spinner').classList.remove('d-none');
+  // После завершения расчета
+  setTimeout(() => {
+    document.getElementById('loading-spinner').classList.add('d-none');
+  }, 1000); // примерная задержка
+});
+</script>
+
+
+
+<a href="#" class="btn btn-sm btn-light back-to-top"><i class="fe fe-chevron-up"></i> Наверх</a>
+
+<style>
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
+
+.window-scroll {
+  display: block;
+}
+</style>
+
+<script>
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 200) {
+    document.querySelector('.back-to-top').classList.add('window-scroll');
+  } else {
+    document.querySelector('.back-to-top').classList.remove('window-scroll');
+  }
+});
+
+document.querySelector('.back-to-top').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+});
+</script>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-auto">
+        © MartinMeer.com 2024-2025
+      </div>
+      <div class="col-auto">
+        <a href="../index.html" class="btn btn-sm btn-secondary">На главную</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="../js/ost22/calculations.js"></script>
+
+
 </body>
 </html>
