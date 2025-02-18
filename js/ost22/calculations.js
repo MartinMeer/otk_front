@@ -90,7 +90,8 @@ document.getElementById('calculate-btn').addEventListener('click', async () => {
     const response = await postData('/api/process', requestData);
 
     // 5. Обновляем интерфейс
-    document.getElementById('deviance_values').value = response.deviation_values || '';
+    document.getElementById('upper_deviance').value = response.deviation_values || '';
+    document.getElementById('lower_deviance').value = response.deviation_values || '';
     document.getElementById('min_mes_value').value = response.min_mes_value  || '';
     document.getElementById('max_mes_value').value = response.max_mes_value  || '';
   } catch (error) {
