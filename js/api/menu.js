@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+ocument.addEventListener('DOMContentLoaded', function() {
     fetch('../html/menu.html') // Убедитесь, что путь к menu.html правильный
         .then(response => {
             if (!response.ok) {
