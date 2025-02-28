@@ -215,6 +215,12 @@ figure img {
 .hover-image:hover {
   transform: scale(3); /* Увеличиваем изображение при наведении */
 }
+@media (max-width: 768px) {
+  .hover-image:hover {
+    transform: none; /* Убираем увеличение при наведении на мобильных устройствах */
+    transition: none; /* Убираем переход на мобильных устройствах (по желанию) */
+  }
+}
 
 footer {
     background-color: #333;
