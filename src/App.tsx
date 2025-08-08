@@ -9,7 +9,6 @@ import Footer from './components/Layout/Footer';
 import LoginModal from './components/Auth/LoginModal';
 import FaviconTags from './components/SEO/FaviconTags';
 import SEOMetaTags from './components/SEO/SEOMetaTags';
-//import FaviconDev from './components/Dev/FaviconDev';
 import SEODev from './components/Dev/SEODev';
 import { getSEOConfig } from './utils/seoConfig';
 
