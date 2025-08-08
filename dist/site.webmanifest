@@ -1,0 +1,25 @@
+{
+  "name": "Ассистент контролера ОТК",
+  "short_name": "ОТК Ассистент",
+  "description": "Профессиональный инструмент для расчетов допусков, посадок и метрической резьбы",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "theme_color": "#1e40af",
+  "background_color": "#f8fafc",
+  "display": "standalone",
+  "start_url": "/",
+  "orientation": "portrait-primary",
+  "categories": ["productivity", "utilities", "business"]
+}

@@ -37469,38 +37469,77 @@ ${xmlEntries}
         /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("p", { className: "text-gray-600", children: "\u041D\u0435\u0443\u043A\u0430\u0437\u0430\u043D\u043D\u044B\u0435 \u043F\u0440\u0435\u0434\u0435\u043B\u044C\u043D\u044B\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F" })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(Card, { className: "p-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(Card, { className: "p-4 group", children: [
           /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" }),
-          /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
-            "img",
-            {
-              src: "https://pub-cdn.sider.ai/u/U0GVH7028Y5/web-coder/6894f843f1d36a2a58086997/resource/da09524c-b95f-405f-b0a2-0c3779c1fc55.jpg",
-              alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439",
-              className: "w-full h-32 object-cover rounded"
-            }
-          )
+          /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "relative", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+              "img",
+              {
+                src: "/images/ost22-hole.webp",
+                alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439",
+                className: "w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100", children: /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+                "img",
+                {
+                  src: "/images/ost22-hole.webp",
+                  alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439 - \u043F\u043E\u043B\u043D\u044B\u0439 \u0432\u0438\u0434",
+                  className: "w-full h-auto object-contain max-h-80"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("p", { className: "text-sm text-gray-600 mt-2 text-center", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" })
+            ] }) })
+          ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(Card, { className: "p-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(Card, { className: "p-4 group", children: [
           /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432" }),
-          /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
-            "img",
-            {
-              src: "https://pub-cdn.sider.ai/u/U0GVH7028Y5/web-coder/6894f843f1d36a2a58086997/resource/377b1a1a-fc64-40d2-9578-4fd5517e5256.jpg",
-              alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432",
-              className: "w-full h-32 object-cover rounded"
-            }
-          )
+          /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "relative", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+              "img",
+              {
+                src: "/images/ost22-shaft.webp",
+                alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432",
+                className: "w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100", children: /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+                "img",
+                {
+                  src: "/images/ost22-shaft.webp",
+                  alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432 - \u043F\u043E\u043B\u043D\u044B\u0439 \u0432\u0438\u0434",
+                  className: "w-full h-auto object-contain max-h-80"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("p", { className: "text-sm text-gray-600 mt-2 text-center", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432" })
+            ] }) })
+          ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(Card, { className: "p-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" }),
-          /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
-            "img",
-            {
-              src: "https://pub-cdn.sider.ai/u/U0GVH7028Y5/web-coder/6894f843f1d36a2a58086997/resource/163c1b7b-2371-45d3-974d-8533c315213e.jpg",
-              alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439",
-              className: "w-full h-32 object-cover rounded"
-            }
-          )
+        /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(Card, { className: "p-4 group", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C" }),
+          /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "relative", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+              "img",
+              {
+                src: "/images/ost22-undef.webp",
+                alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C",
+                className: "w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100", children: /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
+                "img",
+                {
+                  src: "/images/ost22-undef.webp",
+                  alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C - \u043F\u043E\u043B\u043D\u044B\u0439 \u0432\u0438\u0434",
+                  className: "w-full h-auto object-contain max-h-80"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("p", { className: "text-sm text-gray-600 mt-2 text-center", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C" })
+            ] }) })
+          ] })
         ] })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
@@ -37551,34 +37590,38 @@ ${xmlEntries}
         ] }),
         result && /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(Card, { children: [
           /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
-              /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                result.upperDeviation > 0 ? "+" : "",
-                result.upperDeviation.toFixed(3),
-                " \u043C\u043C"
+          /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "space-y-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
+                /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+                  result.upperDeviation > 0 ? "+" : "",
+                  result.upperDeviation.toFixed(3),
+                  " \u043C\u043C"
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                  result.maxSize.toFixed(3),
+                  " \u043C\u043C"
+                ] })
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
-              /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                result.lowerDeviation.toFixed(3),
-                " \u043C\u043C"
-              ] })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-              /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                result.maxSize.toFixed(3),
-                " \u043C\u043C"
-              ] })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-              /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                result.minSize.toFixed(3),
-                " \u043C\u043C"
+            /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
+                /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+                  result.lowerDeviation.toFixed(3),
+                  " \u043C\u043C"
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                  result.minSize.toFixed(3),
+                  " \u043C\u043C"
+                ] })
               ] })
             ] })
           ] }) })
@@ -37589,20 +37632,10 @@ ${xmlEntries}
           /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
           "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
         ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Download, { className: "w-4 h-4 mr-2" }),
-            "\u041E\u0421\u0422 1 00022-80 PDF"
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Download, { className: "w-4 h-4 mr-2" }),
-            "\u0422\u0430\u0431\u043B\u0438\u0446\u0430 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0439"
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Download, { className: "w-4 h-4 mr-2" }),
-            "\u041F\u0440\u0438\u043C\u0435\u0440\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u043E\u0432"
-          ] })
-        ] }) })
+        /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Download, { className: "w-4 h-4 mr-2" }),
+          "\u041E\u0421\u0422 1 00022-80 PDF"
+        ] }) }) })
       ] })
     ] });
   }

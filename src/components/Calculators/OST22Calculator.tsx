@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Calculator, Download, FileText } from 'lucide-react';
 import { CalculatorResult } from '../../types';
 
+
 type ElementType = 'hole' | 'shaft' | 'conditional-hole' | 'conditional-shaft' | 'neither';
 
 export default function OST22Calculator() {
@@ -88,29 +89,68 @@ export default function OST22Calculator() {
 
       {/* Technical Images */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <Card className="p-4">
+        <Card className="p-4 group">
           <h3 className="font-semibold text-sm text-center mb-2">Размеры элементов отверстий</h3>
-          <img 
-            src="https://pub-cdn.sider.ai/u/U0GVH7028Y5/web-coder/6894f843f1d36a2a58086997/resource/da09524c-b95f-405f-b0a2-0c3779c1fc55.jpg" 
-            alt="Размеры элементов отверстий"
-            className="w-full h-32 object-cover rounded"
-          />
+          <div className="relative">
+            <img 
+              src="/images/ost22-hole.webp" 
+              alt="Размеры элементов отверстий"
+              className="w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
+            />
+            {/* Full view overlay for desktop */}
+            <div className="hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100">
+              <div className="bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200">
+                <img 
+                  src="/images/ost22-hole.webp" 
+                  alt="Размеры элементов отверстий - полный вид"
+                  className="w-full h-auto object-contain max-h-80"
+                />
+                <p className="text-sm text-gray-600 mt-2 text-center">Размеры элементов отверстий</p>
+              </div>
+            </div>
+          </div>
         </Card>
-        <Card className="p-4">
+        <Card className="p-4 group">
           <h3 className="font-semibold text-sm text-center mb-2">Размеры элементов валов</h3>
-          <img 
-            src="https://pub-cdn.sider.ai/u/U0GVH7028Y5/web-coder/6894f843f1d36a2a58086997/resource/377b1a1a-fc64-40d2-9578-4fd5517e5256.jpg" 
-            alt="Размеры элементов валов"
-            className="w-full h-32 object-cover rounded"
-          />
+          <div className="relative">
+            <img 
+              src="/images/ost22-shaft.webp" 
+              alt="Размеры элементов валов"
+              className="w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
+            />
+            {/* Full view overlay for desktop */}
+            <div className="hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100">
+              <div className="bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200">
+                <img 
+                  src="/images/ost22-shaft.webp" 
+                  alt="Размеры элементов валов - полный вид"
+                  className="w-full h-auto object-contain max-h-80"
+                />
+                <p className="text-sm text-gray-600 mt-2 text-center">Размеры элементов валов</p>
+              </div>
+            </div>
+          </div>
         </Card>
-        <Card className="p-4">
-          <h3 className="font-semibold text-sm text-center mb-2">Размеры элементов отверстий</h3>
-          <img 
-            src="https://pub-cdn.sider.ai/u/U0GVH7028Y5/web-coder/6894f843f1d36a2a58086997/resource/163c1b7b-2371-45d3-974d-8533c315213e.jpg" 
-            alt="Размеры элементов отверстий"
-            className="w-full h-32 object-cover rounded"
-          />
+        <Card className="p-4 group">
+          <h3 className="font-semibold text-sm text-center mb-2">Размеры элементов, не относящихся к отверстиям и валам</h3>
+          <div className="relative">
+            <img 
+              src="/images/ost22-undef.webp" 
+              alt="Размеры элементов, не относящихся к отверстиям и валам"
+              className="w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
+            />
+            {/* Full view overlay for desktop */}
+            <div className="hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100">
+              <div className="bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200">
+                <img 
+                  src="/images/ost22-undef.webp" 
+                  alt="Размеры элементов, не относящихся к отверстиям и валам - полный вид"
+                  className="w-full h-auto object-contain max-h-80"
+                />
+                <p className="text-sm text-gray-600 mt-2 text-center">Размеры элементов, не относящихся к отверстиям и валам</p>
+              </div>
+            </div>
+          </div>
         </Card>
       </div>
 
@@ -170,29 +210,36 @@ export default function OST22Calculator() {
               <CardTitle className="text-blue-900">Результаты расчета</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-3 bg-blue-50 rounded-lg">
-                  <div className="text-sm text-gray-600">Верхнее отклонение</div>
-                  <div className="text-lg font-semibold text-blue-900">
-                    {result.upperDeviation > 0 ? '+' : ''}{result.upperDeviation.toFixed(3)} мм
+              <div className="space-y-3">
+                {/* Row 1: Верхнее отклонение | Максимальный размер */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="p-3 bg-blue-50 rounded-lg">
+                    <div className="text-sm text-gray-600">Верхнее отклонение</div>
+                    <div className="text-lg font-semibold text-blue-900">
+                      {result.upperDeviation > 0 ? '+' : ''}{result.upperDeviation.toFixed(3)} мм
+                    </div>
+                  </div>
+                  <div className="p-3 bg-green-50 rounded-lg">
+                    <div className="text-sm text-gray-600">Максимальный размер</div>
+                    <div className="text-lg font-semibold text-green-700">
+                      {result.maxSize.toFixed(3)} мм
+                    </div>
                   </div>
                 </div>
-                <div className="p-3 bg-blue-50 rounded-lg">
-                  <div className="text-sm text-gray-600">Нижнее отклонение</div>
-                  <div className="text-lg font-semibold text-blue-900">
-                    {result.lowerDeviation.toFixed(3)} мм
+                
+                {/* Row 2: Нижнее отклонение | Минимальный размер */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="p-3 bg-blue-50 rounded-lg">
+                    <div className="text-sm text-gray-600">Нижнее отклонение</div>
+                    <div className="text-lg font-semibold text-blue-900">
+                      {result.lowerDeviation.toFixed(3)} мм
+                    </div>
                   </div>
-                </div>
-                <div className="p-3 bg-green-50 rounded-lg">
-                  <div className="text-sm text-gray-600">Максимальный размер</div>
-                  <div className="text-lg font-semibold text-green-700">
-                    {result.maxSize.toFixed(3)} мм
-                  </div>
-                </div>
-                <div className="p-3 bg-green-50 rounded-lg">
-                  <div className="text-sm text-gray-600">Минимальный размер</div>
-                  <div className="text-lg font-semibold text-green-700">
-                    {result.minSize.toFixed(3)} мм
+                  <div className="p-3 bg-green-50 rounded-lg">
+                    <div className="text-sm text-gray-600">Минимальный размер</div>
+                    <div className="text-lg font-semibold text-green-700">
+                      {result.minSize.toFixed(3)} мм
+                    </div>
                   </div>
                 </div>
               </div>
@@ -215,14 +262,7 @@ export default function OST22Calculator() {
               <Download className="w-4 h-4 mr-2" />
               ОСТ 1 00022-80 PDF
             </Button>
-            <Button variant="outline" className="bg-transparent justify-start">
-              <Download className="w-4 h-4 mr-2" />
-              Таблица отклонений
-            </Button>
-            <Button variant="outline" className="bg-transparent justify-start">
-              <Download className="w-4 h-4 mr-2" />
-              Примеры расчетов
-            </Button>
+           
           </div>
         </CardContent>
       </Card>
