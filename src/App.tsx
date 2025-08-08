@@ -1,12 +1,13 @@
 /**
  * Main application component with routing and layout
+ * TEMPORARILY DISABLED AUTH - Backend development in progress
  */
 
 import { useState, useEffect } from 'react';
 import { useAuthStore } from './store/authStore';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
-import LoginModal from './components/Auth/LoginModal';
+// import LoginModal from './components/Auth/LoginModal'; // Temporarily disabled
 import FaviconTags from './components/SEO/FaviconTags';
 import SEOMetaTags from './components/SEO/SEOMetaTags';
 import SEODev from './components/Dev/SEODev';
@@ -19,7 +20,7 @@ import ToleranceCalculator from './components/Calculators/ToleranceCalculator';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
-  const [showLoginModal, setShowLoginModal] = useState(false);
+  // const [showLoginModal, setShowLoginModal] = useState(false); // Temporarily disabled
   const { isAuthenticated } = useAuthStore();
   
   // Get SEO configuration for current page
@@ -40,7 +41,8 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  // Handle login button clicks
+  // Temporarily disabled login handling
+  /*
   useEffect(() => {
     const handleClick = (e: Event) => {
       const target = e.target as HTMLElement;
@@ -53,6 +55,7 @@ export default function App() {
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
   }, [isAuthenticated]);
+  */
 
   const renderPage = () => {
     switch (currentPage) {
@@ -123,10 +126,7 @@ export default function App() {
           ogImage={seoConfig.ogImage}
         />
         <HomePage />
-        <LoginModal 
-          open={showLoginModal}
-          onClose={() => setShowLoginModal(false)}
-        />
+        {/* LoginModal temporarily disabled */}
       </>
     );
   }
@@ -144,10 +144,7 @@ export default function App() {
         ogImage={seoConfig.ogImage}
       />
       {renderPage()}
-      <LoginModal 
-        open={showLoginModal}
-        onClose={() => setShowLoginModal(false)}
-      />
+      {/* LoginModal temporarily disabled */}
       
       <SEODev />
     </>

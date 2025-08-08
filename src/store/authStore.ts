@@ -1,5 +1,6 @@
 /**
  * Authentication state management using Zustand
+ * TEMPORARILY DISABLED - Backend development in progress
  */
 
 import { create } from 'zustand';
@@ -9,43 +10,29 @@ import { AuthState, User } from '../types';
 export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
-      isAuthenticated: false,
-      user: null,
+      // Temporarily set to always authenticated
+      isAuthenticated: true,
+      user: {
+        id: 'temp-user',
+        username: 'Временный пользователь',
+        role: 'controller'
+      },
       
+      // Temporarily disabled login - always returns true
       login: async (username: string, password: string): Promise<boolean> => {
-        // Demo credentials validation
-        if (username === 'controller' && password === 'demo123') {
-          const user: User = {
-            id: '1',
-            username: 'controller',
-            role: 'controller'
-          };
-          set({ isAuthenticated: true, user });
-          return true;
-        }
-        if (username === 'admin' && password === 'admin123') {
-          const user: User = {
-            id: '2',
-            username: 'admin',
-            role: 'admin'
-          };
-          set({ isAuthenticated: true, user });
-          return true;
-        }
-        return false;
+        // TODO: Re-enable when backend is ready
+        console.log('Authentication temporarily disabled during backend development');
+        return true;
       },
       
       logout: () => {
-        set({ isAuthenticated: false, user: null });
+        // Temporarily disabled - no action
+        console.log('Logout temporarily disabled during backend development');
       },
       
       loginDemo: () => {
-        const user: User = {
-          id: 'demo',
-          username: 'Демо пользователь',
-          role: 'controller'
-        };
-        set({ isAuthenticated: true, user });
+        // Temporarily disabled - no action needed since always authenticated
+        console.log('Demo login temporarily disabled during backend development');
       }
     }),
     {
