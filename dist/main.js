@@ -1097,7 +1097,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect23(create2, deps) {
+          function useEffect24(create2, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create2, deps);
           }
@@ -1880,7 +1880,7 @@
           exports.useContext = useContext4;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect23;
+          exports.useEffect = useEffect24;
           exports.useId = useId2;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect2;
@@ -36351,6 +36351,14 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     const [tolerance, setTolerance] = (0, import_react18.useState)("");
     const [result, setResult] = (0, import_react18.useState)(null);
     const [isCalculating, setIsCalculating] = (0, import_react18.useState)(false);
+    const [showMobileAd, setShowMobileAd] = (0, import_react18.useState)(true);
+    const { updateContext } = useAdStore();
+    (0, import_react18.useEffect)(() => {
+      updateContext({
+        pageType: "tolerance-calculator",
+        calculatorType: "gost-25347-82"
+      });
+    }, [updateContext]);
     const calculateTolerance = async () => {
       if (!size4 || !tolerance || isNaN(Number(size4))) return;
       setIsCalculating(true);
@@ -36392,63 +36400,145 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-2", children: "\u0413\u041E\u0421\u0422 25347-82" }),
         /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-gray-600", children: "\u0415\u0434\u0438\u043D\u0430\u044F \u0441\u0438\u0441\u0442\u0435\u043C\u0430 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardTitle, { className: "flex items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
-            "\u0420\u0430\u0441\u0447\u0435\u0442 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A"
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardContent, { className: "space-y-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "space-y-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Label2, { htmlFor: "size", children: "\u041D\u043E\u043C\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 (\u043C\u043C)" }),
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
-                Input,
-                {
-                  id: "size",
-                  type: "number",
-                  step: "0.001",
-                  value: size4,
-                  onChange: (e) => setSize(e.target.value),
-                  placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 20",
-                  className: "text-lg"
-                }
-              )
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "hidden lg:grid lg:grid-cols-4 lg:gap-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "lg:col-span-3 space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardTitle, { className: "flex items-center", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
+                "\u0420\u0430\u0441\u0447\u0435\u0442 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A"
+              ] }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardContent, { className: "space-y-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "space-y-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Label2, { htmlFor: "size", children: "\u041D\u043E\u043C\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 (\u043C\u043C) \u0438 \u043F\u043E\u043B\u0435 \u0434\u043E\u043F\u0443\u0441\u043A\u0430 " }),
+                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                    Input,
+                    {
+                      id: "size",
+                      type: "number",
+                      step: "0.001",
+                      value: size4,
+                      onChange: (e) => setSize(e.target.value),
+                      placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 18.123H7",
+                      className: "text-lg"
+                    }
+                  )
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                  Button,
+                  {
+                    onClick: calculateTolerance,
+                    className: "w-full bg-blue-600 hover:bg-blue-700",
+                    disabled: !size4 || !tolerance || isCalculating,
+                    children: isCalculating ? "\u0420\u0430\u0441\u0447\u0435\u0442..." : "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C"
+                  }
+                )
+              ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "space-y-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Label2, { htmlFor: "tolerance", children: "\u041E\u0431\u043E\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435 \u043F\u043E\u043B\u044F \u0434\u043E\u043F\u0443\u0441\u043A\u0430" }),
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
-                Input,
-                {
-                  id: "tolerance",
-                  type: "text",
-                  value: tolerance,
-                  onChange: (e) => setTolerance(e.target.value),
-                  placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: H7, h6, F8",
-                  className: "text-lg"
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-xs text-gray-500", children: "\u041F\u0440\u0438\u043C\u0435\u0440\u044B: H6, H7, h6, h7, f7, g6, k6, n6, p6, r6, s6" })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
-              Button,
-              {
-                onClick: calculateTolerance,
-                className: "w-full bg-blue-600 hover:bg-blue-700",
-                disabled: !size4 || !tolerance || isCalculating,
-                children: isCalculating ? "\u0420\u0430\u0441\u0447\u0435\u0442..." : "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C"
-              }
-            )
+            result && /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+                    result.upperDeviation > 0 ? "+" : "",
+                    result.upperDeviation.toFixed(3),
+                    " \u043C\u043C"
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                    result.maxSize.toFixed(3),
+                    " \u043C\u043C"
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (EI/ei)" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+                    result.lowerDeviation.toFixed(3),
+                    " \u043C\u043C"
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                    result.minSize.toFixed(3),
+                    " \u043C\u043C"
+                  ] })
+                ] })
+              ] }) })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardTitle, { className: "flex items-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
+              "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Download, { className: "w-4 h-4 mr-2" }),
+              "\u0413\u041E\u0421\u0422 25347-82 PDF"
+            ] }) }) })
           ] })
         ] }),
-        result && /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardContent, { className: "space-y-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "lg:col-span-1 space-y-6", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "sticky top-6", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+          AdPlacement,
+          {
+            placement: "sidebar-primary",
+            title: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0443\u0435\u043C\u044B\u0435 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B",
+            maxAds: 2
+          }
+        ) }) })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "lg:hidden space-y-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardTitle, { className: "flex items-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
+              "\u0420\u0430\u0441\u0447\u0435\u0442 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A"
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardContent, { className: "space-y-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Label2, { htmlFor: "size-mobile", children: "\u041D\u043E\u043C\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 (\u043C\u043C) \u0438 \u043F\u043E\u043B\u0435 \u0434\u043E\u043F\u0443\u0441\u043A\u0430 " }),
+                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                  Input,
+                  {
+                    id: "size-mobile",
+                    type: "number",
+                    step: "0.001",
+                    value: size4,
+                    onChange: (e) => setSize(e.target.value),
+                    placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 18.123H7",
+                    className: "text-lg"
+                  }
+                )
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                Button,
+                {
+                  onClick: calculateTolerance,
+                  className: "w-full bg-blue-600 hover:bg-blue-700",
+                  disabled: !size4 || !tolerance || isCalculating,
+                  children: isCalculating ? "\u0420\u0430\u0441\u0447\u0435\u0442..." : "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C"
+                }
+              )
+            ] })
+          ] }),
+          result && /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
               /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
                 /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
                   result.upperDeviation > 0 ? "+" : "",
                   result.upperDeviation.toFixed(3),
+                  " \u043C\u043C"
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                  result.maxSize.toFixed(3),
                   " \u043C\u043C"
                 ] })
               ] }),
@@ -36460,81 +36550,44 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                 ] })
               ] }),
               /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                  result.maxSize.toFixed(3),
-                  " \u043C\u043C"
-                ] })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                 /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
                   result.minSize.toFixed(3),
                   " \u043C\u043C"
                 ] })
               ] })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-4 bg-yellow-50 rounded-lg border border-yellow-200", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("h4", { className: "font-semibold text-yellow-800 mb-2", children: "\u0418\u043D\u0442\u0435\u0440\u043F\u0440\u0435\u0442\u0430\u0446\u0438\u044F \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u043E\u0432" }),
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("p", { className: "text-sm text-yellow-700", children: [
-                "\u0420\u0430\u0437\u043C\u0435\u0440 \u0434\u043E\u043B\u0436\u0435\u043D \u043D\u0430\u0445\u043E\u0434\u0438\u0442\u044C\u0441\u044F \u0432 \u043F\u0440\u0435\u0434\u0435\u043B\u0430\u0445 \u043E\u0442 ",
-                result.minSize.toFixed(3),
-                " \u043C\u043C \u0434\u043E ",
-                result.maxSize.toFixed(3),
-                " \u043C\u043C \u0434\u043B\u044F \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u044F \u0437\u0430\u0434\u0430\u043D\u043D\u043E\u043C\u0443 \u043F\u043E\u043B\u044E \u0434\u043E\u043F\u0443\u0441\u043A\u0430."
-              ] })
-            ] })
+            ] }) })
           ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardTitle, { className: "text-lg", children: "\u041E\u0441\u043D\u043E\u0432\u043D\u044B\u0435 \u043F\u043E\u043B\u044F \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0434\u043B\u044F \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-4 gap-2 text-sm", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-blue-50 rounded text-center font-mono", children: "H6" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-blue-50 rounded text-center font-mono", children: "H7" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-blue-50 rounded text-center font-mono", children: "H8" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-blue-50 rounded text-center font-mono", children: "H9" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-gray-50 rounded text-center font-mono", children: "F7" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-gray-50 rounded text-center font-mono", children: "F8" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-gray-50 rounded text-center font-mono", children: "G7" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-gray-50 rounded text-center font-mono", children: "G8" })
-          ] }) })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardTitle, { className: "text-lg", children: "\u041E\u0441\u043D\u043E\u0432\u043D\u044B\u0435 \u043F\u043E\u043B\u044F \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0434\u043B\u044F \u0432\u0430\u043B\u043E\u0432" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-4 gap-2 text-sm", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-green-50 rounded text-center font-mono", children: "h6" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-green-50 rounded text-center font-mono", children: "h7" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-green-50 rounded text-center font-mono", children: "h8" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-green-50 rounded text-center font-mono", children: "h9" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-gray-50 rounded text-center font-mono", children: "f7" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-gray-50 rounded text-center font-mono", children: "g6" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-gray-50 rounded text-center font-mono", children: "k6" }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-2 bg-gray-50 rounded text-center font-mono", children: "n6" })
-          ] }) })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardTitle, { className: "flex items-center", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
-          "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
-        ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardTitle, { className: "flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
+            "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
             /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Download, { className: "w-4 h-4 mr-2" }),
             "\u0413\u041E\u0421\u0422 25347-82 PDF"
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Download, { className: "w-4 h-4 mr-2" }),
-            "\u0422\u0430\u0431\u043B\u0438\u0446\u0430 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432"
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Download, { className: "w-4 h-4 mr-2" }),
-            "\u041F\u0440\u0438\u043C\u0435\u0440\u044B \u043F\u043E\u0441\u0430\u0434\u043E\u043A"
-          ] })
-        ] }) })
-      ] })
+          ] }) }) })
+        ] })
+      ] }),
+      showMobileAd && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "lg:hidden fixed bottom-4 left-4 right-4 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "relative", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+          "button",
+          {
+            onClick: () => setShowMobileAd(false),
+            className: "absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 transition-colors z-10",
+            title: "\u0417\u0430\u043A\u0440\u044B\u0442\u044C \u0440\u0435\u043A\u043B\u0430\u043C\u0443",
+            children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(X, { className: "w-4 h-4" })
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+          AdPlacement,
+          {
+            placement: "mobile-sticky",
+            maxAds: 1
+          }
+        )
+      ] }) })
     ] });
   }
 
