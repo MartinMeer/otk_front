@@ -11,12 +11,43 @@ import Footer from './components/Layout/Footer';
 import FaviconTags from './components/SEO/FaviconTags';
 import SEOMetaTags from './components/SEO/SEOMetaTags';
 import SEODev from './components/Dev/SEODev';
+import { UpdateNotification } from './components/UpdateNotification';
 import { getSEOConfig } from './utils/seoConfig';
+import { CookieBanner } from './components/Layout/CookieBanner';
+import { CookieConsent } from './components/Layout/CookieConsent';
+import { useCookieConsent } from './hooks/use-cookie-consent';
 
 // Page components
 import HomePage from './pages/Home';
 import OST22Calculator from './components/Calculators/OST22Calculator';
 import ToleranceCalculator from './components/Calculators/ToleranceCalculator';
+
+// Service Worker registration
+function registerServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('Service Worker registered successfully:', registration.scope);
+          
+          // Check for updates
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            if (newWorker) {
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  console.log('New version available');
+                }
+              });
+            }
+          });
+        })
+        .catch(error => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+}
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -25,6 +56,11 @@ export default function App() {
   
   // Get SEO configuration for current page
   const seoConfig = getSEOConfig(currentPage);
+
+  // Register service worker on mount
+  useEffect(() => {
+    registerServiceWorker();
+  }, []);
 
   // Handle hash-based routing
   useEffect(() => {
@@ -112,6 +148,8 @@ export default function App() {
     }
   };
 
+  const { consentState } = useCookieConsent();
+
   // For home page, render it directly (it includes its own Header/Footer)
   if (currentPage === 'home') {
     return (
@@ -126,6 +164,8 @@ export default function App() {
           ogImage={seoConfig.ogImage}
         />
         <HomePage />
+        <UpdateNotification />
+        <CookieConsent />
         {/* LoginModal temporarily disabled */}
       </>
     );
@@ -144,6 +184,8 @@ export default function App() {
         ogImage={seoConfig.ogImage}
       />
       {renderPage()}
+      <UpdateNotification />
+      <CookieConsent />
       {/* LoginModal temporarily disabled */}
       
       <SEODev />

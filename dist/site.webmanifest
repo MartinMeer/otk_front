@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Ассистент контролера ОТК",
+    "short_name": "ОТК Ассистент",
     "icons": [
        {
           "src": "/android-chrome-192x192.png",
@@ -13,7 +13,8 @@
         "type": "image/png"
         }
     ],
-    "theme_color": "#FFFFFF",
+    "theme_color": "#1e40af",
     "background_color": "#FFFFFF",
-    "display": "standalone"
+    "display": "standalone",
+    "start_url": "/"
  }

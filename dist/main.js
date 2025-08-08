@@ -972,7 +972,7 @@
             }
             return lazyType;
           }
-          function forwardRef24(render) {
+          function forwardRef27(render) {
             {
               if (render != null && render.$$typeof === REACT_MEMO_TYPE) {
                 error("forwardRef requires a render function but received a `memo` component. Instead of forwardRef(memo(...)), use memo(forwardRef(...)).");
@@ -1085,7 +1085,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState23(initialState) {
+          function useState29(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1097,7 +1097,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect24(create2, deps) {
+          function useEffect29(create2, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create2, deps);
           }
@@ -1109,7 +1109,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useLayoutEffect(create2, deps);
           }
-          function useCallback9(callback, deps) {
+          function useCallback11(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
@@ -1870,17 +1870,17 @@
           exports.createElement = createElement$1;
           exports.createFactory = createFactory;
           exports.createRef = createRef;
-          exports.forwardRef = forwardRef24;
+          exports.forwardRef = forwardRef27;
           exports.isValidElement = isValidElement2;
           exports.lazy = lazy;
           exports.memo = memo;
           exports.startTransition = startTransition;
           exports.unstable_act = act;
-          exports.useCallback = useCallback9;
+          exports.useCallback = useCallback11;
           exports.useContext = useContext4;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect24;
+          exports.useEffect = useEffect29;
           exports.useId = useId2;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect2;
@@ -1888,7 +1888,7 @@
           exports.useMemo = useMemo8;
           exports.useReducer = useReducer3;
           exports.useRef = useRef16;
-          exports.useState = useState23;
+          exports.useState = useState29;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -2384,9 +2384,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React44 = require_react();
+          var React49 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React44.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React49.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -2435,7 +2435,7 @@
           var HostPortal = 4;
           var HostComponent = 5;
           var HostText = 6;
-          var Fragment9 = 7;
+          var Fragment10 = 7;
           var Mode = 8;
           var ContextConsumer = 9;
           var ContextProvider = 10;
@@ -3592,7 +3592,7 @@
                 return "DehydratedFragment";
               case ForwardRef:
                 return getWrappedName$1(type, type.render, "ForwardRef");
-              case Fragment9:
+              case Fragment10:
                 return "Fragment";
               case HostComponent:
                 return type;
@@ -3993,7 +3993,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React44.Children.forEach(props.children, function(child) {
+                  React49.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -12021,7 +12021,7 @@
               }
             }
             function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-              if (current2 === null || current2.tag !== Fragment9) {
+              if (current2 === null || current2.tag !== Fragment10) {
                 var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
                 created.return = returnFiber;
                 return created;
@@ -12424,7 +12424,7 @@
                 if (child.key === key) {
                   var elementType = element.type;
                   if (elementType === REACT_FRAGMENT_TYPE) {
-                    if (child.tag === Fragment9) {
+                    if (child.tag === Fragment10) {
                       deleteRemainingChildren(returnFiber, child.sibling);
                       var existing = useFiber(child, element.props.children);
                       existing.return = returnFiber;
@@ -17900,7 +17900,7 @@
                 var _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
                 return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
               }
-              case Fragment9:
+              case Fragment10:
                 return updateFragment(current2, workInProgress2, renderLanes2);
               case Mode:
                 return updateMode(current2, workInProgress2, renderLanes2);
@@ -18172,7 +18172,7 @@
               case SimpleMemoComponent:
               case FunctionComponent:
               case ForwardRef:
-              case Fragment9:
+              case Fragment10:
               case Mode:
               case Profiler:
               case ContextConsumer:
@@ -22433,7 +22433,7 @@
             return fiber;
           }
           function createFiberFromFragment(elements, mode, lanes, key) {
-            var fiber = createFiber(Fragment9, elements, key, mode);
+            var fiber = createFiber(Fragment10, elements, key, mode);
             fiber.lanes = lanes;
             return fiber;
           }
@@ -23589,7 +23589,7 @@
       if (true) {
         (function() {
           "use strict";
-          var React44 = require_react();
+          var React49 = require_react();
           var REACT_ELEMENT_TYPE = Symbol.for("react.element");
           var REACT_PORTAL_TYPE = Symbol.for("react.portal");
           var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -23615,7 +23615,7 @@
             }
             return null;
           }
-          var ReactSharedInternals = React44.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React49.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           function error(format) {
             {
               {
@@ -24465,11 +24465,11 @@
               return jsxWithValidation(type, props, key, false);
             }
           }
-          var jsx39 = jsxWithValidationDynamic;
-          var jsxs19 = jsxWithValidationStatic;
+          var jsx44 = jsxWithValidationDynamic;
+          var jsxs22 = jsxWithValidationStatic;
           exports.Fragment = REACT_FRAGMENT_TYPE;
-          exports.jsx = jsx39;
-          exports.jsxs = jsxs19;
+          exports.jsx = jsx44;
+          exports.jsxs = jsxs22;
         })();
       }
     }
@@ -24491,7 +24491,7 @@
   var import_client = __toESM(require_client());
 
   // src/App.tsx
-  var import_react19 = __toESM(require_react());
+  var import_react25 = __toESM(require_react());
 
   // node_modules/zustand/esm/vanilla.mjs
   var createStoreImpl = (createState) => {
@@ -28085,24 +28085,31 @@
   var __iconNode7 = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
   var ChevronUp = createLucideIcon("chevron-up", __iconNode7);
 
-  // node_modules/lucide-react/dist/esm/icons/download.js
+  // node_modules/lucide-react/dist/esm/icons/circle-check-big.js
   var __iconNode8 = [
+    ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
+    ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+  ];
+  var CircleCheckBig = createLucideIcon("circle-check-big", __iconNode8);
+
+  // node_modules/lucide-react/dist/esm/icons/download.js
+  var __iconNode9 = [
     ["path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" }],
     ["polyline", { points: "7 10 12 15 17 10", key: "2ggqvy" }],
     ["line", { x1: "12", x2: "12", y1: "15", y2: "3", key: "1vk2je" }]
   ];
-  var Download = createLucideIcon("download", __iconNode8);
+  var Download = createLucideIcon("download", __iconNode9);
 
   // node_modules/lucide-react/dist/esm/icons/external-link.js
-  var __iconNode9 = [
+  var __iconNode10 = [
     ["path", { d: "M15 3h6v6", key: "1q9fwt" }],
     ["path", { d: "M10 14 21 3", key: "gplh6r" }],
     ["path", { d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6", key: "a6xqqp" }]
   ];
-  var ExternalLink = createLucideIcon("external-link", __iconNode9);
+  var ExternalLink = createLucideIcon("external-link", __iconNode10);
 
   // node_modules/lucide-react/dist/esm/icons/eye-off.js
-  var __iconNode10 = [
+  var __iconNode11 = [
     [
       "path",
       {
@@ -28120,10 +28127,10 @@
     ],
     ["path", { d: "m2 2 20 20", key: "1ooewy" }]
   ];
-  var EyeOff = createLucideIcon("eye-off", __iconNode10);
+  var EyeOff = createLucideIcon("eye-off", __iconNode11);
 
   // node_modules/lucide-react/dist/esm/icons/eye.js
-  var __iconNode11 = [
+  var __iconNode12 = [
     [
       "path",
       {
@@ -28133,50 +28140,73 @@
     ],
     ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
   ];
-  var Eye = createLucideIcon("eye", __iconNode11);
+  var Eye = createLucideIcon("eye", __iconNode12);
 
   // node_modules/lucide-react/dist/esm/icons/file-text.js
-  var __iconNode12 = [
+  var __iconNode13 = [
     ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
     ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
     ["path", { d: "M10 9H8", key: "b1mrlr" }],
     ["path", { d: "M16 13H8", key: "t4e002" }],
     ["path", { d: "M16 17H8", key: "z1uh3a" }]
   ];
-  var FileText = createLucideIcon("file-text", __iconNode12);
+  var FileText = createLucideIcon("file-text", __iconNode13);
 
   // node_modules/lucide-react/dist/esm/icons/globe.js
-  var __iconNode13 = [
+  var __iconNode14 = [
     ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
     ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
     ["path", { d: "M2 12h20", key: "9i4pu4" }]
   ];
-  var Globe = createLucideIcon("globe", __iconNode13);
+  var Globe = createLucideIcon("globe", __iconNode14);
 
   // node_modules/lucide-react/dist/esm/icons/lock.js
-  var __iconNode14 = [
+  var __iconNode15 = [
     ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }],
     ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
   ];
-  var Lock = createLucideIcon("lock", __iconNode14);
+  var Lock = createLucideIcon("lock", __iconNode15);
 
   // node_modules/lucide-react/dist/esm/icons/menu.js
-  var __iconNode15 = [
+  var __iconNode16 = [
     ["line", { x1: "4", x2: "20", y1: "12", y2: "12", key: "1e0a9i" }],
     ["line", { x1: "4", x2: "20", y1: "6", y2: "6", key: "1owob3" }],
     ["line", { x1: "4", x2: "20", y1: "18", y2: "18", key: "yk5zj1" }]
   ];
-  var Menu = createLucideIcon("menu", __iconNode15);
+  var Menu = createLucideIcon("menu", __iconNode16);
+
+  // node_modules/lucide-react/dist/esm/icons/refresh-cw.js
+  var __iconNode17 = [
+    ["path", { d: "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8", key: "v9h5vc" }],
+    ["path", { d: "M21 3v5h-5", key: "1q7to0" }],
+    ["path", { d: "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16", key: "3uifl3" }],
+    ["path", { d: "M8 16H3v5", key: "1cv678" }]
+  ];
+  var RefreshCw = createLucideIcon("refresh-cw", __iconNode17);
+
+  // node_modules/lucide-react/dist/esm/icons/save.js
+  var __iconNode18 = [
+    [
+      "path",
+      {
+        d: "M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z",
+        key: "1c8476"
+      }
+    ],
+    ["path", { d: "M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7", key: "1ydtos" }],
+    ["path", { d: "M7 3v4a1 1 0 0 0 1 1h7", key: "t51u73" }]
+  ];
+  var Save = createLucideIcon("save", __iconNode18);
 
   // node_modules/lucide-react/dist/esm/icons/search.js
-  var __iconNode16 = [
+  var __iconNode19 = [
     ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }],
     ["path", { d: "m21 21-4.3-4.3", key: "1qie3q" }]
   ];
-  var Search = createLucideIcon("search", __iconNode16);
+  var Search = createLucideIcon("search", __iconNode19);
 
   // node_modules/lucide-react/dist/esm/icons/settings.js
-  var __iconNode17 = [
+  var __iconNode20 = [
     [
       "path",
       {
@@ -28186,10 +28216,10 @@
     ],
     ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
   ];
-  var Settings = createLucideIcon("settings", __iconNode17);
+  var Settings = createLucideIcon("settings", __iconNode20);
 
   // node_modules/lucide-react/dist/esm/icons/shield.js
-  var __iconNode18 = [
+  var __iconNode21 = [
     [
       "path",
       {
@@ -28198,43 +28228,43 @@
       }
     ]
   ];
-  var Shield = createLucideIcon("shield", __iconNode18);
+  var Shield = createLucideIcon("shield", __iconNode21);
 
   // node_modules/lucide-react/dist/esm/icons/target.js
-  var __iconNode19 = [
+  var __iconNode22 = [
     ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
     ["circle", { cx: "12", cy: "12", r: "6", key: "1vlfrh" }],
     ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }]
   ];
-  var Target = createLucideIcon("target", __iconNode19);
+  var Target = createLucideIcon("target", __iconNode22);
 
   // node_modules/lucide-react/dist/esm/icons/triangle.js
-  var __iconNode20 = [
+  var __iconNode23 = [
     [
       "path",
       { d: "M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z", key: "14u9p9" }
     ]
   ];
-  var Triangle = createLucideIcon("triangle", __iconNode20);
+  var Triangle = createLucideIcon("triangle", __iconNode23);
 
   // node_modules/lucide-react/dist/esm/icons/user.js
-  var __iconNode21 = [
+  var __iconNode24 = [
     ["path", { d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2", key: "975kel" }],
     ["circle", { cx: "12", cy: "7", r: "4", key: "17ys0d" }]
   ];
-  var User = createLucideIcon("user", __iconNode21);
+  var User = createLucideIcon("user", __iconNode24);
 
   // node_modules/lucide-react/dist/esm/icons/users.js
-  var __iconNode22 = [
+  var __iconNode25 = [
     ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
     ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }],
     ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
     ["path", { d: "M16 3.13a4 4 0 0 1 0 7.75", key: "1da9ce" }]
   ];
-  var Users = createLucideIcon("users", __iconNode22);
+  var Users = createLucideIcon("users", __iconNode25);
 
   // node_modules/lucide-react/dist/esm/icons/wrench.js
-  var __iconNode23 = [
+  var __iconNode26 = [
     [
       "path",
       {
@@ -28243,17 +28273,17 @@
       }
     ]
   ];
-  var Wrench = createLucideIcon("wrench", __iconNode23);
+  var Wrench = createLucideIcon("wrench", __iconNode26);
 
   // node_modules/lucide-react/dist/esm/icons/x.js
-  var __iconNode24 = [
+  var __iconNode27 = [
     ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
     ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
   ];
-  var X = createLucideIcon("x", __iconNode24);
+  var X = createLucideIcon("x", __iconNode27);
 
   // node_modules/lucide-react/dist/esm/icons/zap.js
-  var __iconNode25 = [
+  var __iconNode28 = [
     [
       "path",
       {
@@ -28262,7 +28292,7 @@
       }
     ]
   ];
-  var Zap = createLucideIcon("zap", __iconNode25);
+  var Zap = createLucideIcon("zap", __iconNode28);
 
   // src/components/Layout/Header.tsx
   var import_react4 = __toESM(require_react());
@@ -28348,46 +28378,2628 @@
   }
 
   // src/components/Layout/Footer.tsx
-  var import_jsx_runtime4 = __toESM(require_jsx_runtime());
+  var import_react8 = __toESM(require_react());
+
+  // src/components/Layout/CookieSettings.tsx
+  var import_react7 = __toESM(require_react());
+
+  // src/components/ui/dialog.tsx
+  var React27 = __toESM(require_react());
+
+  // node_modules/@radix-ui/react-dialog/dist/index.mjs
+  var React26 = __toESM(require_react(), 1);
+
+  // node_modules/@radix-ui/primitive/dist/index.mjs
+  function composeEventHandlers(originalEventHandler, ourEventHandler, { checkForDefaultPrevented = true } = {}) {
+    return function handleEvent(event) {
+      originalEventHandler?.(event);
+      if (checkForDefaultPrevented === false || !event.defaultPrevented) {
+        return ourEventHandler?.(event);
+      }
+    };
+  }
+
+  // node_modules/@radix-ui/react-context/dist/index.mjs
+  var React5 = __toESM(require_react(), 1);
+  var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+  function createContext2(rootComponentName, defaultContext) {
+    const Context = React5.createContext(defaultContext);
+    const Provider = (props) => {
+      const { children, ...context } = props;
+      const value = React5.useMemo(() => context, Object.values(context));
+      return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Context.Provider, { value, children });
+    };
+    Provider.displayName = rootComponentName + "Provider";
+    function useContext22(consumerName) {
+      const context = React5.useContext(Context);
+      if (context) return context;
+      if (defaultContext !== void 0) return defaultContext;
+      throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
+    }
+    return [Provider, useContext22];
+  }
+  function createContextScope(scopeName, createContextScopeDeps = []) {
+    let defaultContexts = [];
+    function createContext32(rootComponentName, defaultContext) {
+      const BaseContext = React5.createContext(defaultContext);
+      const index2 = defaultContexts.length;
+      defaultContexts = [...defaultContexts, defaultContext];
+      const Provider = (props) => {
+        const { scope, children, ...context } = props;
+        const Context = scope?.[scopeName]?.[index2] || BaseContext;
+        const value = React5.useMemo(() => context, Object.values(context));
+        return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Context.Provider, { value, children });
+      };
+      Provider.displayName = rootComponentName + "Provider";
+      function useContext22(consumerName, scope) {
+        const Context = scope?.[scopeName]?.[index2] || BaseContext;
+        const context = React5.useContext(Context);
+        if (context) return context;
+        if (defaultContext !== void 0) return defaultContext;
+        throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
+      }
+      return [Provider, useContext22];
+    }
+    const createScope = () => {
+      const scopeContexts = defaultContexts.map((defaultContext) => {
+        return React5.createContext(defaultContext);
+      });
+      return function useScope(scope) {
+        const contexts = scope?.[scopeName] || scopeContexts;
+        return React5.useMemo(
+          () => ({ [`__scope${scopeName}`]: { ...scope, [scopeName]: contexts } }),
+          [scope, contexts]
+        );
+      };
+    };
+    createScope.scopeName = scopeName;
+    return [createContext32, composeContextScopes(createScope, ...createContextScopeDeps)];
+  }
+  function composeContextScopes(...scopes) {
+    const baseScope = scopes[0];
+    if (scopes.length === 1) return baseScope;
+    const createScope = () => {
+      const scopeHooks = scopes.map((createScope2) => ({
+        useScope: createScope2(),
+        scopeName: createScope2.scopeName
+      }));
+      return function useComposedScopes(overrideScopes) {
+        const nextScopes = scopeHooks.reduce((nextScopes2, { useScope, scopeName }) => {
+          const scopeProps = useScope(overrideScopes);
+          const currentScope = scopeProps[`__scope${scopeName}`];
+          return { ...nextScopes2, ...currentScope };
+        }, {});
+        return React5.useMemo(() => ({ [`__scope${baseScope.scopeName}`]: nextScopes }), [nextScopes]);
+      };
+    };
+    createScope.scopeName = baseScope.scopeName;
+    return createScope;
+  }
+
+  // node_modules/@radix-ui/react-id/dist/index.mjs
+  var React7 = __toESM(require_react(), 1);
+
+  // node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs
+  var React6 = __toESM(require_react(), 1);
+  var useLayoutEffect2 = globalThis?.document ? React6.useLayoutEffect : () => {
+  };
+
+  // node_modules/@radix-ui/react-id/dist/index.mjs
+  var useReactId = React7[" useId ".trim().toString()] || (() => void 0);
+  var count = 0;
+  function useId(deterministicId) {
+    const [id, setId] = React7.useState(useReactId());
+    useLayoutEffect2(() => {
+      if (!deterministicId) setId((reactId) => reactId ?? String(count++));
+    }, [deterministicId]);
+    return deterministicId || (id ? `radix-${id}` : "");
+  }
+
+  // node_modules/@radix-ui/react-use-controllable-state/dist/index.mjs
+  var React8 = __toESM(require_react(), 1);
+  var React22 = __toESM(require_react(), 1);
+  var useInsertionEffect = React8[" useInsertionEffect ".trim().toString()] || useLayoutEffect2;
+  function useControllableState({
+    prop,
+    defaultProp,
+    onChange = () => {
+    },
+    caller
+  }) {
+    const [uncontrolledProp, setUncontrolledProp, onChangeRef] = useUncontrolledState({
+      defaultProp,
+      onChange
+    });
+    const isControlled = prop !== void 0;
+    const value = isControlled ? prop : uncontrolledProp;
+    if (true) {
+      const isControlledRef = React8.useRef(prop !== void 0);
+      React8.useEffect(() => {
+        const wasControlled = isControlledRef.current;
+        if (wasControlled !== isControlled) {
+          const from = wasControlled ? "controlled" : "uncontrolled";
+          const to = isControlled ? "controlled" : "uncontrolled";
+          console.warn(
+            `${caller} is changing from ${from} to ${to}. Components should not switch from controlled to uncontrolled (or vice versa). Decide between using a controlled or uncontrolled value for the lifetime of the component.`
+          );
+        }
+        isControlledRef.current = isControlled;
+      }, [isControlled, caller]);
+    }
+    const setValue = React8.useCallback(
+      (nextValue) => {
+        if (isControlled) {
+          const value2 = isFunction(nextValue) ? nextValue(prop) : nextValue;
+          if (value2 !== prop) {
+            onChangeRef.current?.(value2);
+          }
+        } else {
+          setUncontrolledProp(nextValue);
+        }
+      },
+      [isControlled, prop, setUncontrolledProp, onChangeRef]
+    );
+    return [value, setValue];
+  }
+  function useUncontrolledState({
+    defaultProp,
+    onChange
+  }) {
+    const [value, setValue] = React8.useState(defaultProp);
+    const prevValueRef = React8.useRef(value);
+    const onChangeRef = React8.useRef(onChange);
+    useInsertionEffect(() => {
+      onChangeRef.current = onChange;
+    }, [onChange]);
+    React8.useEffect(() => {
+      if (prevValueRef.current !== value) {
+        onChangeRef.current?.(value);
+        prevValueRef.current = value;
+      }
+    }, [value, prevValueRef]);
+    return [value, setValue, onChangeRef];
+  }
+  function isFunction(value) {
+    return typeof value === "function";
+  }
+  var SYNC_STATE = Symbol("RADIX:SYNC_STATE");
+
+  // node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs
+  var React12 = __toESM(require_react(), 1);
+
+  // node_modules/@radix-ui/react-primitive/dist/index.mjs
+  var React9 = __toESM(require_react(), 1);
+  var ReactDOM = __toESM(require_react_dom(), 1);
+  var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+  var NODES = [
+    "a",
+    "button",
+    "div",
+    "form",
+    "h2",
+    "h3",
+    "img",
+    "input",
+    "label",
+    "li",
+    "nav",
+    "ol",
+    "p",
+    "select",
+    "span",
+    "svg",
+    "ul"
+  ];
+  var Primitive = NODES.reduce((primitive, node) => {
+    const Slot4 = createSlot(`Primitive.${node}`);
+    const Node2 = React9.forwardRef((props, forwardedRef) => {
+      const { asChild, ...primitiveProps } = props;
+      const Comp = asChild ? Slot4 : node;
+      if (typeof window !== "undefined") {
+        window[Symbol.for("radix-ui")] = true;
+      }
+      return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Comp, { ...primitiveProps, ref: forwardedRef });
+    });
+    Node2.displayName = `Primitive.${node}`;
+    return { ...primitive, [node]: Node2 };
+  }, {});
+  function dispatchDiscreteCustomEvent(target, event) {
+    if (target) ReactDOM.flushSync(() => target.dispatchEvent(event));
+  }
+
+  // node_modules/@radix-ui/react-use-callback-ref/dist/index.mjs
+  var React10 = __toESM(require_react(), 1);
+  function useCallbackRef(callback) {
+    const callbackRef = React10.useRef(callback);
+    React10.useEffect(() => {
+      callbackRef.current = callback;
+    });
+    return React10.useMemo(() => (...args) => callbackRef.current?.(...args), []);
+  }
+
+  // node_modules/@radix-ui/react-use-escape-keydown/dist/index.mjs
+  var React11 = __toESM(require_react(), 1);
+  function useEscapeKeydown(onEscapeKeyDownProp, ownerDocument = globalThis?.document) {
+    const onEscapeKeyDown = useCallbackRef(onEscapeKeyDownProp);
+    React11.useEffect(() => {
+      const handleKeyDown = (event) => {
+        if (event.key === "Escape") {
+          onEscapeKeyDown(event);
+        }
+      };
+      ownerDocument.addEventListener("keydown", handleKeyDown, { capture: true });
+      return () => ownerDocument.removeEventListener("keydown", handleKeyDown, { capture: true });
+    }, [onEscapeKeyDown, ownerDocument]);
+  }
+
+  // node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs
+  var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
+  var DISMISSABLE_LAYER_NAME = "DismissableLayer";
+  var CONTEXT_UPDATE = "dismissableLayer.update";
+  var POINTER_DOWN_OUTSIDE = "dismissableLayer.pointerDownOutside";
+  var FOCUS_OUTSIDE = "dismissableLayer.focusOutside";
+  var originalBodyPointerEvents;
+  var DismissableLayerContext = React12.createContext({
+    layers: /* @__PURE__ */ new Set(),
+    layersWithOutsidePointerEventsDisabled: /* @__PURE__ */ new Set(),
+    branches: /* @__PURE__ */ new Set()
+  });
+  var DismissableLayer = React12.forwardRef(
+    (props, forwardedRef) => {
+      const {
+        disableOutsidePointerEvents = false,
+        onEscapeKeyDown,
+        onPointerDownOutside,
+        onFocusOutside,
+        onInteractOutside,
+        onDismiss,
+        ...layerProps
+      } = props;
+      const context = React12.useContext(DismissableLayerContext);
+      const [node, setNode] = React12.useState(null);
+      const ownerDocument = node?.ownerDocument ?? globalThis?.document;
+      const [, force] = React12.useState({});
+      const composedRefs = useComposedRefs(forwardedRef, (node2) => setNode(node2));
+      const layers = Array.from(context.layers);
+      const [highestLayerWithOutsidePointerEventsDisabled] = [...context.layersWithOutsidePointerEventsDisabled].slice(-1);
+      const highestLayerWithOutsidePointerEventsDisabledIndex = layers.indexOf(highestLayerWithOutsidePointerEventsDisabled);
+      const index2 = node ? layers.indexOf(node) : -1;
+      const isBodyPointerEventsDisabled = context.layersWithOutsidePointerEventsDisabled.size > 0;
+      const isPointerEventsEnabled = index2 >= highestLayerWithOutsidePointerEventsDisabledIndex;
+      const pointerDownOutside = usePointerDownOutside((event) => {
+        const target = event.target;
+        const isPointerDownOnBranch = [...context.branches].some((branch) => branch.contains(target));
+        if (!isPointerEventsEnabled || isPointerDownOnBranch) return;
+        onPointerDownOutside?.(event);
+        onInteractOutside?.(event);
+        if (!event.defaultPrevented) onDismiss?.();
+      }, ownerDocument);
+      const focusOutside = useFocusOutside((event) => {
+        const target = event.target;
+        const isFocusInBranch = [...context.branches].some((branch) => branch.contains(target));
+        if (isFocusInBranch) return;
+        onFocusOutside?.(event);
+        onInteractOutside?.(event);
+        if (!event.defaultPrevented) onDismiss?.();
+      }, ownerDocument);
+      useEscapeKeydown((event) => {
+        const isHighestLayer = index2 === context.layers.size - 1;
+        if (!isHighestLayer) return;
+        onEscapeKeyDown?.(event);
+        if (!event.defaultPrevented && onDismiss) {
+          event.preventDefault();
+          onDismiss();
+        }
+      }, ownerDocument);
+      React12.useEffect(() => {
+        if (!node) return;
+        if (disableOutsidePointerEvents) {
+          if (context.layersWithOutsidePointerEventsDisabled.size === 0) {
+            originalBodyPointerEvents = ownerDocument.body.style.pointerEvents;
+            ownerDocument.body.style.pointerEvents = "none";
+          }
+          context.layersWithOutsidePointerEventsDisabled.add(node);
+        }
+        context.layers.add(node);
+        dispatchUpdate();
+        return () => {
+          if (disableOutsidePointerEvents && context.layersWithOutsidePointerEventsDisabled.size === 1) {
+            ownerDocument.body.style.pointerEvents = originalBodyPointerEvents;
+          }
+        };
+      }, [node, ownerDocument, disableOutsidePointerEvents, context]);
+      React12.useEffect(() => {
+        return () => {
+          if (!node) return;
+          context.layers.delete(node);
+          context.layersWithOutsidePointerEventsDisabled.delete(node);
+          dispatchUpdate();
+        };
+      }, [node, context]);
+      React12.useEffect(() => {
+        const handleUpdate = () => force({});
+        document.addEventListener(CONTEXT_UPDATE, handleUpdate);
+        return () => document.removeEventListener(CONTEXT_UPDATE, handleUpdate);
+      }, []);
+      return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+        Primitive.div,
+        {
+          ...layerProps,
+          ref: composedRefs,
+          style: {
+            pointerEvents: isBodyPointerEventsDisabled ? isPointerEventsEnabled ? "auto" : "none" : void 0,
+            ...props.style
+          },
+          onFocusCapture: composeEventHandlers(props.onFocusCapture, focusOutside.onFocusCapture),
+          onBlurCapture: composeEventHandlers(props.onBlurCapture, focusOutside.onBlurCapture),
+          onPointerDownCapture: composeEventHandlers(
+            props.onPointerDownCapture,
+            pointerDownOutside.onPointerDownCapture
+          )
+        }
+      );
+    }
+  );
+  DismissableLayer.displayName = DISMISSABLE_LAYER_NAME;
+  var BRANCH_NAME = "DismissableLayerBranch";
+  var DismissableLayerBranch = React12.forwardRef((props, forwardedRef) => {
+    const context = React12.useContext(DismissableLayerContext);
+    const ref = React12.useRef(null);
+    const composedRefs = useComposedRefs(forwardedRef, ref);
+    React12.useEffect(() => {
+      const node = ref.current;
+      if (node) {
+        context.branches.add(node);
+        return () => {
+          context.branches.delete(node);
+        };
+      }
+    }, [context.branches]);
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Primitive.div, { ...props, ref: composedRefs });
+  });
+  DismissableLayerBranch.displayName = BRANCH_NAME;
+  function usePointerDownOutside(onPointerDownOutside, ownerDocument = globalThis?.document) {
+    const handlePointerDownOutside = useCallbackRef(onPointerDownOutside);
+    const isPointerInsideReactTreeRef = React12.useRef(false);
+    const handleClickRef = React12.useRef(() => {
+    });
+    React12.useEffect(() => {
+      const handlePointerDown = (event) => {
+        if (event.target && !isPointerInsideReactTreeRef.current) {
+          let handleAndDispatchPointerDownOutsideEvent2 = function() {
+            handleAndDispatchCustomEvent(
+              POINTER_DOWN_OUTSIDE,
+              handlePointerDownOutside,
+              eventDetail,
+              { discrete: true }
+            );
+          };
+          var handleAndDispatchPointerDownOutsideEvent = handleAndDispatchPointerDownOutsideEvent2;
+          const eventDetail = { originalEvent: event };
+          if (event.pointerType === "touch") {
+            ownerDocument.removeEventListener("click", handleClickRef.current);
+            handleClickRef.current = handleAndDispatchPointerDownOutsideEvent2;
+            ownerDocument.addEventListener("click", handleClickRef.current, { once: true });
+          } else {
+            handleAndDispatchPointerDownOutsideEvent2();
+          }
+        } else {
+          ownerDocument.removeEventListener("click", handleClickRef.current);
+        }
+        isPointerInsideReactTreeRef.current = false;
+      };
+      const timerId = window.setTimeout(() => {
+        ownerDocument.addEventListener("pointerdown", handlePointerDown);
+      }, 0);
+      return () => {
+        window.clearTimeout(timerId);
+        ownerDocument.removeEventListener("pointerdown", handlePointerDown);
+        ownerDocument.removeEventListener("click", handleClickRef.current);
+      };
+    }, [ownerDocument, handlePointerDownOutside]);
+    return {
+      // ensures we check React component tree (not just DOM tree)
+      onPointerDownCapture: () => isPointerInsideReactTreeRef.current = true
+    };
+  }
+  function useFocusOutside(onFocusOutside, ownerDocument = globalThis?.document) {
+    const handleFocusOutside = useCallbackRef(onFocusOutside);
+    const isFocusInsideReactTreeRef = React12.useRef(false);
+    React12.useEffect(() => {
+      const handleFocus = (event) => {
+        if (event.target && !isFocusInsideReactTreeRef.current) {
+          const eventDetail = { originalEvent: event };
+          handleAndDispatchCustomEvent(FOCUS_OUTSIDE, handleFocusOutside, eventDetail, {
+            discrete: false
+          });
+        }
+      };
+      ownerDocument.addEventListener("focusin", handleFocus);
+      return () => ownerDocument.removeEventListener("focusin", handleFocus);
+    }, [ownerDocument, handleFocusOutside]);
+    return {
+      onFocusCapture: () => isFocusInsideReactTreeRef.current = true,
+      onBlurCapture: () => isFocusInsideReactTreeRef.current = false
+    };
+  }
+  function dispatchUpdate() {
+    const event = new CustomEvent(CONTEXT_UPDATE);
+    document.dispatchEvent(event);
+  }
+  function handleAndDispatchCustomEvent(name, handler, detail, { discrete }) {
+    const target = detail.originalEvent.target;
+    const event = new CustomEvent(name, { bubbles: false, cancelable: true, detail });
+    if (handler) target.addEventListener(name, handler, { once: true });
+    if (discrete) {
+      dispatchDiscreteCustomEvent(target, event);
+    } else {
+      target.dispatchEvent(event);
+    }
+  }
+
+  // node_modules/@radix-ui/react-focus-scope/dist/index.mjs
+  var React13 = __toESM(require_react(), 1);
+  var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
+  var AUTOFOCUS_ON_MOUNT = "focusScope.autoFocusOnMount";
+  var AUTOFOCUS_ON_UNMOUNT = "focusScope.autoFocusOnUnmount";
+  var EVENT_OPTIONS = { bubbles: false, cancelable: true };
+  var FOCUS_SCOPE_NAME = "FocusScope";
+  var FocusScope = React13.forwardRef((props, forwardedRef) => {
+    const {
+      loop = false,
+      trapped = false,
+      onMountAutoFocus: onMountAutoFocusProp,
+      onUnmountAutoFocus: onUnmountAutoFocusProp,
+      ...scopeProps
+    } = props;
+    const [container, setContainer] = React13.useState(null);
+    const onMountAutoFocus = useCallbackRef(onMountAutoFocusProp);
+    const onUnmountAutoFocus = useCallbackRef(onUnmountAutoFocusProp);
+    const lastFocusedElementRef = React13.useRef(null);
+    const composedRefs = useComposedRefs(forwardedRef, (node) => setContainer(node));
+    const focusScope = React13.useRef({
+      paused: false,
+      pause() {
+        this.paused = true;
+      },
+      resume() {
+        this.paused = false;
+      }
+    }).current;
+    React13.useEffect(() => {
+      if (trapped) {
+        let handleFocusIn2 = function(event) {
+          if (focusScope.paused || !container) return;
+          const target = event.target;
+          if (container.contains(target)) {
+            lastFocusedElementRef.current = target;
+          } else {
+            focus(lastFocusedElementRef.current, { select: true });
+          }
+        }, handleFocusOut2 = function(event) {
+          if (focusScope.paused || !container) return;
+          const relatedTarget = event.relatedTarget;
+          if (relatedTarget === null) return;
+          if (!container.contains(relatedTarget)) {
+            focus(lastFocusedElementRef.current, { select: true });
+          }
+        }, handleMutations2 = function(mutations) {
+          const focusedElement = document.activeElement;
+          if (focusedElement !== document.body) return;
+          for (const mutation of mutations) {
+            if (mutation.removedNodes.length > 0) focus(container);
+          }
+        };
+        var handleFocusIn = handleFocusIn2, handleFocusOut = handleFocusOut2, handleMutations = handleMutations2;
+        document.addEventListener("focusin", handleFocusIn2);
+        document.addEventListener("focusout", handleFocusOut2);
+        const mutationObserver = new MutationObserver(handleMutations2);
+        if (container) mutationObserver.observe(container, { childList: true, subtree: true });
+        return () => {
+          document.removeEventListener("focusin", handleFocusIn2);
+          document.removeEventListener("focusout", handleFocusOut2);
+          mutationObserver.disconnect();
+        };
+      }
+    }, [trapped, container, focusScope.paused]);
+    React13.useEffect(() => {
+      if (container) {
+        focusScopesStack.add(focusScope);
+        const previouslyFocusedElement = document.activeElement;
+        const hasFocusedCandidate = container.contains(previouslyFocusedElement);
+        if (!hasFocusedCandidate) {
+          const mountEvent = new CustomEvent(AUTOFOCUS_ON_MOUNT, EVENT_OPTIONS);
+          container.addEventListener(AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
+          container.dispatchEvent(mountEvent);
+          if (!mountEvent.defaultPrevented) {
+            focusFirst(removeLinks(getTabbableCandidates(container)), { select: true });
+            if (document.activeElement === previouslyFocusedElement) {
+              focus(container);
+            }
+          }
+        }
+        return () => {
+          container.removeEventListener(AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
+          setTimeout(() => {
+            const unmountEvent = new CustomEvent(AUTOFOCUS_ON_UNMOUNT, EVENT_OPTIONS);
+            container.addEventListener(AUTOFOCUS_ON_UNMOUNT, onUnmountAutoFocus);
+            container.dispatchEvent(unmountEvent);
+            if (!unmountEvent.defaultPrevented) {
+              focus(previouslyFocusedElement ?? document.body, { select: true });
+            }
+            container.removeEventListener(AUTOFOCUS_ON_UNMOUNT, onUnmountAutoFocus);
+            focusScopesStack.remove(focusScope);
+          }, 0);
+        };
+      }
+    }, [container, onMountAutoFocus, onUnmountAutoFocus, focusScope]);
+    const handleKeyDown = React13.useCallback(
+      (event) => {
+        if (!loop && !trapped) return;
+        if (focusScope.paused) return;
+        const isTabKey = event.key === "Tab" && !event.altKey && !event.ctrlKey && !event.metaKey;
+        const focusedElement = document.activeElement;
+        if (isTabKey && focusedElement) {
+          const container2 = event.currentTarget;
+          const [first, last] = getTabbableEdges(container2);
+          const hasTabbableElementsInside = first && last;
+          if (!hasTabbableElementsInside) {
+            if (focusedElement === container2) event.preventDefault();
+          } else {
+            if (!event.shiftKey && focusedElement === last) {
+              event.preventDefault();
+              if (loop) focus(first, { select: true });
+            } else if (event.shiftKey && focusedElement === first) {
+              event.preventDefault();
+              if (loop) focus(last, { select: true });
+            }
+          }
+        }
+      },
+      [loop, trapped, focusScope.paused]
+    );
+    return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Primitive.div, { tabIndex: -1, ...scopeProps, ref: composedRefs, onKeyDown: handleKeyDown });
+  });
+  FocusScope.displayName = FOCUS_SCOPE_NAME;
+  function focusFirst(candidates, { select = false } = {}) {
+    const previouslyFocusedElement = document.activeElement;
+    for (const candidate of candidates) {
+      focus(candidate, { select });
+      if (document.activeElement !== previouslyFocusedElement) return;
+    }
+  }
+  function getTabbableEdges(container) {
+    const candidates = getTabbableCandidates(container);
+    const first = findVisible(candidates, container);
+    const last = findVisible(candidates.reverse(), container);
+    return [first, last];
+  }
+  function getTabbableCandidates(container) {
+    const nodes = [];
+    const walker = document.createTreeWalker(container, NodeFilter.SHOW_ELEMENT, {
+      acceptNode: (node) => {
+        const isHiddenInput = node.tagName === "INPUT" && node.type === "hidden";
+        if (node.disabled || node.hidden || isHiddenInput) return NodeFilter.FILTER_SKIP;
+        return node.tabIndex >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      }
+    });
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    return nodes;
+  }
+  function findVisible(elements, container) {
+    for (const element of elements) {
+      if (!isHidden(element, { upTo: container })) return element;
+    }
+  }
+  function isHidden(node, { upTo }) {
+    if (getComputedStyle(node).visibility === "hidden") return true;
+    while (node) {
+      if (upTo !== void 0 && node === upTo) return false;
+      if (getComputedStyle(node).display === "none") return true;
+      node = node.parentElement;
+    }
+    return false;
+  }
+  function isSelectableInput(element) {
+    return element instanceof HTMLInputElement && "select" in element;
+  }
+  function focus(element, { select = false } = {}) {
+    if (element && element.focus) {
+      const previouslyFocusedElement = document.activeElement;
+      element.focus({ preventScroll: true });
+      if (element !== previouslyFocusedElement && isSelectableInput(element) && select)
+        element.select();
+    }
+  }
+  var focusScopesStack = createFocusScopesStack();
+  function createFocusScopesStack() {
+    let stack = [];
+    return {
+      add(focusScope) {
+        const activeFocusScope = stack[0];
+        if (focusScope !== activeFocusScope) {
+          activeFocusScope?.pause();
+        }
+        stack = arrayRemove(stack, focusScope);
+        stack.unshift(focusScope);
+      },
+      remove(focusScope) {
+        stack = arrayRemove(stack, focusScope);
+        stack[0]?.resume();
+      }
+    };
+  }
+  function arrayRemove(array, item) {
+    const updatedArray = [...array];
+    const index2 = updatedArray.indexOf(item);
+    if (index2 !== -1) {
+      updatedArray.splice(index2, 1);
+    }
+    return updatedArray;
+  }
+  function removeLinks(items) {
+    return items.filter((item) => item.tagName !== "A");
+  }
+
+  // node_modules/@radix-ui/react-portal/dist/index.mjs
+  var React14 = __toESM(require_react(), 1);
+  var import_react_dom = __toESM(require_react_dom(), 1);
+  var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
+  var PORTAL_NAME = "Portal";
+  var Portal = React14.forwardRef((props, forwardedRef) => {
+    const { container: containerProp, ...portalProps } = props;
+    const [mounted, setMounted] = React14.useState(false);
+    useLayoutEffect2(() => setMounted(true), []);
+    const container = containerProp || mounted && globalThis?.document?.body;
+    return container ? import_react_dom.default.createPortal(/* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Primitive.div, { ...portalProps, ref: forwardedRef }), container) : null;
+  });
+  Portal.displayName = PORTAL_NAME;
+
+  // node_modules/@radix-ui/react-presence/dist/index.mjs
+  var React23 = __toESM(require_react(), 1);
+  var React15 = __toESM(require_react(), 1);
+  function useStateMachine(initialState, machine) {
+    return React15.useReducer((state, event) => {
+      const nextState = machine[state][event];
+      return nextState ?? state;
+    }, initialState);
+  }
+  var Presence = (props) => {
+    const { present, children } = props;
+    const presence = usePresence(present);
+    const child = typeof children === "function" ? children({ present: presence.isPresent }) : React23.Children.only(children);
+    const ref = useComposedRefs(presence.ref, getElementRef2(child));
+    const forceMount = typeof children === "function";
+    return forceMount || presence.isPresent ? React23.cloneElement(child, { ref }) : null;
+  };
+  Presence.displayName = "Presence";
+  function usePresence(present) {
+    const [node, setNode] = React23.useState();
+    const stylesRef = React23.useRef(null);
+    const prevPresentRef = React23.useRef(present);
+    const prevAnimationNameRef = React23.useRef("none");
+    const initialState = present ? "mounted" : "unmounted";
+    const [state, send] = useStateMachine(initialState, {
+      mounted: {
+        UNMOUNT: "unmounted",
+        ANIMATION_OUT: "unmountSuspended"
+      },
+      unmountSuspended: {
+        MOUNT: "mounted",
+        ANIMATION_END: "unmounted"
+      },
+      unmounted: {
+        MOUNT: "mounted"
+      }
+    });
+    React23.useEffect(() => {
+      const currentAnimationName = getAnimationName(stylesRef.current);
+      prevAnimationNameRef.current = state === "mounted" ? currentAnimationName : "none";
+    }, [state]);
+    useLayoutEffect2(() => {
+      const styles = stylesRef.current;
+      const wasPresent = prevPresentRef.current;
+      const hasPresentChanged = wasPresent !== present;
+      if (hasPresentChanged) {
+        const prevAnimationName = prevAnimationNameRef.current;
+        const currentAnimationName = getAnimationName(styles);
+        if (present) {
+          send("MOUNT");
+        } else if (currentAnimationName === "none" || styles?.display === "none") {
+          send("UNMOUNT");
+        } else {
+          const isAnimating = prevAnimationName !== currentAnimationName;
+          if (wasPresent && isAnimating) {
+            send("ANIMATION_OUT");
+          } else {
+            send("UNMOUNT");
+          }
+        }
+        prevPresentRef.current = present;
+      }
+    }, [present, send]);
+    useLayoutEffect2(() => {
+      if (node) {
+        let timeoutId;
+        const ownerWindow = node.ownerDocument.defaultView ?? window;
+        const handleAnimationEnd = (event) => {
+          const currentAnimationName = getAnimationName(stylesRef.current);
+          const isCurrentAnimation = currentAnimationName.includes(event.animationName);
+          if (event.target === node && isCurrentAnimation) {
+            send("ANIMATION_END");
+            if (!prevPresentRef.current) {
+              const currentFillMode = node.style.animationFillMode;
+              node.style.animationFillMode = "forwards";
+              timeoutId = ownerWindow.setTimeout(() => {
+                if (node.style.animationFillMode === "forwards") {
+                  node.style.animationFillMode = currentFillMode;
+                }
+              });
+            }
+          }
+        };
+        const handleAnimationStart = (event) => {
+          if (event.target === node) {
+            prevAnimationNameRef.current = getAnimationName(stylesRef.current);
+          }
+        };
+        node.addEventListener("animationstart", handleAnimationStart);
+        node.addEventListener("animationcancel", handleAnimationEnd);
+        node.addEventListener("animationend", handleAnimationEnd);
+        return () => {
+          ownerWindow.clearTimeout(timeoutId);
+          node.removeEventListener("animationstart", handleAnimationStart);
+          node.removeEventListener("animationcancel", handleAnimationEnd);
+          node.removeEventListener("animationend", handleAnimationEnd);
+        };
+      } else {
+        send("ANIMATION_END");
+      }
+    }, [node, send]);
+    return {
+      isPresent: ["mounted", "unmountSuspended"].includes(state),
+      ref: React23.useCallback((node2) => {
+        stylesRef.current = node2 ? getComputedStyle(node2) : null;
+        setNode(node2);
+      }, [])
+    };
+  }
+  function getAnimationName(styles) {
+    return styles?.animationName || "none";
+  }
+  function getElementRef2(element) {
+    let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
+    let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.ref;
+    }
+    getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
+    mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+    if (mayWarn) {
+      return element.props.ref;
+    }
+    return element.props.ref || element.ref;
+  }
+
+  // node_modules/@radix-ui/react-focus-guards/dist/index.mjs
+  var React16 = __toESM(require_react(), 1);
+  var count2 = 0;
+  function useFocusGuards() {
+    React16.useEffect(() => {
+      const edgeGuards = document.querySelectorAll("[data-radix-focus-guard]");
+      document.body.insertAdjacentElement("afterbegin", edgeGuards[0] ?? createFocusGuard());
+      document.body.insertAdjacentElement("beforeend", edgeGuards[1] ?? createFocusGuard());
+      count2++;
+      return () => {
+        if (count2 === 1) {
+          document.querySelectorAll("[data-radix-focus-guard]").forEach((node) => node.remove());
+        }
+        count2--;
+      };
+    }, []);
+  }
+  function createFocusGuard() {
+    const element = document.createElement("span");
+    element.setAttribute("data-radix-focus-guard", "");
+    element.tabIndex = 0;
+    element.style.outline = "none";
+    element.style.opacity = "0";
+    element.style.position = "fixed";
+    element.style.pointerEvents = "none";
+    return element;
+  }
+
+  // node_modules/tslib/tslib.es6.mjs
+  var __assign = function() {
+    __assign = Object.assign || function __assign2(t) {
+      for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+      return t;
+    };
+    return __assign.apply(this, arguments);
+  };
+  function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+      t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+      for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+        if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+          t[p[i]] = s[p[i]];
+      }
+    return t;
+  }
+  function __spreadArray(to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+      if (ar || !(i in from)) {
+        if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+        ar[i] = from[i];
+      }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+  }
+
+  // node_modules/react-remove-scroll/dist/es2015/Combination.js
+  var React25 = __toESM(require_react());
+
+  // node_modules/react-remove-scroll/dist/es2015/UI.js
+  var React19 = __toESM(require_react());
+
+  // node_modules/react-remove-scroll-bar/dist/es2015/constants.js
+  var zeroRightClassName = "right-scroll-bar-position";
+  var fullWidthClassName = "width-before-scroll-bar";
+  var noScrollbarsClassName = "with-scroll-bars-hidden";
+  var removedBarSizeVariable = "--removed-body-scroll-bar-size";
+
+  // node_modules/use-callback-ref/dist/es2015/assignRef.js
+  function assignRef(ref, value) {
+    if (typeof ref === "function") {
+      ref(value);
+    } else if (ref) {
+      ref.current = value;
+    }
+    return ref;
+  }
+
+  // node_modules/use-callback-ref/dist/es2015/useRef.js
+  var import_react5 = __toESM(require_react());
+  function useCallbackRef2(initialValue, callback) {
+    var ref = (0, import_react5.useState)(function() {
+      return {
+        // value
+        value: initialValue,
+        // last callback
+        callback,
+        // "memoized" public interface
+        facade: {
+          get current() {
+            return ref.value;
+          },
+          set current(value) {
+            var last = ref.value;
+            if (last !== value) {
+              ref.value = value;
+              ref.callback(value, last);
+            }
+          }
+        }
+      };
+    })[0];
+    ref.callback = callback;
+    return ref.facade;
+  }
+
+  // node_modules/use-callback-ref/dist/es2015/useMergeRef.js
+  var React17 = __toESM(require_react());
+  var useIsomorphicLayoutEffect = typeof window !== "undefined" ? React17.useLayoutEffect : React17.useEffect;
+  var currentValues = /* @__PURE__ */ new WeakMap();
+  function useMergeRefs(refs, defaultValue) {
+    var callbackRef = useCallbackRef2(defaultValue || null, function(newValue) {
+      return refs.forEach(function(ref) {
+        return assignRef(ref, newValue);
+      });
+    });
+    useIsomorphicLayoutEffect(function() {
+      var oldValue = currentValues.get(callbackRef);
+      if (oldValue) {
+        var prevRefs_1 = new Set(oldValue);
+        var nextRefs_1 = new Set(refs);
+        var current_1 = callbackRef.current;
+        prevRefs_1.forEach(function(ref) {
+          if (!nextRefs_1.has(ref)) {
+            assignRef(ref, null);
+          }
+        });
+        nextRefs_1.forEach(function(ref) {
+          if (!prevRefs_1.has(ref)) {
+            assignRef(ref, current_1);
+          }
+        });
+      }
+      currentValues.set(callbackRef, refs);
+    }, [refs]);
+    return callbackRef;
+  }
+
+  // node_modules/use-sidecar/dist/es2015/medium.js
+  function ItoI(a) {
+    return a;
+  }
+  function innerCreateMedium(defaults, middleware) {
+    if (middleware === void 0) {
+      middleware = ItoI;
+    }
+    var buffer = [];
+    var assigned = false;
+    var medium = {
+      read: function() {
+        if (assigned) {
+          throw new Error("Sidecar: could not `read` from an `assigned` medium. `read` could be used only with `useMedium`.");
+        }
+        if (buffer.length) {
+          return buffer[buffer.length - 1];
+        }
+        return defaults;
+      },
+      useMedium: function(data) {
+        var item = middleware(data, assigned);
+        buffer.push(item);
+        return function() {
+          buffer = buffer.filter(function(x) {
+            return x !== item;
+          });
+        };
+      },
+      assignSyncMedium: function(cb) {
+        assigned = true;
+        while (buffer.length) {
+          var cbs = buffer;
+          buffer = [];
+          cbs.forEach(cb);
+        }
+        buffer = {
+          push: function(x) {
+            return cb(x);
+          },
+          filter: function() {
+            return buffer;
+          }
+        };
+      },
+      assignMedium: function(cb) {
+        assigned = true;
+        var pendingQueue = [];
+        if (buffer.length) {
+          var cbs = buffer;
+          buffer = [];
+          cbs.forEach(cb);
+          pendingQueue = buffer;
+        }
+        var executeQueue = function() {
+          var cbs2 = pendingQueue;
+          pendingQueue = [];
+          cbs2.forEach(cb);
+        };
+        var cycle = function() {
+          return Promise.resolve().then(executeQueue);
+        };
+        cycle();
+        buffer = {
+          push: function(x) {
+            pendingQueue.push(x);
+            cycle();
+          },
+          filter: function(filter) {
+            pendingQueue = pendingQueue.filter(filter);
+            return buffer;
+          }
+        };
+      }
+    };
+    return medium;
+  }
+  function createSidecarMedium(options) {
+    if (options === void 0) {
+      options = {};
+    }
+    var medium = innerCreateMedium(null);
+    medium.options = __assign({ async: true, ssr: false }, options);
+    return medium;
+  }
+
+  // node_modules/use-sidecar/dist/es2015/exports.js
+  var React18 = __toESM(require_react());
+  var SideCar = function(_a) {
+    var sideCar = _a.sideCar, rest = __rest(_a, ["sideCar"]);
+    if (!sideCar) {
+      throw new Error("Sidecar: please provide `sideCar` property to import the right car");
+    }
+    var Target2 = sideCar.read();
+    if (!Target2) {
+      throw new Error("Sidecar medium not found");
+    }
+    return React18.createElement(Target2, __assign({}, rest));
+  };
+  SideCar.isSideCarExport = true;
+  function exportSidecar(medium, exported) {
+    medium.useMedium(exported);
+    return SideCar;
+  }
+
+  // node_modules/react-remove-scroll/dist/es2015/medium.js
+  var effectCar = createSidecarMedium();
+
+  // node_modules/react-remove-scroll/dist/es2015/UI.js
+  var nothing = function() {
+    return;
+  };
+  var RemoveScroll = React19.forwardRef(function(props, parentRef) {
+    var ref = React19.useRef(null);
+    var _a = React19.useState({
+      onScrollCapture: nothing,
+      onWheelCapture: nothing,
+      onTouchMoveCapture: nothing
+    }), callbacks = _a[0], setCallbacks = _a[1];
+    var forwardProps = props.forwardProps, children = props.children, className = props.className, removeScrollBar = props.removeScrollBar, enabled = props.enabled, shards = props.shards, sideCar = props.sideCar, noRelative = props.noRelative, noIsolation = props.noIsolation, inert = props.inert, allowPinchZoom = props.allowPinchZoom, _b = props.as, Container = _b === void 0 ? "div" : _b, gapMode = props.gapMode, rest = __rest(props, ["forwardProps", "children", "className", "removeScrollBar", "enabled", "shards", "sideCar", "noRelative", "noIsolation", "inert", "allowPinchZoom", "as", "gapMode"]);
+    var SideCar2 = sideCar;
+    var containerRef = useMergeRefs([ref, parentRef]);
+    var containerProps = __assign(__assign({}, rest), callbacks);
+    return React19.createElement(
+      React19.Fragment,
+      null,
+      enabled && React19.createElement(SideCar2, { sideCar: effectCar, removeScrollBar, shards, noRelative, noIsolation, inert, setCallbacks, allowPinchZoom: !!allowPinchZoom, lockRef: ref, gapMode }),
+      forwardProps ? React19.cloneElement(React19.Children.only(children), __assign(__assign({}, containerProps), { ref: containerRef })) : React19.createElement(Container, __assign({}, containerProps, { className, ref: containerRef }), children)
+    );
+  });
+  RemoveScroll.defaultProps = {
+    enabled: true,
+    removeScrollBar: true,
+    inert: false
+  };
+  RemoveScroll.classNames = {
+    fullWidth: fullWidthClassName,
+    zeroRight: zeroRightClassName
+  };
+
+  // node_modules/react-remove-scroll/dist/es2015/SideEffect.js
+  var React24 = __toESM(require_react());
+
+  // node_modules/react-remove-scroll-bar/dist/es2015/component.js
+  var React21 = __toESM(require_react());
+
+  // node_modules/react-style-singleton/dist/es2015/hook.js
+  var React20 = __toESM(require_react());
+
+  // node_modules/get-nonce/dist/es2015/index.js
+  var currentNonce;
+  var getNonce = function() {
+    if (currentNonce) {
+      return currentNonce;
+    }
+    if (typeof __webpack_nonce__ !== "undefined") {
+      return __webpack_nonce__;
+    }
+    return void 0;
+  };
+
+  // node_modules/react-style-singleton/dist/es2015/singleton.js
+  function makeStyleTag() {
+    if (!document)
+      return null;
+    var tag = document.createElement("style");
+    tag.type = "text/css";
+    var nonce = getNonce();
+    if (nonce) {
+      tag.setAttribute("nonce", nonce);
+    }
+    return tag;
+  }
+  function injectStyles(tag, css) {
+    if (tag.styleSheet) {
+      tag.styleSheet.cssText = css;
+    } else {
+      tag.appendChild(document.createTextNode(css));
+    }
+  }
+  function insertStyleTag(tag) {
+    var head = document.head || document.getElementsByTagName("head")[0];
+    head.appendChild(tag);
+  }
+  var stylesheetSingleton = function() {
+    var counter = 0;
+    var stylesheet = null;
+    return {
+      add: function(style) {
+        if (counter == 0) {
+          if (stylesheet = makeStyleTag()) {
+            injectStyles(stylesheet, style);
+            insertStyleTag(stylesheet);
+          }
+        }
+        counter++;
+      },
+      remove: function() {
+        counter--;
+        if (!counter && stylesheet) {
+          stylesheet.parentNode && stylesheet.parentNode.removeChild(stylesheet);
+          stylesheet = null;
+        }
+      }
+    };
+  };
+
+  // node_modules/react-style-singleton/dist/es2015/hook.js
+  var styleHookSingleton = function() {
+    var sheet = stylesheetSingleton();
+    return function(styles, isDynamic) {
+      React20.useEffect(function() {
+        sheet.add(styles);
+        return function() {
+          sheet.remove();
+        };
+      }, [styles && isDynamic]);
+    };
+  };
+
+  // node_modules/react-style-singleton/dist/es2015/component.js
+  var styleSingleton = function() {
+    var useStyle = styleHookSingleton();
+    var Sheet = function(_a) {
+      var styles = _a.styles, dynamic = _a.dynamic;
+      useStyle(styles, dynamic);
+      return null;
+    };
+    return Sheet;
+  };
+
+  // node_modules/react-remove-scroll-bar/dist/es2015/utils.js
+  var zeroGap = {
+    left: 0,
+    top: 0,
+    right: 0,
+    gap: 0
+  };
+  var parse = function(x) {
+    return parseInt(x || "", 10) || 0;
+  };
+  var getOffset = function(gapMode) {
+    var cs = window.getComputedStyle(document.body);
+    var left = cs[gapMode === "padding" ? "paddingLeft" : "marginLeft"];
+    var top = cs[gapMode === "padding" ? "paddingTop" : "marginTop"];
+    var right = cs[gapMode === "padding" ? "paddingRight" : "marginRight"];
+    return [parse(left), parse(top), parse(right)];
+  };
+  var getGapWidth = function(gapMode) {
+    if (gapMode === void 0) {
+      gapMode = "margin";
+    }
+    if (typeof window === "undefined") {
+      return zeroGap;
+    }
+    var offsets = getOffset(gapMode);
+    var documentWidth = document.documentElement.clientWidth;
+    var windowWidth = window.innerWidth;
+    return {
+      left: offsets[0],
+      top: offsets[1],
+      right: offsets[2],
+      gap: Math.max(0, windowWidth - documentWidth + offsets[2] - offsets[0])
+    };
+  };
+
+  // node_modules/react-remove-scroll-bar/dist/es2015/component.js
+  var Style = styleSingleton();
+  var lockAttribute = "data-scroll-locked";
+  var getStyles = function(_a, allowRelative, gapMode, important) {
+    var left = _a.left, top = _a.top, right = _a.right, gap = _a.gap;
+    if (gapMode === void 0) {
+      gapMode = "margin";
+    }
+    return "\n  .".concat(noScrollbarsClassName, " {\n   overflow: hidden ").concat(important, ";\n   padding-right: ").concat(gap, "px ").concat(important, ";\n  }\n  body[").concat(lockAttribute, "] {\n    overflow: hidden ").concat(important, ";\n    overscroll-behavior: contain;\n    ").concat([
+      allowRelative && "position: relative ".concat(important, ";"),
+      gapMode === "margin" && "\n    padding-left: ".concat(left, "px;\n    padding-top: ").concat(top, "px;\n    padding-right: ").concat(right, "px;\n    margin-left:0;\n    margin-top:0;\n    margin-right: ").concat(gap, "px ").concat(important, ";\n    "),
+      gapMode === "padding" && "padding-right: ".concat(gap, "px ").concat(important, ";")
+    ].filter(Boolean).join(""), "\n  }\n  \n  .").concat(zeroRightClassName, " {\n    right: ").concat(gap, "px ").concat(important, ";\n  }\n  \n  .").concat(fullWidthClassName, " {\n    margin-right: ").concat(gap, "px ").concat(important, ";\n  }\n  \n  .").concat(zeroRightClassName, " .").concat(zeroRightClassName, " {\n    right: 0 ").concat(important, ";\n  }\n  \n  .").concat(fullWidthClassName, " .").concat(fullWidthClassName, " {\n    margin-right: 0 ").concat(important, ";\n  }\n  \n  body[").concat(lockAttribute, "] {\n    ").concat(removedBarSizeVariable, ": ").concat(gap, "px;\n  }\n");
+  };
+  var getCurrentUseCounter = function() {
+    var counter = parseInt(document.body.getAttribute(lockAttribute) || "0", 10);
+    return isFinite(counter) ? counter : 0;
+  };
+  var useLockAttribute = function() {
+    React21.useEffect(function() {
+      document.body.setAttribute(lockAttribute, (getCurrentUseCounter() + 1).toString());
+      return function() {
+        var newCounter = getCurrentUseCounter() - 1;
+        if (newCounter <= 0) {
+          document.body.removeAttribute(lockAttribute);
+        } else {
+          document.body.setAttribute(lockAttribute, newCounter.toString());
+        }
+      };
+    }, []);
+  };
+  var RemoveScrollBar = function(_a) {
+    var noRelative = _a.noRelative, noImportant = _a.noImportant, _b = _a.gapMode, gapMode = _b === void 0 ? "margin" : _b;
+    useLockAttribute();
+    var gap = React21.useMemo(function() {
+      return getGapWidth(gapMode);
+    }, [gapMode]);
+    return React21.createElement(Style, { styles: getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : "") });
+  };
+
+  // node_modules/react-remove-scroll/dist/es2015/aggresiveCapture.js
+  var passiveSupported = false;
+  if (typeof window !== "undefined") {
+    try {
+      options = Object.defineProperty({}, "passive", {
+        get: function() {
+          passiveSupported = true;
+          return true;
+        }
+      });
+      window.addEventListener("test", options, options);
+      window.removeEventListener("test", options, options);
+    } catch (err) {
+      passiveSupported = false;
+    }
+  }
+  var options;
+  var nonPassive = passiveSupported ? { passive: false } : false;
+
+  // node_modules/react-remove-scroll/dist/es2015/handleScroll.js
+  var alwaysContainsScroll = function(node) {
+    return node.tagName === "TEXTAREA";
+  };
+  var elementCanBeScrolled = function(node, overflow) {
+    if (!(node instanceof Element)) {
+      return false;
+    }
+    var styles = window.getComputedStyle(node);
+    return (
+      // not-not-scrollable
+      styles[overflow] !== "hidden" && // contains scroll inside self
+      !(styles.overflowY === styles.overflowX && !alwaysContainsScroll(node) && styles[overflow] === "visible")
+    );
+  };
+  var elementCouldBeVScrolled = function(node) {
+    return elementCanBeScrolled(node, "overflowY");
+  };
+  var elementCouldBeHScrolled = function(node) {
+    return elementCanBeScrolled(node, "overflowX");
+  };
+  var locationCouldBeScrolled = function(axis, node) {
+    var ownerDocument = node.ownerDocument;
+    var current = node;
+    do {
+      if (typeof ShadowRoot !== "undefined" && current instanceof ShadowRoot) {
+        current = current.host;
+      }
+      var isScrollable = elementCouldBeScrolled(axis, current);
+      if (isScrollable) {
+        var _a = getScrollVariables(axis, current), scrollHeight = _a[1], clientHeight = _a[2];
+        if (scrollHeight > clientHeight) {
+          return true;
+        }
+      }
+      current = current.parentNode;
+    } while (current && current !== ownerDocument.body);
+    return false;
+  };
+  var getVScrollVariables = function(_a) {
+    var scrollTop = _a.scrollTop, scrollHeight = _a.scrollHeight, clientHeight = _a.clientHeight;
+    return [
+      scrollTop,
+      scrollHeight,
+      clientHeight
+    ];
+  };
+  var getHScrollVariables = function(_a) {
+    var scrollLeft = _a.scrollLeft, scrollWidth = _a.scrollWidth, clientWidth = _a.clientWidth;
+    return [
+      scrollLeft,
+      scrollWidth,
+      clientWidth
+    ];
+  };
+  var elementCouldBeScrolled = function(axis, node) {
+    return axis === "v" ? elementCouldBeVScrolled(node) : elementCouldBeHScrolled(node);
+  };
+  var getScrollVariables = function(axis, node) {
+    return axis === "v" ? getVScrollVariables(node) : getHScrollVariables(node);
+  };
+  var getDirectionFactor = function(axis, direction) {
+    return axis === "h" && direction === "rtl" ? -1 : 1;
+  };
+  var handleScroll = function(axis, endTarget, event, sourceDelta, noOverscroll) {
+    var directionFactor = getDirectionFactor(axis, window.getComputedStyle(endTarget).direction);
+    var delta = directionFactor * sourceDelta;
+    var target = event.target;
+    var targetInLock = endTarget.contains(target);
+    var shouldCancelScroll = false;
+    var isDeltaPositive = delta > 0;
+    var availableScroll = 0;
+    var availableScrollTop = 0;
+    do {
+      if (!target) {
+        break;
+      }
+      var _a = getScrollVariables(axis, target), position = _a[0], scroll_1 = _a[1], capacity = _a[2];
+      var elementScroll = scroll_1 - capacity - directionFactor * position;
+      if (position || elementScroll) {
+        if (elementCouldBeScrolled(axis, target)) {
+          availableScroll += elementScroll;
+          availableScrollTop += position;
+        }
+      }
+      var parent_1 = target.parentNode;
+      target = parent_1 && parent_1.nodeType === Node.DOCUMENT_FRAGMENT_NODE ? parent_1.host : parent_1;
+    } while (
+      // portaled content
+      !targetInLock && target !== document.body || // self content
+      targetInLock && (endTarget.contains(target) || endTarget === target)
+    );
+    if (isDeltaPositive && (noOverscroll && Math.abs(availableScroll) < 1 || !noOverscroll && delta > availableScroll)) {
+      shouldCancelScroll = true;
+    } else if (!isDeltaPositive && (noOverscroll && Math.abs(availableScrollTop) < 1 || !noOverscroll && -delta > availableScrollTop)) {
+      shouldCancelScroll = true;
+    }
+    return shouldCancelScroll;
+  };
+
+  // node_modules/react-remove-scroll/dist/es2015/SideEffect.js
+  var getTouchXY = function(event) {
+    return "changedTouches" in event ? [event.changedTouches[0].clientX, event.changedTouches[0].clientY] : [0, 0];
+  };
+  var getDeltaXY = function(event) {
+    return [event.deltaX, event.deltaY];
+  };
+  var extractRef = function(ref) {
+    return ref && "current" in ref ? ref.current : ref;
+  };
+  var deltaCompare = function(x, y) {
+    return x[0] === y[0] && x[1] === y[1];
+  };
+  var generateStyle = function(id) {
+    return "\n  .block-interactivity-".concat(id, " {pointer-events: none;}\n  .allow-interactivity-").concat(id, " {pointer-events: all;}\n");
+  };
+  var idCounter = 0;
+  var lockStack = [];
+  function RemoveScrollSideCar(props) {
+    var shouldPreventQueue = React24.useRef([]);
+    var touchStartRef = React24.useRef([0, 0]);
+    var activeAxis = React24.useRef();
+    var id = React24.useState(idCounter++)[0];
+    var Style2 = React24.useState(styleSingleton)[0];
+    var lastProps = React24.useRef(props);
+    React24.useEffect(function() {
+      lastProps.current = props;
+    }, [props]);
+    React24.useEffect(function() {
+      if (props.inert) {
+        document.body.classList.add("block-interactivity-".concat(id));
+        var allow_1 = __spreadArray([props.lockRef.current], (props.shards || []).map(extractRef), true).filter(Boolean);
+        allow_1.forEach(function(el) {
+          return el.classList.add("allow-interactivity-".concat(id));
+        });
+        return function() {
+          document.body.classList.remove("block-interactivity-".concat(id));
+          allow_1.forEach(function(el) {
+            return el.classList.remove("allow-interactivity-".concat(id));
+          });
+        };
+      }
+      return;
+    }, [props.inert, props.lockRef.current, props.shards]);
+    var shouldCancelEvent = React24.useCallback(function(event, parent) {
+      if ("touches" in event && event.touches.length === 2 || event.type === "wheel" && event.ctrlKey) {
+        return !lastProps.current.allowPinchZoom;
+      }
+      var touch = getTouchXY(event);
+      var touchStart = touchStartRef.current;
+      var deltaX = "deltaX" in event ? event.deltaX : touchStart[0] - touch[0];
+      var deltaY = "deltaY" in event ? event.deltaY : touchStart[1] - touch[1];
+      var currentAxis;
+      var target = event.target;
+      var moveDirection = Math.abs(deltaX) > Math.abs(deltaY) ? "h" : "v";
+      if ("touches" in event && moveDirection === "h" && target.type === "range") {
+        return false;
+      }
+      var canBeScrolledInMainDirection = locationCouldBeScrolled(moveDirection, target);
+      if (!canBeScrolledInMainDirection) {
+        return true;
+      }
+      if (canBeScrolledInMainDirection) {
+        currentAxis = moveDirection;
+      } else {
+        currentAxis = moveDirection === "v" ? "h" : "v";
+        canBeScrolledInMainDirection = locationCouldBeScrolled(moveDirection, target);
+      }
+      if (!canBeScrolledInMainDirection) {
+        return false;
+      }
+      if (!activeAxis.current && "changedTouches" in event && (deltaX || deltaY)) {
+        activeAxis.current = currentAxis;
+      }
+      if (!currentAxis) {
+        return true;
+      }
+      var cancelingAxis = activeAxis.current || currentAxis;
+      return handleScroll(cancelingAxis, parent, event, cancelingAxis === "h" ? deltaX : deltaY, true);
+    }, []);
+    var shouldPrevent = React24.useCallback(function(_event) {
+      var event = _event;
+      if (!lockStack.length || lockStack[lockStack.length - 1] !== Style2) {
+        return;
+      }
+      var delta = "deltaY" in event ? getDeltaXY(event) : getTouchXY(event);
+      var sourceEvent = shouldPreventQueue.current.filter(function(e) {
+        return e.name === event.type && (e.target === event.target || event.target === e.shadowParent) && deltaCompare(e.delta, delta);
+      })[0];
+      if (sourceEvent && sourceEvent.should) {
+        if (event.cancelable) {
+          event.preventDefault();
+        }
+        return;
+      }
+      if (!sourceEvent) {
+        var shardNodes = (lastProps.current.shards || []).map(extractRef).filter(Boolean).filter(function(node) {
+          return node.contains(event.target);
+        });
+        var shouldStop = shardNodes.length > 0 ? shouldCancelEvent(event, shardNodes[0]) : !lastProps.current.noIsolation;
+        if (shouldStop) {
+          if (event.cancelable) {
+            event.preventDefault();
+          }
+        }
+      }
+    }, []);
+    var shouldCancel = React24.useCallback(function(name, delta, target, should) {
+      var event = { name, delta, target, should, shadowParent: getOutermostShadowParent(target) };
+      shouldPreventQueue.current.push(event);
+      setTimeout(function() {
+        shouldPreventQueue.current = shouldPreventQueue.current.filter(function(e) {
+          return e !== event;
+        });
+      }, 1);
+    }, []);
+    var scrollTouchStart = React24.useCallback(function(event) {
+      touchStartRef.current = getTouchXY(event);
+      activeAxis.current = void 0;
+    }, []);
+    var scrollWheel = React24.useCallback(function(event) {
+      shouldCancel(event.type, getDeltaXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
+    }, []);
+    var scrollTouchMove = React24.useCallback(function(event) {
+      shouldCancel(event.type, getTouchXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
+    }, []);
+    React24.useEffect(function() {
+      lockStack.push(Style2);
+      props.setCallbacks({
+        onScrollCapture: scrollWheel,
+        onWheelCapture: scrollWheel,
+        onTouchMoveCapture: scrollTouchMove
+      });
+      document.addEventListener("wheel", shouldPrevent, nonPassive);
+      document.addEventListener("touchmove", shouldPrevent, nonPassive);
+      document.addEventListener("touchstart", scrollTouchStart, nonPassive);
+      return function() {
+        lockStack = lockStack.filter(function(inst) {
+          return inst !== Style2;
+        });
+        document.removeEventListener("wheel", shouldPrevent, nonPassive);
+        document.removeEventListener("touchmove", shouldPrevent, nonPassive);
+        document.removeEventListener("touchstart", scrollTouchStart, nonPassive);
+      };
+    }, []);
+    var removeScrollBar = props.removeScrollBar, inert = props.inert;
+    return React24.createElement(
+      React24.Fragment,
+      null,
+      inert ? React24.createElement(Style2, { styles: generateStyle(id) }) : null,
+      removeScrollBar ? React24.createElement(RemoveScrollBar, { noRelative: props.noRelative, gapMode: props.gapMode }) : null
+    );
+  }
+  function getOutermostShadowParent(node) {
+    var shadowParent = null;
+    while (node !== null) {
+      if (node instanceof ShadowRoot) {
+        shadowParent = node.host;
+        node = node.host;
+      }
+      node = node.parentNode;
+    }
+    return shadowParent;
+  }
+
+  // node_modules/react-remove-scroll/dist/es2015/sidecar.js
+  var sidecar_default = exportSidecar(effectCar, RemoveScrollSideCar);
+
+  // node_modules/react-remove-scroll/dist/es2015/Combination.js
+  var ReactRemoveScroll = React25.forwardRef(function(props, ref) {
+    return React25.createElement(RemoveScroll, __assign({}, props, { ref, sideCar: sidecar_default }));
+  });
+  ReactRemoveScroll.classNames = RemoveScroll.classNames;
+  var Combination_default = ReactRemoveScroll;
+
+  // node_modules/aria-hidden/dist/es2015/index.js
+  var getDefaultParent = function(originalTarget) {
+    if (typeof document === "undefined") {
+      return null;
+    }
+    var sampleTarget = Array.isArray(originalTarget) ? originalTarget[0] : originalTarget;
+    return sampleTarget.ownerDocument.body;
+  };
+  var counterMap = /* @__PURE__ */ new WeakMap();
+  var uncontrolledNodes = /* @__PURE__ */ new WeakMap();
+  var markerMap = {};
+  var lockCount = 0;
+  var unwrapHost = function(node) {
+    return node && (node.host || unwrapHost(node.parentNode));
+  };
+  var correctTargets = function(parent, targets) {
+    return targets.map(function(target) {
+      if (parent.contains(target)) {
+        return target;
+      }
+      var correctedTarget = unwrapHost(target);
+      if (correctedTarget && parent.contains(correctedTarget)) {
+        return correctedTarget;
+      }
+      console.error("aria-hidden", target, "in not contained inside", parent, ". Doing nothing");
+      return null;
+    }).filter(function(x) {
+      return Boolean(x);
+    });
+  };
+  var applyAttributeToOthers = function(originalTarget, parentNode, markerName, controlAttribute) {
+    var targets = correctTargets(parentNode, Array.isArray(originalTarget) ? originalTarget : [originalTarget]);
+    if (!markerMap[markerName]) {
+      markerMap[markerName] = /* @__PURE__ */ new WeakMap();
+    }
+    var markerCounter = markerMap[markerName];
+    var hiddenNodes = [];
+    var elementsToKeep = /* @__PURE__ */ new Set();
+    var elementsToStop = new Set(targets);
+    var keep = function(el) {
+      if (!el || elementsToKeep.has(el)) {
+        return;
+      }
+      elementsToKeep.add(el);
+      keep(el.parentNode);
+    };
+    targets.forEach(keep);
+    var deep = function(parent) {
+      if (!parent || elementsToStop.has(parent)) {
+        return;
+      }
+      Array.prototype.forEach.call(parent.children, function(node) {
+        if (elementsToKeep.has(node)) {
+          deep(node);
+        } else {
+          try {
+            var attr = node.getAttribute(controlAttribute);
+            var alreadyHidden = attr !== null && attr !== "false";
+            var counterValue = (counterMap.get(node) || 0) + 1;
+            var markerValue = (markerCounter.get(node) || 0) + 1;
+            counterMap.set(node, counterValue);
+            markerCounter.set(node, markerValue);
+            hiddenNodes.push(node);
+            if (counterValue === 1 && alreadyHidden) {
+              uncontrolledNodes.set(node, true);
+            }
+            if (markerValue === 1) {
+              node.setAttribute(markerName, "true");
+            }
+            if (!alreadyHidden) {
+              node.setAttribute(controlAttribute, "true");
+            }
+          } catch (e) {
+            console.error("aria-hidden: cannot operate on ", node, e);
+          }
+        }
+      });
+    };
+    deep(parentNode);
+    elementsToKeep.clear();
+    lockCount++;
+    return function() {
+      hiddenNodes.forEach(function(node) {
+        var counterValue = counterMap.get(node) - 1;
+        var markerValue = markerCounter.get(node) - 1;
+        counterMap.set(node, counterValue);
+        markerCounter.set(node, markerValue);
+        if (!counterValue) {
+          if (!uncontrolledNodes.has(node)) {
+            node.removeAttribute(controlAttribute);
+          }
+          uncontrolledNodes.delete(node);
+        }
+        if (!markerValue) {
+          node.removeAttribute(markerName);
+        }
+      });
+      lockCount--;
+      if (!lockCount) {
+        counterMap = /* @__PURE__ */ new WeakMap();
+        counterMap = /* @__PURE__ */ new WeakMap();
+        uncontrolledNodes = /* @__PURE__ */ new WeakMap();
+        markerMap = {};
+      }
+    };
+  };
+  var hideOthers = function(originalTarget, parentNode, markerName) {
+    if (markerName === void 0) {
+      markerName = "data-aria-hidden";
+    }
+    var targets = Array.from(Array.isArray(originalTarget) ? originalTarget : [originalTarget]);
+    var activeParentNode = parentNode || getDefaultParent(originalTarget);
+    if (!activeParentNode) {
+      return function() {
+        return null;
+      };
+    }
+    targets.push.apply(targets, Array.from(activeParentNode.querySelectorAll("[aria-live], script")));
+    return applyAttributeToOthers(targets, activeParentNode, markerName, "aria-hidden");
+  };
+
+  // node_modules/@radix-ui/react-dialog/dist/index.mjs
+  var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+  var DIALOG_NAME = "Dialog";
+  var [createDialogContext, createDialogScope] = createContextScope(DIALOG_NAME);
+  var [DialogProvider, useDialogContext] = createDialogContext(DIALOG_NAME);
+  var Dialog = (props) => {
+    const {
+      __scopeDialog,
+      children,
+      open: openProp,
+      defaultOpen,
+      onOpenChange,
+      modal = true
+    } = props;
+    const triggerRef = React26.useRef(null);
+    const contentRef = React26.useRef(null);
+    const [open, setOpen] = useControllableState({
+      prop: openProp,
+      defaultProp: defaultOpen ?? false,
+      onChange: onOpenChange,
+      caller: DIALOG_NAME
+    });
+    return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+      DialogProvider,
+      {
+        scope: __scopeDialog,
+        triggerRef,
+        contentRef,
+        contentId: useId(),
+        titleId: useId(),
+        descriptionId: useId(),
+        open,
+        onOpenChange: setOpen,
+        onOpenToggle: React26.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
+        modal,
+        children
+      }
+    );
+  };
+  Dialog.displayName = DIALOG_NAME;
+  var TRIGGER_NAME = "DialogTrigger";
+  var DialogTrigger = React26.forwardRef(
+    (props, forwardedRef) => {
+      const { __scopeDialog, ...triggerProps } = props;
+      const context = useDialogContext(TRIGGER_NAME, __scopeDialog);
+      const composedTriggerRef = useComposedRefs(forwardedRef, context.triggerRef);
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        Primitive.button,
+        {
+          type: "button",
+          "aria-haspopup": "dialog",
+          "aria-expanded": context.open,
+          "aria-controls": context.contentId,
+          "data-state": getState(context.open),
+          ...triggerProps,
+          ref: composedTriggerRef,
+          onClick: composeEventHandlers(props.onClick, context.onOpenToggle)
+        }
+      );
+    }
+  );
+  DialogTrigger.displayName = TRIGGER_NAME;
+  var PORTAL_NAME2 = "DialogPortal";
+  var [PortalProvider, usePortalContext] = createDialogContext(PORTAL_NAME2, {
+    forceMount: void 0
+  });
+  var DialogPortal = (props) => {
+    const { __scopeDialog, forceMount, children, container } = props;
+    const context = useDialogContext(PORTAL_NAME2, __scopeDialog);
+    return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PortalProvider, { scope: __scopeDialog, forceMount, children: React26.Children.map(children, (child) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Portal, { asChild: true, container, children: child }) })) });
+  };
+  DialogPortal.displayName = PORTAL_NAME2;
+  var OVERLAY_NAME = "DialogOverlay";
+  var DialogOverlay = React26.forwardRef(
+    (props, forwardedRef) => {
+      const portalContext = usePortalContext(OVERLAY_NAME, props.__scopeDialog);
+      const { forceMount = portalContext.forceMount, ...overlayProps } = props;
+      const context = useDialogContext(OVERLAY_NAME, props.__scopeDialog);
+      return context.modal ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(DialogOverlayImpl, { ...overlayProps, ref: forwardedRef }) }) : null;
+    }
+  );
+  DialogOverlay.displayName = OVERLAY_NAME;
+  var Slot2 = createSlot("DialogOverlay.RemoveScroll");
+  var DialogOverlayImpl = React26.forwardRef(
+    (props, forwardedRef) => {
+      const { __scopeDialog, ...overlayProps } = props;
+      const context = useDialogContext(OVERLAY_NAME, __scopeDialog);
+      return (
+        // Make sure `Content` is scrollable even when it doesn't live inside `RemoveScroll`
+        // ie. when `Overlay` and `Content` are siblings
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Combination_default, { as: Slot2, allowPinchZoom: true, shards: [context.contentRef], children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+          Primitive.div,
+          {
+            "data-state": getState(context.open),
+            ...overlayProps,
+            ref: forwardedRef,
+            style: { pointerEvents: "auto", ...overlayProps.style }
+          }
+        ) })
+      );
+    }
+  );
+  var CONTENT_NAME = "DialogContent";
+  var DialogContent = React26.forwardRef(
+    (props, forwardedRef) => {
+      const portalContext = usePortalContext(CONTENT_NAME, props.__scopeDialog);
+      const { forceMount = portalContext.forceMount, ...contentProps } = props;
+      const context = useDialogContext(CONTENT_NAME, props.__scopeDialog);
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Presence, { present: forceMount || context.open, children: context.modal ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(DialogContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(DialogContentNonModal, { ...contentProps, ref: forwardedRef }) });
+    }
+  );
+  DialogContent.displayName = CONTENT_NAME;
+  var DialogContentModal = React26.forwardRef(
+    (props, forwardedRef) => {
+      const context = useDialogContext(CONTENT_NAME, props.__scopeDialog);
+      const contentRef = React26.useRef(null);
+      const composedRefs = useComposedRefs(forwardedRef, context.contentRef, contentRef);
+      React26.useEffect(() => {
+        const content = contentRef.current;
+        if (content) return hideOthers(content);
+      }, []);
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        DialogContentImpl,
+        {
+          ...props,
+          ref: composedRefs,
+          trapFocus: context.open,
+          disableOutsidePointerEvents: true,
+          onCloseAutoFocus: composeEventHandlers(props.onCloseAutoFocus, (event) => {
+            event.preventDefault();
+            context.triggerRef.current?.focus();
+          }),
+          onPointerDownOutside: composeEventHandlers(props.onPointerDownOutside, (event) => {
+            const originalEvent = event.detail.originalEvent;
+            const ctrlLeftClick = originalEvent.button === 0 && originalEvent.ctrlKey === true;
+            const isRightClick = originalEvent.button === 2 || ctrlLeftClick;
+            if (isRightClick) event.preventDefault();
+          }),
+          onFocusOutside: composeEventHandlers(
+            props.onFocusOutside,
+            (event) => event.preventDefault()
+          )
+        }
+      );
+    }
+  );
+  var DialogContentNonModal = React26.forwardRef(
+    (props, forwardedRef) => {
+      const context = useDialogContext(CONTENT_NAME, props.__scopeDialog);
+      const hasInteractedOutsideRef = React26.useRef(false);
+      const hasPointerDownOutsideRef = React26.useRef(false);
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        DialogContentImpl,
+        {
+          ...props,
+          ref: forwardedRef,
+          trapFocus: false,
+          disableOutsidePointerEvents: false,
+          onCloseAutoFocus: (event) => {
+            props.onCloseAutoFocus?.(event);
+            if (!event.defaultPrevented) {
+              if (!hasInteractedOutsideRef.current) context.triggerRef.current?.focus();
+              event.preventDefault();
+            }
+            hasInteractedOutsideRef.current = false;
+            hasPointerDownOutsideRef.current = false;
+          },
+          onInteractOutside: (event) => {
+            props.onInteractOutside?.(event);
+            if (!event.defaultPrevented) {
+              hasInteractedOutsideRef.current = true;
+              if (event.detail.originalEvent.type === "pointerdown") {
+                hasPointerDownOutsideRef.current = true;
+              }
+            }
+            const target = event.target;
+            const targetIsTrigger = context.triggerRef.current?.contains(target);
+            if (targetIsTrigger) event.preventDefault();
+            if (event.detail.originalEvent.type === "focusin" && hasPointerDownOutsideRef.current) {
+              event.preventDefault();
+            }
+          }
+        }
+      );
+    }
+  );
+  var DialogContentImpl = React26.forwardRef(
+    (props, forwardedRef) => {
+      const { __scopeDialog, trapFocus, onOpenAutoFocus, onCloseAutoFocus, ...contentProps } = props;
+      const context = useDialogContext(CONTENT_NAME, __scopeDialog);
+      const contentRef = React26.useRef(null);
+      const composedRefs = useComposedRefs(forwardedRef, contentRef);
+      useFocusGuards();
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+          FocusScope,
+          {
+            asChild: true,
+            loop: true,
+            trapped: trapFocus,
+            onMountAutoFocus: onOpenAutoFocus,
+            onUnmountAutoFocus: onCloseAutoFocus,
+            children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+              DismissableLayer,
+              {
+                role: "dialog",
+                id: context.contentId,
+                "aria-describedby": context.descriptionId,
+                "aria-labelledby": context.titleId,
+                "data-state": getState(context.open),
+                ...contentProps,
+                ref: composedRefs,
+                onDismiss: () => context.onOpenChange(false)
+              }
+            )
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(TitleWarning, { titleId: context.titleId }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(DescriptionWarning, { contentRef, descriptionId: context.descriptionId })
+        ] })
+      ] });
+    }
+  );
+  var TITLE_NAME = "DialogTitle";
+  var DialogTitle = React26.forwardRef(
+    (props, forwardedRef) => {
+      const { __scopeDialog, ...titleProps } = props;
+      const context = useDialogContext(TITLE_NAME, __scopeDialog);
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Primitive.h2, { id: context.titleId, ...titleProps, ref: forwardedRef });
+    }
+  );
+  DialogTitle.displayName = TITLE_NAME;
+  var DESCRIPTION_NAME = "DialogDescription";
+  var DialogDescription = React26.forwardRef(
+    (props, forwardedRef) => {
+      const { __scopeDialog, ...descriptionProps } = props;
+      const context = useDialogContext(DESCRIPTION_NAME, __scopeDialog);
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Primitive.p, { id: context.descriptionId, ...descriptionProps, ref: forwardedRef });
+    }
+  );
+  DialogDescription.displayName = DESCRIPTION_NAME;
+  var CLOSE_NAME = "DialogClose";
+  var DialogClose = React26.forwardRef(
+    (props, forwardedRef) => {
+      const { __scopeDialog, ...closeProps } = props;
+      const context = useDialogContext(CLOSE_NAME, __scopeDialog);
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        Primitive.button,
+        {
+          type: "button",
+          ...closeProps,
+          ref: forwardedRef,
+          onClick: composeEventHandlers(props.onClick, () => context.onOpenChange(false))
+        }
+      );
+    }
+  );
+  DialogClose.displayName = CLOSE_NAME;
+  function getState(open) {
+    return open ? "open" : "closed";
+  }
+  var TITLE_WARNING_NAME = "DialogTitleWarning";
+  var [WarningProvider, useWarningContext] = createContext2(TITLE_WARNING_NAME, {
+    contentName: CONTENT_NAME,
+    titleName: TITLE_NAME,
+    docsSlug: "dialog"
+  });
+  var TitleWarning = ({ titleId }) => {
+    const titleWarningContext = useWarningContext(TITLE_WARNING_NAME);
+    const MESSAGE = `\`${titleWarningContext.contentName}\` requires a \`${titleWarningContext.titleName}\` for the component to be accessible for screen reader users.
+
+If you want to hide the \`${titleWarningContext.titleName}\`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/${titleWarningContext.docsSlug}`;
+    React26.useEffect(() => {
+      if (titleId) {
+        const hasTitle = document.getElementById(titleId);
+        if (!hasTitle) console.error(MESSAGE);
+      }
+    }, [MESSAGE, titleId]);
+    return null;
+  };
+  var DESCRIPTION_WARNING_NAME = "DialogDescriptionWarning";
+  var DescriptionWarning = ({ contentRef, descriptionId }) => {
+    const descriptionWarningContext = useWarningContext(DESCRIPTION_WARNING_NAME);
+    const MESSAGE = `Warning: Missing \`Description\` or \`aria-describedby={undefined}\` for {${descriptionWarningContext.contentName}}.`;
+    React26.useEffect(() => {
+      const describedById = contentRef.current?.getAttribute("aria-describedby");
+      if (descriptionId && describedById) {
+        const hasDescription = document.getElementById(descriptionId);
+        if (!hasDescription) console.warn(MESSAGE);
+      }
+    }, [MESSAGE, contentRef, descriptionId]);
+    return null;
+  };
+  var Root = Dialog;
+  var Portal2 = DialogPortal;
+  var Overlay = DialogOverlay;
+  var Content = DialogContent;
+  var Title = DialogTitle;
+  var Description = DialogDescription;
+  var Close = DialogClose;
+
+  // src/components/ui/dialog.tsx
+  var import_jsx_runtime10 = __toESM(require_jsx_runtime());
+  var Dialog2 = Root;
+  var DialogPortal2 = Portal2;
+  var DialogOverlay2 = React27.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    Overlay,
+    {
+      ref,
+      className: cn(
+        "fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+        className
+      ),
+      ...props
+    }
+  ));
+  DialogOverlay2.displayName = Overlay.displayName;
+  var DialogContent2 = React27.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(DialogPortal2, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(DialogOverlay2, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+      Content,
+      {
+        ref,
+        className: cn(
+          "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg",
+          className
+        ),
+        ...props,
+        children: [
+          children,
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(Close, { className: "absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(X, { className: "h-4 w-4" }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "sr-only", children: "Close" })
+          ] })
+        ]
+      }
+    )
+  ] }));
+  DialogContent2.displayName = Content.displayName;
+  var DialogHeader = ({
+    className,
+    ...props
+  }) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    "div",
+    {
+      className: cn(
+        "flex flex-col space-y-1.5 text-center sm:text-left",
+        className
+      ),
+      ...props
+    }
+  );
+  DialogHeader.displayName = "DialogHeader";
+  var DialogFooter = ({
+    className,
+    ...props
+  }) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    "div",
+    {
+      className: cn(
+        "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
+        className
+      ),
+      ...props
+    }
+  );
+  DialogFooter.displayName = "DialogFooter";
+  var DialogTitle2 = React27.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    Title,
+    {
+      ref,
+      className: cn(
+        "text-lg font-semibold leading-none tracking-tight",
+        className
+      ),
+      ...props
+    }
+  ));
+  DialogTitle2.displayName = Title.displayName;
+  var DialogDescription2 = React27.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    Description,
+    {
+      ref,
+      className: cn("text-sm text-muted-foreground", className),
+      ...props
+    }
+  ));
+  DialogDescription2.displayName = Description.displayName;
+
+  // src/components/ui/switch.tsx
+  var React31 = __toESM(require_react());
+
+  // node_modules/@radix-ui/react-switch/dist/index.mjs
+  var React30 = __toESM(require_react(), 1);
+
+  // node_modules/@radix-ui/react-use-previous/dist/index.mjs
+  var React28 = __toESM(require_react(), 1);
+  function usePrevious(value) {
+    const ref = React28.useRef({ value, previous: value });
+    return React28.useMemo(() => {
+      if (ref.current.value !== value) {
+        ref.current.previous = ref.current.value;
+        ref.current.value = value;
+      }
+      return ref.current.previous;
+    }, [value]);
+  }
+
+  // node_modules/@radix-ui/react-use-size/dist/index.mjs
+  var React29 = __toESM(require_react(), 1);
+  function useSize(element) {
+    const [size4, setSize] = React29.useState(void 0);
+    useLayoutEffect2(() => {
+      if (element) {
+        setSize({ width: element.offsetWidth, height: element.offsetHeight });
+        const resizeObserver = new ResizeObserver((entries) => {
+          if (!Array.isArray(entries)) {
+            return;
+          }
+          if (!entries.length) {
+            return;
+          }
+          const entry = entries[0];
+          let width;
+          let height;
+          if ("borderBoxSize" in entry) {
+            const borderSizeEntry = entry["borderBoxSize"];
+            const borderSize = Array.isArray(borderSizeEntry) ? borderSizeEntry[0] : borderSizeEntry;
+            width = borderSize["inlineSize"];
+            height = borderSize["blockSize"];
+          } else {
+            width = element.offsetWidth;
+            height = element.offsetHeight;
+          }
+          setSize({ width, height });
+        });
+        resizeObserver.observe(element, { box: "border-box" });
+        return () => resizeObserver.unobserve(element);
+      } else {
+        setSize(void 0);
+      }
+    }, [element]);
+    return size4;
+  }
+
+  // node_modules/@radix-ui/react-switch/dist/index.mjs
+  var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+  var SWITCH_NAME = "Switch";
+  var [createSwitchContext, createSwitchScope] = createContextScope(SWITCH_NAME);
+  var [SwitchProvider, useSwitchContext] = createSwitchContext(SWITCH_NAME);
+  var Switch = React30.forwardRef(
+    (props, forwardedRef) => {
+      const {
+        __scopeSwitch,
+        name,
+        checked: checkedProp,
+        defaultChecked,
+        required,
+        disabled,
+        value = "on",
+        onCheckedChange,
+        form,
+        ...switchProps
+      } = props;
+      const [button, setButton] = React30.useState(null);
+      const composedRefs = useComposedRefs(forwardedRef, (node) => setButton(node));
+      const hasConsumerStoppedPropagationRef = React30.useRef(false);
+      const isFormControl = button ? form || !!button.closest("form") : true;
+      const [checked, setChecked] = useControllableState({
+        prop: checkedProp,
+        defaultProp: defaultChecked ?? false,
+        onChange: onCheckedChange,
+        caller: SWITCH_NAME
+      });
+      return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(SwitchProvider, { scope: __scopeSwitch, checked, disabled, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          Primitive.button,
+          {
+            type: "button",
+            role: "switch",
+            "aria-checked": checked,
+            "aria-required": required,
+            "data-state": getState2(checked),
+            "data-disabled": disabled ? "" : void 0,
+            disabled,
+            value,
+            ...switchProps,
+            ref: composedRefs,
+            onClick: composeEventHandlers(props.onClick, (event) => {
+              setChecked((prevChecked) => !prevChecked);
+              if (isFormControl) {
+                hasConsumerStoppedPropagationRef.current = event.isPropagationStopped();
+                if (!hasConsumerStoppedPropagationRef.current) event.stopPropagation();
+              }
+            })
+          }
+        ),
+        isFormControl && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          SwitchBubbleInput,
+          {
+            control: button,
+            bubbles: !hasConsumerStoppedPropagationRef.current,
+            name,
+            value,
+            checked,
+            required,
+            disabled,
+            form,
+            style: { transform: "translateX(-100%)" }
+          }
+        )
+      ] });
+    }
+  );
+  Switch.displayName = SWITCH_NAME;
+  var THUMB_NAME = "SwitchThumb";
+  var SwitchThumb = React30.forwardRef(
+    (props, forwardedRef) => {
+      const { __scopeSwitch, ...thumbProps } = props;
+      const context = useSwitchContext(THUMB_NAME, __scopeSwitch);
+      return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        Primitive.span,
+        {
+          "data-state": getState2(context.checked),
+          "data-disabled": context.disabled ? "" : void 0,
+          ...thumbProps,
+          ref: forwardedRef
+        }
+      );
+    }
+  );
+  SwitchThumb.displayName = THUMB_NAME;
+  var BUBBLE_INPUT_NAME = "SwitchBubbleInput";
+  var SwitchBubbleInput = React30.forwardRef(
+    ({
+      __scopeSwitch,
+      control,
+      checked,
+      bubbles = true,
+      ...props
+    }, forwardedRef) => {
+      const ref = React30.useRef(null);
+      const composedRefs = useComposedRefs(ref, forwardedRef);
+      const prevChecked = usePrevious(checked);
+      const controlSize = useSize(control);
+      React30.useEffect(() => {
+        const input = ref.current;
+        if (!input) return;
+        const inputProto = window.HTMLInputElement.prototype;
+        const descriptor = Object.getOwnPropertyDescriptor(
+          inputProto,
+          "checked"
+        );
+        const setChecked = descriptor.set;
+        if (prevChecked !== checked && setChecked) {
+          const event = new Event("click", { bubbles });
+          setChecked.call(input, checked);
+          input.dispatchEvent(event);
+        }
+      }, [prevChecked, checked, bubbles]);
+      return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        "input",
+        {
+          type: "checkbox",
+          "aria-hidden": true,
+          defaultChecked: checked,
+          ...props,
+          tabIndex: -1,
+          ref: composedRefs,
+          style: {
+            ...props.style,
+            ...controlSize,
+            position: "absolute",
+            pointerEvents: "none",
+            opacity: 0,
+            margin: 0
+          }
+        }
+      );
+    }
+  );
+  SwitchBubbleInput.displayName = BUBBLE_INPUT_NAME;
+  function getState2(checked) {
+    return checked ? "checked" : "unchecked";
+  }
+  var Root2 = Switch;
+  var Thumb = SwitchThumb;
+
+  // src/components/ui/switch.tsx
+  var import_jsx_runtime12 = __toESM(require_jsx_runtime());
+  var Switch2 = React31.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+    Root2,
+    {
+      className: cn(
+        "peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
+        className
+      ),
+      ...props,
+      ref,
+      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+        Thumb,
+        {
+          className: cn(
+            "pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0"
+          )
+        }
+      )
+    }
+  ));
+  Switch2.displayName = Root2.displayName;
+
+  // src/components/ui/label.tsx
+  var React33 = __toESM(require_react());
+
+  // node_modules/@radix-ui/react-label/dist/index.mjs
+  var React32 = __toESM(require_react(), 1);
+  var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
+  var NAME = "Label";
+  var Label = React32.forwardRef((props, forwardedRef) => {
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+      Primitive.label,
+      {
+        ...props,
+        ref: forwardedRef,
+        onMouseDown: (event) => {
+          const target = event.target;
+          if (target.closest("button, input, select, textarea")) return;
+          props.onMouseDown?.(event);
+          if (!event.defaultPrevented && event.detail > 1) event.preventDefault();
+        }
+      }
+    );
+  });
+  Label.displayName = NAME;
+  var Root3 = Label;
+
+  // src/components/ui/label.tsx
+  var import_jsx_runtime14 = __toESM(require_jsx_runtime());
+  var labelVariants = cva(
+    "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+  );
+  var Label2 = React33.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    Root3,
+    {
+      ref,
+      className: cn(labelVariants(), className),
+      ...props
+    }
+  ));
+  Label2.displayName = Root3.displayName;
+
+  // src/components/ui/separator.tsx
+  var React35 = __toESM(require_react());
+
+  // node_modules/@radix-ui/react-separator/dist/index.mjs
+  var React34 = __toESM(require_react(), 1);
+  var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
+  var NAME2 = "Separator";
+  var DEFAULT_ORIENTATION = "horizontal";
+  var ORIENTATIONS = ["horizontal", "vertical"];
+  var Separator = React34.forwardRef((props, forwardedRef) => {
+    const { decorative, orientation: orientationProp = DEFAULT_ORIENTATION, ...domProps } = props;
+    const orientation = isValidOrientation(orientationProp) ? orientationProp : DEFAULT_ORIENTATION;
+    const ariaOrientation = orientation === "vertical" ? orientation : void 0;
+    const semanticProps = decorative ? { role: "none" } : { "aria-orientation": ariaOrientation, role: "separator" };
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+      Primitive.div,
+      {
+        "data-orientation": orientation,
+        ...semanticProps,
+        ...domProps,
+        ref: forwardedRef
+      }
+    );
+  });
+  Separator.displayName = NAME2;
+  function isValidOrientation(orientation) {
+    return ORIENTATIONS.includes(orientation);
+  }
+  var Root4 = Separator;
+
+  // src/components/ui/separator.tsx
+  var import_jsx_runtime16 = __toESM(require_jsx_runtime());
+  var Separator2 = React35.forwardRef(
+    ({ className, orientation = "horizontal", decorative = true, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+      Root4,
+      {
+        ref,
+        decorative,
+        orientation,
+        className: cn(
+          "shrink-0 bg-border",
+          orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
+          className
+        ),
+        ...props
+      }
+    )
+  );
+  Separator2.displayName = Root4.displayName;
+
+  // src/hooks/use-cookies.ts
+  var import_react6 = __toESM(require_react());
+
+  // src/utils/cookies.ts
+  var setCookie = (name, value, options = {}) => {
+    let cookieString = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
+    if (options.maxAge) {
+      cookieString += `; max-age=${options.maxAge}`;
+    }
+    if (options.path) {
+      cookieString += `; path=${options.path}`;
+    } else {
+      cookieString += "; path=/";
+    }
+    document.cookie = cookieString;
+  };
+  var getCookie = (name) => {
+    const nameEQ = encodeURIComponent(name) + "=";
+    const cookies = document.cookie.split(";");
+    for (let cookie of cookies) {
+      cookie = cookie.trim();
+      if (cookie.indexOf(nameEQ) === 0) {
+        return decodeURIComponent(cookie.substring(nameEQ.length));
+      }
+    }
+    return null;
+  };
+  var deleteCookie = (name) => {
+    setCookie(name, "", { maxAge: 0 });
+  };
+  var areCookiesEnabled = () => {
+    try {
+      setCookie("test", "test");
+      const enabled = getCookie("test") === "test";
+      deleteCookie("test");
+      return enabled;
+    } catch {
+      return false;
+    }
+  };
+
+  // src/hooks/use-cookies.ts
+  var useCookies = (options = {}) => {
+    const { enabled = true, onError } = options;
+    const [isSupported, setIsSupported] = (0, import_react6.useState)(false);
+    (0, import_react6.useEffect)(() => {
+      if (enabled) {
+        setIsSupported(areCookiesEnabled());
+      }
+    }, [enabled]);
+    const setCookieValue = (0, import_react6.useCallback)((name, value, cookieOptions) => {
+      if (!enabled || !isSupported) {
+        onError?.(new Error("Cookies are not supported or disabled"));
+        return false;
+      }
+      try {
+        setCookie(name, value, cookieOptions);
+        return true;
+      } catch (error) {
+        onError?.(error);
+        return false;
+      }
+    }, [enabled, isSupported, onError]);
+    const getCookieValue = (0, import_react6.useCallback)((name) => {
+      if (!enabled || !isSupported) {
+        return null;
+      }
+      try {
+        return getCookie(name);
+      } catch (error) {
+        onError?.(error);
+        return null;
+      }
+    }, [enabled, isSupported, onError]);
+    const removeCookie = (0, import_react6.useCallback)((name, path) => {
+      if (!enabled || !isSupported) {
+        return false;
+      }
+      try {
+        deleteCookie(name, path);
+        return true;
+      } catch (error) {
+        onError?.(error);
+        return false;
+      }
+    }, [enabled, isSupported, onError]);
+    return {
+      isSupported,
+      setCookie: setCookieValue,
+      getCookie: getCookieValue,
+      removeCookie,
+      areCookiesEnabled: () => isSupported
+    };
+  };
+
+  // src/components/Layout/CookieSettings.tsx
+  var import_jsx_runtime17 = __toESM(require_jsx_runtime());
+  var CookieSettings = ({ isOpen, onClose }) => {
+    const { setCookie: setCookie2, getCookie: getCookie2 } = useCookies();
+    const [settings, setSettings] = (0, import_react7.useState)({
+      necessary: true,
+      // Always true, can't be disabled
+      analytics: false,
+      functional: false
+    });
+    (0, import_react7.useEffect)(() => {
+      if (isOpen) {
+        const analytics = getCookie2("analytics_consent") === "true";
+        const functional = getCookie2("functional_consent") === "true";
+        setSettings({
+          necessary: true,
+          analytics,
+          functional
+        });
+      }
+    }, [isOpen, getCookie2]);
+    const handleSave = () => {
+      setCookie2("analytics_consent", settings.analytics ? "true" : "false", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      setCookie2("functional_consent", settings.functional ? "true" : "false", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      setCookie2("cookie_consent", "custom", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      onClose();
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Dialog2, { open: isOpen, onOpenChange: onClose, children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(DialogContent2, { className: "max-w-md", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(DialogHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(DialogTitle2, { className: "flex items-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Settings, { className: "w-5 h-5 mr-2" }),
+        "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u0444\u0430\u0439\u043B\u043E\u0432 cookie"
+      ] }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "space-y-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "space-y-3", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex items-center justify-between", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Label2, { className: "text-base font-medium", children: "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B\u0435 \u0444\u0430\u0439\u043B\u044B cookie" }),
+            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-sm text-gray-600 mt-1", children: "\u0422\u0440\u0435\u0431\u0443\u044E\u0442\u0441\u044F \u0434\u043B\u044F \u0431\u0430\u0437\u043E\u0432\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u044B \u0441\u0430\u0439\u0442\u0430" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Switch2, { checked: settings.necessary, disabled: true })
+        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Separator2, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "space-y-3", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex items-center justify-between", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Label2, { className: "text-base font-medium", children: "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0435 \u0444\u0430\u0439\u043B\u044B cookie" }),
+            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-sm text-gray-600 mt-1", children: "\u041F\u043E\u043C\u043E\u0433\u0430\u044E\u0442 \u0430\u043D\u0430\u043B\u0438\u0437\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435 \u0441\u0430\u0439\u0442\u0430" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+            Switch2,
+            {
+              checked: settings.analytics,
+              onCheckedChange: (checked) => setSettings((prev) => ({ ...prev, analytics: checked }))
+            }
+          )
+        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Separator2, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "space-y-3", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex items-center justify-between", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Label2, { className: "text-base font-medium", children: "\u0424\u0443\u043D\u043A\u0446\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0435 \u0444\u0430\u0439\u043B\u044B cookie" }),
+            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-sm text-gray-600 mt-1", children: "\u0421\u043E\u0445\u0440\u0430\u043D\u044F\u044E\u0442 \u0432\u0430\u0448\u0438 \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u0438 \u043F\u0440\u0435\u0434\u043F\u043E\u0447\u0442\u0435\u043D\u0438\u044F" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+            Switch2,
+            {
+              checked: settings.functional,
+              onCheckedChange: (checked) => setSettings((prev) => ({ ...prev, functional: checked }))
+            }
+          )
+        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex gap-3 pt-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(Button, { onClick: handleSave, className: "flex-1", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Save, { className: "w-4 h-4 mr-2" }),
+            "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Button, { variant: "outline", onClick: onClose, children: "\u041E\u0442\u043C\u0435\u043D\u0430" })
+        ] })
+      ] })
+    ] }) });
+  };
+
+  // src/components/Layout/Footer.tsx
+  var import_jsx_runtime18 = __toESM(require_jsx_runtime());
   function Footer() {
     const currentYear = (/* @__PURE__ */ new Date()).getFullYear();
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("footer", { className: "bg-gray-900 text-gray-300 py-8 mt-auto", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "container mx-auto px-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h3", { className: "text-white font-semibold mb-3", children: "\u041E \u043F\u0440\u043E\u0435\u043A\u0442\u0435" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "text-sm", children: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440\u0430 \u041E\u0422\u041A - \u0441\u043E\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u044B\u0439 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442 \u0434\u043B\u044F \u0440\u0430\u0441\u0447\u0435\u0442\u043E\u0432 \u0438 \u0438\u0437\u043C\u0435\u0440\u0435\u043D\u0438\u0439 \u0432 \u043E\u0431\u043B\u0430\u0441\u0442\u0438 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044F \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0430." })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h3", { className: "text-white font-semibold mb-3", children: "\u0411\u044B\u0441\u0442\u0440\u044B\u0435 \u0441\u0441\u044B\u043B\u043A\u0438" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("ul", { className: "space-y-1 text-sm", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("a", { href: "#home", className: "hover:text-blue-400 transition-colors", children: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("a", { href: "#ost22", className: "hover:text-blue-400 transition-colors", children: "\u041E\u0421\u0422 22" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("a", { href: "#tolerances", className: "hover:text-blue-400 transition-colors", children: "\u0414\u043E\u043F\u0443\u0441\u043A\u0438 \u0438 \u043F\u043E\u0441\u0430\u0434\u043A\u0438" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("a", { href: "#thread", className: "hover:text-blue-400 transition-colors", children: "\u041C\u0435\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u0430\u044F \u0440\u0435\u0437\u044C\u0431\u0430" }) })
+    const [showCookieSettings, setShowCookieSettings] = (0, import_react8.useState)(false);
+    return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(import_jsx_runtime18.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("footer", { className: "bg-gray-900 text-gray-300 py-8 mt-auto", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "container mx-auto px-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h3", { className: "text-white font-semibold mb-3", children: "\u041E \u043F\u0440\u043E\u0435\u043A\u0442\u0435" }),
+            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-sm", children: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440\u0430 \u041E\u0422\u041A - \u0441\u043E\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u044B\u0439 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442 \u0434\u043B\u044F \u0440\u0430\u0441\u0447\u0435\u0442\u043E\u0432 \u0438 \u0438\u0437\u043C\u0435\u0440\u0435\u043D\u0438\u0439 \u0432 \u043E\u0431\u043B\u0430\u0441\u0442\u0438 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044F \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0430." })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h3", { className: "text-white font-semibold mb-3", children: "\u0411\u044B\u0441\u0442\u0440\u044B\u0435 \u0441\u0441\u044B\u043B\u043A\u0438" }),
+            /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("ul", { className: "space-y-1 text-sm", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("a", { href: "#home", className: "hover:text-blue-400 transition-colors", children: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("a", { href: "#ost22", className: "hover:text-blue-400 transition-colors", children: "\u041E\u0421\u0422 22" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("a", { href: "#tolerances", className: "hover:text-blue-400 transition-colors", children: "\u0414\u043E\u043F\u0443\u0441\u043A\u0438 \u0438 \u043F\u043E\u0441\u0430\u0434\u043A\u0438" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("a", { href: "#thread", className: "hover:text-blue-400 transition-colors", children: "\u041C\u0435\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u0430\u044F \u0440\u0435\u0437\u044C\u0431\u0430" }) })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h3", { className: "text-white font-semibold mb-3", children: "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B" }),
+            /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("p", { className: "text-sm", children: [
+              "email@example.com",
+              /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("br", {}),
+              "\u041E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u043E: ",
+              (/* @__PURE__ */ new Date()).toLocaleDateString("ru-RU")
+            ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h3", { className: "text-white font-semibold mb-3", children: "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("p", { className: "text-sm", children: [
-            "email@example.com",
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("br", {}),
-            "\u041E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u043E: ",
-            (/* @__PURE__ */ new Date()).toLocaleDateString("ru-RU")
-          ] })
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "border-t border-gray-700 mt-6 pt-6 flex flex-col sm:flex-row justify-between items-center", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("p", { className: "text-sm", children: [
+            "\xA9 ",
+            currentYear,
+            " \u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440\u0430 \u041E\u0422\u041A. \u0412\u0441\u0435 \u043F\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B."
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
+            Button,
+            {
+              variant: "ghost",
+              size: "sm",
+              onClick: () => setShowCookieSettings(true),
+              className: "text-gray-300 hover:text-white mt-2 sm:mt-0",
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Settings, { className: "w-4 h-4 mr-2" }),
+                "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 cookie"
+              ]
+            }
+          )
         ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "border-t border-gray-700 mt-6 pt-6 text-center", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("p", { className: "text-sm", children: [
-        "\xA9 ",
-        currentYear,
-        " \u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440\u0430 \u041E\u0422\u041A. \u0412\u0441\u0435 \u043F\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B."
-      ] }) })
-    ] }) });
+      ] }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+        CookieSettings,
+        {
+          isOpen: showCookieSettings,
+          onClose: () => setShowCookieSettings(false)
+        }
+      )
+    ] });
   }
 
   // src/components/SEO/FaviconTags.tsx
-  var import_react5 = __toESM(require_react());
+  var import_react9 = __toESM(require_react());
   function FaviconTags() {
-    (0, import_react5.useEffect)(() => {
+    (0, import_react9.useEffect)(() => {
       const existingLinks = document.querySelectorAll('link[rel*="icon"], link[rel*="apple-touch-icon"], link[rel="manifest"]');
       existingLinks.forEach((link) => link.remove());
       const faviconLinks = [
@@ -28446,7 +31058,7 @@
   }
 
   // src/components/SEO/SEOMetaTags.tsx
-  var import_react6 = __toESM(require_react());
+  var import_react10 = __toESM(require_react());
   function SEOMetaTags({
     title = "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440\u0430 \u041E\u0422\u041A - \u041F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0447\u0435\u0442\u044B \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A",
     description = "\u041F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442 \u0434\u043B\u044F \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440\u043E\u0432 \u041E\u0422\u041A. \u0420\u0430\u0441\u0447\u0435\u0442\u044B \u043F\u043E \u041E\u0421\u0422 22, \u0413\u041E\u0421\u0422 25347-82, \u043C\u0435\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u0440\u0435\u0437\u044C\u0431\u044B \u0438 \u0444\u0430\u0441\u043E\u043A. \u0422\u043E\u0447\u043D\u044B\u0435 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0435 \u0432\u044B\u0447\u0438\u0441\u043B\u0435\u043D\u0438\u044F \u0441 \u043C\u0433\u043D\u043E\u0432\u0435\u043D\u043D\u044B\u043C\u0438 \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u0430\u043C\u0438.",
@@ -28457,7 +31069,7 @@
     calculatorType,
     lastModified = (/* @__PURE__ */ new Date()).toISOString()
   }) {
-    (0, import_react6.useEffect)(() => {
+    (0, import_react10.useEffect)(() => {
       const metaSelectors = [
         'meta[name="description"]',
         'meta[name="keywords"]',
@@ -28729,10 +31341,10 @@
   }
 
   // src/components/Dev/SEODev.tsx
-  var import_react7 = __toESM(require_react());
+  var import_react11 = __toESM(require_react());
 
   // src/components/ui/badge.tsx
-  var import_jsx_runtime5 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime19 = __toESM(require_jsx_runtime());
   var badgeVariants = cva(
     "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
     {
@@ -28750,7 +31362,7 @@
     }
   );
   function Badge({ className, variant, ...props }) {
-    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: cn(badgeVariants({ variant }), className), ...props });
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: cn(badgeVariants({ variant }), className), ...props });
   }
 
   // src/utils/sitemapGenerator.ts
@@ -28962,19 +31574,19 @@ ${xmlEntries}
   };
 
   // src/components/Dev/SEODev.tsx
-  var import_jsx_runtime6 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime20 = __toESM(require_jsx_runtime());
   function SEODev() {
-    const [isVisible, setIsVisible] = (0, import_react7.useState)(false);
-    const [activeTab, setActiveTab] = (0, import_react7.useState)("seo");
+    const [isVisible, setIsVisible] = (0, import_react11.useState)(false);
+    const [activeTab, setActiveTab] = (0, import_react11.useState)("seo");
     if (!isVisible) {
-      return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "fixed bottom-4 right-20 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+      return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "fixed bottom-4 right-20 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
         Button,
         {
           onClick: () => setIsVisible(true),
           className: "bg-purple-600 hover:bg-purple-700 text-white shadow-lg",
           size: "sm",
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Search, { className: "w-4 h-4 mr-2" }),
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Search, { className: "w-4 h-4 mr-2" }),
             "SEO"
           ]
         }
@@ -29005,13 +31617,13 @@ ${xmlEntries}
       const aiData = generateAISitemapJSON(baseUrl);
       navigator.clipboard.writeText(JSON.stringify(aiData, null, 2));
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "fixed bottom-4 right-4 z-50 w-96 max-h-[600px] overflow-hidden bg-white border rounded-lg shadow-xl", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center justify-between p-3 bg-purple-600 text-white", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Search, { className: "w-4 h-4" }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "font-semibold", children: "SEO Dev Tools" })
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "fixed bottom-4 right-4 z-50 w-96 max-h-[600px] overflow-hidden bg-white border rounded-lg shadow-xl", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex items-center justify-between p-3 bg-purple-600 text-white", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex items-center gap-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Search, { className: "w-4 h-4" }),
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { className: "font-semibold", children: "SEO Dev Tools" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
           Button,
           {
             onClick: () => setIsVisible(false),
@@ -29022,69 +31634,69 @@ ${xmlEntries}
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "flex border-b", children: ["seo", "ai", "sitemap"].map((tab) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "flex border-b", children: ["seo", "ai", "sitemap"].map((tab) => /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
         "button",
         {
           onClick: () => setActiveTab(tab),
           className: `flex-1 px-3 py-2 text-sm font-medium capitalize ${activeTab === tab ? "bg-purple-50 text-purple-600 border-b-2 border-purple-600" : "text-gray-600 hover:bg-gray-50"}`,
           children: [
-            tab === "seo" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Eye, { className: "w-4 h-4 mr-1" }),
-            tab === "ai" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Bot, { className: "w-4 h-4 mr-1" }),
-            tab === "sitemap" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Globe, { className: "w-4 h-4 mr-1" }),
+            tab === "seo" && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Eye, { className: "w-4 h-4 mr-1" }),
+            tab === "ai" && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Bot, { className: "w-4 h-4 mr-1" }),
+            tab === "sitemap" && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Globe, { className: "w-4 h-4 mr-1" }),
             tab.toUpperCase()
           ]
         },
         tab
       )) }),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "p-4 max-h-[500px] overflow-y-auto", children: [
-        activeTab === "seo" && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "Meta Tags Status" }),
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-2 text-xs", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Title:" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { variant: seoData.title !== "Missing" ? "default" : "destructive", children: seoData.title !== "Missing" ? "OK" : "Missing" })
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "p-4 max-h-[500px] overflow-y-auto", children: [
+        activeTab === "seo" && /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "space-y-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "Meta Tags Status" }),
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "space-y-2 text-xs", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "Title:" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { variant: seoData.title !== "Missing" ? "default" : "destructive", children: seoData.title !== "Missing" ? "OK" : "Missing" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Description:" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { variant: seoData.description !== "Missing" ? "default" : "destructive", children: seoData.description !== "Missing" ? "OK" : "Missing" })
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "Description:" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { variant: seoData.description !== "Missing" ? "default" : "destructive", children: seoData.description !== "Missing" ? "OK" : "Missing" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Keywords:" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { variant: seoData.keywords !== "Missing" ? "default" : "destructive", children: seoData.keywords !== "Missing" ? "OK" : "Missing" })
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "Keywords:" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { variant: seoData.keywords !== "Missing" ? "default" : "destructive", children: seoData.keywords !== "Missing" ? "OK" : "Missing" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Canonical:" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { variant: seoData.canonical !== "Missing" ? "default" : "destructive", children: seoData.canonical !== "Missing" ? "OK" : "Missing" })
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "Canonical:" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { variant: seoData.canonical !== "Missing" ? "default" : "destructive", children: seoData.canonical !== "Missing" ? "OK" : "Missing" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Open Graph:" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { variant: seoData.ogTitle !== "Missing" ? "default" : "destructive", children: seoData.ogTitle !== "Missing" ? "OK" : "Missing" })
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "Open Graph:" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { variant: seoData.ogTitle !== "Missing" ? "default" : "destructive", children: seoData.ogTitle !== "Missing" ? "OK" : "Missing" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Structured Data:" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(Badge, { variant: seoData.structuredData > 0 ? "default" : "destructive", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "Structured Data:" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(Badge, { variant: seoData.structuredData > 0 ? "default" : "destructive", children: [
                   seoData.structuredData,
                   " schemas"
                 ] })
               ] })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "Current Page Data" }),
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "bg-gray-50 p-2 rounded text-xs", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "mb-1", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: "URL:" }),
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "Current Page Data" }),
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "bg-gray-50 p-2 rounded text-xs", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "mb-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("strong", { children: "URL:" }),
                 " ",
                 currentUrl
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "mb-1", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: "Title:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "mb-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("strong", { children: "Title:" }),
                 " ",
                 seoData.title
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: "Description:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("strong", { children: "Description:" }),
                 " ",
                 seoData.description.substring(0, 100),
                 "..."
@@ -29092,101 +31704,101 @@ ${xmlEntries}
             ] })
           ] })
         ] }),
-        activeTab === "ai" && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "AI Crawler Status" }),
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-2 text-xs", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "AI Crawlers:" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { variant: seoData.aiCrawlers !== "Missing" ? "default" : "destructive", children: seoData.aiCrawlers })
+        activeTab === "ai" && /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "space-y-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "AI Crawler Status" }),
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "space-y-2 text-xs", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "AI Crawlers:" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { variant: seoData.aiCrawlers !== "Missing" ? "default" : "destructive", children: seoData.aiCrawlers })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Training Data:" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { variant: "default", children: "Available" })
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "Training Data:" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { variant: "default", children: "Available" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Domain Expertise:" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { variant: "default", children: AI_DOMAIN_EXPERTISE.primaryDomain })
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "Domain Expertise:" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { variant: "default", children: AI_DOMAIN_EXPERTISE.primaryDomain })
               ] })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "AI Training Keywords" }),
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "flex flex-wrap gap-1", children: AI_TRAINING_KEYWORDS.slice(0, 8).map((keyword, index2) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { variant: "outline", className: "text-xs", children: keyword }, index2)) })
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "AI Training Keywords" }),
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "flex flex-wrap gap-1", children: AI_TRAINING_KEYWORDS.slice(0, 8).map((keyword, index2) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { variant: "outline", className: "text-xs", children: keyword }, index2)) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "Standards Coverage" }),
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "space-y-1 text-xs", children: AI_DOMAIN_EXPERTISE.standards.map((standard, index2) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "text-green-600", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "Standards Coverage" }),
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "space-y-1 text-xs", children: AI_DOMAIN_EXPERTISE.standards.map((standard, index2) => /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "text-green-600", children: [
               "\u2713 ",
               standard
             ] }, index2)) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
             Button,
             {
               onClick: handleCopyAIData,
               size: "sm",
               className: "w-full",
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Bot, { className: "w-4 h-4 mr-2" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Bot, { className: "w-4 h-4 mr-2" }),
                 "Copy AI Training Data"
               ]
             }
           )
         ] }),
-        activeTab === "sitemap" && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "Sitemap Information" }),
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "bg-gray-50 p-2 rounded text-xs", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "mb-1", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: "Base URL:" }),
+        activeTab === "sitemap" && /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "space-y-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "Sitemap Information" }),
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "bg-gray-50 p-2 rounded text-xs", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "mb-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("strong", { children: "Base URL:" }),
                 " ",
                 baseUrl
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "mb-1", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: "Pages:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "mb-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("strong", { children: "Pages:" }),
                 " 5 main sections"
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: "Last Updated:" }),
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("strong", { children: "Last Updated:" }),
                 " ",
                 (/* @__PURE__ */ new Date()).toLocaleDateString()
               ] })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "Page Priorities" }),
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "space-y-1 text-xs", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Home" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { children: "1.0" })
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h3", { className: "font-semibold text-sm mb-2", children: "Page Priorities" }),
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "space-y-1 text-xs", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "Home" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { children: "1.0" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "OST 22" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { variant: "secondary", children: "0.9" })
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "OST 22" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { variant: "secondary", children: "0.9" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Tolerances" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { variant: "secondary", children: "0.9" })
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "Tolerances" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { variant: "secondary", children: "0.9" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Thread" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { variant: "outline", children: "0.8" })
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "Thread" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { variant: "outline", children: "0.8" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "flex justify-between", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Chamfer" }),
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Badge, { variant: "outline", children: "0.8" })
+              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex justify-between", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { children: "Chamfer" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Badge, { variant: "outline", children: "0.8" })
               ] })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
             Button,
             {
               onClick: handleDownloadSitemap,
               size: "sm",
               className: "w-full",
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Download, { className: "w-4 h-4 mr-2" }),
+                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Download, { className: "w-4 h-4 mr-2" }),
                 "Download sitemap.xml"
               ]
             }
@@ -29196,22 +31808,144 @@ ${xmlEntries}
     ] });
   }
 
-  // src/pages/Home.tsx
-  var import_react13 = __toESM(require_react());
+  // src/hooks/use-version.ts
+  var import_react12 = __toESM(require_react());
+  function useVersion() {
+    const [currentVersion, setCurrentVersion] = (0, import_react12.useState)(null);
+    const [latestVersion, setLatestVersion] = (0, import_react12.useState)(null);
+    const [isLoading, setIsLoading] = (0, import_react12.useState)(false);
+    const checkForUpdates = (0, import_react12.useCallback)(async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch("/version.json", {
+          cache: "no-cache",
+          // Always fetch fresh version
+          headers: {
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0"
+          }
+        });
+        if (response.ok) {
+          const versionInfo = await response.json();
+          setLatestVersion(versionInfo.version);
+          if (currentVersion && versionInfo.version !== currentVersion) {
+            console.log("New version available:", versionInfo.version);
+          }
+        }
+      } catch (error) {
+        console.error("Failed to check for updates:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    }, [currentVersion]);
+    const applyUpdate = (0, import_react12.useCallback)(() => {
+      window.location.reload();
+    }, []);
+    (0, import_react12.useEffect)(() => {
+      const storedVersion = localStorage.getItem("app-version");
+      if (storedVersion) {
+        setCurrentVersion(storedVersion);
+      }
+      checkForUpdates();
+      const interval = setInterval(checkForUpdates, 5 * 60 * 1e3);
+      return () => clearInterval(interval);
+    }, [checkForUpdates]);
+    (0, import_react12.useEffect)(() => {
+      if (latestVersion) {
+        localStorage.setItem("app-version", latestVersion);
+        setCurrentVersion(latestVersion);
+      }
+    }, [latestVersion]);
+    const isUpdateAvailable = currentVersion !== null && latestVersion !== null && currentVersion !== latestVersion;
+    return {
+      currentVersion,
+      latestVersion,
+      isUpdateAvailable,
+      checkForUpdates,
+      applyUpdate,
+      isLoading
+    };
+  }
 
-  // src/components/Home/WelcomeSection.tsx
-  var import_jsx_runtime7 = __toESM(require_jsx_runtime());
-  function WelcomeSection() {
-    return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("section", { className: "bg-gradient-to-br from-blue-50 to-blue-100 py-16", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "container mx-auto h-16 px-2 text-center", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h1", { className: "text-4xl md:text-6xl font-bold text-blue-900 mb-4", children: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440\u0430 \u041E\u0422\u041A" }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "text-xl text-blue-700 mb-6 max-w-3xl mx-auto", children: "\u0412\u0430\u0448 \u043D\u0430\u0434\u0435\u0436\u043D\u044B\u0439 \u043F\u043E\u043C\u043E\u0449\u043D\u0438\u043A \u0432 \u0440\u0430\u0441\u0447\u0435\u0442\u0430\u0445 \u0438 \u0438\u0437\u043C\u0435\u0440\u0435\u043D\u0438\u044F\u0445." })
+  // src/components/ui/alert.tsx
+  var React37 = __toESM(require_react());
+  var import_jsx_runtime21 = __toESM(require_jsx_runtime());
+  var alertVariants = cva(
+    "relative w-full rounded-lg border px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground [&>svg~*]:pl-7",
+    {
+      variants: {
+        variant: {
+          default: "bg-background text-foreground",
+          destructive: "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive"
+        }
+      },
+      defaultVariants: {
+        variant: "default"
+      }
+    }
+  );
+  var Alert = React37.forwardRef(({ className, variant, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+    "div",
+    {
+      ref,
+      role: "alert",
+      className: cn(alertVariants({ variant }), className),
+      ...props
+    }
+  ));
+  Alert.displayName = "Alert";
+  var AlertTitle = React37.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+    "h5",
+    {
+      ref,
+      className: cn("mb-1 font-medium leading-none tracking-tight", className),
+      ...props
+    }
+  ));
+  AlertTitle.displayName = "AlertTitle";
+  var AlertDescription = React37.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+    "div",
+    {
+      ref,
+      className: cn("text-sm [&_p]:leading-relaxed", className),
+      ...props
+    }
+  ));
+  AlertDescription.displayName = "AlertDescription";
+
+  // src/components/UpdateNotification.tsx
+  var import_jsx_runtime22 = __toESM(require_jsx_runtime());
+  function UpdateNotification() {
+    const { isUpdateAvailable, applyUpdate, isLoading } = useVersion();
+    if (!isUpdateAvailable) {
+      return null;
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Alert, { className: "fixed bottom-4 right-4 w-80 z-50 bg-background border-2 border-primary shadow-lg", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(AlertDescription, { className: "flex items-center justify-between", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Download, { className: "h-4 w-4" }),
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { children: "New version available!" })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+        Button,
+        {
+          size: "sm",
+          onClick: applyUpdate,
+          disabled: isLoading,
+          className: "ml-2",
+          children: isLoading ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(RefreshCw, { className: "h-4 w-4 animate-spin" }) : "Update"
+        }
+      )
     ] }) });
   }
 
+  // src/components/Layout/CookieConsent.tsx
+  var import_react13 = __toESM(require_react());
+
   // src/components/ui/card.tsx
-  var React5 = __toESM(require_react());
-  var import_jsx_runtime8 = __toESM(require_jsx_runtime());
-  var Card = React5.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  var React38 = __toESM(require_react());
+  var import_jsx_runtime23 = __toESM(require_jsx_runtime());
+  var Card = React38.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
     "div",
     {
       ref,
@@ -29223,7 +31957,7 @@ ${xmlEntries}
     }
   ));
   Card.displayName = "Card";
-  var CardHeader = React5.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  var CardHeader = React38.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
     "div",
     {
       ref,
@@ -29232,7 +31966,7 @@ ${xmlEntries}
     }
   ));
   CardHeader.displayName = "CardHeader";
-  var CardTitle = React5.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  var CardTitle = React38.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
     "div",
     {
       ref,
@@ -29241,7 +31975,7 @@ ${xmlEntries}
     }
   ));
   CardTitle.displayName = "CardTitle";
-  var CardDescription = React5.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  var CardDescription = React38.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
     "div",
     {
       ref,
@@ -29250,9 +31984,9 @@ ${xmlEntries}
     }
   ));
   CardDescription.displayName = "CardDescription";
-  var CardContent = React5.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { ref, className: cn("p-6 pt-0", className), ...props }));
+  var CardContent = React38.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { ref, className: cn("p-6 pt-0", className), ...props }));
   CardContent.displayName = "CardContent";
-  var CardFooter = React5.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  var CardFooter = React38.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
     "div",
     {
       ref,
@@ -29262,8 +31996,232 @@ ${xmlEntries}
   ));
   CardFooter.displayName = "CardFooter";
 
+  // src/components/Layout/CookieConsent.tsx
+  var import_jsx_runtime24 = __toESM(require_jsx_runtime());
+  var CookieConsent = ({ onConsentChange }) => {
+    const { setCookie: setCookie2, getCookie: getCookie2 } = useCookies();
+    const [isVisible, setIsVisible] = (0, import_react13.useState)(false);
+    const [showDetails, setShowDetails] = (0, import_react13.useState)(false);
+    (0, import_react13.useEffect)(() => {
+      const consent = getCookie2("cookie_consent");
+      if (!consent) {
+        setIsVisible(true);
+      }
+    }, [getCookie2]);
+    const handleAccept = () => {
+      setCookie2("cookie_consent", "accepted", {
+        maxAge: 365 * 24 * 60 * 60,
+        // 1 year
+        path: "/",
+        sameSite: "Lax"
+      });
+      setCookie2("analytics_consent", "true", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      setIsVisible(false);
+      onConsentChange?.(true);
+    };
+    const handleDecline = () => {
+      setCookie2("cookie_consent", "declined", {
+        maxAge: 365 * 24 * 60 * 60,
+        // 1 year
+        path: "/",
+        sameSite: "Lax"
+      });
+      setCookie2("analytics_consent", "false", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      setIsVisible(false);
+      onConsentChange?.(false);
+    };
+    if (!isVisible) return null;
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "fixed bottom-0 left-0 right-0 z-50 p-4 bg-black/80 backdrop-blur-sm", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Card, { className: "max-w-4xl mx-auto", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(CardContent, { className: "p-6", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "flex items-start justify-between", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "flex-1", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h3", { className: "text-lg font-semibold text-gray-900 mb-2", children: "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435 \u0444\u0430\u0439\u043B\u043E\u0432 cookie" }),
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "text-gray-600 text-sm mb-4", children: "\u041C\u044B \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u043C \u0444\u0430\u0439\u043B\u044B cookie \u0434\u043B\u044F \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F \u0440\u0430\u0431\u043E\u0442\u044B \u0441\u0430\u0439\u0442\u0430, \u0430\u043D\u0430\u043B\u0438\u0437\u0430 \u0442\u0440\u0430\u0444\u0438\u043A\u0430 \u0438 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u0438 \u043A\u043E\u043D\u0442\u0435\u043D\u0442\u0430. \u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u044F \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0441\u0430\u0439\u0442, \u0432\u044B \u0441\u043E\u0433\u043B\u0430\u0448\u0430\u0435\u0442\u0435\u0441\u044C \u0441 \u043D\u0430\u0448\u0435\u0439 \u043F\u043E\u043B\u0438\u0442\u0438\u043A\u043E\u0439 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u044F \u0444\u0430\u0439\u043B\u043E\u0432 cookie." }),
+        showDetails && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "bg-gray-50 p-4 rounded-lg mb-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h4", { className: "font-medium text-gray-900 mb-2", children: "\u0422\u0438\u043F\u044B \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u043C\u044B\u0445 cookie:" }),
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("ul", { className: "text-sm text-gray-600 space-y-1", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("li", { children: [
+              "\u2022 ",
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("strong", { children: "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B\u0435:" }),
+              " \u0414\u043B\u044F \u0431\u0430\u0437\u043E\u0432\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u044B \u0441\u0430\u0439\u0442\u0430"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("li", { children: [
+              "\u2022 ",
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("strong", { children: "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0435:" }),
+              " \u0414\u043B\u044F \u0430\u043D\u0430\u043B\u0438\u0437\u0430 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u044F \u0441\u0430\u0439\u0442\u0430"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("li", { children: [
+              "\u2022 ",
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("strong", { children: "\u0424\u0443\u043D\u043A\u0446\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0435:" }),
+              " \u0414\u043B\u044F \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u044F \u0432\u0430\u0448\u0438\u0445 \u043D\u0430\u0441\u0442\u0440\u043E\u0435\u043A"
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "flex flex-wrap gap-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
+            Button,
+            {
+              onClick: handleAccept,
+              className: "bg-blue-600 hover:bg-blue-700",
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(CircleCheckBig, { className: "w-4 h-4 mr-2" }),
+                "\u041F\u0440\u0438\u043D\u044F\u0442\u044C \u0432\u0441\u0435"
+              ]
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+            Button,
+            {
+              variant: "outline",
+              onClick: handleDecline,
+              children: "\u041E\u0442\u043A\u043B\u043E\u043D\u0438\u0442\u044C"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
+            Button,
+            {
+              variant: "ghost",
+              size: "sm",
+              onClick: () => setShowDetails(!showDetails),
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Settings, { className: "w-4 h-4 mr-2" }),
+                showDetails ? "\u0421\u043A\u0440\u044B\u0442\u044C \u0434\u0435\u0442\u0430\u043B\u0438" : "\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435"
+              ]
+            }
+          )
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+        Button,
+        {
+          variant: "ghost",
+          size: "sm",
+          onClick: handleDecline,
+          className: "ml-4",
+          children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(X, { className: "w-4 h-4" })
+        }
+      )
+    ] }) }) }) });
+  };
+
+  // src/hooks/use-cookie-consent.ts
+  var import_react14 = __toESM(require_react());
+  var useCookieConsent = () => {
+    const { getCookie: getCookie2, setCookie: setCookie2 } = useCookies();
+    const [consentState, setConsentState] = (0, import_react14.useState)({
+      hasConsented: false,
+      consentType: null,
+      analytics: false,
+      functional: false,
+      necessary: true
+    });
+    (0, import_react14.useEffect)(() => {
+      const consent = getCookie2("cookie_consent");
+      const analytics = getCookie2("analytics_consent") === "true";
+      const functional = getCookie2("functional_consent") === "true";
+      setConsentState({
+        hasConsented: !!consent,
+        consentType: consent || null,
+        analytics,
+        functional,
+        necessary: true
+      });
+    }, [getCookie2]);
+    const acceptAll = () => {
+      setCookie2("cookie_consent", "accepted", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      setCookie2("analytics_consent", "true", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      setCookie2("functional_consent", "true", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      setConsentState({
+        hasConsented: true,
+        consentType: "accepted",
+        analytics: true,
+        functional: true,
+        necessary: true
+      });
+    };
+    const declineAll = () => {
+      setCookie2("cookie_consent", "declined", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      setCookie2("analytics_consent", "false", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      setCookie2("functional_consent", "false", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      setConsentState({
+        hasConsented: true,
+        consentType: "declined",
+        analytics: false,
+        functional: false,
+        necessary: true
+      });
+    };
+    const updateSettings = (settings) => {
+      const newState = { ...consentState, ...settings };
+      setCookie2("cookie_consent", "custom", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      setCookie2("analytics_consent", newState.analytics ? "true" : "false", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      setCookie2("functional_consent", newState.functional ? "true" : "false", {
+        maxAge: 365 * 24 * 60 * 60,
+        path: "/",
+        sameSite: "Lax"
+      });
+      setConsentState(newState);
+    };
+    return {
+      consentState,
+      acceptAll,
+      declineAll,
+      updateSettings
+    };
+  };
+
+  // src/pages/Home.tsx
+  var import_react19 = __toESM(require_react());
+
+  // src/components/Home/WelcomeSection.tsx
+  var import_jsx_runtime25 = __toESM(require_jsx_runtime());
+  function WelcomeSection() {
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("section", { className: "bg-gradient-to-br from-blue-50 to-blue-100 py-16", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "container mx-auto h-16 px-2 text-center", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("h1", { className: "text-4xl md:text-6xl font-bold text-blue-900 mb-4", children: "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440\u0430 \u041E\u0422\u041A" }),
+      /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", { className: "text-xl text-blue-700 mb-6 max-w-3xl mx-auto", children: "\u0412\u0430\u0448 \u043D\u0430\u0434\u0435\u0436\u043D\u044B\u0439 \u043F\u043E\u043C\u043E\u0449\u043D\u0438\u043A \u0432 \u0440\u0430\u0441\u0447\u0435\u0442\u0430\u0445 \u0438 \u0438\u0437\u043C\u0435\u0440\u0435\u043D\u0438\u044F\u0445." })
+    ] }) });
+  }
+
   // src/components/Home/CalculatorCard.tsx
-  var import_jsx_runtime9 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime26 = __toESM(require_jsx_runtime());
   function CalculatorCard({
     title,
     description,
@@ -29271,22 +32229,22 @@ ${xmlEntries}
     href,
     standard
   }) {
-    return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Card, { className: "h-full hover:shadow-lg transition-all duration-300 hover:scale-105 bg-gradient-to-br from-white to-blue-50 border-blue-200", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(CardHeader, { className: "text-center pb-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Icon3, { className: "w-8 h-8 text-white" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(CardTitle, { className: "text-blue-900", children: title }),
-        standard && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "text-sm text-blue-600 font-medium", children: standard })
+    return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Card, { className: "h-full hover:shadow-lg transition-all duration-300 hover:scale-105 bg-gradient-to-br from-white to-blue-50 border-blue-200", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(CardHeader, { className: "text-center pb-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Icon3, { className: "w-8 h-8 text-white" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(CardTitle, { className: "text-blue-900", children: title }),
+        standard && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "text-sm text-blue-600 font-medium", children: standard })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(CardContent, { className: "text-center space-y-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "text-gray-600 text-sm leading-relaxed", children: description }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(CardContent, { className: "text-center space-y-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", { className: "text-gray-600 text-sm leading-relaxed", children: description }),
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(
           Button,
           {
             className: "w-full bg-blue-600 hover:bg-blue-700",
             onClick: () => window.location.hash = href,
             children: [
               "\u041F\u0435\u0440\u0435\u0439\u0442\u0438",
-              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ArrowRight, { className: "w-4 h-4 ml-2" })
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(ArrowRight, { className: "w-4 h-4 ml-2" })
             ]
           }
         )
@@ -29295,14 +32253,14 @@ ${xmlEntries}
   }
 
   // src/components/Auth/LoginModal.tsx
-  var import_react9 = __toESM(require_react());
+  var import_react15 = __toESM(require_react());
 
   // src/components/ui/input.tsx
-  var React6 = __toESM(require_react());
-  var import_jsx_runtime10 = __toESM(require_jsx_runtime());
-  var Input = React6.forwardRef(
+  var React40 = __toESM(require_react());
+  var import_jsx_runtime27 = __toESM(require_jsx_runtime());
+  var Input = React40.forwardRef(
     ({ className, type, ...props }, ref) => {
-      return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
         "input",
         {
           type,
@@ -29318,2109 +32276,14 @@ ${xmlEntries}
   );
   Input.displayName = "Input";
 
-  // src/components/ui/label.tsx
-  var React9 = __toESM(require_react());
-
-  // node_modules/@radix-ui/react-label/dist/index.mjs
-  var React8 = __toESM(require_react(), 1);
-
-  // node_modules/@radix-ui/react-primitive/dist/index.mjs
-  var React7 = __toESM(require_react(), 1);
-  var ReactDOM = __toESM(require_react_dom(), 1);
-  var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
-  var NODES = [
-    "a",
-    "button",
-    "div",
-    "form",
-    "h2",
-    "h3",
-    "img",
-    "input",
-    "label",
-    "li",
-    "nav",
-    "ol",
-    "p",
-    "select",
-    "span",
-    "svg",
-    "ul"
-  ];
-  var Primitive = NODES.reduce((primitive, node) => {
-    const Slot4 = createSlot(`Primitive.${node}`);
-    const Node2 = React7.forwardRef((props, forwardedRef) => {
-      const { asChild, ...primitiveProps } = props;
-      const Comp = asChild ? Slot4 : node;
-      if (typeof window !== "undefined") {
-        window[Symbol.for("radix-ui")] = true;
-      }
-      return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Comp, { ...primitiveProps, ref: forwardedRef });
-    });
-    Node2.displayName = `Primitive.${node}`;
-    return { ...primitive, [node]: Node2 };
-  }, {});
-  function dispatchDiscreteCustomEvent(target, event) {
-    if (target) ReactDOM.flushSync(() => target.dispatchEvent(event));
-  }
-
-  // node_modules/@radix-ui/react-label/dist/index.mjs
-  var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
-  var NAME = "Label";
-  var Label = React8.forwardRef((props, forwardedRef) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-      Primitive.label,
-      {
-        ...props,
-        ref: forwardedRef,
-        onMouseDown: (event) => {
-          const target = event.target;
-          if (target.closest("button, input, select, textarea")) return;
-          props.onMouseDown?.(event);
-          if (!event.defaultPrevented && event.detail > 1) event.preventDefault();
-        }
-      }
-    );
-  });
-  Label.displayName = NAME;
-  var Root = Label;
-
-  // src/components/ui/label.tsx
-  var import_jsx_runtime13 = __toESM(require_jsx_runtime());
-  var labelVariants = cva(
-    "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-  );
-  var Label2 = React9.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-    Root,
-    {
-      ref,
-      className: cn(labelVariants(), className),
-      ...props
-    }
-  ));
-  Label2.displayName = Root.displayName;
-
-  // src/components/ui/dialog.tsx
-  var React31 = __toESM(require_react());
-
-  // node_modules/@radix-ui/react-dialog/dist/index.mjs
-  var React30 = __toESM(require_react(), 1);
-
-  // node_modules/@radix-ui/primitive/dist/index.mjs
-  function composeEventHandlers(originalEventHandler, ourEventHandler, { checkForDefaultPrevented = true } = {}) {
-    return function handleEvent(event) {
-      originalEventHandler?.(event);
-      if (checkForDefaultPrevented === false || !event.defaultPrevented) {
-        return ourEventHandler?.(event);
-      }
-    };
-  }
-
-  // node_modules/@radix-ui/react-context/dist/index.mjs
-  var React10 = __toESM(require_react(), 1);
-  var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
-  function createContext2(rootComponentName, defaultContext) {
-    const Context = React10.createContext(defaultContext);
-    const Provider = (props) => {
-      const { children, ...context } = props;
-      const value = React10.useMemo(() => context, Object.values(context));
-      return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Context.Provider, { value, children });
-    };
-    Provider.displayName = rootComponentName + "Provider";
-    function useContext22(consumerName) {
-      const context = React10.useContext(Context);
-      if (context) return context;
-      if (defaultContext !== void 0) return defaultContext;
-      throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
-    }
-    return [Provider, useContext22];
-  }
-  function createContextScope(scopeName, createContextScopeDeps = []) {
-    let defaultContexts = [];
-    function createContext32(rootComponentName, defaultContext) {
-      const BaseContext = React10.createContext(defaultContext);
-      const index2 = defaultContexts.length;
-      defaultContexts = [...defaultContexts, defaultContext];
-      const Provider = (props) => {
-        const { scope, children, ...context } = props;
-        const Context = scope?.[scopeName]?.[index2] || BaseContext;
-        const value = React10.useMemo(() => context, Object.values(context));
-        return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Context.Provider, { value, children });
-      };
-      Provider.displayName = rootComponentName + "Provider";
-      function useContext22(consumerName, scope) {
-        const Context = scope?.[scopeName]?.[index2] || BaseContext;
-        const context = React10.useContext(Context);
-        if (context) return context;
-        if (defaultContext !== void 0) return defaultContext;
-        throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
-      }
-      return [Provider, useContext22];
-    }
-    const createScope = () => {
-      const scopeContexts = defaultContexts.map((defaultContext) => {
-        return React10.createContext(defaultContext);
-      });
-      return function useScope(scope) {
-        const contexts = scope?.[scopeName] || scopeContexts;
-        return React10.useMemo(
-          () => ({ [`__scope${scopeName}`]: { ...scope, [scopeName]: contexts } }),
-          [scope, contexts]
-        );
-      };
-    };
-    createScope.scopeName = scopeName;
-    return [createContext32, composeContextScopes(createScope, ...createContextScopeDeps)];
-  }
-  function composeContextScopes(...scopes) {
-    const baseScope = scopes[0];
-    if (scopes.length === 1) return baseScope;
-    const createScope = () => {
-      const scopeHooks = scopes.map((createScope2) => ({
-        useScope: createScope2(),
-        scopeName: createScope2.scopeName
-      }));
-      return function useComposedScopes(overrideScopes) {
-        const nextScopes = scopeHooks.reduce((nextScopes2, { useScope, scopeName }) => {
-          const scopeProps = useScope(overrideScopes);
-          const currentScope = scopeProps[`__scope${scopeName}`];
-          return { ...nextScopes2, ...currentScope };
-        }, {});
-        return React10.useMemo(() => ({ [`__scope${baseScope.scopeName}`]: nextScopes }), [nextScopes]);
-      };
-    };
-    createScope.scopeName = baseScope.scopeName;
-    return createScope;
-  }
-
-  // node_modules/@radix-ui/react-id/dist/index.mjs
-  var React12 = __toESM(require_react(), 1);
-
-  // node_modules/@radix-ui/react-use-layout-effect/dist/index.mjs
-  var React11 = __toESM(require_react(), 1);
-  var useLayoutEffect2 = globalThis?.document ? React11.useLayoutEffect : () => {
-  };
-
-  // node_modules/@radix-ui/react-id/dist/index.mjs
-  var useReactId = React12[" useId ".trim().toString()] || (() => void 0);
-  var count = 0;
-  function useId(deterministicId) {
-    const [id, setId] = React12.useState(useReactId());
-    useLayoutEffect2(() => {
-      if (!deterministicId) setId((reactId) => reactId ?? String(count++));
-    }, [deterministicId]);
-    return deterministicId || (id ? `radix-${id}` : "");
-  }
-
-  // node_modules/@radix-ui/react-use-controllable-state/dist/index.mjs
-  var React13 = __toESM(require_react(), 1);
-  var React22 = __toESM(require_react(), 1);
-  var useInsertionEffect = React13[" useInsertionEffect ".trim().toString()] || useLayoutEffect2;
-  function useControllableState({
-    prop,
-    defaultProp,
-    onChange = () => {
-    },
-    caller
-  }) {
-    const [uncontrolledProp, setUncontrolledProp, onChangeRef] = useUncontrolledState({
-      defaultProp,
-      onChange
-    });
-    const isControlled = prop !== void 0;
-    const value = isControlled ? prop : uncontrolledProp;
-    if (true) {
-      const isControlledRef = React13.useRef(prop !== void 0);
-      React13.useEffect(() => {
-        const wasControlled = isControlledRef.current;
-        if (wasControlled !== isControlled) {
-          const from = wasControlled ? "controlled" : "uncontrolled";
-          const to = isControlled ? "controlled" : "uncontrolled";
-          console.warn(
-            `${caller} is changing from ${from} to ${to}. Components should not switch from controlled to uncontrolled (or vice versa). Decide between using a controlled or uncontrolled value for the lifetime of the component.`
-          );
-        }
-        isControlledRef.current = isControlled;
-      }, [isControlled, caller]);
-    }
-    const setValue = React13.useCallback(
-      (nextValue) => {
-        if (isControlled) {
-          const value2 = isFunction(nextValue) ? nextValue(prop) : nextValue;
-          if (value2 !== prop) {
-            onChangeRef.current?.(value2);
-          }
-        } else {
-          setUncontrolledProp(nextValue);
-        }
-      },
-      [isControlled, prop, setUncontrolledProp, onChangeRef]
-    );
-    return [value, setValue];
-  }
-  function useUncontrolledState({
-    defaultProp,
-    onChange
-  }) {
-    const [value, setValue] = React13.useState(defaultProp);
-    const prevValueRef = React13.useRef(value);
-    const onChangeRef = React13.useRef(onChange);
-    useInsertionEffect(() => {
-      onChangeRef.current = onChange;
-    }, [onChange]);
-    React13.useEffect(() => {
-      if (prevValueRef.current !== value) {
-        onChangeRef.current?.(value);
-        prevValueRef.current = value;
-      }
-    }, [value, prevValueRef]);
-    return [value, setValue, onChangeRef];
-  }
-  function isFunction(value) {
-    return typeof value === "function";
-  }
-  var SYNC_STATE = Symbol("RADIX:SYNC_STATE");
-
-  // node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs
-  var React16 = __toESM(require_react(), 1);
-
-  // node_modules/@radix-ui/react-use-callback-ref/dist/index.mjs
-  var React14 = __toESM(require_react(), 1);
-  function useCallbackRef(callback) {
-    const callbackRef = React14.useRef(callback);
-    React14.useEffect(() => {
-      callbackRef.current = callback;
-    });
-    return React14.useMemo(() => (...args) => callbackRef.current?.(...args), []);
-  }
-
-  // node_modules/@radix-ui/react-use-escape-keydown/dist/index.mjs
-  var React15 = __toESM(require_react(), 1);
-  function useEscapeKeydown(onEscapeKeyDownProp, ownerDocument = globalThis?.document) {
-    const onEscapeKeyDown = useCallbackRef(onEscapeKeyDownProp);
-    React15.useEffect(() => {
-      const handleKeyDown = (event) => {
-        if (event.key === "Escape") {
-          onEscapeKeyDown(event);
-        }
-      };
-      ownerDocument.addEventListener("keydown", handleKeyDown, { capture: true });
-      return () => ownerDocument.removeEventListener("keydown", handleKeyDown, { capture: true });
-    }, [onEscapeKeyDown, ownerDocument]);
-  }
-
-  // node_modules/@radix-ui/react-dismissable-layer/dist/index.mjs
-  var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
-  var DISMISSABLE_LAYER_NAME = "DismissableLayer";
-  var CONTEXT_UPDATE = "dismissableLayer.update";
-  var POINTER_DOWN_OUTSIDE = "dismissableLayer.pointerDownOutside";
-  var FOCUS_OUTSIDE = "dismissableLayer.focusOutside";
-  var originalBodyPointerEvents;
-  var DismissableLayerContext = React16.createContext({
-    layers: /* @__PURE__ */ new Set(),
-    layersWithOutsidePointerEventsDisabled: /* @__PURE__ */ new Set(),
-    branches: /* @__PURE__ */ new Set()
-  });
-  var DismissableLayer = React16.forwardRef(
-    (props, forwardedRef) => {
-      const {
-        disableOutsidePointerEvents = false,
-        onEscapeKeyDown,
-        onPointerDownOutside,
-        onFocusOutside,
-        onInteractOutside,
-        onDismiss,
-        ...layerProps
-      } = props;
-      const context = React16.useContext(DismissableLayerContext);
-      const [node, setNode] = React16.useState(null);
-      const ownerDocument = node?.ownerDocument ?? globalThis?.document;
-      const [, force] = React16.useState({});
-      const composedRefs = useComposedRefs(forwardedRef, (node2) => setNode(node2));
-      const layers = Array.from(context.layers);
-      const [highestLayerWithOutsidePointerEventsDisabled] = [...context.layersWithOutsidePointerEventsDisabled].slice(-1);
-      const highestLayerWithOutsidePointerEventsDisabledIndex = layers.indexOf(highestLayerWithOutsidePointerEventsDisabled);
-      const index2 = node ? layers.indexOf(node) : -1;
-      const isBodyPointerEventsDisabled = context.layersWithOutsidePointerEventsDisabled.size > 0;
-      const isPointerEventsEnabled = index2 >= highestLayerWithOutsidePointerEventsDisabledIndex;
-      const pointerDownOutside = usePointerDownOutside((event) => {
-        const target = event.target;
-        const isPointerDownOnBranch = [...context.branches].some((branch) => branch.contains(target));
-        if (!isPointerEventsEnabled || isPointerDownOnBranch) return;
-        onPointerDownOutside?.(event);
-        onInteractOutside?.(event);
-        if (!event.defaultPrevented) onDismiss?.();
-      }, ownerDocument);
-      const focusOutside = useFocusOutside((event) => {
-        const target = event.target;
-        const isFocusInBranch = [...context.branches].some((branch) => branch.contains(target));
-        if (isFocusInBranch) return;
-        onFocusOutside?.(event);
-        onInteractOutside?.(event);
-        if (!event.defaultPrevented) onDismiss?.();
-      }, ownerDocument);
-      useEscapeKeydown((event) => {
-        const isHighestLayer = index2 === context.layers.size - 1;
-        if (!isHighestLayer) return;
-        onEscapeKeyDown?.(event);
-        if (!event.defaultPrevented && onDismiss) {
-          event.preventDefault();
-          onDismiss();
-        }
-      }, ownerDocument);
-      React16.useEffect(() => {
-        if (!node) return;
-        if (disableOutsidePointerEvents) {
-          if (context.layersWithOutsidePointerEventsDisabled.size === 0) {
-            originalBodyPointerEvents = ownerDocument.body.style.pointerEvents;
-            ownerDocument.body.style.pointerEvents = "none";
-          }
-          context.layersWithOutsidePointerEventsDisabled.add(node);
-        }
-        context.layers.add(node);
-        dispatchUpdate();
-        return () => {
-          if (disableOutsidePointerEvents && context.layersWithOutsidePointerEventsDisabled.size === 1) {
-            ownerDocument.body.style.pointerEvents = originalBodyPointerEvents;
-          }
-        };
-      }, [node, ownerDocument, disableOutsidePointerEvents, context]);
-      React16.useEffect(() => {
-        return () => {
-          if (!node) return;
-          context.layers.delete(node);
-          context.layersWithOutsidePointerEventsDisabled.delete(node);
-          dispatchUpdate();
-        };
-      }, [node, context]);
-      React16.useEffect(() => {
-        const handleUpdate = () => force({});
-        document.addEventListener(CONTEXT_UPDATE, handleUpdate);
-        return () => document.removeEventListener(CONTEXT_UPDATE, handleUpdate);
-      }, []);
-      return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-        Primitive.div,
-        {
-          ...layerProps,
-          ref: composedRefs,
-          style: {
-            pointerEvents: isBodyPointerEventsDisabled ? isPointerEventsEnabled ? "auto" : "none" : void 0,
-            ...props.style
-          },
-          onFocusCapture: composeEventHandlers(props.onFocusCapture, focusOutside.onFocusCapture),
-          onBlurCapture: composeEventHandlers(props.onBlurCapture, focusOutside.onBlurCapture),
-          onPointerDownCapture: composeEventHandlers(
-            props.onPointerDownCapture,
-            pointerDownOutside.onPointerDownCapture
-          )
-        }
-      );
-    }
-  );
-  DismissableLayer.displayName = DISMISSABLE_LAYER_NAME;
-  var BRANCH_NAME = "DismissableLayerBranch";
-  var DismissableLayerBranch = React16.forwardRef((props, forwardedRef) => {
-    const context = React16.useContext(DismissableLayerContext);
-    const ref = React16.useRef(null);
-    const composedRefs = useComposedRefs(forwardedRef, ref);
-    React16.useEffect(() => {
-      const node = ref.current;
-      if (node) {
-        context.branches.add(node);
-        return () => {
-          context.branches.delete(node);
-        };
-      }
-    }, [context.branches]);
-    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Primitive.div, { ...props, ref: composedRefs });
-  });
-  DismissableLayerBranch.displayName = BRANCH_NAME;
-  function usePointerDownOutside(onPointerDownOutside, ownerDocument = globalThis?.document) {
-    const handlePointerDownOutside = useCallbackRef(onPointerDownOutside);
-    const isPointerInsideReactTreeRef = React16.useRef(false);
-    const handleClickRef = React16.useRef(() => {
-    });
-    React16.useEffect(() => {
-      const handlePointerDown = (event) => {
-        if (event.target && !isPointerInsideReactTreeRef.current) {
-          let handleAndDispatchPointerDownOutsideEvent2 = function() {
-            handleAndDispatchCustomEvent(
-              POINTER_DOWN_OUTSIDE,
-              handlePointerDownOutside,
-              eventDetail,
-              { discrete: true }
-            );
-          };
-          var handleAndDispatchPointerDownOutsideEvent = handleAndDispatchPointerDownOutsideEvent2;
-          const eventDetail = { originalEvent: event };
-          if (event.pointerType === "touch") {
-            ownerDocument.removeEventListener("click", handleClickRef.current);
-            handleClickRef.current = handleAndDispatchPointerDownOutsideEvent2;
-            ownerDocument.addEventListener("click", handleClickRef.current, { once: true });
-          } else {
-            handleAndDispatchPointerDownOutsideEvent2();
-          }
-        } else {
-          ownerDocument.removeEventListener("click", handleClickRef.current);
-        }
-        isPointerInsideReactTreeRef.current = false;
-      };
-      const timerId = window.setTimeout(() => {
-        ownerDocument.addEventListener("pointerdown", handlePointerDown);
-      }, 0);
-      return () => {
-        window.clearTimeout(timerId);
-        ownerDocument.removeEventListener("pointerdown", handlePointerDown);
-        ownerDocument.removeEventListener("click", handleClickRef.current);
-      };
-    }, [ownerDocument, handlePointerDownOutside]);
-    return {
-      // ensures we check React component tree (not just DOM tree)
-      onPointerDownCapture: () => isPointerInsideReactTreeRef.current = true
-    };
-  }
-  function useFocusOutside(onFocusOutside, ownerDocument = globalThis?.document) {
-    const handleFocusOutside = useCallbackRef(onFocusOutside);
-    const isFocusInsideReactTreeRef = React16.useRef(false);
-    React16.useEffect(() => {
-      const handleFocus = (event) => {
-        if (event.target && !isFocusInsideReactTreeRef.current) {
-          const eventDetail = { originalEvent: event };
-          handleAndDispatchCustomEvent(FOCUS_OUTSIDE, handleFocusOutside, eventDetail, {
-            discrete: false
-          });
-        }
-      };
-      ownerDocument.addEventListener("focusin", handleFocus);
-      return () => ownerDocument.removeEventListener("focusin", handleFocus);
-    }, [ownerDocument, handleFocusOutside]);
-    return {
-      onFocusCapture: () => isFocusInsideReactTreeRef.current = true,
-      onBlurCapture: () => isFocusInsideReactTreeRef.current = false
-    };
-  }
-  function dispatchUpdate() {
-    const event = new CustomEvent(CONTEXT_UPDATE);
-    document.dispatchEvent(event);
-  }
-  function handleAndDispatchCustomEvent(name, handler, detail, { discrete }) {
-    const target = detail.originalEvent.target;
-    const event = new CustomEvent(name, { bubbles: false, cancelable: true, detail });
-    if (handler) target.addEventListener(name, handler, { once: true });
-    if (discrete) {
-      dispatchDiscreteCustomEvent(target, event);
-    } else {
-      target.dispatchEvent(event);
-    }
-  }
-
-  // node_modules/@radix-ui/react-focus-scope/dist/index.mjs
-  var React17 = __toESM(require_react(), 1);
-  var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
-  var AUTOFOCUS_ON_MOUNT = "focusScope.autoFocusOnMount";
-  var AUTOFOCUS_ON_UNMOUNT = "focusScope.autoFocusOnUnmount";
-  var EVENT_OPTIONS = { bubbles: false, cancelable: true };
-  var FOCUS_SCOPE_NAME = "FocusScope";
-  var FocusScope = React17.forwardRef((props, forwardedRef) => {
-    const {
-      loop = false,
-      trapped = false,
-      onMountAutoFocus: onMountAutoFocusProp,
-      onUnmountAutoFocus: onUnmountAutoFocusProp,
-      ...scopeProps
-    } = props;
-    const [container, setContainer] = React17.useState(null);
-    const onMountAutoFocus = useCallbackRef(onMountAutoFocusProp);
-    const onUnmountAutoFocus = useCallbackRef(onUnmountAutoFocusProp);
-    const lastFocusedElementRef = React17.useRef(null);
-    const composedRefs = useComposedRefs(forwardedRef, (node) => setContainer(node));
-    const focusScope = React17.useRef({
-      paused: false,
-      pause() {
-        this.paused = true;
-      },
-      resume() {
-        this.paused = false;
-      }
-    }).current;
-    React17.useEffect(() => {
-      if (trapped) {
-        let handleFocusIn2 = function(event) {
-          if (focusScope.paused || !container) return;
-          const target = event.target;
-          if (container.contains(target)) {
-            lastFocusedElementRef.current = target;
-          } else {
-            focus(lastFocusedElementRef.current, { select: true });
-          }
-        }, handleFocusOut2 = function(event) {
-          if (focusScope.paused || !container) return;
-          const relatedTarget = event.relatedTarget;
-          if (relatedTarget === null) return;
-          if (!container.contains(relatedTarget)) {
-            focus(lastFocusedElementRef.current, { select: true });
-          }
-        }, handleMutations2 = function(mutations) {
-          const focusedElement = document.activeElement;
-          if (focusedElement !== document.body) return;
-          for (const mutation of mutations) {
-            if (mutation.removedNodes.length > 0) focus(container);
-          }
-        };
-        var handleFocusIn = handleFocusIn2, handleFocusOut = handleFocusOut2, handleMutations = handleMutations2;
-        document.addEventListener("focusin", handleFocusIn2);
-        document.addEventListener("focusout", handleFocusOut2);
-        const mutationObserver = new MutationObserver(handleMutations2);
-        if (container) mutationObserver.observe(container, { childList: true, subtree: true });
-        return () => {
-          document.removeEventListener("focusin", handleFocusIn2);
-          document.removeEventListener("focusout", handleFocusOut2);
-          mutationObserver.disconnect();
-        };
-      }
-    }, [trapped, container, focusScope.paused]);
-    React17.useEffect(() => {
-      if (container) {
-        focusScopesStack.add(focusScope);
-        const previouslyFocusedElement = document.activeElement;
-        const hasFocusedCandidate = container.contains(previouslyFocusedElement);
-        if (!hasFocusedCandidate) {
-          const mountEvent = new CustomEvent(AUTOFOCUS_ON_MOUNT, EVENT_OPTIONS);
-          container.addEventListener(AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
-          container.dispatchEvent(mountEvent);
-          if (!mountEvent.defaultPrevented) {
-            focusFirst(removeLinks(getTabbableCandidates(container)), { select: true });
-            if (document.activeElement === previouslyFocusedElement) {
-              focus(container);
-            }
-          }
-        }
-        return () => {
-          container.removeEventListener(AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
-          setTimeout(() => {
-            const unmountEvent = new CustomEvent(AUTOFOCUS_ON_UNMOUNT, EVENT_OPTIONS);
-            container.addEventListener(AUTOFOCUS_ON_UNMOUNT, onUnmountAutoFocus);
-            container.dispatchEvent(unmountEvent);
-            if (!unmountEvent.defaultPrevented) {
-              focus(previouslyFocusedElement ?? document.body, { select: true });
-            }
-            container.removeEventListener(AUTOFOCUS_ON_UNMOUNT, onUnmountAutoFocus);
-            focusScopesStack.remove(focusScope);
-          }, 0);
-        };
-      }
-    }, [container, onMountAutoFocus, onUnmountAutoFocus, focusScope]);
-    const handleKeyDown = React17.useCallback(
-      (event) => {
-        if (!loop && !trapped) return;
-        if (focusScope.paused) return;
-        const isTabKey = event.key === "Tab" && !event.altKey && !event.ctrlKey && !event.metaKey;
-        const focusedElement = document.activeElement;
-        if (isTabKey && focusedElement) {
-          const container2 = event.currentTarget;
-          const [first, last] = getTabbableEdges(container2);
-          const hasTabbableElementsInside = first && last;
-          if (!hasTabbableElementsInside) {
-            if (focusedElement === container2) event.preventDefault();
-          } else {
-            if (!event.shiftKey && focusedElement === last) {
-              event.preventDefault();
-              if (loop) focus(first, { select: true });
-            } else if (event.shiftKey && focusedElement === first) {
-              event.preventDefault();
-              if (loop) focus(last, { select: true });
-            }
-          }
-        }
-      },
-      [loop, trapped, focusScope.paused]
-    );
-    return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Primitive.div, { tabIndex: -1, ...scopeProps, ref: composedRefs, onKeyDown: handleKeyDown });
-  });
-  FocusScope.displayName = FOCUS_SCOPE_NAME;
-  function focusFirst(candidates, { select = false } = {}) {
-    const previouslyFocusedElement = document.activeElement;
-    for (const candidate of candidates) {
-      focus(candidate, { select });
-      if (document.activeElement !== previouslyFocusedElement) return;
-    }
-  }
-  function getTabbableEdges(container) {
-    const candidates = getTabbableCandidates(container);
-    const first = findVisible(candidates, container);
-    const last = findVisible(candidates.reverse(), container);
-    return [first, last];
-  }
-  function getTabbableCandidates(container) {
-    const nodes = [];
-    const walker = document.createTreeWalker(container, NodeFilter.SHOW_ELEMENT, {
-      acceptNode: (node) => {
-        const isHiddenInput = node.tagName === "INPUT" && node.type === "hidden";
-        if (node.disabled || node.hidden || isHiddenInput) return NodeFilter.FILTER_SKIP;
-        return node.tabIndex >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
-      }
-    });
-    while (walker.nextNode()) nodes.push(walker.currentNode);
-    return nodes;
-  }
-  function findVisible(elements, container) {
-    for (const element of elements) {
-      if (!isHidden(element, { upTo: container })) return element;
-    }
-  }
-  function isHidden(node, { upTo }) {
-    if (getComputedStyle(node).visibility === "hidden") return true;
-    while (node) {
-      if (upTo !== void 0 && node === upTo) return false;
-      if (getComputedStyle(node).display === "none") return true;
-      node = node.parentElement;
-    }
-    return false;
-  }
-  function isSelectableInput(element) {
-    return element instanceof HTMLInputElement && "select" in element;
-  }
-  function focus(element, { select = false } = {}) {
-    if (element && element.focus) {
-      const previouslyFocusedElement = document.activeElement;
-      element.focus({ preventScroll: true });
-      if (element !== previouslyFocusedElement && isSelectableInput(element) && select)
-        element.select();
-    }
-  }
-  var focusScopesStack = createFocusScopesStack();
-  function createFocusScopesStack() {
-    let stack = [];
-    return {
-      add(focusScope) {
-        const activeFocusScope = stack[0];
-        if (focusScope !== activeFocusScope) {
-          activeFocusScope?.pause();
-        }
-        stack = arrayRemove(stack, focusScope);
-        stack.unshift(focusScope);
-      },
-      remove(focusScope) {
-        stack = arrayRemove(stack, focusScope);
-        stack[0]?.resume();
-      }
-    };
-  }
-  function arrayRemove(array, item) {
-    const updatedArray = [...array];
-    const index2 = updatedArray.indexOf(item);
-    if (index2 !== -1) {
-      updatedArray.splice(index2, 1);
-    }
-    return updatedArray;
-  }
-  function removeLinks(items) {
-    return items.filter((item) => item.tagName !== "A");
-  }
-
-  // node_modules/@radix-ui/react-portal/dist/index.mjs
-  var React18 = __toESM(require_react(), 1);
-  var import_react_dom = __toESM(require_react_dom(), 1);
-  var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
-  var PORTAL_NAME = "Portal";
-  var Portal = React18.forwardRef((props, forwardedRef) => {
-    const { container: containerProp, ...portalProps } = props;
-    const [mounted, setMounted] = React18.useState(false);
-    useLayoutEffect2(() => setMounted(true), []);
-    const container = containerProp || mounted && globalThis?.document?.body;
-    return container ? import_react_dom.default.createPortal(/* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Primitive.div, { ...portalProps, ref: forwardedRef }), container) : null;
-  });
-  Portal.displayName = PORTAL_NAME;
-
-  // node_modules/@radix-ui/react-presence/dist/index.mjs
-  var React23 = __toESM(require_react(), 1);
-  var React19 = __toESM(require_react(), 1);
-  function useStateMachine(initialState, machine) {
-    return React19.useReducer((state, event) => {
-      const nextState = machine[state][event];
-      return nextState ?? state;
-    }, initialState);
-  }
-  var Presence = (props) => {
-    const { present, children } = props;
-    const presence = usePresence(present);
-    const child = typeof children === "function" ? children({ present: presence.isPresent }) : React23.Children.only(children);
-    const ref = useComposedRefs(presence.ref, getElementRef2(child));
-    const forceMount = typeof children === "function";
-    return forceMount || presence.isPresent ? React23.cloneElement(child, { ref }) : null;
-  };
-  Presence.displayName = "Presence";
-  function usePresence(present) {
-    const [node, setNode] = React23.useState();
-    const stylesRef = React23.useRef(null);
-    const prevPresentRef = React23.useRef(present);
-    const prevAnimationNameRef = React23.useRef("none");
-    const initialState = present ? "mounted" : "unmounted";
-    const [state, send] = useStateMachine(initialState, {
-      mounted: {
-        UNMOUNT: "unmounted",
-        ANIMATION_OUT: "unmountSuspended"
-      },
-      unmountSuspended: {
-        MOUNT: "mounted",
-        ANIMATION_END: "unmounted"
-      },
-      unmounted: {
-        MOUNT: "mounted"
-      }
-    });
-    React23.useEffect(() => {
-      const currentAnimationName = getAnimationName(stylesRef.current);
-      prevAnimationNameRef.current = state === "mounted" ? currentAnimationName : "none";
-    }, [state]);
-    useLayoutEffect2(() => {
-      const styles = stylesRef.current;
-      const wasPresent = prevPresentRef.current;
-      const hasPresentChanged = wasPresent !== present;
-      if (hasPresentChanged) {
-        const prevAnimationName = prevAnimationNameRef.current;
-        const currentAnimationName = getAnimationName(styles);
-        if (present) {
-          send("MOUNT");
-        } else if (currentAnimationName === "none" || styles?.display === "none") {
-          send("UNMOUNT");
-        } else {
-          const isAnimating = prevAnimationName !== currentAnimationName;
-          if (wasPresent && isAnimating) {
-            send("ANIMATION_OUT");
-          } else {
-            send("UNMOUNT");
-          }
-        }
-        prevPresentRef.current = present;
-      }
-    }, [present, send]);
-    useLayoutEffect2(() => {
-      if (node) {
-        let timeoutId;
-        const ownerWindow = node.ownerDocument.defaultView ?? window;
-        const handleAnimationEnd = (event) => {
-          const currentAnimationName = getAnimationName(stylesRef.current);
-          const isCurrentAnimation = currentAnimationName.includes(event.animationName);
-          if (event.target === node && isCurrentAnimation) {
-            send("ANIMATION_END");
-            if (!prevPresentRef.current) {
-              const currentFillMode = node.style.animationFillMode;
-              node.style.animationFillMode = "forwards";
-              timeoutId = ownerWindow.setTimeout(() => {
-                if (node.style.animationFillMode === "forwards") {
-                  node.style.animationFillMode = currentFillMode;
-                }
-              });
-            }
-          }
-        };
-        const handleAnimationStart = (event) => {
-          if (event.target === node) {
-            prevAnimationNameRef.current = getAnimationName(stylesRef.current);
-          }
-        };
-        node.addEventListener("animationstart", handleAnimationStart);
-        node.addEventListener("animationcancel", handleAnimationEnd);
-        node.addEventListener("animationend", handleAnimationEnd);
-        return () => {
-          ownerWindow.clearTimeout(timeoutId);
-          node.removeEventListener("animationstart", handleAnimationStart);
-          node.removeEventListener("animationcancel", handleAnimationEnd);
-          node.removeEventListener("animationend", handleAnimationEnd);
-        };
-      } else {
-        send("ANIMATION_END");
-      }
-    }, [node, send]);
-    return {
-      isPresent: ["mounted", "unmountSuspended"].includes(state),
-      ref: React23.useCallback((node2) => {
-        stylesRef.current = node2 ? getComputedStyle(node2) : null;
-        setNode(node2);
-      }, [])
-    };
-  }
-  function getAnimationName(styles) {
-    return styles?.animationName || "none";
-  }
-  function getElementRef2(element) {
-    let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
-    let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
-    if (mayWarn) {
-      return element.ref;
-    }
-    getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
-    mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
-    if (mayWarn) {
-      return element.props.ref;
-    }
-    return element.props.ref || element.ref;
-  }
-
-  // node_modules/@radix-ui/react-focus-guards/dist/index.mjs
-  var React20 = __toESM(require_react(), 1);
-  var count2 = 0;
-  function useFocusGuards() {
-    React20.useEffect(() => {
-      const edgeGuards = document.querySelectorAll("[data-radix-focus-guard]");
-      document.body.insertAdjacentElement("afterbegin", edgeGuards[0] ?? createFocusGuard());
-      document.body.insertAdjacentElement("beforeend", edgeGuards[1] ?? createFocusGuard());
-      count2++;
-      return () => {
-        if (count2 === 1) {
-          document.querySelectorAll("[data-radix-focus-guard]").forEach((node) => node.remove());
-        }
-        count2--;
-      };
-    }, []);
-  }
-  function createFocusGuard() {
-    const element = document.createElement("span");
-    element.setAttribute("data-radix-focus-guard", "");
-    element.tabIndex = 0;
-    element.style.outline = "none";
-    element.style.opacity = "0";
-    element.style.position = "fixed";
-    element.style.pointerEvents = "none";
-    return element;
-  }
-
-  // node_modules/tslib/tslib.es6.mjs
-  var __assign = function() {
-    __assign = Object.assign || function __assign2(t) {
-      for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-      return t;
-    };
-    return __assign.apply(this, arguments);
-  };
-  function __rest(s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-      t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-      for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-        if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-          t[p[i]] = s[p[i]];
-      }
-    return t;
-  }
-  function __spreadArray(to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-      if (ar || !(i in from)) {
-        if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-        ar[i] = from[i];
-      }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-  }
-
-  // node_modules/react-remove-scroll/dist/es2015/Combination.js
-  var React29 = __toESM(require_react());
-
-  // node_modules/react-remove-scroll/dist/es2015/UI.js
-  var React25 = __toESM(require_react());
-
-  // node_modules/react-remove-scroll-bar/dist/es2015/constants.js
-  var zeroRightClassName = "right-scroll-bar-position";
-  var fullWidthClassName = "width-before-scroll-bar";
-  var noScrollbarsClassName = "with-scroll-bars-hidden";
-  var removedBarSizeVariable = "--removed-body-scroll-bar-size";
-
-  // node_modules/use-callback-ref/dist/es2015/assignRef.js
-  function assignRef(ref, value) {
-    if (typeof ref === "function") {
-      ref(value);
-    } else if (ref) {
-      ref.current = value;
-    }
-    return ref;
-  }
-
-  // node_modules/use-callback-ref/dist/es2015/useRef.js
-  var import_react8 = __toESM(require_react());
-  function useCallbackRef2(initialValue, callback) {
-    var ref = (0, import_react8.useState)(function() {
-      return {
-        // value
-        value: initialValue,
-        // last callback
-        callback,
-        // "memoized" public interface
-        facade: {
-          get current() {
-            return ref.value;
-          },
-          set current(value) {
-            var last = ref.value;
-            if (last !== value) {
-              ref.value = value;
-              ref.callback(value, last);
-            }
-          }
-        }
-      };
-    })[0];
-    ref.callback = callback;
-    return ref.facade;
-  }
-
-  // node_modules/use-callback-ref/dist/es2015/useMergeRef.js
-  var React21 = __toESM(require_react());
-  var useIsomorphicLayoutEffect = typeof window !== "undefined" ? React21.useLayoutEffect : React21.useEffect;
-  var currentValues = /* @__PURE__ */ new WeakMap();
-  function useMergeRefs(refs, defaultValue) {
-    var callbackRef = useCallbackRef2(defaultValue || null, function(newValue) {
-      return refs.forEach(function(ref) {
-        return assignRef(ref, newValue);
-      });
-    });
-    useIsomorphicLayoutEffect(function() {
-      var oldValue = currentValues.get(callbackRef);
-      if (oldValue) {
-        var prevRefs_1 = new Set(oldValue);
-        var nextRefs_1 = new Set(refs);
-        var current_1 = callbackRef.current;
-        prevRefs_1.forEach(function(ref) {
-          if (!nextRefs_1.has(ref)) {
-            assignRef(ref, null);
-          }
-        });
-        nextRefs_1.forEach(function(ref) {
-          if (!prevRefs_1.has(ref)) {
-            assignRef(ref, current_1);
-          }
-        });
-      }
-      currentValues.set(callbackRef, refs);
-    }, [refs]);
-    return callbackRef;
-  }
-
-  // node_modules/use-sidecar/dist/es2015/medium.js
-  function ItoI(a) {
-    return a;
-  }
-  function innerCreateMedium(defaults, middleware) {
-    if (middleware === void 0) {
-      middleware = ItoI;
-    }
-    var buffer = [];
-    var assigned = false;
-    var medium = {
-      read: function() {
-        if (assigned) {
-          throw new Error("Sidecar: could not `read` from an `assigned` medium. `read` could be used only with `useMedium`.");
-        }
-        if (buffer.length) {
-          return buffer[buffer.length - 1];
-        }
-        return defaults;
-      },
-      useMedium: function(data) {
-        var item = middleware(data, assigned);
-        buffer.push(item);
-        return function() {
-          buffer = buffer.filter(function(x) {
-            return x !== item;
-          });
-        };
-      },
-      assignSyncMedium: function(cb) {
-        assigned = true;
-        while (buffer.length) {
-          var cbs = buffer;
-          buffer = [];
-          cbs.forEach(cb);
-        }
-        buffer = {
-          push: function(x) {
-            return cb(x);
-          },
-          filter: function() {
-            return buffer;
-          }
-        };
-      },
-      assignMedium: function(cb) {
-        assigned = true;
-        var pendingQueue = [];
-        if (buffer.length) {
-          var cbs = buffer;
-          buffer = [];
-          cbs.forEach(cb);
-          pendingQueue = buffer;
-        }
-        var executeQueue = function() {
-          var cbs2 = pendingQueue;
-          pendingQueue = [];
-          cbs2.forEach(cb);
-        };
-        var cycle = function() {
-          return Promise.resolve().then(executeQueue);
-        };
-        cycle();
-        buffer = {
-          push: function(x) {
-            pendingQueue.push(x);
-            cycle();
-          },
-          filter: function(filter) {
-            pendingQueue = pendingQueue.filter(filter);
-            return buffer;
-          }
-        };
-      }
-    };
-    return medium;
-  }
-  function createSidecarMedium(options) {
-    if (options === void 0) {
-      options = {};
-    }
-    var medium = innerCreateMedium(null);
-    medium.options = __assign({ async: true, ssr: false }, options);
-    return medium;
-  }
-
-  // node_modules/use-sidecar/dist/es2015/exports.js
-  var React24 = __toESM(require_react());
-  var SideCar = function(_a) {
-    var sideCar = _a.sideCar, rest = __rest(_a, ["sideCar"]);
-    if (!sideCar) {
-      throw new Error("Sidecar: please provide `sideCar` property to import the right car");
-    }
-    var Target2 = sideCar.read();
-    if (!Target2) {
-      throw new Error("Sidecar medium not found");
-    }
-    return React24.createElement(Target2, __assign({}, rest));
-  };
-  SideCar.isSideCarExport = true;
-  function exportSidecar(medium, exported) {
-    medium.useMedium(exported);
-    return SideCar;
-  }
-
-  // node_modules/react-remove-scroll/dist/es2015/medium.js
-  var effectCar = createSidecarMedium();
-
-  // node_modules/react-remove-scroll/dist/es2015/UI.js
-  var nothing = function() {
-    return;
-  };
-  var RemoveScroll = React25.forwardRef(function(props, parentRef) {
-    var ref = React25.useRef(null);
-    var _a = React25.useState({
-      onScrollCapture: nothing,
-      onWheelCapture: nothing,
-      onTouchMoveCapture: nothing
-    }), callbacks = _a[0], setCallbacks = _a[1];
-    var forwardProps = props.forwardProps, children = props.children, className = props.className, removeScrollBar = props.removeScrollBar, enabled = props.enabled, shards = props.shards, sideCar = props.sideCar, noRelative = props.noRelative, noIsolation = props.noIsolation, inert = props.inert, allowPinchZoom = props.allowPinchZoom, _b = props.as, Container = _b === void 0 ? "div" : _b, gapMode = props.gapMode, rest = __rest(props, ["forwardProps", "children", "className", "removeScrollBar", "enabled", "shards", "sideCar", "noRelative", "noIsolation", "inert", "allowPinchZoom", "as", "gapMode"]);
-    var SideCar2 = sideCar;
-    var containerRef = useMergeRefs([ref, parentRef]);
-    var containerProps = __assign(__assign({}, rest), callbacks);
-    return React25.createElement(
-      React25.Fragment,
-      null,
-      enabled && React25.createElement(SideCar2, { sideCar: effectCar, removeScrollBar, shards, noRelative, noIsolation, inert, setCallbacks, allowPinchZoom: !!allowPinchZoom, lockRef: ref, gapMode }),
-      forwardProps ? React25.cloneElement(React25.Children.only(children), __assign(__assign({}, containerProps), { ref: containerRef })) : React25.createElement(Container, __assign({}, containerProps, { className, ref: containerRef }), children)
-    );
-  });
-  RemoveScroll.defaultProps = {
-    enabled: true,
-    removeScrollBar: true,
-    inert: false
-  };
-  RemoveScroll.classNames = {
-    fullWidth: fullWidthClassName,
-    zeroRight: zeroRightClassName
-  };
-
-  // node_modules/react-remove-scroll/dist/es2015/SideEffect.js
-  var React28 = __toESM(require_react());
-
-  // node_modules/react-remove-scroll-bar/dist/es2015/component.js
-  var React27 = __toESM(require_react());
-
-  // node_modules/react-style-singleton/dist/es2015/hook.js
-  var React26 = __toESM(require_react());
-
-  // node_modules/get-nonce/dist/es2015/index.js
-  var currentNonce;
-  var getNonce = function() {
-    if (currentNonce) {
-      return currentNonce;
-    }
-    if (typeof __webpack_nonce__ !== "undefined") {
-      return __webpack_nonce__;
-    }
-    return void 0;
-  };
-
-  // node_modules/react-style-singleton/dist/es2015/singleton.js
-  function makeStyleTag() {
-    if (!document)
-      return null;
-    var tag = document.createElement("style");
-    tag.type = "text/css";
-    var nonce = getNonce();
-    if (nonce) {
-      tag.setAttribute("nonce", nonce);
-    }
-    return tag;
-  }
-  function injectStyles(tag, css) {
-    if (tag.styleSheet) {
-      tag.styleSheet.cssText = css;
-    } else {
-      tag.appendChild(document.createTextNode(css));
-    }
-  }
-  function insertStyleTag(tag) {
-    var head = document.head || document.getElementsByTagName("head")[0];
-    head.appendChild(tag);
-  }
-  var stylesheetSingleton = function() {
-    var counter = 0;
-    var stylesheet = null;
-    return {
-      add: function(style) {
-        if (counter == 0) {
-          if (stylesheet = makeStyleTag()) {
-            injectStyles(stylesheet, style);
-            insertStyleTag(stylesheet);
-          }
-        }
-        counter++;
-      },
-      remove: function() {
-        counter--;
-        if (!counter && stylesheet) {
-          stylesheet.parentNode && stylesheet.parentNode.removeChild(stylesheet);
-          stylesheet = null;
-        }
-      }
-    };
-  };
-
-  // node_modules/react-style-singleton/dist/es2015/hook.js
-  var styleHookSingleton = function() {
-    var sheet = stylesheetSingleton();
-    return function(styles, isDynamic) {
-      React26.useEffect(function() {
-        sheet.add(styles);
-        return function() {
-          sheet.remove();
-        };
-      }, [styles && isDynamic]);
-    };
-  };
-
-  // node_modules/react-style-singleton/dist/es2015/component.js
-  var styleSingleton = function() {
-    var useStyle = styleHookSingleton();
-    var Sheet = function(_a) {
-      var styles = _a.styles, dynamic = _a.dynamic;
-      useStyle(styles, dynamic);
-      return null;
-    };
-    return Sheet;
-  };
-
-  // node_modules/react-remove-scroll-bar/dist/es2015/utils.js
-  var zeroGap = {
-    left: 0,
-    top: 0,
-    right: 0,
-    gap: 0
-  };
-  var parse = function(x) {
-    return parseInt(x || "", 10) || 0;
-  };
-  var getOffset = function(gapMode) {
-    var cs = window.getComputedStyle(document.body);
-    var left = cs[gapMode === "padding" ? "paddingLeft" : "marginLeft"];
-    var top = cs[gapMode === "padding" ? "paddingTop" : "marginTop"];
-    var right = cs[gapMode === "padding" ? "paddingRight" : "marginRight"];
-    return [parse(left), parse(top), parse(right)];
-  };
-  var getGapWidth = function(gapMode) {
-    if (gapMode === void 0) {
-      gapMode = "margin";
-    }
-    if (typeof window === "undefined") {
-      return zeroGap;
-    }
-    var offsets = getOffset(gapMode);
-    var documentWidth = document.documentElement.clientWidth;
-    var windowWidth = window.innerWidth;
-    return {
-      left: offsets[0],
-      top: offsets[1],
-      right: offsets[2],
-      gap: Math.max(0, windowWidth - documentWidth + offsets[2] - offsets[0])
-    };
-  };
-
-  // node_modules/react-remove-scroll-bar/dist/es2015/component.js
-  var Style = styleSingleton();
-  var lockAttribute = "data-scroll-locked";
-  var getStyles = function(_a, allowRelative, gapMode, important) {
-    var left = _a.left, top = _a.top, right = _a.right, gap = _a.gap;
-    if (gapMode === void 0) {
-      gapMode = "margin";
-    }
-    return "\n  .".concat(noScrollbarsClassName, " {\n   overflow: hidden ").concat(important, ";\n   padding-right: ").concat(gap, "px ").concat(important, ";\n  }\n  body[").concat(lockAttribute, "] {\n    overflow: hidden ").concat(important, ";\n    overscroll-behavior: contain;\n    ").concat([
-      allowRelative && "position: relative ".concat(important, ";"),
-      gapMode === "margin" && "\n    padding-left: ".concat(left, "px;\n    padding-top: ").concat(top, "px;\n    padding-right: ").concat(right, "px;\n    margin-left:0;\n    margin-top:0;\n    margin-right: ").concat(gap, "px ").concat(important, ";\n    "),
-      gapMode === "padding" && "padding-right: ".concat(gap, "px ").concat(important, ";")
-    ].filter(Boolean).join(""), "\n  }\n  \n  .").concat(zeroRightClassName, " {\n    right: ").concat(gap, "px ").concat(important, ";\n  }\n  \n  .").concat(fullWidthClassName, " {\n    margin-right: ").concat(gap, "px ").concat(important, ";\n  }\n  \n  .").concat(zeroRightClassName, " .").concat(zeroRightClassName, " {\n    right: 0 ").concat(important, ";\n  }\n  \n  .").concat(fullWidthClassName, " .").concat(fullWidthClassName, " {\n    margin-right: 0 ").concat(important, ";\n  }\n  \n  body[").concat(lockAttribute, "] {\n    ").concat(removedBarSizeVariable, ": ").concat(gap, "px;\n  }\n");
-  };
-  var getCurrentUseCounter = function() {
-    var counter = parseInt(document.body.getAttribute(lockAttribute) || "0", 10);
-    return isFinite(counter) ? counter : 0;
-  };
-  var useLockAttribute = function() {
-    React27.useEffect(function() {
-      document.body.setAttribute(lockAttribute, (getCurrentUseCounter() + 1).toString());
-      return function() {
-        var newCounter = getCurrentUseCounter() - 1;
-        if (newCounter <= 0) {
-          document.body.removeAttribute(lockAttribute);
-        } else {
-          document.body.setAttribute(lockAttribute, newCounter.toString());
-        }
-      };
-    }, []);
-  };
-  var RemoveScrollBar = function(_a) {
-    var noRelative = _a.noRelative, noImportant = _a.noImportant, _b = _a.gapMode, gapMode = _b === void 0 ? "margin" : _b;
-    useLockAttribute();
-    var gap = React27.useMemo(function() {
-      return getGapWidth(gapMode);
-    }, [gapMode]);
-    return React27.createElement(Style, { styles: getStyles(gap, !noRelative, gapMode, !noImportant ? "!important" : "") });
-  };
-
-  // node_modules/react-remove-scroll/dist/es2015/aggresiveCapture.js
-  var passiveSupported = false;
-  if (typeof window !== "undefined") {
-    try {
-      options = Object.defineProperty({}, "passive", {
-        get: function() {
-          passiveSupported = true;
-          return true;
-        }
-      });
-      window.addEventListener("test", options, options);
-      window.removeEventListener("test", options, options);
-    } catch (err) {
-      passiveSupported = false;
-    }
-  }
-  var options;
-  var nonPassive = passiveSupported ? { passive: false } : false;
-
-  // node_modules/react-remove-scroll/dist/es2015/handleScroll.js
-  var alwaysContainsScroll = function(node) {
-    return node.tagName === "TEXTAREA";
-  };
-  var elementCanBeScrolled = function(node, overflow) {
-    if (!(node instanceof Element)) {
-      return false;
-    }
-    var styles = window.getComputedStyle(node);
-    return (
-      // not-not-scrollable
-      styles[overflow] !== "hidden" && // contains scroll inside self
-      !(styles.overflowY === styles.overflowX && !alwaysContainsScroll(node) && styles[overflow] === "visible")
-    );
-  };
-  var elementCouldBeVScrolled = function(node) {
-    return elementCanBeScrolled(node, "overflowY");
-  };
-  var elementCouldBeHScrolled = function(node) {
-    return elementCanBeScrolled(node, "overflowX");
-  };
-  var locationCouldBeScrolled = function(axis, node) {
-    var ownerDocument = node.ownerDocument;
-    var current = node;
-    do {
-      if (typeof ShadowRoot !== "undefined" && current instanceof ShadowRoot) {
-        current = current.host;
-      }
-      var isScrollable = elementCouldBeScrolled(axis, current);
-      if (isScrollable) {
-        var _a = getScrollVariables(axis, current), scrollHeight = _a[1], clientHeight = _a[2];
-        if (scrollHeight > clientHeight) {
-          return true;
-        }
-      }
-      current = current.parentNode;
-    } while (current && current !== ownerDocument.body);
-    return false;
-  };
-  var getVScrollVariables = function(_a) {
-    var scrollTop = _a.scrollTop, scrollHeight = _a.scrollHeight, clientHeight = _a.clientHeight;
-    return [
-      scrollTop,
-      scrollHeight,
-      clientHeight
-    ];
-  };
-  var getHScrollVariables = function(_a) {
-    var scrollLeft = _a.scrollLeft, scrollWidth = _a.scrollWidth, clientWidth = _a.clientWidth;
-    return [
-      scrollLeft,
-      scrollWidth,
-      clientWidth
-    ];
-  };
-  var elementCouldBeScrolled = function(axis, node) {
-    return axis === "v" ? elementCouldBeVScrolled(node) : elementCouldBeHScrolled(node);
-  };
-  var getScrollVariables = function(axis, node) {
-    return axis === "v" ? getVScrollVariables(node) : getHScrollVariables(node);
-  };
-  var getDirectionFactor = function(axis, direction) {
-    return axis === "h" && direction === "rtl" ? -1 : 1;
-  };
-  var handleScroll = function(axis, endTarget, event, sourceDelta, noOverscroll) {
-    var directionFactor = getDirectionFactor(axis, window.getComputedStyle(endTarget).direction);
-    var delta = directionFactor * sourceDelta;
-    var target = event.target;
-    var targetInLock = endTarget.contains(target);
-    var shouldCancelScroll = false;
-    var isDeltaPositive = delta > 0;
-    var availableScroll = 0;
-    var availableScrollTop = 0;
-    do {
-      if (!target) {
-        break;
-      }
-      var _a = getScrollVariables(axis, target), position = _a[0], scroll_1 = _a[1], capacity = _a[2];
-      var elementScroll = scroll_1 - capacity - directionFactor * position;
-      if (position || elementScroll) {
-        if (elementCouldBeScrolled(axis, target)) {
-          availableScroll += elementScroll;
-          availableScrollTop += position;
-        }
-      }
-      var parent_1 = target.parentNode;
-      target = parent_1 && parent_1.nodeType === Node.DOCUMENT_FRAGMENT_NODE ? parent_1.host : parent_1;
-    } while (
-      // portaled content
-      !targetInLock && target !== document.body || // self content
-      targetInLock && (endTarget.contains(target) || endTarget === target)
-    );
-    if (isDeltaPositive && (noOverscroll && Math.abs(availableScroll) < 1 || !noOverscroll && delta > availableScroll)) {
-      shouldCancelScroll = true;
-    } else if (!isDeltaPositive && (noOverscroll && Math.abs(availableScrollTop) < 1 || !noOverscroll && -delta > availableScrollTop)) {
-      shouldCancelScroll = true;
-    }
-    return shouldCancelScroll;
-  };
-
-  // node_modules/react-remove-scroll/dist/es2015/SideEffect.js
-  var getTouchXY = function(event) {
-    return "changedTouches" in event ? [event.changedTouches[0].clientX, event.changedTouches[0].clientY] : [0, 0];
-  };
-  var getDeltaXY = function(event) {
-    return [event.deltaX, event.deltaY];
-  };
-  var extractRef = function(ref) {
-    return ref && "current" in ref ? ref.current : ref;
-  };
-  var deltaCompare = function(x, y) {
-    return x[0] === y[0] && x[1] === y[1];
-  };
-  var generateStyle = function(id) {
-    return "\n  .block-interactivity-".concat(id, " {pointer-events: none;}\n  .allow-interactivity-").concat(id, " {pointer-events: all;}\n");
-  };
-  var idCounter = 0;
-  var lockStack = [];
-  function RemoveScrollSideCar(props) {
-    var shouldPreventQueue = React28.useRef([]);
-    var touchStartRef = React28.useRef([0, 0]);
-    var activeAxis = React28.useRef();
-    var id = React28.useState(idCounter++)[0];
-    var Style2 = React28.useState(styleSingleton)[0];
-    var lastProps = React28.useRef(props);
-    React28.useEffect(function() {
-      lastProps.current = props;
-    }, [props]);
-    React28.useEffect(function() {
-      if (props.inert) {
-        document.body.classList.add("block-interactivity-".concat(id));
-        var allow_1 = __spreadArray([props.lockRef.current], (props.shards || []).map(extractRef), true).filter(Boolean);
-        allow_1.forEach(function(el) {
-          return el.classList.add("allow-interactivity-".concat(id));
-        });
-        return function() {
-          document.body.classList.remove("block-interactivity-".concat(id));
-          allow_1.forEach(function(el) {
-            return el.classList.remove("allow-interactivity-".concat(id));
-          });
-        };
-      }
-      return;
-    }, [props.inert, props.lockRef.current, props.shards]);
-    var shouldCancelEvent = React28.useCallback(function(event, parent) {
-      if ("touches" in event && event.touches.length === 2 || event.type === "wheel" && event.ctrlKey) {
-        return !lastProps.current.allowPinchZoom;
-      }
-      var touch = getTouchXY(event);
-      var touchStart = touchStartRef.current;
-      var deltaX = "deltaX" in event ? event.deltaX : touchStart[0] - touch[0];
-      var deltaY = "deltaY" in event ? event.deltaY : touchStart[1] - touch[1];
-      var currentAxis;
-      var target = event.target;
-      var moveDirection = Math.abs(deltaX) > Math.abs(deltaY) ? "h" : "v";
-      if ("touches" in event && moveDirection === "h" && target.type === "range") {
-        return false;
-      }
-      var canBeScrolledInMainDirection = locationCouldBeScrolled(moveDirection, target);
-      if (!canBeScrolledInMainDirection) {
-        return true;
-      }
-      if (canBeScrolledInMainDirection) {
-        currentAxis = moveDirection;
-      } else {
-        currentAxis = moveDirection === "v" ? "h" : "v";
-        canBeScrolledInMainDirection = locationCouldBeScrolled(moveDirection, target);
-      }
-      if (!canBeScrolledInMainDirection) {
-        return false;
-      }
-      if (!activeAxis.current && "changedTouches" in event && (deltaX || deltaY)) {
-        activeAxis.current = currentAxis;
-      }
-      if (!currentAxis) {
-        return true;
-      }
-      var cancelingAxis = activeAxis.current || currentAxis;
-      return handleScroll(cancelingAxis, parent, event, cancelingAxis === "h" ? deltaX : deltaY, true);
-    }, []);
-    var shouldPrevent = React28.useCallback(function(_event) {
-      var event = _event;
-      if (!lockStack.length || lockStack[lockStack.length - 1] !== Style2) {
-        return;
-      }
-      var delta = "deltaY" in event ? getDeltaXY(event) : getTouchXY(event);
-      var sourceEvent = shouldPreventQueue.current.filter(function(e) {
-        return e.name === event.type && (e.target === event.target || event.target === e.shadowParent) && deltaCompare(e.delta, delta);
-      })[0];
-      if (sourceEvent && sourceEvent.should) {
-        if (event.cancelable) {
-          event.preventDefault();
-        }
-        return;
-      }
-      if (!sourceEvent) {
-        var shardNodes = (lastProps.current.shards || []).map(extractRef).filter(Boolean).filter(function(node) {
-          return node.contains(event.target);
-        });
-        var shouldStop = shardNodes.length > 0 ? shouldCancelEvent(event, shardNodes[0]) : !lastProps.current.noIsolation;
-        if (shouldStop) {
-          if (event.cancelable) {
-            event.preventDefault();
-          }
-        }
-      }
-    }, []);
-    var shouldCancel = React28.useCallback(function(name, delta, target, should) {
-      var event = { name, delta, target, should, shadowParent: getOutermostShadowParent(target) };
-      shouldPreventQueue.current.push(event);
-      setTimeout(function() {
-        shouldPreventQueue.current = shouldPreventQueue.current.filter(function(e) {
-          return e !== event;
-        });
-      }, 1);
-    }, []);
-    var scrollTouchStart = React28.useCallback(function(event) {
-      touchStartRef.current = getTouchXY(event);
-      activeAxis.current = void 0;
-    }, []);
-    var scrollWheel = React28.useCallback(function(event) {
-      shouldCancel(event.type, getDeltaXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
-    }, []);
-    var scrollTouchMove = React28.useCallback(function(event) {
-      shouldCancel(event.type, getTouchXY(event), event.target, shouldCancelEvent(event, props.lockRef.current));
-    }, []);
-    React28.useEffect(function() {
-      lockStack.push(Style2);
-      props.setCallbacks({
-        onScrollCapture: scrollWheel,
-        onWheelCapture: scrollWheel,
-        onTouchMoveCapture: scrollTouchMove
-      });
-      document.addEventListener("wheel", shouldPrevent, nonPassive);
-      document.addEventListener("touchmove", shouldPrevent, nonPassive);
-      document.addEventListener("touchstart", scrollTouchStart, nonPassive);
-      return function() {
-        lockStack = lockStack.filter(function(inst) {
-          return inst !== Style2;
-        });
-        document.removeEventListener("wheel", shouldPrevent, nonPassive);
-        document.removeEventListener("touchmove", shouldPrevent, nonPassive);
-        document.removeEventListener("touchstart", scrollTouchStart, nonPassive);
-      };
-    }, []);
-    var removeScrollBar = props.removeScrollBar, inert = props.inert;
-    return React28.createElement(
-      React28.Fragment,
-      null,
-      inert ? React28.createElement(Style2, { styles: generateStyle(id) }) : null,
-      removeScrollBar ? React28.createElement(RemoveScrollBar, { noRelative: props.noRelative, gapMode: props.gapMode }) : null
-    );
-  }
-  function getOutermostShadowParent(node) {
-    var shadowParent = null;
-    while (node !== null) {
-      if (node instanceof ShadowRoot) {
-        shadowParent = node.host;
-        node = node.host;
-      }
-      node = node.parentNode;
-    }
-    return shadowParent;
-  }
-
-  // node_modules/react-remove-scroll/dist/es2015/sidecar.js
-  var sidecar_default = exportSidecar(effectCar, RemoveScrollSideCar);
-
-  // node_modules/react-remove-scroll/dist/es2015/Combination.js
-  var ReactRemoveScroll = React29.forwardRef(function(props, ref) {
-    return React29.createElement(RemoveScroll, __assign({}, props, { ref, sideCar: sidecar_default }));
-  });
-  ReactRemoveScroll.classNames = RemoveScroll.classNames;
-  var Combination_default = ReactRemoveScroll;
-
-  // node_modules/aria-hidden/dist/es2015/index.js
-  var getDefaultParent = function(originalTarget) {
-    if (typeof document === "undefined") {
-      return null;
-    }
-    var sampleTarget = Array.isArray(originalTarget) ? originalTarget[0] : originalTarget;
-    return sampleTarget.ownerDocument.body;
-  };
-  var counterMap = /* @__PURE__ */ new WeakMap();
-  var uncontrolledNodes = /* @__PURE__ */ new WeakMap();
-  var markerMap = {};
-  var lockCount = 0;
-  var unwrapHost = function(node) {
-    return node && (node.host || unwrapHost(node.parentNode));
-  };
-  var correctTargets = function(parent, targets) {
-    return targets.map(function(target) {
-      if (parent.contains(target)) {
-        return target;
-      }
-      var correctedTarget = unwrapHost(target);
-      if (correctedTarget && parent.contains(correctedTarget)) {
-        return correctedTarget;
-      }
-      console.error("aria-hidden", target, "in not contained inside", parent, ". Doing nothing");
-      return null;
-    }).filter(function(x) {
-      return Boolean(x);
-    });
-  };
-  var applyAttributeToOthers = function(originalTarget, parentNode, markerName, controlAttribute) {
-    var targets = correctTargets(parentNode, Array.isArray(originalTarget) ? originalTarget : [originalTarget]);
-    if (!markerMap[markerName]) {
-      markerMap[markerName] = /* @__PURE__ */ new WeakMap();
-    }
-    var markerCounter = markerMap[markerName];
-    var hiddenNodes = [];
-    var elementsToKeep = /* @__PURE__ */ new Set();
-    var elementsToStop = new Set(targets);
-    var keep = function(el) {
-      if (!el || elementsToKeep.has(el)) {
-        return;
-      }
-      elementsToKeep.add(el);
-      keep(el.parentNode);
-    };
-    targets.forEach(keep);
-    var deep = function(parent) {
-      if (!parent || elementsToStop.has(parent)) {
-        return;
-      }
-      Array.prototype.forEach.call(parent.children, function(node) {
-        if (elementsToKeep.has(node)) {
-          deep(node);
-        } else {
-          try {
-            var attr = node.getAttribute(controlAttribute);
-            var alreadyHidden = attr !== null && attr !== "false";
-            var counterValue = (counterMap.get(node) || 0) + 1;
-            var markerValue = (markerCounter.get(node) || 0) + 1;
-            counterMap.set(node, counterValue);
-            markerCounter.set(node, markerValue);
-            hiddenNodes.push(node);
-            if (counterValue === 1 && alreadyHidden) {
-              uncontrolledNodes.set(node, true);
-            }
-            if (markerValue === 1) {
-              node.setAttribute(markerName, "true");
-            }
-            if (!alreadyHidden) {
-              node.setAttribute(controlAttribute, "true");
-            }
-          } catch (e) {
-            console.error("aria-hidden: cannot operate on ", node, e);
-          }
-        }
-      });
-    };
-    deep(parentNode);
-    elementsToKeep.clear();
-    lockCount++;
-    return function() {
-      hiddenNodes.forEach(function(node) {
-        var counterValue = counterMap.get(node) - 1;
-        var markerValue = markerCounter.get(node) - 1;
-        counterMap.set(node, counterValue);
-        markerCounter.set(node, markerValue);
-        if (!counterValue) {
-          if (!uncontrolledNodes.has(node)) {
-            node.removeAttribute(controlAttribute);
-          }
-          uncontrolledNodes.delete(node);
-        }
-        if (!markerValue) {
-          node.removeAttribute(markerName);
-        }
-      });
-      lockCount--;
-      if (!lockCount) {
-        counterMap = /* @__PURE__ */ new WeakMap();
-        counterMap = /* @__PURE__ */ new WeakMap();
-        uncontrolledNodes = /* @__PURE__ */ new WeakMap();
-        markerMap = {};
-      }
-    };
-  };
-  var hideOthers = function(originalTarget, parentNode, markerName) {
-    if (markerName === void 0) {
-      markerName = "data-aria-hidden";
-    }
-    var targets = Array.from(Array.isArray(originalTarget) ? originalTarget : [originalTarget]);
-    var activeParentNode = parentNode || getDefaultParent(originalTarget);
-    if (!activeParentNode) {
-      return function() {
-        return null;
-      };
-    }
-    targets.push.apply(targets, Array.from(activeParentNode.querySelectorAll("[aria-live], script")));
-    return applyAttributeToOthers(targets, activeParentNode, markerName, "aria-hidden");
-  };
-
-  // node_modules/@radix-ui/react-dialog/dist/index.mjs
-  var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
-  var DIALOG_NAME = "Dialog";
-  var [createDialogContext, createDialogScope] = createContextScope(DIALOG_NAME);
-  var [DialogProvider, useDialogContext] = createDialogContext(DIALOG_NAME);
-  var Dialog = (props) => {
-    const {
-      __scopeDialog,
-      children,
-      open: openProp,
-      defaultOpen,
-      onOpenChange,
-      modal = true
-    } = props;
-    const triggerRef = React30.useRef(null);
-    const contentRef = React30.useRef(null);
-    const [open, setOpen] = useControllableState({
-      prop: openProp,
-      defaultProp: defaultOpen ?? false,
-      onChange: onOpenChange,
-      caller: DIALOG_NAME
-    });
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
-      DialogProvider,
-      {
-        scope: __scopeDialog,
-        triggerRef,
-        contentRef,
-        contentId: useId(),
-        titleId: useId(),
-        descriptionId: useId(),
-        open,
-        onOpenChange: setOpen,
-        onOpenToggle: React30.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
-        modal,
-        children
-      }
-    );
-  };
-  Dialog.displayName = DIALOG_NAME;
-  var TRIGGER_NAME = "DialogTrigger";
-  var DialogTrigger = React30.forwardRef(
-    (props, forwardedRef) => {
-      const { __scopeDialog, ...triggerProps } = props;
-      const context = useDialogContext(TRIGGER_NAME, __scopeDialog);
-      const composedTriggerRef = useComposedRefs(forwardedRef, context.triggerRef);
-      return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
-        Primitive.button,
-        {
-          type: "button",
-          "aria-haspopup": "dialog",
-          "aria-expanded": context.open,
-          "aria-controls": context.contentId,
-          "data-state": getState(context.open),
-          ...triggerProps,
-          ref: composedTriggerRef,
-          onClick: composeEventHandlers(props.onClick, context.onOpenToggle)
-        }
-      );
-    }
-  );
-  DialogTrigger.displayName = TRIGGER_NAME;
-  var PORTAL_NAME2 = "DialogPortal";
-  var [PortalProvider, usePortalContext] = createDialogContext(PORTAL_NAME2, {
-    forceMount: void 0
-  });
-  var DialogPortal = (props) => {
-    const { __scopeDialog, forceMount, children, container } = props;
-    const context = useDialogContext(PORTAL_NAME2, __scopeDialog);
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(PortalProvider, { scope: __scopeDialog, forceMount, children: React30.Children.map(children, (child) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Portal, { asChild: true, container, children: child }) })) });
-  };
-  DialogPortal.displayName = PORTAL_NAME2;
-  var OVERLAY_NAME = "DialogOverlay";
-  var DialogOverlay = React30.forwardRef(
-    (props, forwardedRef) => {
-      const portalContext = usePortalContext(OVERLAY_NAME, props.__scopeDialog);
-      const { forceMount = portalContext.forceMount, ...overlayProps } = props;
-      const context = useDialogContext(OVERLAY_NAME, props.__scopeDialog);
-      return context.modal ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(DialogOverlayImpl, { ...overlayProps, ref: forwardedRef }) }) : null;
-    }
-  );
-  DialogOverlay.displayName = OVERLAY_NAME;
-  var Slot2 = createSlot("DialogOverlay.RemoveScroll");
-  var DialogOverlayImpl = React30.forwardRef(
-    (props, forwardedRef) => {
-      const { __scopeDialog, ...overlayProps } = props;
-      const context = useDialogContext(OVERLAY_NAME, __scopeDialog);
-      return (
-        // Make sure `Content` is scrollable even when it doesn't live inside `RemoveScroll`
-        // ie. when `Overlay` and `Content` are siblings
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Combination_default, { as: Slot2, allowPinchZoom: true, shards: [context.contentRef], children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
-          Primitive.div,
-          {
-            "data-state": getState(context.open),
-            ...overlayProps,
-            ref: forwardedRef,
-            style: { pointerEvents: "auto", ...overlayProps.style }
-          }
-        ) })
-      );
-    }
-  );
-  var CONTENT_NAME = "DialogContent";
-  var DialogContent = React30.forwardRef(
-    (props, forwardedRef) => {
-      const portalContext = usePortalContext(CONTENT_NAME, props.__scopeDialog);
-      const { forceMount = portalContext.forceMount, ...contentProps } = props;
-      const context = useDialogContext(CONTENT_NAME, props.__scopeDialog);
-      return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Presence, { present: forceMount || context.open, children: context.modal ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(DialogContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(DialogContentNonModal, { ...contentProps, ref: forwardedRef }) });
-    }
-  );
-  DialogContent.displayName = CONTENT_NAME;
-  var DialogContentModal = React30.forwardRef(
-    (props, forwardedRef) => {
-      const context = useDialogContext(CONTENT_NAME, props.__scopeDialog);
-      const contentRef = React30.useRef(null);
-      const composedRefs = useComposedRefs(forwardedRef, context.contentRef, contentRef);
-      React30.useEffect(() => {
-        const content = contentRef.current;
-        if (content) return hideOthers(content);
-      }, []);
-      return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
-        DialogContentImpl,
-        {
-          ...props,
-          ref: composedRefs,
-          trapFocus: context.open,
-          disableOutsidePointerEvents: true,
-          onCloseAutoFocus: composeEventHandlers(props.onCloseAutoFocus, (event) => {
-            event.preventDefault();
-            context.triggerRef.current?.focus();
-          }),
-          onPointerDownOutside: composeEventHandlers(props.onPointerDownOutside, (event) => {
-            const originalEvent = event.detail.originalEvent;
-            const ctrlLeftClick = originalEvent.button === 0 && originalEvent.ctrlKey === true;
-            const isRightClick = originalEvent.button === 2 || ctrlLeftClick;
-            if (isRightClick) event.preventDefault();
-          }),
-          onFocusOutside: composeEventHandlers(
-            props.onFocusOutside,
-            (event) => event.preventDefault()
-          )
-        }
-      );
-    }
-  );
-  var DialogContentNonModal = React30.forwardRef(
-    (props, forwardedRef) => {
-      const context = useDialogContext(CONTENT_NAME, props.__scopeDialog);
-      const hasInteractedOutsideRef = React30.useRef(false);
-      const hasPointerDownOutsideRef = React30.useRef(false);
-      return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
-        DialogContentImpl,
-        {
-          ...props,
-          ref: forwardedRef,
-          trapFocus: false,
-          disableOutsidePointerEvents: false,
-          onCloseAutoFocus: (event) => {
-            props.onCloseAutoFocus?.(event);
-            if (!event.defaultPrevented) {
-              if (!hasInteractedOutsideRef.current) context.triggerRef.current?.focus();
-              event.preventDefault();
-            }
-            hasInteractedOutsideRef.current = false;
-            hasPointerDownOutsideRef.current = false;
-          },
-          onInteractOutside: (event) => {
-            props.onInteractOutside?.(event);
-            if (!event.defaultPrevented) {
-              hasInteractedOutsideRef.current = true;
-              if (event.detail.originalEvent.type === "pointerdown") {
-                hasPointerDownOutsideRef.current = true;
-              }
-            }
-            const target = event.target;
-            const targetIsTrigger = context.triggerRef.current?.contains(target);
-            if (targetIsTrigger) event.preventDefault();
-            if (event.detail.originalEvent.type === "focusin" && hasPointerDownOutsideRef.current) {
-              event.preventDefault();
-            }
-          }
-        }
-      );
-    }
-  );
-  var DialogContentImpl = React30.forwardRef(
-    (props, forwardedRef) => {
-      const { __scopeDialog, trapFocus, onOpenAutoFocus, onCloseAutoFocus, ...contentProps } = props;
-      const context = useDialogContext(CONTENT_NAME, __scopeDialog);
-      const contentRef = React30.useRef(null);
-      const composedRefs = useComposedRefs(forwardedRef, contentRef);
-      useFocusGuards();
-      return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(import_jsx_runtime18.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
-          FocusScope,
-          {
-            asChild: true,
-            loop: true,
-            trapped: trapFocus,
-            onMountAutoFocus: onOpenAutoFocus,
-            onUnmountAutoFocus: onCloseAutoFocus,
-            children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
-              DismissableLayer,
-              {
-                role: "dialog",
-                id: context.contentId,
-                "aria-describedby": context.descriptionId,
-                "aria-labelledby": context.titleId,
-                "data-state": getState(context.open),
-                ...contentProps,
-                ref: composedRefs,
-                onDismiss: () => context.onOpenChange(false)
-              }
-            )
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(import_jsx_runtime18.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(TitleWarning, { titleId: context.titleId }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(DescriptionWarning, { contentRef, descriptionId: context.descriptionId })
-        ] })
-      ] });
-    }
-  );
-  var TITLE_NAME = "DialogTitle";
-  var DialogTitle = React30.forwardRef(
-    (props, forwardedRef) => {
-      const { __scopeDialog, ...titleProps } = props;
-      const context = useDialogContext(TITLE_NAME, __scopeDialog);
-      return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Primitive.h2, { id: context.titleId, ...titleProps, ref: forwardedRef });
-    }
-  );
-  DialogTitle.displayName = TITLE_NAME;
-  var DESCRIPTION_NAME = "DialogDescription";
-  var DialogDescription = React30.forwardRef(
-    (props, forwardedRef) => {
-      const { __scopeDialog, ...descriptionProps } = props;
-      const context = useDialogContext(DESCRIPTION_NAME, __scopeDialog);
-      return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(Primitive.p, { id: context.descriptionId, ...descriptionProps, ref: forwardedRef });
-    }
-  );
-  DialogDescription.displayName = DESCRIPTION_NAME;
-  var CLOSE_NAME = "DialogClose";
-  var DialogClose = React30.forwardRef(
-    (props, forwardedRef) => {
-      const { __scopeDialog, ...closeProps } = props;
-      const context = useDialogContext(CLOSE_NAME, __scopeDialog);
-      return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
-        Primitive.button,
-        {
-          type: "button",
-          ...closeProps,
-          ref: forwardedRef,
-          onClick: composeEventHandlers(props.onClick, () => context.onOpenChange(false))
-        }
-      );
-    }
-  );
-  DialogClose.displayName = CLOSE_NAME;
-  function getState(open) {
-    return open ? "open" : "closed";
-  }
-  var TITLE_WARNING_NAME = "DialogTitleWarning";
-  var [WarningProvider, useWarningContext] = createContext2(TITLE_WARNING_NAME, {
-    contentName: CONTENT_NAME,
-    titleName: TITLE_NAME,
-    docsSlug: "dialog"
-  });
-  var TitleWarning = ({ titleId }) => {
-    const titleWarningContext = useWarningContext(TITLE_WARNING_NAME);
-    const MESSAGE = `\`${titleWarningContext.contentName}\` requires a \`${titleWarningContext.titleName}\` for the component to be accessible for screen reader users.
-
-If you want to hide the \`${titleWarningContext.titleName}\`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/${titleWarningContext.docsSlug}`;
-    React30.useEffect(() => {
-      if (titleId) {
-        const hasTitle = document.getElementById(titleId);
-        if (!hasTitle) console.error(MESSAGE);
-      }
-    }, [MESSAGE, titleId]);
-    return null;
-  };
-  var DESCRIPTION_WARNING_NAME = "DialogDescriptionWarning";
-  var DescriptionWarning = ({ contentRef, descriptionId }) => {
-    const descriptionWarningContext = useWarningContext(DESCRIPTION_WARNING_NAME);
-    const MESSAGE = `Warning: Missing \`Description\` or \`aria-describedby={undefined}\` for {${descriptionWarningContext.contentName}}.`;
-    React30.useEffect(() => {
-      const describedById = contentRef.current?.getAttribute("aria-describedby");
-      if (descriptionId && describedById) {
-        const hasDescription = document.getElementById(descriptionId);
-        if (!hasDescription) console.warn(MESSAGE);
-      }
-    }, [MESSAGE, contentRef, descriptionId]);
-    return null;
-  };
-  var Root2 = Dialog;
-  var Portal2 = DialogPortal;
-  var Overlay = DialogOverlay;
-  var Content = DialogContent;
-  var Title = DialogTitle;
-  var Description = DialogDescription;
-  var Close = DialogClose;
-
-  // src/components/ui/dialog.tsx
-  var import_jsx_runtime19 = __toESM(require_jsx_runtime());
-  var Dialog2 = Root2;
-  var DialogPortal2 = Portal2;
-  var DialogOverlay2 = React31.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-    Overlay,
-    {
-      ref,
-      className: cn(
-        "fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
-        className
-      ),
-      ...props
-    }
-  ));
-  DialogOverlay2.displayName = Overlay.displayName;
-  var DialogContent2 = React31.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(DialogPortal2, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(DialogOverlay2, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(
-      Content,
-      {
-        ref,
-        className: cn(
-          "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg",
-          className
-        ),
-        ...props,
-        children: [
-          children,
-          /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(Close, { className: "absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(X, { className: "h-4 w-4" }),
-            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("span", { className: "sr-only", children: "Close" })
-          ] })
-        ]
-      }
-    )
-  ] }));
-  DialogContent2.displayName = Content.displayName;
-  var DialogHeader = ({
-    className,
-    ...props
-  }) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-    "div",
-    {
-      className: cn(
-        "flex flex-col space-y-1.5 text-center sm:text-left",
-        className
-      ),
-      ...props
-    }
-  );
-  DialogHeader.displayName = "DialogHeader";
-  var DialogFooter = ({
-    className,
-    ...props
-  }) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-    "div",
-    {
-      className: cn(
-        "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
-        className
-      ),
-      ...props
-    }
-  );
-  DialogFooter.displayName = "DialogFooter";
-  var DialogTitle2 = React31.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-    Title,
-    {
-      ref,
-      className: cn(
-        "text-lg font-semibold leading-none tracking-tight",
-        className
-      ),
-      ...props
-    }
-  ));
-  DialogTitle2.displayName = Title.displayName;
-  var DialogDescription2 = React31.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
-    Description,
-    {
-      ref,
-      className: cn("text-sm text-muted-foreground", className),
-      ...props
-    }
-  ));
-  DialogDescription2.displayName = Description.displayName;
-
   // src/components/Auth/LoginModal.tsx
-  var import_jsx_runtime20 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime28 = __toESM(require_jsx_runtime());
   function LoginModal({ open, onClose }) {
-    const [username, setUsername] = (0, import_react9.useState)("");
-    const [password, setPassword] = (0, import_react9.useState)("");
-    const [showPassword, setShowPassword] = (0, import_react9.useState)(false);
-    const [isLoading, setIsLoading] = (0, import_react9.useState)(false);
-    const [error, setError] = (0, import_react9.useState)("");
+    const [username, setUsername] = (0, import_react15.useState)("");
+    const [password, setPassword] = (0, import_react15.useState)("");
+    const [showPassword, setShowPassword] = (0, import_react15.useState)(false);
+    const [isLoading, setIsLoading] = (0, import_react15.useState)(false);
+    const [error, setError] = (0, import_react15.useState)("");
     const { login, loginDemo } = useAuthStore();
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -31440,14 +32303,14 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       loginDemo();
       onClose();
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Dialog2, { open, onOpenChange: onClose, children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(DialogContent2, { className: "sm:max-w-md", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(DialogHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(DialogTitle2, { className: "text-center", children: "\u0412\u0445\u043E\u0434 \u0432 \u0441\u0438\u0441\u0442\u0435\u043C\u0443" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("form", { onSubmit: handleSubmit, className: "space-y-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "space-y-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Label2, { htmlFor: "username", children: "\u0418\u043C\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F" }),
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "relative", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(User, { className: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Dialog2, { open, onOpenChange: onClose, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(DialogContent2, { className: "sm:max-w-md", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(DialogHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(DialogTitle2, { className: "text-center", children: "\u0412\u0445\u043E\u0434 \u0432 \u0441\u0438\u0441\u0442\u0435\u043C\u0443" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("form", { onSubmit: handleSubmit, className: "space-y-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "space-y-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Label2, { htmlFor: "username", children: "\u0418\u043C\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F" }),
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "relative", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(User, { className: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" }),
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
               Input,
               {
                 id: "username",
@@ -31461,11 +32324,11 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
             )
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "space-y-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Label2, { htmlFor: "password", children: "\u041F\u0430\u0440\u043E\u043B\u044C" }),
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "relative", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Lock, { className: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "space-y-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Label2, { htmlFor: "password", children: "\u041F\u0430\u0440\u043E\u043B\u044C" }),
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "relative", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Lock, { className: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" }),
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
               Input,
               {
                 id: "password",
@@ -31477,7 +32340,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                 required: true
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
               Button,
               {
                 type: "button",
@@ -31485,16 +32348,16 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                 size: "sm",
                 className: "absolute right-1 top-1/2 transform -translate-y-1/2 h-auto p-2",
                 onClick: () => setShowPassword(!showPassword),
-                children: showPassword ? /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(EyeOff, { className: "w-4 h-4" }) : /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Eye, { className: "w-4 h-4" })
+                children: showPassword ? /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(EyeOff, { className: "w-4 h-4" }) : /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Eye, { className: "w-4 h-4" })
               }
             )
           ] })
         ] }),
-        error && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "text-red-500 text-sm text-center", children: error }),
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "space-y-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Button, { type: "submit", className: "w-full", disabled: isLoading, children: isLoading ? "\u0412\u0445\u043E\u0434..." : "\u0412\u043E\u0439\u0442\u0438" }),
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "text-center", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { className: "text-sm text-gray-500", children: "\u0438\u043B\u0438" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+        error && /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: "text-red-500 text-sm text-center", children: error }),
+        /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "space-y-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Button, { type: "submit", className: "w-full", disabled: isLoading, children: isLoading ? "\u0412\u0445\u043E\u0434..." : "\u0412\u043E\u0439\u0442\u0438" }),
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: "text-center", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "text-sm text-gray-500", children: "\u0438\u043B\u0438" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
             Button,
             {
               type: "button",
@@ -31505,17 +32368,17 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "text-xs text-gray-500 text-center space-y-1", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { children: "\u0414\u0435\u043C\u043E \u0443\u0447\u0435\u0442\u043D\u044B\u0435 \u0434\u0430\u043D\u043D\u044B\u0435:" }),
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { children: "\u041A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440: controller / demo123" }),
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { children: "\u0410\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440: admin / admin123" })
+        /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "text-xs text-gray-500 text-center space-y-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { children: "\u0414\u0435\u043C\u043E \u0443\u0447\u0435\u0442\u043D\u044B\u0435 \u0434\u0430\u043D\u043D\u044B\u0435:" }),
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { children: "\u041A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440: controller / demo123" }),
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { children: "\u0410\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440: admin / admin123" })
         ] })
       ] })
     ] }) });
   }
 
   // src/components/Ads/AdPlacement.tsx
-  var import_react11 = __toESM(require_react());
+  var import_react17 = __toESM(require_react());
 
   // src/store/adStore.ts
   var defaultAdUnits = [
@@ -31711,12 +32574,12 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   }
 
   // src/components/Ads/AdUnit.tsx
-  var import_react10 = __toESM(require_react());
-  var import_jsx_runtime21 = __toESM(require_jsx_runtime());
+  var import_react16 = __toESM(require_react());
+  var import_jsx_runtime29 = __toESM(require_jsx_runtime());
   function AdUnit({ ad, className = "", variant = "default" }) {
     const { recordImpression, recordClick, userPreferences, setUserPreferences } = useAdStore();
-    const hasRecordedImpression = (0, import_react10.useRef)(false);
-    (0, import_react10.useEffect)(() => {
+    const hasRecordedImpression = (0, import_react16.useRef)(false);
+    (0, import_react16.useEffect)(() => {
       if (!hasRecordedImpression.current) {
         recordImpression(ad.id);
         hasRecordedImpression.current = true;
@@ -31746,7 +32609,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           return "p-4";
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(
       Card,
       {
         className: `
@@ -31756,23 +32619,23 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       `,
         onClick: handleClick,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "absolute top-2 right-2 flex items-center gap-1", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Badge, { variant: "secondary", className: "text-xs bg-blue-100 text-blue-600", children: "\u0420\u0435\u043A\u043B\u0430\u043C\u0430" }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "absolute top-2 right-2 flex items-center gap-1", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Badge, { variant: "secondary", className: "text-xs bg-blue-100 text-blue-600", children: "\u0420\u0435\u043A\u043B\u0430\u043C\u0430" }),
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
               "button",
               {
                 onClick: handleDismiss,
                 "data-dismiss": true,
                 className: "p-1 hover:bg-gray-200 rounded-full transition-colors",
                 title: "\u0421\u043A\u0440\u044B\u0442\u044C \u043F\u043E\u0434\u043E\u0431\u043D\u044B\u0435 \u043E\u0431\u044A\u044F\u0432\u043B\u0435\u043D\u0438\u044F",
-                children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(X, { className: "w-3 h-3 text-gray-400" })
+                children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(X, { className: "w-3 h-3 text-gray-400" })
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(CardContent, { className: `space-y-3 ${getVariantStyles()}`, children: variant === "banner" ? (
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(CardContent, { className: `space-y-3 ${getVariantStyles()}`, children: variant === "banner" ? (
             // Banner layout
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "flex items-center space-x-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "flex items-center space-x-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
                 "img",
                 {
                   src: ad.imageUrl,
@@ -31781,16 +32644,16 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                   loading: "lazy"
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "flex-grow min-w-0", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("h3", { className: "font-semibold text-blue-900 text-sm leading-tight", children: ad.title }),
-                /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("p", { className: "text-gray-600 text-xs mt-1 line-clamp-2", children: ad.description })
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "flex-grow min-w-0", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("h3", { className: "font-semibold text-blue-900 text-sm leading-tight", children: ad.title }),
+                /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("p", { className: "text-gray-600 text-xs mt-1 line-clamp-2", children: ad.description })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(ExternalLink, { className: "w-4 h-4 text-blue-500 flex-shrink-0" })
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(ExternalLink, { className: "w-4 h-4 text-blue-500 flex-shrink-0" })
             ] })
           ) : (
             // Standard layout
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(import_jsx_runtime21.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "aspect-video w-full bg-gray-100 rounded-lg overflow-hidden", children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(import_jsx_runtime29.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "aspect-video w-full bg-gray-100 rounded-lg overflow-hidden", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
                 "img",
                 {
                   src: ad.imageUrl,
@@ -31799,12 +32662,12 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                   loading: "lazy"
                 }
               ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "space-y-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "flex items-start justify-between", children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("h3", { className: "font-semibold text-blue-900 text-sm leading-tight pr-8", children: ad.title }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("p", { className: "text-gray-600 text-xs leading-relaxed line-clamp-3", children: ad.description }),
-                /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "flex items-center justify-between pt-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Badge, { variant: "outline", className: "text-xs text-blue-600 border-blue-200", children: getCategoryDisplayName(ad.category) }),
-                  /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(ExternalLink, { className: "w-3 h-3 text-blue-500" })
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "flex items-start justify-between", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("h3", { className: "font-semibold text-blue-900 text-sm leading-tight pr-8", children: ad.title }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("p", { className: "text-gray-600 text-xs leading-relaxed line-clamp-3", children: ad.description }),
+                /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "flex items-center justify-between pt-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Badge, { variant: "outline", className: "text-xs text-blue-600 border-blue-200", children: getCategoryDisplayName(ad.category) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(ExternalLink, { className: "w-3 h-3 text-blue-500" })
                 ] })
               ] })
             ] })
@@ -31828,7 +32691,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   }
 
   // src/components/Ads/AdPlacement.tsx
-  var import_jsx_runtime22 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime30 = __toESM(require_jsx_runtime());
   function AdPlacement({
     placement,
     className = "",
@@ -31836,7 +32699,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     title
   }) {
     const { getTargetedAds, updateContext, config } = useAdStore();
-    (0, import_react11.useEffect)(() => {
+    (0, import_react17.useEffect)(() => {
       updateContext({ pageType: placement });
     }, [placement, updateContext]);
     const ads = getTargetedAds(placement, maxAds);
@@ -31876,12 +32739,12 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           return "default";
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: `ad-placement ${className}`, children: [
-      title && /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mb-3", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h3", { className: "text-sm font-medium text-gray-500 uppercase tracking-wide", children: title }),
-        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "w-12 h-0.5 bg-blue-200 mt-1" })
+    return /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: `ad-placement ${className}`, children: [
+      title && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mb-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h3", { className: "text-sm font-medium text-gray-500 uppercase tracking-wide", children: title }),
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "w-12 h-0.5 bg-blue-200 mt-1" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: getPlacementStyles(), children: ads.map((ad) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: getPlacementStyles(), children: ads.map((ad) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
         AdUnit,
         {
           ad,
@@ -31890,239 +32753,15 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         },
         ad.id
       )) }),
-      placement === "sidebar-primary" && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "mt-4 text-xs text-gray-400 text-center", children: "\u0420\u0435\u043A\u043B\u0430\u043C\u0430 \u043F\u043E\u0434\u043E\u0431\u0440\u0430\u043D\u0430 \u043F\u043E \u0441\u043E\u0434\u0435\u0440\u0436\u0430\u043D\u0438\u044E \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B" })
+      placement === "sidebar-primary" && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "mt-4 text-xs text-gray-400 text-center", children: "\u0420\u0435\u043A\u043B\u0430\u043C\u0430 \u043F\u043E\u0434\u043E\u0431\u0440\u0430\u043D\u0430 \u043F\u043E \u0441\u043E\u0434\u0435\u0440\u0436\u0430\u043D\u0438\u044E \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B" })
     ] });
   }
 
   // src/components/Ads/AdSettings.tsx
-  var import_react12 = __toESM(require_react());
-
-  // src/components/ui/switch.tsx
-  var React35 = __toESM(require_react());
-
-  // node_modules/@radix-ui/react-switch/dist/index.mjs
-  var React34 = __toESM(require_react(), 1);
-
-  // node_modules/@radix-ui/react-use-previous/dist/index.mjs
-  var React32 = __toESM(require_react(), 1);
-  function usePrevious(value) {
-    const ref = React32.useRef({ value, previous: value });
-    return React32.useMemo(() => {
-      if (ref.current.value !== value) {
-        ref.current.previous = ref.current.value;
-        ref.current.value = value;
-      }
-      return ref.current.previous;
-    }, [value]);
-  }
-
-  // node_modules/@radix-ui/react-use-size/dist/index.mjs
-  var React33 = __toESM(require_react(), 1);
-  function useSize(element) {
-    const [size4, setSize] = React33.useState(void 0);
-    useLayoutEffect2(() => {
-      if (element) {
-        setSize({ width: element.offsetWidth, height: element.offsetHeight });
-        const resizeObserver = new ResizeObserver((entries) => {
-          if (!Array.isArray(entries)) {
-            return;
-          }
-          if (!entries.length) {
-            return;
-          }
-          const entry = entries[0];
-          let width;
-          let height;
-          if ("borderBoxSize" in entry) {
-            const borderSizeEntry = entry["borderBoxSize"];
-            const borderSize = Array.isArray(borderSizeEntry) ? borderSizeEntry[0] : borderSizeEntry;
-            width = borderSize["inlineSize"];
-            height = borderSize["blockSize"];
-          } else {
-            width = element.offsetWidth;
-            height = element.offsetHeight;
-          }
-          setSize({ width, height });
-        });
-        resizeObserver.observe(element, { box: "border-box" });
-        return () => resizeObserver.unobserve(element);
-      } else {
-        setSize(void 0);
-      }
-    }, [element]);
-    return size4;
-  }
-
-  // node_modules/@radix-ui/react-switch/dist/index.mjs
-  var import_jsx_runtime23 = __toESM(require_jsx_runtime(), 1);
-  var SWITCH_NAME = "Switch";
-  var [createSwitchContext, createSwitchScope] = createContextScope(SWITCH_NAME);
-  var [SwitchProvider, useSwitchContext] = createSwitchContext(SWITCH_NAME);
-  var Switch = React34.forwardRef(
-    (props, forwardedRef) => {
-      const {
-        __scopeSwitch,
-        name,
-        checked: checkedProp,
-        defaultChecked,
-        required,
-        disabled,
-        value = "on",
-        onCheckedChange,
-        form,
-        ...switchProps
-      } = props;
-      const [button, setButton] = React34.useState(null);
-      const composedRefs = useComposedRefs(forwardedRef, (node) => setButton(node));
-      const hasConsumerStoppedPropagationRef = React34.useRef(false);
-      const isFormControl = button ? form || !!button.closest("form") : true;
-      const [checked, setChecked] = useControllableState({
-        prop: checkedProp,
-        defaultProp: defaultChecked ?? false,
-        onChange: onCheckedChange,
-        caller: SWITCH_NAME
-      });
-      return /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(SwitchProvider, { scope: __scopeSwitch, checked, disabled, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
-          Primitive.button,
-          {
-            type: "button",
-            role: "switch",
-            "aria-checked": checked,
-            "aria-required": required,
-            "data-state": getState2(checked),
-            "data-disabled": disabled ? "" : void 0,
-            disabled,
-            value,
-            ...switchProps,
-            ref: composedRefs,
-            onClick: composeEventHandlers(props.onClick, (event) => {
-              setChecked((prevChecked) => !prevChecked);
-              if (isFormControl) {
-                hasConsumerStoppedPropagationRef.current = event.isPropagationStopped();
-                if (!hasConsumerStoppedPropagationRef.current) event.stopPropagation();
-              }
-            })
-          }
-        ),
-        isFormControl && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
-          SwitchBubbleInput,
-          {
-            control: button,
-            bubbles: !hasConsumerStoppedPropagationRef.current,
-            name,
-            value,
-            checked,
-            required,
-            disabled,
-            form,
-            style: { transform: "translateX(-100%)" }
-          }
-        )
-      ] });
-    }
-  );
-  Switch.displayName = SWITCH_NAME;
-  var THUMB_NAME = "SwitchThumb";
-  var SwitchThumb = React34.forwardRef(
-    (props, forwardedRef) => {
-      const { __scopeSwitch, ...thumbProps } = props;
-      const context = useSwitchContext(THUMB_NAME, __scopeSwitch);
-      return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
-        Primitive.span,
-        {
-          "data-state": getState2(context.checked),
-          "data-disabled": context.disabled ? "" : void 0,
-          ...thumbProps,
-          ref: forwardedRef
-        }
-      );
-    }
-  );
-  SwitchThumb.displayName = THUMB_NAME;
-  var BUBBLE_INPUT_NAME = "SwitchBubbleInput";
-  var SwitchBubbleInput = React34.forwardRef(
-    ({
-      __scopeSwitch,
-      control,
-      checked,
-      bubbles = true,
-      ...props
-    }, forwardedRef) => {
-      const ref = React34.useRef(null);
-      const composedRefs = useComposedRefs(ref, forwardedRef);
-      const prevChecked = usePrevious(checked);
-      const controlSize = useSize(control);
-      React34.useEffect(() => {
-        const input = ref.current;
-        if (!input) return;
-        const inputProto = window.HTMLInputElement.prototype;
-        const descriptor = Object.getOwnPropertyDescriptor(
-          inputProto,
-          "checked"
-        );
-        const setChecked = descriptor.set;
-        if (prevChecked !== checked && setChecked) {
-          const event = new Event("click", { bubbles });
-          setChecked.call(input, checked);
-          input.dispatchEvent(event);
-        }
-      }, [prevChecked, checked, bubbles]);
-      return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
-        "input",
-        {
-          type: "checkbox",
-          "aria-hidden": true,
-          defaultChecked: checked,
-          ...props,
-          tabIndex: -1,
-          ref: composedRefs,
-          style: {
-            ...props.style,
-            ...controlSize,
-            position: "absolute",
-            pointerEvents: "none",
-            opacity: 0,
-            margin: 0
-          }
-        }
-      );
-    }
-  );
-  SwitchBubbleInput.displayName = BUBBLE_INPUT_NAME;
-  function getState2(checked) {
-    return checked ? "checked" : "unchecked";
-  }
-  var Root3 = Switch;
-  var Thumb = SwitchThumb;
-
-  // src/components/ui/switch.tsx
-  var import_jsx_runtime24 = __toESM(require_jsx_runtime());
-  var Switch2 = React35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-    Root3,
-    {
-      className: cn(
-        "peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
-        className
-      ),
-      ...props,
-      ref,
-      children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-        Thumb,
-        {
-          className: cn(
-            "pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0"
-          )
-        }
-      )
-    }
-  ));
-  Switch2.displayName = Root3.displayName;
-
-  // src/components/Ads/AdSettings.tsx
-  var import_jsx_runtime25 = __toESM(require_jsx_runtime());
+  var import_react18 = __toESM(require_react());
+  var import_jsx_runtime31 = __toESM(require_jsx_runtime());
   function AdSettings() {
-    const [isOpen, setIsOpen] = (0, import_react12.useState)(false);
+    const [isOpen, setIsOpen] = (0, import_react18.useState)(false);
     const {
       config,
       userPreferences,
@@ -32131,14 +32770,14 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       setUserPreferences
     } = useAdStore();
     if (!isOpen) {
-      return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "fixed bottom-4 right-32 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(
+      return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "fixed bottom-4 right-32 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(
         Button,
         {
           onClick: () => setIsOpen(true),
           className: "bg-green-600 hover:bg-green-700 text-white shadow-lg",
           size: "sm",
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Settings, { className: "w-4 h-4 mr-2" }),
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(Settings, { className: "w-4 h-4 mr-2" }),
             "Ads"
           ]
         }
@@ -32147,13 +32786,13 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     const totalImpressions = adUnits.reduce((sum, ad) => sum + ad.metrics.impressions, 0);
     const totalClicks = adUnits.reduce((sum, ad) => sum + ad.metrics.clicks, 0);
     const averageCTR = totalImpressions > 0 ? totalClicks / totalImpressions * 100 : 0;
-    return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "fixed bottom-4 right-4 z-50 w-96 max-h-[600px] overflow-hidden bg-white border rounded-lg shadow-xl", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "flex items-center justify-between p-3 bg-green-600 text-white", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Settings, { className: "w-4 h-4" }),
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", { className: "font-semibold", children: "Ad Management" })
+    return /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "fixed bottom-4 right-4 z-50 w-96 max-h-[600px] overflow-hidden bg-white border rounded-lg shadow-xl", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "flex items-center justify-between p-3 bg-green-600 text-white", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "flex items-center gap-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(Settings, { className: "w-4 h-4" }),
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("span", { className: "font-semibold", children: "Ad Management" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
           Button,
           {
             onClick: () => setIsOpen(false),
@@ -32164,16 +32803,16 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "p-4 max-h-[500px] overflow-y-auto space-y-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Card, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(CardHeader, { className: "pb-2", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(CardTitle, { className: "text-sm flex items-center gap-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Shield, { className: "w-4 h-4" }),
+      /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "p-4 max-h-[500px] overflow-y-auto space-y-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(Card, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(CardHeader, { className: "pb-2", children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(CardTitle, { className: "text-sm flex items-center gap-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(Shield, { className: "w-4 h-4" }),
             "Ad Preferences"
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(CardContent, { className: "space-y-3", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "flex items-center justify-between", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", { className: "text-sm", children: "Enable Ads" }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(CardContent, { className: "space-y-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "flex items-center justify-between", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("span", { className: "text-sm", children: "Enable Ads" }),
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
                 Switch2,
                 {
                   checked: config.enabled,
@@ -32181,9 +32820,9 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                 }
               )
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "flex items-center justify-between", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", { className: "text-sm", children: "Allow Personalized Ads" }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "flex items-center justify-between", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("span", { className: "text-sm", children: "Allow Personalized Ads" }),
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
                 Switch2,
                 {
                   checked: userPreferences.allowAds,
@@ -32191,53 +32830,53 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                 }
               )
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "text-xs text-gray-500", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "text-xs text-gray-500", children: [
               "Max ads per page: ",
               config.maxAdsPerPage
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Card, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(CardHeader, { className: "pb-2", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(CardTitle, { className: "text-sm flex items-center gap-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(ChartColumn, { className: "w-4 h-4" }),
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(Card, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(CardHeader, { className: "pb-2", children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(CardTitle, { className: "text-sm flex items-center gap-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(ChartColumn, { className: "w-4 h-4" }),
             "Analytics"
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(CardContent, { className: "space-y-2", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "grid grid-cols-3 gap-4 text-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "text-lg font-semibold text-blue-600", children: totalImpressions }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "text-xs text-gray-500", children: "Impressions" })
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(CardContent, { className: "space-y-2", children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "grid grid-cols-3 gap-4 text-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "text-lg font-semibold text-blue-600", children: totalImpressions }),
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "text-xs text-gray-500", children: "Impressions" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "text-lg font-semibold text-green-600", children: totalClicks }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "text-xs text-gray-500", children: "Clicks" })
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "text-lg font-semibold text-green-600", children: totalClicks }),
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "text-xs text-gray-500", children: "Clicks" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "text-lg font-semibold text-purple-600", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "text-lg font-semibold text-purple-600", children: [
                 averageCTR.toFixed(2),
                 "%"
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "text-xs text-gray-500", children: "CTR" })
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "text-xs text-gray-500", children: "CTR" })
             ] })
           ] }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Card, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(CardHeader, { className: "pb-2", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(CardTitle, { className: "text-sm flex items-center gap-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Target, { className: "w-4 h-4" }),
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(Card, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(CardHeader, { className: "pb-2", children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(CardTitle, { className: "text-sm flex items-center gap-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(Target, { className: "w-4 h-4" }),
             "Active Ads (",
             adUnits.filter((ad) => ad.active).length,
             ")"
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "space-y-2 max-h-48 overflow-y-auto", children: adUnits.filter((ad) => ad.active).map((ad) => /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "flex items-center justify-between p-2 bg-gray-50 rounded text-xs", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "min-w-0 flex-1", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "font-medium truncate", children: ad.title }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "text-gray-500", children: ad.placement })
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "space-y-2 max-h-48 overflow-y-auto", children: adUnits.filter((ad) => ad.active).map((ad) => /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "flex items-center justify-between p-2 bg-gray-50 rounded text-xs", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "min-w-0 flex-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "font-medium truncate", children: ad.title }),
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "text-gray-500", children: ad.placement })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "flex flex-col items-end ml-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Badge, { variant: "outline", className: "mb-1", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "flex flex-col items-end ml-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(Badge, { variant: "outline", className: "mb-1", children: [
                 "CTR: ",
                 ad.metrics.ctr > 0 ? `${(ad.metrics.ctr * 100).toFixed(1)}%` : "0%"
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "text-gray-400", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "text-gray-400", children: [
                 ad.metrics.impressions,
                 "i / ",
                 ad.metrics.clicks,
@@ -32246,10 +32885,10 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
             ] })
           ] }, ad.id)) }) })
         ] }),
-        userPreferences.blockedCategories.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Card, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(CardHeader, { className: "pb-2", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(CardTitle, { className: "text-sm text-red-600", children: "Blocked Categories" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(CardContent, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "flex flex-wrap gap-1", children: userPreferences.blockedCategories.map((category) => /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(
+        userPreferences.blockedCategories.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(Card, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(CardHeader, { className: "pb-2", children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(CardTitle, { className: "text-sm text-red-600", children: "Blocked Categories" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(CardContent, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "flex flex-wrap gap-1", children: userPreferences.blockedCategories.map((category) => /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(
               Badge,
               {
                 variant: "destructive",
@@ -32266,7 +32905,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
               },
               category
             )) }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "text-xs text-gray-500 mt-2", children: "Click to unblock category" })
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "text-xs text-gray-500 mt-2", children: "Click to unblock category" })
           ] })
         ] })
       ] })
@@ -32274,11 +32913,11 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   }
 
   // src/pages/Home.tsx
-  var import_jsx_runtime26 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime32 = __toESM(require_jsx_runtime());
   function Home() {
-    const [showLoginModal, setShowLoginModal] = (0, import_react13.useState)(false);
+    const [showLoginModal, setShowLoginModal] = (0, import_react19.useState)(false);
     const { isAuthenticated } = useAuthStore();
-    (0, import_react13.useEffect)(() => {
+    (0, import_react19.useEffect)(() => {
       const handleLoginClick = () => {
         if (!isAuthenticated) {
           setShowLoginModal(true);
@@ -32324,21 +32963,21 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         standard: "\u0413\u0435\u043E\u043C\u0435\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u0438\u0435 \u0440\u0430\u0441\u0447\u0435\u0442\u044B"
       }
     ];
-    return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Header, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("main", { className: "flex-grow", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(WelcomeSection, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("section", { className: "py-16", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "container mx-auto px-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "lg:col-span-4", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("h2", { className: "text-3xl font-bold text-center text-blue-900", children: "\u041F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0435 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B \u0434\u043B\u044F \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F \u0438\u0437\u043C\u0435\u0440\u0435\u043D\u0438\u0439 \u0438 \u0440\u0430\u0441\u0447\u0435\u0442\u043E\u0432 \u0432 \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u0438 \u0441 \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u043C\u0438 \u0441\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u0430\u043C\u0438" }) }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-4 gap-6", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "lg:col-span-3", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: calculators.map((calculator, index2) => /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Header, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("main", { className: "flex-grow", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(WelcomeSection, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("section", { className: "py-16", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "container mx-auto px-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "lg:col-span-4", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h2", { className: "text-3xl font-bold text-center text-blue-900", children: "\u041F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0435 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B \u0434\u043B\u044F \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F \u0438\u0437\u043C\u0435\u0440\u0435\u043D\u0438\u0439 \u0438 \u0440\u0430\u0441\u0447\u0435\u0442\u043E\u0432 \u0432 \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u0438 \u0441 \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u043C\u0438 \u0441\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u0430\u043C\u0438" }) }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-4 gap-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "lg:col-span-3", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: calculators.map((calculator, index2) => /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
               CalculatorCard,
               {
                 ...calculator
               },
               index2
             )) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "lg:col-span-1", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "lg:col-span-1", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
               AdPlacement,
               {
                 placement: "sidebar-primary",
@@ -32348,30 +32987,30 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
             ) })
           ] })
         ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("section", { className: "py-16 bg-white", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "container mx-auto px-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "max-w-4xl mx-auto text-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("h2", { className: "text-3xl font-bold text-blue-900 mb-6", children: "\u041E \u043F\u0440\u043E\u0435\u043A\u0442\u0435" }),
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", { className: "text-lg text-gray-600 leading-relaxed mb-8", children: '\u041F\u0440\u043E\u0435\u043A\u0442 "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440\u0430 \u041E\u0422\u041A" \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0430\u043D \u0434\u043B\u044F \u0443\u043F\u0440\u043E\u0449\u0435\u043D\u0438\u044F \u0440\u0430\u0431\u043E\u0442\u044B \u0441 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u043C\u0438 \u0440\u0430\u0441\u0447\u0435\u0442\u0430\u043C\u0438. \u041C\u044B \u0441\u0442\u0440\u0435\u043C\u0438\u043C\u0441\u044F \u0441\u0434\u0435\u043B\u0430\u0442\u044C \u043F\u0440\u043E\u0446\u0435\u0441\u0441 \u0438\u0437\u043C\u0435\u0440\u0435\u043D\u0438\u0439 \u0438 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044F \u0431\u043E\u043B\u0435\u0435 \u0443\u0434\u043E\u0431\u043D\u044B\u043C \u0438 \u0442\u043E\u0447\u043D\u044B\u043C, \u043F\u0440\u0435\u0434\u043E\u0441\u0442\u0430\u0432\u043B\u044F\u044F \u0441\u043E\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u044B\u0435 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B \u0441 \u0440\u0430\u0437\u043B\u0438\u0447\u043D\u044B\u043C\u0438 \u0441\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u0430\u043C\u0438 \u0438 \u043D\u043E\u0440\u043C\u0430\u0442\u0438\u0432\u0430\u043C\u0438.' }),
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "grid grid-cols-2 md:grid-cols-4 gap-6 mt-12", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "flex flex-col items-center p-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-3", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Calculator, { className: "w-8 h-8 text-white" }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("h3", { className: "font-semibold text-blue-900", children: "\u0422\u043E\u0447\u043D\u044B\u0435 \u0440\u0430\u0441\u0447\u0435\u0442\u044B" })
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("section", { className: "py-16 bg-white", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "container mx-auto px-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "max-w-4xl mx-auto text-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h2", { className: "text-3xl font-bold text-blue-900 mb-6", children: "\u041E \u043F\u0440\u043E\u0435\u043A\u0442\u0435" }),
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("p", { className: "text-lg text-gray-600 leading-relaxed mb-8", children: '\u041F\u0440\u043E\u0435\u043A\u0442 "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440\u0430 \u041E\u0422\u041A" \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0430\u043D \u0434\u043B\u044F \u0443\u043F\u0440\u043E\u0449\u0435\u043D\u0438\u044F \u0440\u0430\u0431\u043E\u0442\u044B \u0441 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u043C\u0438 \u0440\u0430\u0441\u0447\u0435\u0442\u0430\u043C\u0438. \u041C\u044B \u0441\u0442\u0440\u0435\u043C\u0438\u043C\u0441\u044F \u0441\u0434\u0435\u043B\u0430\u0442\u044C \u043F\u0440\u043E\u0446\u0435\u0441\u0441 \u0438\u0437\u043C\u0435\u0440\u0435\u043D\u0438\u0439 \u0438 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044F \u0431\u043E\u043B\u0435\u0435 \u0443\u0434\u043E\u0431\u043D\u044B\u043C \u0438 \u0442\u043E\u0447\u043D\u044B\u043C, \u043F\u0440\u0435\u0434\u043E\u0441\u0442\u0430\u0432\u043B\u044F\u044F \u0441\u043E\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u044B\u0435 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B \u0441 \u0440\u0430\u0437\u043B\u0438\u0447\u043D\u044B\u043C\u0438 \u0441\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u0430\u043C\u0438 \u0438 \u043D\u043E\u0440\u043C\u0430\u0442\u0438\u0432\u0430\u043C\u0438.' }),
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "grid grid-cols-2 md:grid-cols-4 gap-6 mt-12", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "flex flex-col items-center p-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-3", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Calculator, { className: "w-8 h-8 text-white" }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h3", { className: "font-semibold text-blue-900", children: "\u0422\u043E\u0447\u043D\u044B\u0435 \u0440\u0430\u0441\u0447\u0435\u0442\u044B" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "flex flex-col items-center p-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-3", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Shield, { className: "w-8 h-8 text-white" }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("h3", { className: "font-semibold text-blue-900", children: "\u0421\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u0435 \u0413\u041E\u0421\u0422\u0443" })
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "flex flex-col items-center p-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-3", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Shield, { className: "w-8 h-8 text-white" }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h3", { className: "font-semibold text-blue-900", children: "\u0421\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u0435 \u0413\u041E\u0421\u0422\u0443" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "flex flex-col items-center p-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-3", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Zap, { className: "w-8 h-8 text-white" }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("h3", { className: "font-semibold text-blue-900", children: "\u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0440\u0430\u0431\u043E\u0442\u0430" })
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "flex flex-col items-center p-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-3", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Zap, { className: "w-8 h-8 text-white" }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h3", { className: "font-semibold text-blue-900", children: "\u0411\u044B\u0441\u0442\u0440\u0430\u044F \u0440\u0430\u0431\u043E\u0442\u0430" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "flex flex-col items-center p-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-3", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Users, { className: "w-8 h-8 text-white" }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("h3", { className: "font-semibold text-blue-900", children: "\u0414\u043B\u044F \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u043E\u0432" })
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "flex flex-col items-center p-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-3", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Users, { className: "w-8 h-8 text-white" }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h3", { className: "font-semibold text-blue-900", children: "\u0414\u043B\u044F \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u043E\u0432" })
               ] })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "mt-12", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "mt-12", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
             AdPlacement,
             {
               placement: "content-inline",
@@ -32380,8 +33019,8 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           ) })
         ] }) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Footer, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("section", { className: "bg-gray-100 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "container mx-auto px-4", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Footer, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("section", { className: "bg-gray-100 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "container mx-auto px-4", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
         AdPlacement,
         {
           placement: "footer-banner",
@@ -32389,26 +33028,26 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           maxAds: 2
         }
       ) }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(AdPlacement, { placement: "mobile-sticky", maxAds: 1 }),
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(AdPlacement, { placement: "mobile-sticky", maxAds: 1 }),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
         LoginModal,
         {
           open: showLoginModal,
           onClose: () => setShowLoginModal(false)
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(AdSettings, {})
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(AdSettings, {})
     ] });
   }
 
   // src/components/Calculators/OST22Calculator.tsx
-  var import_react17 = __toESM(require_react());
+  var import_react23 = __toESM(require_react());
 
   // src/components/ui/select.tsx
-  var React43 = __toESM(require_react());
+  var React48 = __toESM(require_react());
 
   // node_modules/@radix-ui/react-select/dist/index.mjs
-  var React42 = __toESM(require_react(), 1);
+  var React47 = __toESM(require_react(), 1);
   var ReactDOM4 = __toESM(require_react_dom(), 1);
 
   // node_modules/@radix-ui/number/dist/index.mjs
@@ -32417,10 +33056,10 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   }
 
   // node_modules/@radix-ui/react-collection/dist/index.mjs
-  var import_react14 = __toESM(require_react(), 1);
-  var import_jsx_runtime27 = __toESM(require_jsx_runtime(), 1);
-  var import_react15 = __toESM(require_react(), 1);
-  var import_jsx_runtime28 = __toESM(require_jsx_runtime(), 1);
+  var import_react20 = __toESM(require_react(), 1);
+  var import_jsx_runtime33 = __toESM(require_jsx_runtime(), 1);
+  var import_react21 = __toESM(require_react(), 1);
+  var import_jsx_runtime34 = __toESM(require_jsx_runtime(), 1);
   function createCollection(name) {
     const PROVIDER_NAME = name + "CollectionProvider";
     const [createCollectionContext, createCollectionScope2] = createContextScope(PROVIDER_NAME);
@@ -32430,42 +33069,42 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     );
     const CollectionProvider = (props) => {
       const { scope, children } = props;
-      const ref = import_react14.default.useRef(null);
-      const itemMap = import_react14.default.useRef(/* @__PURE__ */ new Map()).current;
-      return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(CollectionProviderImpl, { scope, itemMap, collectionRef: ref, children });
+      const ref = import_react20.default.useRef(null);
+      const itemMap = import_react20.default.useRef(/* @__PURE__ */ new Map()).current;
+      return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(CollectionProviderImpl, { scope, itemMap, collectionRef: ref, children });
     };
     CollectionProvider.displayName = PROVIDER_NAME;
     const COLLECTION_SLOT_NAME = name + "CollectionSlot";
     const CollectionSlotImpl = createSlot(COLLECTION_SLOT_NAME);
-    const CollectionSlot = import_react14.default.forwardRef(
+    const CollectionSlot = import_react20.default.forwardRef(
       (props, forwardedRef) => {
         const { scope, children } = props;
         const context = useCollectionContext(COLLECTION_SLOT_NAME, scope);
         const composedRefs = useComposedRefs(forwardedRef, context.collectionRef);
-        return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(CollectionSlotImpl, { ref: composedRefs, children });
+        return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(CollectionSlotImpl, { ref: composedRefs, children });
       }
     );
     CollectionSlot.displayName = COLLECTION_SLOT_NAME;
     const ITEM_SLOT_NAME = name + "CollectionItemSlot";
     const ITEM_DATA_ATTR = "data-radix-collection-item";
     const CollectionItemSlotImpl = createSlot(ITEM_SLOT_NAME);
-    const CollectionItemSlot = import_react14.default.forwardRef(
+    const CollectionItemSlot = import_react20.default.forwardRef(
       (props, forwardedRef) => {
         const { scope, children, ...itemData } = props;
-        const ref = import_react14.default.useRef(null);
+        const ref = import_react20.default.useRef(null);
         const composedRefs = useComposedRefs(forwardedRef, ref);
         const context = useCollectionContext(ITEM_SLOT_NAME, scope);
-        import_react14.default.useEffect(() => {
+        import_react20.default.useEffect(() => {
           context.itemMap.set(ref, { ref, ...itemData });
           return () => void context.itemMap.delete(ref);
         });
-        return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(CollectionItemSlotImpl, { ...{ [ITEM_DATA_ATTR]: "" }, ref: composedRefs, children });
+        return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(CollectionItemSlotImpl, { ...{ [ITEM_DATA_ATTR]: "" }, ref: composedRefs, children });
       }
     );
     CollectionItemSlot.displayName = ITEM_SLOT_NAME;
     function useCollection2(scope) {
       const context = useCollectionContext(name + "CollectionConsumer", scope);
-      const getItems = import_react14.default.useCallback(() => {
+      const getItems = import_react20.default.useCallback(() => {
         const collectionNode = context.collectionRef.current;
         if (!collectionNode) return [];
         const orderedNodes = Array.from(collectionNode.querySelectorAll(`[${ITEM_DATA_ATTR}]`));
@@ -32485,16 +33124,16 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   }
 
   // node_modules/@radix-ui/react-direction/dist/index.mjs
-  var React37 = __toESM(require_react(), 1);
-  var import_jsx_runtime29 = __toESM(require_jsx_runtime(), 1);
-  var DirectionContext = React37.createContext(void 0);
+  var React42 = __toESM(require_react(), 1);
+  var import_jsx_runtime35 = __toESM(require_jsx_runtime(), 1);
+  var DirectionContext = React42.createContext(void 0);
   function useDirection(localDir) {
-    const globalDir = React37.useContext(DirectionContext);
+    const globalDir = React42.useContext(DirectionContext);
     return localDir || globalDir || "ltr";
   }
 
   // node_modules/@radix-ui/react-popper/dist/index.mjs
-  var React40 = __toESM(require_react(), 1);
+  var React45 = __toESM(require_react(), 1);
 
   // node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
   var sides = ["top", "right", "bottom", "left"];
@@ -34095,13 +34734,13 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   };
 
   // node_modules/@floating-ui/react-dom/dist/floating-ui.react-dom.mjs
-  var React38 = __toESM(require_react(), 1);
-  var import_react16 = __toESM(require_react(), 1);
+  var React43 = __toESM(require_react(), 1);
+  var import_react22 = __toESM(require_react(), 1);
   var ReactDOM3 = __toESM(require_react_dom(), 1);
   var isClient = typeof document !== "undefined";
   var noop = function noop2() {
   };
-  var index = isClient ? import_react16.useLayoutEffect : noop;
+  var index = isClient ? import_react22.useLayoutEffect : noop;
   function deepEqual(a, b) {
     if (a === b) {
       return true;
@@ -34161,7 +34800,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     return Math.round(value * dpr) / dpr;
   }
   function useLatestRef(value) {
-    const ref = React38.useRef(value);
+    const ref = React43.useRef(value);
     index(() => {
       ref.current = value;
     });
@@ -34184,7 +34823,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       whileElementsMounted,
       open
     } = options;
-    const [data, setData] = React38.useState({
+    const [data, setData] = React43.useState({
       x: 0,
       y: 0,
       strategy,
@@ -34192,19 +34831,19 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       middlewareData: {},
       isPositioned: false
     });
-    const [latestMiddleware, setLatestMiddleware] = React38.useState(middleware);
+    const [latestMiddleware, setLatestMiddleware] = React43.useState(middleware);
     if (!deepEqual(latestMiddleware, middleware)) {
       setLatestMiddleware(middleware);
     }
-    const [_reference, _setReference] = React38.useState(null);
-    const [_floating, _setFloating] = React38.useState(null);
-    const setReference = React38.useCallback((node) => {
+    const [_reference, _setReference] = React43.useState(null);
+    const [_floating, _setFloating] = React43.useState(null);
+    const setReference = React43.useCallback((node) => {
       if (node !== referenceRef.current) {
         referenceRef.current = node;
         _setReference(node);
       }
     }, []);
-    const setFloating = React38.useCallback((node) => {
+    const setFloating = React43.useCallback((node) => {
       if (node !== floatingRef.current) {
         floatingRef.current = node;
         _setFloating(node);
@@ -34212,14 +34851,14 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     }, []);
     const referenceEl = externalReference || _reference;
     const floatingEl = externalFloating || _floating;
-    const referenceRef = React38.useRef(null);
-    const floatingRef = React38.useRef(null);
-    const dataRef = React38.useRef(data);
+    const referenceRef = React43.useRef(null);
+    const floatingRef = React43.useRef(null);
+    const dataRef = React43.useRef(data);
     const hasWhileElementsMounted = whileElementsMounted != null;
     const whileElementsMountedRef = useLatestRef(whileElementsMounted);
     const platformRef = useLatestRef(platform2);
     const openRef = useLatestRef(open);
-    const update = React38.useCallback(() => {
+    const update = React43.useCallback(() => {
       if (!referenceRef.current || !floatingRef.current) {
         return;
       }
@@ -34257,7 +34896,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         }));
       }
     }, [open]);
-    const isMountedRef = React38.useRef(false);
+    const isMountedRef = React43.useRef(false);
     index(() => {
       isMountedRef.current = true;
       return () => {
@@ -34274,17 +34913,17 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         update();
       }
     }, [referenceEl, floatingEl, update, whileElementsMountedRef, hasWhileElementsMounted]);
-    const refs = React38.useMemo(() => ({
+    const refs = React43.useMemo(() => ({
       reference: referenceRef,
       floating: floatingRef,
       setReference,
       setFloating
     }), [setReference, setFloating]);
-    const elements = React38.useMemo(() => ({
+    const elements = React43.useMemo(() => ({
       reference: referenceEl,
       floating: floatingEl
     }), [referenceEl, floatingEl]);
-    const floatingStyles = React38.useMemo(() => {
+    const floatingStyles = React43.useMemo(() => {
       const initialStyles = {
         position: strategy,
         left: 0,
@@ -34310,7 +34949,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         top: y
       };
     }, [strategy, transform, elements.floating, data.x, data.y]);
-    return React38.useMemo(() => ({
+    return React43.useMemo(() => ({
       ...data,
       update,
       refs,
@@ -34379,12 +35018,12 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   });
 
   // node_modules/@radix-ui/react-arrow/dist/index.mjs
-  var React39 = __toESM(require_react(), 1);
-  var import_jsx_runtime30 = __toESM(require_jsx_runtime(), 1);
-  var NAME2 = "Arrow";
-  var Arrow = React39.forwardRef((props, forwardedRef) => {
+  var React44 = __toESM(require_react(), 1);
+  var import_jsx_runtime36 = __toESM(require_jsx_runtime(), 1);
+  var NAME3 = "Arrow";
+  var Arrow = React44.forwardRef((props, forwardedRef) => {
     const { children, width = 10, height = 5, ...arrowProps } = props;
-    return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
       Primitive.svg,
       {
         ...arrowProps,
@@ -34393,41 +35032,41 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         height,
         viewBox: "0 0 30 10",
         preserveAspectRatio: "none",
-        children: props.asChild ? children : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("polygon", { points: "0,0 30,0 15,10" })
+        children: props.asChild ? children : /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("polygon", { points: "0,0 30,0 15,10" })
       }
     );
   });
-  Arrow.displayName = NAME2;
-  var Root4 = Arrow;
+  Arrow.displayName = NAME3;
+  var Root5 = Arrow;
 
   // node_modules/@radix-ui/react-popper/dist/index.mjs
-  var import_jsx_runtime31 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime37 = __toESM(require_jsx_runtime(), 1);
   var POPPER_NAME = "Popper";
   var [createPopperContext, createPopperScope] = createContextScope(POPPER_NAME);
   var [PopperProvider, usePopperContext] = createPopperContext(POPPER_NAME);
   var Popper = (props) => {
     const { __scopePopper, children } = props;
-    const [anchor, setAnchor] = React40.useState(null);
-    return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(PopperProvider, { scope: __scopePopper, anchor, onAnchorChange: setAnchor, children });
+    const [anchor, setAnchor] = React45.useState(null);
+    return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(PopperProvider, { scope: __scopePopper, anchor, onAnchorChange: setAnchor, children });
   };
   Popper.displayName = POPPER_NAME;
   var ANCHOR_NAME = "PopperAnchor";
-  var PopperAnchor = React40.forwardRef(
+  var PopperAnchor = React45.forwardRef(
     (props, forwardedRef) => {
       const { __scopePopper, virtualRef, ...anchorProps } = props;
       const context = usePopperContext(ANCHOR_NAME, __scopePopper);
-      const ref = React40.useRef(null);
+      const ref = React45.useRef(null);
       const composedRefs = useComposedRefs(forwardedRef, ref);
-      React40.useEffect(() => {
+      React45.useEffect(() => {
         context.onAnchorChange(virtualRef?.current || ref.current);
       });
-      return virtualRef ? null : /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(Primitive.div, { ...anchorProps, ref: composedRefs });
+      return virtualRef ? null : /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Primitive.div, { ...anchorProps, ref: composedRefs });
     }
   );
   PopperAnchor.displayName = ANCHOR_NAME;
   var CONTENT_NAME2 = "PopperContent";
   var [PopperContentProvider, useContentContext] = createPopperContext(CONTENT_NAME2);
-  var PopperContent = React40.forwardRef(
+  var PopperContent = React45.forwardRef(
     (props, forwardedRef) => {
       const {
         __scopePopper,
@@ -34446,9 +35085,9 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         ...contentProps
       } = props;
       const context = usePopperContext(CONTENT_NAME2, __scopePopper);
-      const [content, setContent] = React40.useState(null);
+      const [content, setContent] = React45.useState(null);
       const composedRefs = useComposedRefs(forwardedRef, (node) => setContent(node));
-      const [arrow4, setArrow] = React40.useState(null);
+      const [arrow4, setArrow] = React45.useState(null);
       const arrowSize = useSize(arrow4);
       const arrowWidth = arrowSize?.width ?? 0;
       const arrowHeight = arrowSize?.height ?? 0;
@@ -34510,11 +35149,11 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       const arrowX = middlewareData.arrow?.x;
       const arrowY = middlewareData.arrow?.y;
       const cannotCenterArrow = middlewareData.arrow?.centerOffset !== 0;
-      const [contentZIndex, setContentZIndex] = React40.useState();
+      const [contentZIndex, setContentZIndex] = React45.useState();
       useLayoutEffect2(() => {
         if (content) setContentZIndex(window.getComputedStyle(content).zIndex);
       }, [content]);
-      return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
         "div",
         {
           ref: refs.setFloating,
@@ -34538,7 +35177,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
             }
           },
           dir: props.dir,
-          children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+          children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
             PopperContentProvider,
             {
               scope: __scopePopper,
@@ -34547,7 +35186,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
               arrowX,
               arrowY,
               shouldHideArrow: cannotCenterArrow,
-              children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+              children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
                 Primitive.div,
                 {
                   "data-side": placedSide,
@@ -34576,7 +35215,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     bottom: "top",
     left: "right"
   };
-  var PopperArrow = React40.forwardRef(function PopperArrow2(props, forwardedRef) {
+  var PopperArrow = React45.forwardRef(function PopperArrow2(props, forwardedRef) {
     const { __scopePopper, ...arrowProps } = props;
     const contentContext = useContentContext(ARROW_NAME, __scopePopper);
     const baseSide = OPPOSITE_SIDE[contentContext.placedSide];
@@ -34584,7 +35223,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       // we have to use an extra wrapper because `ResizeObserver` (used by `useSize`)
       // doesn't report size as we'd expect on SVG elements.
       // it reports their bounding box which is effectively the largest path inside the SVG.
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
         "span",
         {
           ref: contentContext.onArrowChange,
@@ -34607,8 +35246,8 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
             }[contentContext.placedSide],
             visibility: contentContext.shouldHideArrow ? "hidden" : void 0
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
-            Root4,
+          children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
+            Root5,
             {
               ...arrowProps,
               ref: forwardedRef,
@@ -34668,8 +35307,8 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   var Arrow2 = PopperArrow;
 
   // node_modules/@radix-ui/react-visually-hidden/dist/index.mjs
-  var React41 = __toESM(require_react(), 1);
-  var import_jsx_runtime32 = __toESM(require_jsx_runtime(), 1);
+  var React46 = __toESM(require_react(), 1);
+  var import_jsx_runtime38 = __toESM(require_jsx_runtime(), 1);
   var VISUALLY_HIDDEN_STYLES = Object.freeze({
     // See: https://github.com/twbs/bootstrap/blob/main/scss/mixins/_visually-hidden.scss
     position: "absolute",
@@ -34683,10 +35322,10 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     whiteSpace: "nowrap",
     wordWrap: "normal"
   });
-  var NAME3 = "VisuallyHidden";
-  var VisuallyHidden = React41.forwardRef(
+  var NAME4 = "VisuallyHidden";
+  var VisuallyHidden = React46.forwardRef(
     (props, forwardedRef) => {
-      return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(
         Primitive.span,
         {
           ...props,
@@ -34696,10 +35335,10 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       );
     }
   );
-  VisuallyHidden.displayName = NAME3;
+  VisuallyHidden.displayName = NAME4;
 
   // node_modules/@radix-ui/react-select/dist/index.mjs
-  var import_jsx_runtime33 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime39 = __toESM(require_jsx_runtime(), 1);
   var OPEN_KEYS = [" ", "Enter", "ArrowUp", "ArrowDown"];
   var SELECTION_KEYS = [" ", "Enter"];
   var SELECT_NAME = "Select";
@@ -34729,9 +35368,9 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       form
     } = props;
     const popperScope = usePopperScope(__scopeSelect);
-    const [trigger, setTrigger] = React42.useState(null);
-    const [valueNode, setValueNode] = React42.useState(null);
-    const [valueNodeHasChildren, setValueNodeHasChildren] = React42.useState(false);
+    const [trigger, setTrigger] = React47.useState(null);
+    const [valueNode, setValueNode] = React47.useState(null);
+    const [valueNodeHasChildren, setValueNodeHasChildren] = React47.useState(false);
     const direction = useDirection(dir);
     const [open, setOpen] = useControllableState({
       prop: openProp,
@@ -34745,11 +35384,11 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       onChange: onValueChange,
       caller: SELECT_NAME
     });
-    const triggerPointerDownPosRef = React42.useRef(null);
+    const triggerPointerDownPosRef = React47.useRef(null);
     const isFormControl = trigger ? form || !!trigger.closest("form") : true;
-    const [nativeOptionsSet, setNativeOptionsSet] = React42.useState(/* @__PURE__ */ new Set());
+    const [nativeOptionsSet, setNativeOptionsSet] = React47.useState(/* @__PURE__ */ new Set());
     const nativeSelectKey = Array.from(nativeOptionsSet).map((option) => option.props.value).join(";");
-    return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Root22, { ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Root22, { ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(
       SelectProvider,
       {
         required,
@@ -34769,14 +35408,14 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         triggerPointerDownPosRef,
         disabled,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Collection.Provider, { scope: __scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Collection.Provider, { scope: __scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
             SelectNativeOptionsProvider,
             {
               scope: props.__scopeSelect,
-              onNativeOptionAdd: React42.useCallback((option) => {
+              onNativeOptionAdd: React47.useCallback((option) => {
                 setNativeOptionsSet((prev) => new Set(prev).add(option));
               }, []),
-              onNativeOptionRemove: React42.useCallback((option) => {
+              onNativeOptionRemove: React47.useCallback((option) => {
                 setNativeOptionsSet((prev) => {
                   const optionsSet = new Set(prev);
                   optionsSet.delete(option);
@@ -34786,7 +35425,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
               children
             }
           ) }),
-          isFormControl ? /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
+          isFormControl ? /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(
             SelectBubbleInput,
             {
               "aria-hidden": true,
@@ -34799,7 +35438,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
               disabled,
               form,
               children: [
-                value === void 0 ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("option", { value: "" }) : null,
+                value === void 0 ? /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("option", { value: "" }) : null,
                 Array.from(nativeOptionsSet)
               ]
             },
@@ -34811,7 +35450,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   };
   Select.displayName = SELECT_NAME;
   var TRIGGER_NAME2 = "SelectTrigger";
-  var SelectTrigger = React42.forwardRef(
+  var SelectTrigger = React47.forwardRef(
     (props, forwardedRef) => {
       const { __scopeSelect, disabled = false, ...triggerProps } = props;
       const popperScope = usePopperScope(__scopeSelect);
@@ -34819,7 +35458,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       const isDisabled = context.disabled || disabled;
       const composedRefs = useComposedRefs(forwardedRef, context.onTriggerChange);
       const getItems = useCollection(__scopeSelect);
-      const pointerTypeRef = React42.useRef("touch");
+      const pointerTypeRef = React47.useRef("touch");
       const [searchRef, handleTypeaheadSearch, resetTypeahead] = useTypeaheadSearch((search) => {
         const enabledItems = getItems().filter((item) => !item.disabled);
         const currentItem = enabledItems.find((item) => item.value === context.value);
@@ -34840,7 +35479,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           };
         }
       };
-      return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Anchor, { asChild: true, ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Anchor, { asChild: true, ...popperScope, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
         Primitive.button,
         {
           type: "button",
@@ -34889,7 +35528,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   );
   SelectTrigger.displayName = TRIGGER_NAME2;
   var VALUE_NAME = "SelectValue";
-  var SelectValue = React42.forwardRef(
+  var SelectValue = React47.forwardRef(
     (props, forwardedRef) => {
       const { __scopeSelect, className, style, children, placeholder = "", ...valueProps } = props;
       const context = useSelectContext(VALUE_NAME, __scopeSelect);
@@ -34899,47 +35538,47 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       useLayoutEffect2(() => {
         onValueNodeHasChildrenChange(hasChildren);
       }, [onValueNodeHasChildrenChange, hasChildren]);
-      return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
         Primitive.span,
         {
           ...valueProps,
           ref: composedRefs,
           style: { pointerEvents: "none" },
-          children: shouldShowPlaceholder(context.value) ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_jsx_runtime33.Fragment, { children: placeholder }) : children
+          children: shouldShowPlaceholder(context.value) ? /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_jsx_runtime39.Fragment, { children: placeholder }) : children
         }
       );
     }
   );
   SelectValue.displayName = VALUE_NAME;
   var ICON_NAME = "SelectIcon";
-  var SelectIcon = React42.forwardRef(
+  var SelectIcon = React47.forwardRef(
     (props, forwardedRef) => {
       const { __scopeSelect, children, ...iconProps } = props;
-      return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Primitive.span, { "aria-hidden": true, ...iconProps, ref: forwardedRef, children: children || "\u25BC" });
+      return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Primitive.span, { "aria-hidden": true, ...iconProps, ref: forwardedRef, children: children || "\u25BC" });
     }
   );
   SelectIcon.displayName = ICON_NAME;
   var PORTAL_NAME3 = "SelectPortal";
   var SelectPortal = (props) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Portal, { asChild: true, ...props });
+    return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Portal, { asChild: true, ...props });
   };
   SelectPortal.displayName = PORTAL_NAME3;
   var CONTENT_NAME3 = "SelectContent";
-  var SelectContent = React42.forwardRef(
+  var SelectContent = React47.forwardRef(
     (props, forwardedRef) => {
       const context = useSelectContext(CONTENT_NAME3, props.__scopeSelect);
-      const [fragment, setFragment] = React42.useState();
+      const [fragment, setFragment] = React47.useState();
       useLayoutEffect2(() => {
         setFragment(new DocumentFragment());
       }, []);
       if (!context.open) {
         const frag = fragment;
         return frag ? ReactDOM4.createPortal(
-          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(SelectContentProvider, { scope: props.__scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Collection.Slot, { scope: props.__scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { children: props.children }) }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(SelectContentProvider, { scope: props.__scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Collection.Slot, { scope: props.__scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("div", { children: props.children }) }) }),
           frag
         ) : null;
       }
-      return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(SelectContentImpl, { ...props, ref: forwardedRef });
+      return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(SelectContentImpl, { ...props, ref: forwardedRef });
     }
   );
   SelectContent.displayName = CONTENT_NAME3;
@@ -34947,7 +35586,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   var [SelectContentProvider, useSelectContentContext] = createSelectContext(CONTENT_NAME3);
   var CONTENT_IMPL_NAME = "SelectContentImpl";
   var Slot3 = createSlot("SelectContent.RemoveScroll");
-  var SelectContentImpl = React42.forwardRef(
+  var SelectContentImpl = React47.forwardRef(
     (props, forwardedRef) => {
       const {
         __scopeSelect,
@@ -34971,21 +35610,21 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         ...contentProps
       } = props;
       const context = useSelectContext(CONTENT_NAME3, __scopeSelect);
-      const [content, setContent] = React42.useState(null);
-      const [viewport, setViewport] = React42.useState(null);
+      const [content, setContent] = React47.useState(null);
+      const [viewport, setViewport] = React47.useState(null);
       const composedRefs = useComposedRefs(forwardedRef, (node) => setContent(node));
-      const [selectedItem, setSelectedItem] = React42.useState(null);
-      const [selectedItemText, setSelectedItemText] = React42.useState(
+      const [selectedItem, setSelectedItem] = React47.useState(null);
+      const [selectedItemText, setSelectedItemText] = React47.useState(
         null
       );
       const getItems = useCollection(__scopeSelect);
-      const [isPositioned, setIsPositioned] = React42.useState(false);
-      const firstValidItemFoundRef = React42.useRef(false);
-      React42.useEffect(() => {
+      const [isPositioned, setIsPositioned] = React47.useState(false);
+      const firstValidItemFoundRef = React47.useRef(false);
+      React47.useEffect(() => {
         if (content) return hideOthers(content);
       }, [content]);
       useFocusGuards();
-      const focusFirst2 = React42.useCallback(
+      const focusFirst2 = React47.useCallback(
         (candidates) => {
           const [firstItem, ...restItems] = getItems().map((item) => item.ref.current);
           const [lastItem] = restItems.slice(-1);
@@ -35001,17 +35640,17 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         },
         [getItems, viewport]
       );
-      const focusSelectedItem = React42.useCallback(
+      const focusSelectedItem = React47.useCallback(
         () => focusFirst2([selectedItem, content]),
         [focusFirst2, selectedItem, content]
       );
-      React42.useEffect(() => {
+      React47.useEffect(() => {
         if (isPositioned) {
           focusSelectedItem();
         }
       }, [isPositioned, focusSelectedItem]);
       const { onOpenChange, triggerPointerDownPosRef } = context;
-      React42.useEffect(() => {
+      React47.useEffect(() => {
         if (content) {
           let pointerMoveDelta = { x: 0, y: 0 };
           const handlePointerMove = (event) => {
@@ -35041,7 +35680,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           };
         }
       }, [content, onOpenChange, triggerPointerDownPosRef]);
-      React42.useEffect(() => {
+      React47.useEffect(() => {
         const close = () => onOpenChange(false);
         window.addEventListener("blur", close);
         window.addEventListener("resize", close);
@@ -35058,7 +35697,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           setTimeout(() => nextItem.ref.current.focus());
         }
       });
-      const itemRefCallback = React42.useCallback(
+      const itemRefCallback = React47.useCallback(
         (node, value, disabled) => {
           const isFirstValidItem = !firstValidItemFoundRef.current && !disabled;
           const isSelectedItem = context.value !== void 0 && context.value === value;
@@ -35069,8 +35708,8 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         },
         [context.value]
       );
-      const handleItemLeave = React42.useCallback(() => content?.focus(), [content]);
-      const itemTextRefCallback = React42.useCallback(
+      const handleItemLeave = React47.useCallback(() => content?.focus(), [content]);
+      const itemTextRefCallback = React47.useCallback(
         (node, value, disabled) => {
           const isFirstValidItem = !firstValidItemFoundRef.current && !disabled;
           const isSelectedItem = context.value !== void 0 && context.value === value;
@@ -35093,7 +35732,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         hideWhenDetached,
         avoidCollisions
       } : {};
-      return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
         SelectContentProvider,
         {
           scope: __scopeSelect,
@@ -35109,7 +35748,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           position,
           isPositioned,
           searchRef,
-          children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Combination_default, { as: Slot3, allowPinchZoom: true, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+          children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Combination_default, { as: Slot3, allowPinchZoom: true, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
             FocusScope,
             {
               asChild: true,
@@ -35121,7 +35760,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                 context.trigger?.focus({ preventScroll: true });
                 event.preventDefault();
               }),
-              children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+              children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
                 DismissableLayer,
                 {
                   asChild: true,
@@ -35130,7 +35769,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                   onPointerDownOutside,
                   onFocusOutside: (event) => event.preventDefault(),
                   onDismiss: () => context.onOpenChange(false),
-                  children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+                  children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
                     SelectPosition,
                     {
                       role: "listbox",
@@ -35181,18 +35820,18 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   );
   SelectContentImpl.displayName = CONTENT_IMPL_NAME;
   var ITEM_ALIGNED_POSITION_NAME = "SelectItemAlignedPosition";
-  var SelectItemAlignedPosition = React42.forwardRef((props, forwardedRef) => {
+  var SelectItemAlignedPosition = React47.forwardRef((props, forwardedRef) => {
     const { __scopeSelect, onPlaced, ...popperProps } = props;
     const context = useSelectContext(CONTENT_NAME3, __scopeSelect);
     const contentContext = useSelectContentContext(CONTENT_NAME3, __scopeSelect);
-    const [contentWrapper, setContentWrapper] = React42.useState(null);
-    const [content, setContent] = React42.useState(null);
+    const [contentWrapper, setContentWrapper] = React47.useState(null);
+    const [content, setContent] = React47.useState(null);
     const composedRefs = useComposedRefs(forwardedRef, (node) => setContent(node));
     const getItems = useCollection(__scopeSelect);
-    const shouldExpandOnScrollRef = React42.useRef(false);
-    const shouldRepositionRef = React42.useRef(true);
+    const shouldExpandOnScrollRef = React47.useRef(false);
+    const shouldRepositionRef = React47.useRef(true);
     const { viewport, selectedItem, selectedItemText, focusSelectedItem } = contentContext;
-    const position = React42.useCallback(() => {
+    const position = React47.useCallback(() => {
       if (context.trigger && context.valueNode && contentWrapper && content && viewport && selectedItem && selectedItemText) {
         const triggerRect = context.trigger.getBoundingClientRect();
         const contentRect = content.getBoundingClientRect();
@@ -35292,11 +35931,11 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       onPlaced
     ]);
     useLayoutEffect2(() => position(), [position]);
-    const [contentZIndex, setContentZIndex] = React42.useState();
+    const [contentZIndex, setContentZIndex] = React47.useState();
     useLayoutEffect2(() => {
       if (content) setContentZIndex(window.getComputedStyle(content).zIndex);
     }, [content]);
-    const handleScrollButtonChange = React42.useCallback(
+    const handleScrollButtonChange = React47.useCallback(
       (node) => {
         if (node && shouldRepositionRef.current === true) {
           position();
@@ -35306,14 +35945,14 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       },
       [position, focusSelectedItem]
     );
-    return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
       SelectViewportProvider,
       {
         scope: __scopeSelect,
         contentWrapper,
         shouldExpandOnScrollRef,
         onScrollButtonChange: handleScrollButtonChange,
-        children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
           "div",
           {
             ref: setContentWrapper,
@@ -35323,7 +35962,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
               position: "fixed",
               zIndex: contentZIndex
             },
-            children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
               Primitive.div,
               {
                 ...popperProps,
@@ -35345,7 +35984,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   });
   SelectItemAlignedPosition.displayName = ITEM_ALIGNED_POSITION_NAME;
   var POPPER_POSITION_NAME = "SelectPopperPosition";
-  var SelectPopperPosition = React42.forwardRef((props, forwardedRef) => {
+  var SelectPopperPosition = React47.forwardRef((props, forwardedRef) => {
     const {
       __scopeSelect,
       align = "start",
@@ -35353,7 +35992,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       ...popperProps
     } = props;
     const popperScope = usePopperScope(__scopeSelect);
-    return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
       Content2,
       {
         ...popperScope,
@@ -35380,15 +36019,15 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   SelectPopperPosition.displayName = POPPER_POSITION_NAME;
   var [SelectViewportProvider, useSelectViewportContext] = createSelectContext(CONTENT_NAME3, {});
   var VIEWPORT_NAME = "SelectViewport";
-  var SelectViewport = React42.forwardRef(
+  var SelectViewport = React47.forwardRef(
     (props, forwardedRef) => {
       const { __scopeSelect, nonce, ...viewportProps } = props;
       const contentContext = useSelectContentContext(VIEWPORT_NAME, __scopeSelect);
       const viewportContext = useSelectViewportContext(VIEWPORT_NAME, __scopeSelect);
       const composedRefs = useComposedRefs(forwardedRef, contentContext.onViewportChange);
-      const prevScrollTopRef = React42.useRef(0);
-      return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+      const prevScrollTopRef = React47.useRef(0);
+      return /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(import_jsx_runtime39.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
           "style",
           {
             dangerouslySetInnerHTML: {
@@ -35397,7 +36036,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
             nonce
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Collection.Slot, { scope: __scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Collection.Slot, { scope: __scopeSelect, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
           Primitive.div,
           {
             "data-radix-select-viewport": "",
@@ -35449,26 +36088,26 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   SelectViewport.displayName = VIEWPORT_NAME;
   var GROUP_NAME = "SelectGroup";
   var [SelectGroupContextProvider, useSelectGroupContext] = createSelectContext(GROUP_NAME);
-  var SelectGroup = React42.forwardRef(
+  var SelectGroup = React47.forwardRef(
     (props, forwardedRef) => {
       const { __scopeSelect, ...groupProps } = props;
       const groupId = useId();
-      return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(SelectGroupContextProvider, { scope: __scopeSelect, id: groupId, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Primitive.div, { role: "group", "aria-labelledby": groupId, ...groupProps, ref: forwardedRef }) });
+      return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(SelectGroupContextProvider, { scope: __scopeSelect, id: groupId, children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Primitive.div, { role: "group", "aria-labelledby": groupId, ...groupProps, ref: forwardedRef }) });
     }
   );
   SelectGroup.displayName = GROUP_NAME;
   var LABEL_NAME = "SelectLabel";
-  var SelectLabel = React42.forwardRef(
+  var SelectLabel = React47.forwardRef(
     (props, forwardedRef) => {
       const { __scopeSelect, ...labelProps } = props;
       const groupContext = useSelectGroupContext(LABEL_NAME, __scopeSelect);
-      return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Primitive.div, { id: groupContext.id, ...labelProps, ref: forwardedRef });
+      return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Primitive.div, { id: groupContext.id, ...labelProps, ref: forwardedRef });
     }
   );
   SelectLabel.displayName = LABEL_NAME;
   var ITEM_NAME = "SelectItem";
   var [SelectItemContextProvider, useSelectItemContext] = createSelectContext(ITEM_NAME);
-  var SelectItem = React42.forwardRef(
+  var SelectItem = React47.forwardRef(
     (props, forwardedRef) => {
       const {
         __scopeSelect,
@@ -35480,14 +36119,14 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       const context = useSelectContext(ITEM_NAME, __scopeSelect);
       const contentContext = useSelectContentContext(ITEM_NAME, __scopeSelect);
       const isSelected = context.value === value;
-      const [textValue, setTextValue] = React42.useState(textValueProp ?? "");
-      const [isFocused, setIsFocused] = React42.useState(false);
+      const [textValue, setTextValue] = React47.useState(textValueProp ?? "");
+      const [isFocused, setIsFocused] = React47.useState(false);
       const composedRefs = useComposedRefs(
         forwardedRef,
         (node) => contentContext.itemRefCallback?.(node, value, disabled)
       );
       const textId = useId();
-      const pointerTypeRef = React42.useRef("touch");
+      const pointerTypeRef = React47.useRef("touch");
       const handleSelect = () => {
         if (!disabled) {
           context.onValueChange(value);
@@ -35499,7 +36138,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           "A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder."
         );
       }
-      return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
         SelectItemContextProvider,
         {
           scope: __scopeSelect,
@@ -35507,17 +36146,17 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           disabled,
           textId,
           isSelected,
-          onItemTextChange: React42.useCallback((node) => {
+          onItemTextChange: React47.useCallback((node) => {
             setTextValue((prevTextValue) => prevTextValue || (node?.textContent ?? "").trim());
           }, []),
-          children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+          children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
             Collection.ItemSlot,
             {
               scope: __scopeSelect,
               value,
               disabled,
               textValue,
-              children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+              children: /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
                 Primitive.div,
                 {
                   role: "option",
@@ -35570,14 +36209,14 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   );
   SelectItem.displayName = ITEM_NAME;
   var ITEM_TEXT_NAME = "SelectItemText";
-  var SelectItemText = React42.forwardRef(
+  var SelectItemText = React47.forwardRef(
     (props, forwardedRef) => {
       const { __scopeSelect, className, style, ...itemTextProps } = props;
       const context = useSelectContext(ITEM_TEXT_NAME, __scopeSelect);
       const contentContext = useSelectContentContext(ITEM_TEXT_NAME, __scopeSelect);
       const itemContext = useSelectItemContext(ITEM_TEXT_NAME, __scopeSelect);
       const nativeOptionsContext = useSelectNativeOptionsContext(ITEM_TEXT_NAME, __scopeSelect);
-      const [itemTextNode, setItemTextNode] = React42.useState(null);
+      const [itemTextNode, setItemTextNode] = React47.useState(null);
       const composedRefs = useComposedRefs(
         forwardedRef,
         (node) => setItemTextNode(node),
@@ -35585,8 +36224,8 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         (node) => contentContext.itemTextRefCallback?.(node, itemContext.value, itemContext.disabled)
       );
       const textContent = itemTextNode?.textContent;
-      const nativeOption = React42.useMemo(
-        () => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("option", { value: itemContext.value, disabled: itemContext.disabled, children: textContent }, itemContext.value),
+      const nativeOption = React47.useMemo(
+        () => /* @__PURE__ */ (0, import_jsx_runtime39.jsx)("option", { value: itemContext.value, disabled: itemContext.disabled, children: textContent }, itemContext.value),
         [itemContext.disabled, itemContext.value, textContent]
       );
       const { onNativeOptionAdd, onNativeOptionRemove } = nativeOptionsContext;
@@ -35594,27 +36233,27 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         onNativeOptionAdd(nativeOption);
         return () => onNativeOptionRemove(nativeOption);
       }, [onNativeOptionAdd, onNativeOptionRemove, nativeOption]);
-      return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Primitive.span, { id: itemContext.textId, ...itemTextProps, ref: composedRefs }),
+      return /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)(import_jsx_runtime39.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Primitive.span, { id: itemContext.textId, ...itemTextProps, ref: composedRefs }),
         itemContext.isSelected && context.valueNode && !context.valueNodeHasChildren ? ReactDOM4.createPortal(itemTextProps.children, context.valueNode) : null
       ] });
     }
   );
   SelectItemText.displayName = ITEM_TEXT_NAME;
   var ITEM_INDICATOR_NAME = "SelectItemIndicator";
-  var SelectItemIndicator = React42.forwardRef(
+  var SelectItemIndicator = React47.forwardRef(
     (props, forwardedRef) => {
       const { __scopeSelect, ...itemIndicatorProps } = props;
       const itemContext = useSelectItemContext(ITEM_INDICATOR_NAME, __scopeSelect);
-      return itemContext.isSelected ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Primitive.span, { "aria-hidden": true, ...itemIndicatorProps, ref: forwardedRef }) : null;
+      return itemContext.isSelected ? /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Primitive.span, { "aria-hidden": true, ...itemIndicatorProps, ref: forwardedRef }) : null;
     }
   );
   SelectItemIndicator.displayName = ITEM_INDICATOR_NAME;
   var SCROLL_UP_BUTTON_NAME = "SelectScrollUpButton";
-  var SelectScrollUpButton = React42.forwardRef((props, forwardedRef) => {
+  var SelectScrollUpButton = React47.forwardRef((props, forwardedRef) => {
     const contentContext = useSelectContentContext(SCROLL_UP_BUTTON_NAME, props.__scopeSelect);
     const viewportContext = useSelectViewportContext(SCROLL_UP_BUTTON_NAME, props.__scopeSelect);
-    const [canScrollUp, setCanScrollUp] = React42.useState(false);
+    const [canScrollUp, setCanScrollUp] = React47.useState(false);
     const composedRefs = useComposedRefs(forwardedRef, viewportContext.onScrollButtonChange);
     useLayoutEffect2(() => {
       if (contentContext.viewport && contentContext.isPositioned) {
@@ -35629,7 +36268,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         return () => viewport.removeEventListener("scroll", handleScroll22);
       }
     }, [contentContext.viewport, contentContext.isPositioned]);
-    return canScrollUp ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+    return canScrollUp ? /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
       SelectScrollButtonImpl,
       {
         ...props,
@@ -35645,10 +36284,10 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   });
   SelectScrollUpButton.displayName = SCROLL_UP_BUTTON_NAME;
   var SCROLL_DOWN_BUTTON_NAME = "SelectScrollDownButton";
-  var SelectScrollDownButton = React42.forwardRef((props, forwardedRef) => {
+  var SelectScrollDownButton = React47.forwardRef((props, forwardedRef) => {
     const contentContext = useSelectContentContext(SCROLL_DOWN_BUTTON_NAME, props.__scopeSelect);
     const viewportContext = useSelectViewportContext(SCROLL_DOWN_BUTTON_NAME, props.__scopeSelect);
-    const [canScrollDown, setCanScrollDown] = React42.useState(false);
+    const [canScrollDown, setCanScrollDown] = React47.useState(false);
     const composedRefs = useComposedRefs(forwardedRef, viewportContext.onScrollButtonChange);
     useLayoutEffect2(() => {
       if (contentContext.viewport && contentContext.isPositioned) {
@@ -35664,7 +36303,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         return () => viewport.removeEventListener("scroll", handleScroll22);
       }
     }, [contentContext.viewport, contentContext.isPositioned]);
-    return canScrollDown ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+    return canScrollDown ? /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
       SelectScrollButtonImpl,
       {
         ...props,
@@ -35679,25 +36318,25 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     ) : null;
   });
   SelectScrollDownButton.displayName = SCROLL_DOWN_BUTTON_NAME;
-  var SelectScrollButtonImpl = React42.forwardRef((props, forwardedRef) => {
+  var SelectScrollButtonImpl = React47.forwardRef((props, forwardedRef) => {
     const { __scopeSelect, onAutoScroll, ...scrollIndicatorProps } = props;
     const contentContext = useSelectContentContext("SelectScrollButton", __scopeSelect);
-    const autoScrollTimerRef = React42.useRef(null);
+    const autoScrollTimerRef = React47.useRef(null);
     const getItems = useCollection(__scopeSelect);
-    const clearAutoScrollTimer = React42.useCallback(() => {
+    const clearAutoScrollTimer = React47.useCallback(() => {
       if (autoScrollTimerRef.current !== null) {
         window.clearInterval(autoScrollTimerRef.current);
         autoScrollTimerRef.current = null;
       }
     }, []);
-    React42.useEffect(() => {
+    React47.useEffect(() => {
       return () => clearAutoScrollTimer();
     }, [clearAutoScrollTimer]);
     useLayoutEffect2(() => {
       const activeItem = getItems().find((item) => item.ref.current === document.activeElement);
       activeItem?.ref.current?.scrollIntoView({ block: "nearest" });
     }, [getItems]);
-    return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
       Primitive.div,
       {
         "aria-hidden": true,
@@ -35722,31 +36361,31 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     );
   });
   var SEPARATOR_NAME = "SelectSeparator";
-  var SelectSeparator = React42.forwardRef(
+  var SelectSeparator = React47.forwardRef(
     (props, forwardedRef) => {
       const { __scopeSelect, ...separatorProps } = props;
-      return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Primitive.div, { "aria-hidden": true, ...separatorProps, ref: forwardedRef });
+      return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Primitive.div, { "aria-hidden": true, ...separatorProps, ref: forwardedRef });
     }
   );
   SelectSeparator.displayName = SEPARATOR_NAME;
   var ARROW_NAME2 = "SelectArrow";
-  var SelectArrow = React42.forwardRef(
+  var SelectArrow = React47.forwardRef(
     (props, forwardedRef) => {
       const { __scopeSelect, ...arrowProps } = props;
       const popperScope = usePopperScope(__scopeSelect);
       const context = useSelectContext(ARROW_NAME2, __scopeSelect);
       const contentContext = useSelectContentContext(ARROW_NAME2, __scopeSelect);
-      return context.open && contentContext.position === "popper" ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Arrow2, { ...popperScope, ...arrowProps, ref: forwardedRef }) : null;
+      return context.open && contentContext.position === "popper" ? /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(Arrow2, { ...popperScope, ...arrowProps, ref: forwardedRef }) : null;
     }
   );
   SelectArrow.displayName = ARROW_NAME2;
   var BUBBLE_INPUT_NAME2 = "SelectBubbleInput";
-  var SelectBubbleInput = React42.forwardRef(
+  var SelectBubbleInput = React47.forwardRef(
     ({ __scopeSelect, value, ...props }, forwardedRef) => {
-      const ref = React42.useRef(null);
+      const ref = React47.useRef(null);
       const composedRefs = useComposedRefs(forwardedRef, ref);
       const prevValue = usePrevious(value);
-      React42.useEffect(() => {
+      React47.useEffect(() => {
         const select = ref.current;
         if (!select) return;
         const selectProto = window.HTMLSelectElement.prototype;
@@ -35761,7 +36400,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           select.dispatchEvent(event);
         }
       }, [prevValue, value]);
-      return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(
         Primitive.select,
         {
           ...props,
@@ -35778,9 +36417,9 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   }
   function useTypeaheadSearch(onSearchChange) {
     const handleSearchChange = useCallbackRef(onSearchChange);
-    const searchRef = React42.useRef("");
-    const timerRef = React42.useRef(0);
-    const handleTypeaheadSearch = React42.useCallback(
+    const searchRef = React47.useRef("");
+    const timerRef = React47.useRef(0);
+    const handleTypeaheadSearch = React47.useCallback(
       (key) => {
         const search = searchRef.current + key;
         handleSearchChange(search);
@@ -35792,11 +36431,11 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       },
       [handleSearchChange]
     );
-    const resetTypeahead = React42.useCallback(() => {
+    const resetTypeahead = React47.useCallback(() => {
       searchRef.current = "";
       window.clearTimeout(timerRef.current);
     }, []);
-    React42.useEffect(() => {
+    React47.useEffect(() => {
       return () => window.clearTimeout(timerRef.current);
     }, []);
     return [searchRef, handleTypeaheadSearch, resetTypeahead];
@@ -35829,13 +36468,13 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   var ItemIndicator = SelectItemIndicator;
   var ScrollUpButton = SelectScrollUpButton;
   var ScrollDownButton = SelectScrollDownButton;
-  var Separator = SelectSeparator;
+  var Separator3 = SelectSeparator;
 
   // src/components/ui/select.tsx
-  var import_jsx_runtime34 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime40 = __toESM(require_jsx_runtime());
   var Select2 = Root23;
   var SelectValue2 = Value;
-  var SelectTrigger2 = React43.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)(
+  var SelectTrigger2 = React48.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(
     Trigger2,
     {
       ref,
@@ -35846,12 +36485,12 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       ...props,
       children: [
         children,
-        /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(Icon2, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(ChevronDown, { className: "h-4 w-4 opacity-50" }) })
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(Icon2, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ChevronDown, { className: "h-4 w-4 opacity-50" }) })
       ]
     }
   ));
   SelectTrigger2.displayName = Trigger2.displayName;
-  var SelectScrollUpButton2 = React43.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+  var SelectScrollUpButton2 = React48.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
     ScrollUpButton,
     {
       ref,
@@ -35860,11 +36499,11 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         className
       ),
       ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(ChevronUp, { className: "h-4 w-4" })
+      children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ChevronUp, { className: "h-4 w-4" })
     }
   ));
   SelectScrollUpButton2.displayName = ScrollUpButton.displayName;
-  var SelectScrollDownButton2 = React43.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+  var SelectScrollDownButton2 = React48.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
     ScrollDownButton,
     {
       ref,
@@ -35873,11 +36512,11 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         className
       ),
       ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(ChevronDown, { className: "h-4 w-4" })
+      children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ChevronDown, { className: "h-4 w-4" })
     }
   ));
   SelectScrollDownButton2.displayName = ScrollDownButton.displayName;
-  var SelectContent2 = React43.forwardRef(({ className, children, position = "popper", ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(Portal3, { children: /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)(
+  var SelectContent2 = React48.forwardRef(({ className, children, position = "popper", ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(Portal3, { children: /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(
     Content22,
     {
       ref,
@@ -35889,8 +36528,8 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       position,
       ...props,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(SelectScrollUpButton2, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(SelectScrollUpButton2, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
           Viewport,
           {
             className: cn(
@@ -35900,12 +36539,12 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
             children
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(SelectScrollDownButton2, {})
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(SelectScrollDownButton2, {})
       ]
     }
   ) }));
   SelectContent2.displayName = Content22.displayName;
-  var SelectLabel2 = React43.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
+  var SelectLabel2 = React48.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
     Label3,
     {
       ref,
@@ -35914,7 +36553,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     }
   ));
   SelectLabel2.displayName = Label3.displayName;
-  var SelectItem2 = React43.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)(
+  var SelectItem2 = React48.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(
     Item,
     {
       ref,
@@ -35924,30 +36563,30 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       ),
       ...props,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("span", { className: "absolute right-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(Check, { className: "h-4 w-4" }) }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(ItemText, { children })
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("span", { className: "absolute right-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(Check, { className: "h-4 w-4" }) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ItemText, { children })
       ]
     }
   ));
   SelectItem2.displayName = Item.displayName;
-  var SelectSeparator2 = React43.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(
-    Separator,
+  var SelectSeparator2 = React48.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(
+    Separator3,
     {
       ref,
       className: cn("-mx-1 my-1 h-px bg-muted", className),
       ...props
     }
   ));
-  SelectSeparator2.displayName = Separator.displayName;
+  SelectSeparator2.displayName = Separator3.displayName;
 
   // src/components/Calculators/OST22Calculator.tsx
-  var import_jsx_runtime35 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime41 = __toESM(require_jsx_runtime());
   function OST22Calculator() {
-    const [size4, setSize] = (0, import_react17.useState)("");
-    const [elementType, setElementType] = (0, import_react17.useState)("hole");
-    const [result, setResult] = (0, import_react17.useState)(null);
-    const [isCalculating, setIsCalculating] = (0, import_react17.useState)(false);
-    const [showMobileAd, setShowMobileAd] = (0, import_react17.useState)(true);
+    const [size4, setSize] = (0, import_react23.useState)("");
+    const [elementType, setElementType] = (0, import_react23.useState)("hole");
+    const [result, setResult] = (0, import_react23.useState)(null);
+    const [isCalculating, setIsCalculating] = (0, import_react23.useState)(false);
+    const [showMobileAd, setShowMobileAd] = (0, import_react23.useState)(true);
     const calculateTolerance = async () => {
       if (!size4 || isNaN(Number(size4))) return;
       setIsCalculating(true);
@@ -35996,18 +36635,18 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       setResult(calculationResult);
       setIsCalculating(false);
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "text-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-2", children: "\u041E\u0421\u0422 1 00022-80" }),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "text-gray-600", children: "\u041D\u0435\u0443\u043A\u0430\u0437\u0430\u043D\u043D\u044B\u0435 \u043F\u0440\u0435\u0434\u0435\u043B\u044C\u043D\u044B\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F" })
+    return /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-6", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-2", children: "\u041E\u0421\u0422 1 00022-80" }),
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-gray-600", children: "\u041D\u0435\u0443\u043A\u0430\u0437\u0430\u043D\u043D\u044B\u0435 \u043F\u0440\u0435\u0434\u0435\u043B\u044C\u043D\u044B\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "hidden lg:grid lg:grid-cols-4 lg:gap-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "lg:col-span-3 space-y-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-6", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Card, { className: "p-4 group", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" }),
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "relative", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "hidden lg:grid lg:grid-cols-4 lg:gap-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "lg:col-span-3 space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { className: "p-4 group", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" }),
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "relative", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
                   "img",
                   {
                     src: "/images/ost22-hole.webp",
@@ -36015,8 +36654,8 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                     className: "w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
                     "img",
                     {
                       src: "/images/ost22-hole.webp",
@@ -36024,14 +36663,14 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                       className: "w-full h-auto object-contain max-h-80"
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "text-sm text-gray-600 mt-2 text-center", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" })
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-sm text-gray-600 mt-2 text-center", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" })
                 ] }) })
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Card, { className: "p-4 group", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432" }),
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "relative", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { className: "p-4 group", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432" }),
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "relative", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
                   "img",
                   {
                     src: "/images/ost22-shaft.webp",
@@ -36039,8 +36678,8 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                     className: "w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
                     "img",
                     {
                       src: "/images/ost22-shaft.webp",
@@ -36048,14 +36687,14 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                       className: "w-full h-auto object-contain max-h-80"
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "text-sm text-gray-600 mt-2 text-center", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432" })
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-sm text-gray-600 mt-2 text-center", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432" })
                 ] }) })
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Card, { className: "p-4 group", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C" }),
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "relative", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { className: "p-4 group", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C" }),
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "relative", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
                   "img",
                   {
                     src: "/images/ost22-undef.webp",
@@ -36063,8 +36702,8 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                     className: "w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
                     "img",
                     {
                       src: "/images/ost22-undef.webp",
@@ -36072,21 +36711,21 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                       className: "w-full h-auto object-contain max-h-80"
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "text-sm text-gray-600 mt-2 text-center", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C" })
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-sm text-gray-600 mt-2 text-center", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C" })
                 ] }) })
               ] })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Card, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(CardTitle, { className: "flex items-center", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(CardTitle, { className: "flex items-center", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
                 "\u0420\u0430\u0441\u0447\u0435\u0442 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0439"
               ] }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(CardContent, { className: "space-y-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "space-y-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Label2, { htmlFor: "size", children: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0440\u0430\u0437\u043C\u0435\u0440 \u0441 \u0447\u0435\u0440\u0442\u0435\u0436\u0430 (\u043C\u043C)" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(CardContent, { className: "space-y-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Label2, { htmlFor: "size", children: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0440\u0430\u0437\u043C\u0435\u0440 \u0441 \u0447\u0435\u0440\u0442\u0435\u0436\u0430 (\u043C\u043C)" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
                     Input,
                     {
                       id: "size",
@@ -36099,20 +36738,20 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                     }
                   )
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "space-y-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Label2, { htmlFor: "element-type", children: "\u0422\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Select2, { value: elementType, onValueChange: (value) => setElementType(value), children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectTrigger2, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectValue2, { placeholder: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }) }),
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(SelectContent2, { children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectItem2, { value: "hole", children: "\u041E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectItem2, { value: "shaft", children: "\u0412\u0430\u043B" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectItem2, { value: "conditional-hole", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectItem2, { value: "conditional-shaft", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u044B\u0439 \u0432\u0430\u043B" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectItem2, { value: "neither", children: "\u041D\u0438 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435, \u043D\u0438 \u0432\u0430\u043B" })
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Label2, { htmlFor: "element-type", children: "\u0422\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Select2, { value: elementType, onValueChange: (value) => setElementType(value), children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectTrigger2, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectValue2, { placeholder: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(SelectContent2, { children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "hole", children: "\u041E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "shaft", children: "\u0412\u0430\u043B" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "conditional-hole", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "conditional-shaft", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u044B\u0439 \u0432\u0430\u043B" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "neither", children: "\u041D\u0438 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435, \u043D\u0438 \u0432\u0430\u043B" })
                     ] })
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
                   Button,
                   {
                     onClick: calculateTolerance,
@@ -36123,37 +36762,37 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                 )
               ] })
             ] }),
-            result && /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Card, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "space-y-3", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+            result && /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
                       result.upperDeviation > 0 ? "+" : "",
                       result.upperDeviation.toFixed(3),
                       " \u043C\u043C"
                     ] })
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
                       result.maxSize.toFixed(3),
                       " \u043C\u043C"
                     ] })
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
                       result.lowerDeviation.toFixed(3),
                       " \u043C\u043C"
                     ] })
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
                       result.minSize.toFixed(3),
                       " \u043C\u043C"
                     ] })
@@ -36162,18 +36801,18 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
               ] }) })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Card, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(CardTitle, { className: "flex items-center", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(CardTitle, { className: "flex items-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
               "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Download, { className: "w-4 h-4 mr-2" }),
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Download, { className: "w-4 h-4 mr-2" }),
               "\u041E\u0421\u0422 1 00022-80 PDF"
             ] }) }) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "lg:col-span-1 space-y-6", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "sticky top-6", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "lg:col-span-1 space-y-6", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "sticky top-6", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
           AdPlacement,
           {
             placement: "sidebar-primary",
@@ -36182,11 +36821,11 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           }
         ) }) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "lg:hidden space-y-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Card, { className: "p-4 group", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" }),
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "lg:hidden space-y-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { className: "p-4 group", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" }),
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
               "img",
               {
                 src: "/images/ost22-hole.webp",
@@ -36195,9 +36834,9 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
               }
             ) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Card, { className: "p-4 group", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432" }),
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { className: "p-4 group", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432" }),
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
               "img",
               {
                 src: "/images/ost22-shaft.webp",
@@ -36206,9 +36845,9 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
               }
             ) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Card, { className: "p-4 group", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C" }),
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { className: "p-4 group", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C" }),
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
               "img",
               {
                 src: "/images/ost22-undef.webp",
@@ -36218,16 +36857,16 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
             ) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Card, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(CardTitle, { className: "flex items-center", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(CardTitle, { className: "flex items-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
               "\u0420\u0430\u0441\u0447\u0435\u0442 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0439"
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(CardContent, { className: "space-y-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "space-y-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Label2, { htmlFor: "size-mobile", children: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0440\u0430\u0437\u043C\u0435\u0440 \u0441 \u0447\u0435\u0440\u0442\u0435\u0436\u0430 (\u043C\u043C)" }),
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(CardContent, { className: "space-y-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Label2, { htmlFor: "size-mobile", children: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0440\u0430\u0437\u043C\u0435\u0440 \u0441 \u0447\u0435\u0440\u0442\u0435\u0436\u0430 (\u043C\u043C)" }),
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
                   Input,
                   {
                     id: "size-mobile",
@@ -36240,20 +36879,20 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                   }
                 )
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "space-y-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Label2, { htmlFor: "element-type-mobile", children: "\u0422\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }),
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Select2, { value: elementType, onValueChange: (value) => setElementType(value), children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectTrigger2, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectValue2, { placeholder: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }) }),
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(SelectContent2, { children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectItem2, { value: "hole", children: "\u041E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectItem2, { value: "shaft", children: "\u0412\u0430\u043B" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectItem2, { value: "conditional-hole", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectItem2, { value: "conditional-shaft", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u044B\u0439 \u0432\u0430\u043B" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(SelectItem2, { value: "neither", children: "\u041D\u0438 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435, \u043D\u0438 \u0432\u0430\u043B" })
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Label2, { htmlFor: "element-type-mobile", children: "\u0422\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }),
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Select2, { value: elementType, onValueChange: (value) => setElementType(value), children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectTrigger2, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectValue2, { placeholder: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(SelectContent2, { children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "hole", children: "\u041E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "shaft", children: "\u0412\u0430\u043B" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "conditional-hole", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "conditional-shaft", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u044B\u0439 \u0432\u0430\u043B" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "neither", children: "\u041D\u0438 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435, \u043D\u0438 \u0432\u0430\u043B" })
                   ] })
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
                 Button,
                 {
                   onClick: calculateTolerance,
@@ -36264,37 +36903,37 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
               )
             ] })
           ] }),
-          result && /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Card, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "space-y-3", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+          result && /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
                     result.upperDeviation > 0 ? "+" : "",
                     result.upperDeviation.toFixed(3),
                     " \u043C\u043C"
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
                     result.maxSize.toFixed(3),
                     " \u043C\u043C"
                   ] })
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
                     result.lowerDeviation.toFixed(3),
                     " \u043C\u043C"
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
                     result.minSize.toFixed(3),
                     " \u043C\u043C"
                   ] })
@@ -36303,28 +36942,28 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
             ] }) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Card, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(CardTitle, { className: "flex items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(CardTitle, { className: "flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
             "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(Download, { className: "w-4 h-4 mr-2" }),
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Download, { className: "w-4 h-4 mr-2" }),
             "\u041E\u0421\u0422 1 00022-80 PDF"
           ] }) }) })
         ] })
       ] }),
-      showMobileAd && /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "lg:hidden fixed bottom-4 left-4 right-4 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "relative", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+      showMobileAd && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "lg:hidden fixed bottom-4 left-4 right-4 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "relative", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
           "button",
           {
             onClick: () => setShowMobileAd(false),
             className: "absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 transition-colors z-10",
             title: "\u0417\u0430\u043A\u0440\u044B\u0442\u044C \u0440\u0435\u043A\u043B\u0430\u043C\u0443",
-            children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(X, { className: "w-4 h-4" })
+            children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(X, { className: "w-4 h-4" })
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
           AdPlacement,
           {
             placement: "mobile-sticky",
@@ -36336,16 +36975,16 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   }
 
   // src/components/Calculators/ToleranceCalculator.tsx
-  var import_react18 = __toESM(require_react());
-  var import_jsx_runtime36 = __toESM(require_jsx_runtime());
+  var import_react24 = __toESM(require_react());
+  var import_jsx_runtime42 = __toESM(require_jsx_runtime());
   function ToleranceCalculator() {
-    const [size4, setSize] = (0, import_react18.useState)("");
-    const [tolerance, setTolerance] = (0, import_react18.useState)("");
-    const [result, setResult] = (0, import_react18.useState)(null);
-    const [isCalculating, setIsCalculating] = (0, import_react18.useState)(false);
-    const [showMobileAd, setShowMobileAd] = (0, import_react18.useState)(true);
+    const [size4, setSize] = (0, import_react24.useState)("");
+    const [tolerance, setTolerance] = (0, import_react24.useState)("");
+    const [result, setResult] = (0, import_react24.useState)(null);
+    const [isCalculating, setIsCalculating] = (0, import_react24.useState)(false);
+    const [showMobileAd, setShowMobileAd] = (0, import_react24.useState)(true);
     const { updateContext } = useAdStore();
-    (0, import_react18.useEffect)(() => {
+    (0, import_react24.useEffect)(() => {
       updateContext({
         pageType: "tolerance-calculator",
         calculatorType: "gost-25347-82"
@@ -36387,23 +37026,23 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       setResult(calculationResult);
       setIsCalculating(false);
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-2", children: "\u0413\u041E\u0421\u0422 25347-82" }),
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-gray-600", children: "\u0415\u0434\u0438\u043D\u0430\u044F \u0441\u0438\u0441\u0442\u0435\u043C\u0430 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A" })
+    return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-6", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-2", children: "\u0413\u041E\u0421\u0422 25347-82" }),
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("p", { className: "text-gray-600", children: "\u0415\u0434\u0438\u043D\u0430\u044F \u0441\u0438\u0441\u0442\u0435\u043C\u0430 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "hidden lg:grid lg:grid-cols-4 lg:gap-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "lg:col-span-3 space-y-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardTitle, { className: "flex items-center", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "hidden lg:grid lg:grid-cols-4 lg:gap-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "lg:col-span-3 space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardTitle, { className: "flex items-center", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
                 "\u0420\u0430\u0441\u0447\u0435\u0442 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A"
               ] }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardContent, { className: "space-y-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "space-y-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Label2, { htmlFor: "size", children: "\u041D\u043E\u043C\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 (\u043C\u043C) \u0438 \u043F\u043E\u043B\u0435 \u0434\u043E\u043F\u0443\u0441\u043A\u0430 " }),
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardContent, { className: "space-y-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Label2, { htmlFor: "size", children: "\u041D\u043E\u043C\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 (\u043C\u043C) \u0438 \u043F\u043E\u043B\u0435 \u0434\u043E\u043F\u0443\u0441\u043A\u0430 " }),
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                     Input,
                     {
                       id: "size",
@@ -36416,7 +37055,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                     }
                   )
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                   Button,
                   {
                     onClick: calculateTolerance,
@@ -36427,34 +37066,34 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                 )
               ] })
             ] }),
-            result && /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+            result && /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
                     result.upperDeviation > 0 ? "+" : "",
                     result.upperDeviation.toFixed(3),
                     " \u043C\u043C"
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
                     result.maxSize.toFixed(3),
                     " \u043C\u043C"
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (EI/ei)" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (EI/ei)" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
                     result.lowerDeviation.toFixed(3),
                     " \u043C\u043C"
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
                     result.minSize.toFixed(3),
                     " \u043C\u043C"
                   ] })
@@ -36462,18 +37101,18 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
               ] }) })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardTitle, { className: "flex items-center", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardTitle, { className: "flex items-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
               "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Download, { className: "w-4 h-4 mr-2" }),
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Download, { className: "w-4 h-4 mr-2" }),
               "\u0413\u041E\u0421\u0422 25347-82 PDF"
             ] }) }) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "lg:col-span-1 space-y-6", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "sticky top-6", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "lg:col-span-1 space-y-6", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "sticky top-6", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
           AdPlacement,
           {
             placement: "sidebar-primary",
@@ -36482,17 +37121,17 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           }
         ) }) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "lg:hidden space-y-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardTitle, { className: "flex items-center", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "lg:hidden space-y-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardTitle, { className: "flex items-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
               "\u0420\u0430\u0441\u0447\u0435\u0442 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A"
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardContent, { className: "space-y-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "space-y-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Label2, { htmlFor: "size-mobile", children: "\u041D\u043E\u043C\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 (\u043C\u043C) \u0438 \u043F\u043E\u043B\u0435 \u0434\u043E\u043F\u0443\u0441\u043A\u0430 " }),
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardContent, { className: "space-y-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Label2, { htmlFor: "size-mobile", children: "\u041D\u043E\u043C\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 (\u043C\u043C) \u0438 \u043F\u043E\u043B\u0435 \u0434\u043E\u043F\u0443\u0441\u043A\u0430 " }),
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                   Input,
                   {
                     id: "size-mobile",
@@ -36505,7 +37144,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
                   }
                 )
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                 Button,
                 {
                   onClick: calculateTolerance,
@@ -36516,34 +37155,34 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
               )
             ] })
           ] }),
-          result && /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+          result && /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
                   result.upperDeviation > 0 ? "+" : "",
                   result.upperDeviation.toFixed(3),
                   " \u043C\u043C"
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
                   result.maxSize.toFixed(3),
                   " \u043C\u043C"
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (EI/ei)" }),
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (EI/ei)" }),
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
                   result.lowerDeviation.toFixed(3),
                   " \u043C\u043C"
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
                   result.minSize.toFixed(3),
                   " \u043C\u043C"
                 ] })
@@ -36551,28 +37190,28 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
             ] }) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Card, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(CardTitle, { className: "flex items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardTitle, { className: "flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
             "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(Download, { className: "w-4 h-4 mr-2" }),
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Download, { className: "w-4 h-4 mr-2" }),
             "\u0413\u041E\u0421\u0422 25347-82 PDF"
           ] }) }) })
         ] })
       ] }),
-      showMobileAd && /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "lg:hidden fixed bottom-4 left-4 right-4 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "relative", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+      showMobileAd && /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "lg:hidden fixed bottom-4 left-4 right-4 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "relative", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
           "button",
           {
             onClick: () => setShowMobileAd(false),
             className: "absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 transition-colors z-10",
             title: "\u0417\u0430\u043A\u0440\u044B\u0442\u044C \u0440\u0435\u043A\u043B\u0430\u043C\u0443",
-            children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(X, { className: "w-4 h-4" })
+            children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(X, { className: "w-4 h-4" })
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
           AdPlacement,
           {
             placement: "mobile-sticky",
@@ -36584,12 +37223,36 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   }
 
   // src/App.tsx
-  var import_jsx_runtime37 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime43 = __toESM(require_jsx_runtime());
+  function registerServiceWorker() {
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js").then((registration) => {
+          console.log("Service Worker registered successfully:", registration.scope);
+          registration.addEventListener("updatefound", () => {
+            const newWorker = registration.installing;
+            if (newWorker) {
+              newWorker.addEventListener("statechange", () => {
+                if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
+                  console.log("New version available");
+                }
+              });
+            }
+          });
+        }).catch((error) => {
+          console.error("Service Worker registration failed:", error);
+        });
+      });
+    }
+  }
   function App() {
-    const [currentPage, setCurrentPage] = (0, import_react19.useState)("home");
+    const [currentPage, setCurrentPage] = (0, import_react25.useState)("home");
     const { isAuthenticated } = useAuthStore();
     const seoConfig = getSEOConfig(currentPage);
-    (0, import_react19.useEffect)(() => {
+    (0, import_react25.useEffect)(() => {
+      registerServiceWorker();
+    }, []);
+    (0, import_react25.useEffect)(() => {
       const handleHashChange = () => {
         const hash = window.location.hash.substring(1) || "home";
         setCurrentPage(hash);
@@ -36601,45 +37264,46 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     const renderPage = () => {
       switch (currentPage) {
         case "home":
-          return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Home, {});
+          return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Home, {});
         case "ost22":
-          return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Header, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(OST22Calculator, {}) }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Footer, {})
+          return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Header, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(OST22Calculator, {}) }),
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Footer, {})
           ] });
         case "tolerances":
-          return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Header, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(ToleranceCalculator, {}) }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Footer, {})
+          return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Header, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(ToleranceCalculator, {}) }),
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Footer, {})
           ] });
         case "thread":
-          return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Header, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "text-center py-16", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-4", children: "\u0413\u041E\u0421\u0422 16093-2004" }),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("p", { className: "text-gray-600", children: "\u041A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440 \u043C\u0435\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u0440\u0435\u0437\u044C\u0431\u044B \u0432 \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0435" })
+          return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Header, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-center py-16", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-4", children: "\u0413\u041E\u0421\u0422 16093-2004" }),
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-gray-600", children: "\u041A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440 \u043C\u0435\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u0440\u0435\u0437\u044C\u0431\u044B \u0432 \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0435" })
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Footer, {})
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Footer, {})
           ] });
         case "chamfer":
-          return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Header, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "text-center py-16", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-4", children: "\u0420\u0430\u0441\u0447\u0435\u0442 \u0444\u0430\u0441\u043E\u043A" }),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("p", { className: "text-gray-600", children: "\u041A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440 \u0444\u0430\u0441\u043E\u043A \u0432 \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0435" })
+          return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Header, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-center py-16", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-4", children: "\u0420\u0430\u0441\u0447\u0435\u0442 \u0444\u0430\u0441\u043E\u043A" }),
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-gray-600", children: "\u041A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440 \u0444\u0430\u0441\u043E\u043A \u0432 \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0435" })
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Footer, {})
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Footer, {})
           ] });
         default:
-          return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Home, {});
+          return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Home, {});
       }
     };
+    const { consentState } = useCookieConsent();
     if (currentPage === "home") {
-      return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(import_jsx_runtime37.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(FaviconTags, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(import_jsx_runtime43.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(FaviconTags, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
           SEOMetaTags,
           {
             title: seoConfig.title,
@@ -36650,12 +37314,14 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
             ogImage: seoConfig.ogImage
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Home, {})
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Home, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(UpdateNotification, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CookieConsent, {})
       ] });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(import_jsx_runtime37.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(FaviconTags, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(import_jsx_runtime43.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(FaviconTags, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
         SEOMetaTags,
         {
           title: seoConfig.title,
@@ -36667,14 +37333,16 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         }
       ),
       renderPage(),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(SEODev, {})
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(UpdateNotification, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CookieConsent, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(SEODev, {})
     ] });
   }
 
   // src/main.tsx
-  var import_jsx_runtime38 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime44 = __toESM(require_jsx_runtime());
   var root = (0, import_client.createRoot)(document.getElementById("app"));
-  root.render(/* @__PURE__ */ (0, import_jsx_runtime38.jsx)(App, {}));
+  root.render(/* @__PURE__ */ (0, import_jsx_runtime44.jsx)(App, {}));
 })();
 /*! Bundled license information:
 
@@ -36746,6 +37414,7 @@ lucide-react/dist/esm/icons/chart-column.js:
 lucide-react/dist/esm/icons/check.js:
 lucide-react/dist/esm/icons/chevron-down.js:
 lucide-react/dist/esm/icons/chevron-up.js:
+lucide-react/dist/esm/icons/circle-check-big.js:
 lucide-react/dist/esm/icons/download.js:
 lucide-react/dist/esm/icons/external-link.js:
 lucide-react/dist/esm/icons/eye-off.js:
@@ -36754,6 +37423,8 @@ lucide-react/dist/esm/icons/file-text.js:
 lucide-react/dist/esm/icons/globe.js:
 lucide-react/dist/esm/icons/lock.js:
 lucide-react/dist/esm/icons/menu.js:
+lucide-react/dist/esm/icons/refresh-cw.js:
+lucide-react/dist/esm/icons/save.js:
 lucide-react/dist/esm/icons/search.js:
 lucide-react/dist/esm/icons/settings.js:
 lucide-react/dist/esm/icons/shield.js:

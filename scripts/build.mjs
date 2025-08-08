@@ -3,15 +3,25 @@ import { rimraf } from 'rimraf'
 import stylePlugin from 'esbuild-style-plugin'
 import autoprefixer from 'autoprefixer'
 import tailwindcss from 'tailwindcss'
-import { copyFile, mkdir } from 'fs/promises'
+import { copyFile, mkdir, writeFile, readFile } from 'fs/promises'
 import { readdir } from 'fs/promises'
 import { join } from 'path'
 import { spawn } from 'child_process'
+import { createHash } from 'crypto'
 
 const args = process.argv.slice(2)
 const isProd = args[0] === '--production'
 
 await rimraf('dist')
+
+// Generate version hash for cache busting
+function generateVersionHash() {
+  const timestamp = Date.now().toString()
+  const hash = createHash('md5').update(timestamp).digest('hex').slice(0, 8)
+  return hash
+}
+
+const versionHash = generateVersionHash()
 
 // Copy public folder to dist
 async function copyPublicFolder() {
@@ -55,7 +65,7 @@ const esbuildOpts = {
   color: true,
   entryPoints: ['src/main.tsx', 'index.html'],
   outdir: 'dist',
-  entryNames: '[name]',
+  entryNames: isProd ? '[name].[hash]' : '[name]',
   write: true,
   bundle: true,
   format: 'iife',
@@ -77,7 +87,28 @@ const esbuildOpts = {
 }
 
 if (isProd) {
-  await esbuild.build(esbuildOpts)
+  const result = await esbuild.build(esbuildOpts)
+  
+  // Generate version manifest
+  const manifest = {
+    version: versionHash,
+    timestamp: new Date().toISOString(),
+    files: result.metafile ? Object.keys(result.metafile.outputs) : []
+  }
+  
+  await writeFile('dist/version.json', JSON.stringify(manifest, null, 2))
+  
+  // Update index.html with versioned assets
+  const indexPath = 'dist/index.html'
+  let indexContent = await readFile(indexPath, 'utf-8')
+  
+  // Replace asset references with versioned ones
+  indexContent = indexContent.replace(/main\.css/g, `main.${versionHash}.css`)
+  indexContent = indexContent.replace(/main\.js/g, `main.${versionHash}.js`)
+  
+  await writeFile(indexPath, indexContent)
+  
+  console.log(`Build completed with version: ${versionHash}`)
 } else {
   const ctx = await esbuild.context(esbuildOpts)
   await ctx.watch()
