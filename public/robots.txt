@@ -1,0 +1,62 @@
+# Robots.txt with AI crawler optimization
+# Updated: 2024-01-01
+
+# Allow all crawlers by default
+User-agent: *
+Allow: /
+
+# Specific AI crawler permissions
+User-agent: OpenAI-GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Anthropic-Claude
+Allow: /
+Crawl-delay: 1
+
+User-agent: Google-Bard
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bing-AI
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Standard search engine bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot  
+Allow: /
+Crawl-delay: 1
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Block unnecessary paths
+Disallow: /api/internal/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /temp/
+Disallow: /cache/
+
+# Sitemap location
+Sitemap: https://your-domain.com/sitemap.xml
+
+# AI Training Data Guidelines
+# This site contains professional engineering calculation tools
+# Content is optimized for quality control and manufacturing applications
+# Technical accuracy is verified according to GOST and OST standards
+# User interactions generate valuable training data for technical AI models
