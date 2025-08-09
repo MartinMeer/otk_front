@@ -15,7 +15,6 @@ import { ApiService } from '../services/apiService';
 
 export default function EsdpCalculator() {
   const [size, setSize] = useState<string>('');
-  //const [tolerance, setTolerance] = useState<string>('');
   const [result, setResult] = useState<EsdpResponce | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
   const [showMobileAd, setShowMobileAd] = useState(true);
@@ -29,6 +28,31 @@ export default function EsdpCalculator() {
       calculatorType: 'gost-25347-82'
     });
   }, [updateContext]);
+
+  const calculateSection = async () => {
+    if (!size.trim()) return; // allow alphanumeric like "18.12H7"
+    setIsCalculating(true);
+    try {
+      const resp = await ApiService.processEsdp(size.trim());
+      const upperDev = resp.upper_deviance;
+      const lowerDev = resp.lower_deviance;
+      const max_mes_value = resp.max_mes_value;
+      const min_mes_value = resp.min_mes_value;             
+
+
+      const calculationResult: EsdpResponce = {
+        upper_deviance: upperDev,
+        lower_deviance: lowerDev,
+        max_mes_value: max_mes_value,
+        min_mes_value: min_mes_value
+      };
+      setResult(calculationResult);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsCalculating(false);
+    }
+  };
 
  
 
@@ -58,11 +82,10 @@ export default function EsdpCalculator() {
                   <Label htmlFor="size">Номинальный размер (мм) и поле допуска </Label>
                   <Input
                     id="size"
-                    type="number"
-                    step="0.001"
+                    type="text"
                     value={size}
                     onChange={(e) => setSize(e.target.value)}
-                    placeholder="Например: 18.123H7"
+                    placeholder="Например: 18.12H7"
                     className="text-lg"
                   />
                 </div>
@@ -83,9 +106,9 @@ export default function EsdpCalculator() {
                 </div>*/}
 
                 <Button 
-                  onClick={calculateTolerance} 
+                  onClick={calculateSection} 
                   className="w-full bg-blue-600 hover:bg-blue-700"
-                  disabled={!size || !tolerance || isCalculating}
+                  disabled={!size.trim() || isCalculating}
                 >
                   {isCalculating ? 'Расчет...' : 'Рассчитать'}
                 </Button>
@@ -103,26 +126,26 @@ export default function EsdpCalculator() {
                     <div className="p-3 bg-blue-50 rounded-lg">
                       <div className="text-sm text-gray-600">Верхнее отклонение (ES/es)</div>
                       <div className="text-lg font-semibold text-blue-900">
-                        {result.upperDeviation > 0 ? '+' : ''}{result.upperDeviation.toFixed(3)} мм
+                        {result.upper_deviance} мм
                       </div>
                     </div>
                     <div className="p-3 bg-green-50 rounded-lg">
                       <div className="text-sm text-gray-600">Максимальный размер</div>
                       <div className="text-lg font-semibold text-green-700">
-                        {result.maxSize.toFixed(3)} мм
+                        {result.max_mes_value} мм
                       </div>
                     </div>
                     <div className="p-3 bg-blue-50 rounded-lg">
                       <div className="text-sm text-gray-600">Нижнее отклонение (EI/ei)</div>
                       <div className="text-lg font-semibold text-blue-900">
-                        {result.lowerDeviation.toFixed(3)} мм
+                        {result.lower_deviance} мм
                       </div>
                     </div>
                   
                     <div className="p-3 bg-green-50 rounded-lg">
                       <div className="text-sm text-gray-600">Минимальный размер</div>
                       <div className="text-lg font-semibold text-green-700">
-                        {result.minSize.toFixed(3)} мм
+                        {result.min_mes_value} мм
                       </div>
                     </div>
                   </div>
@@ -188,8 +211,7 @@ export default function EsdpCalculator() {
                 <Label htmlFor="size-mobile">Номинальный размер (мм) и поле допуска </Label>
                 <Input
                   id="size-mobile"
-                  type="number"
-                  step="0.001"
+                  type="text"
                   value={size}
                   onChange={(e) => setSize(e.target.value)}
                   placeholder="Например: 18.123H7"
@@ -213,9 +235,9 @@ export default function EsdpCalculator() {
               </div>*/}
 
               <Button 
-                onClick={calculateTolerance} 
+                onClick={calculateSection} 
                 className="w-full bg-blue-600 hover:bg-blue-700"
-                disabled={!size || !tolerance || isCalculating}
+                disabled={!size.trim() || isCalculating}
               >
                 {isCalculating ? 'Расчет...' : 'Рассчитать'}
               </Button>
@@ -233,26 +255,26 @@ export default function EsdpCalculator() {
                   <div className="p-3 bg-blue-50 rounded-lg">
                     <div className="text-sm text-gray-600">Верхнее отклонение (ES/es)</div>
                     <div className="text-lg font-semibold text-blue-900">
-                      {result.upperDeviation > 0 ? '+' : ''}{result.upperDeviation.toFixed(3)} мм
+                      {result.upper_deviance} мм
                     </div>
                   </div>
                   <div className="p-3 bg-green-50 rounded-lg">
                     <div className="text-sm text-gray-600">Максимальный размер</div>
                     <div className="text-lg font-semibold text-green-700">
-                      {result.maxSize.toFixed(3)} мм
+                      {result.max_mes_value} мм
                     </div>
                   </div>
                   <div className="p-3 bg-blue-50 rounded-lg">
                     <div className="text-sm text-gray-600">Нижнее отклонение (EI/ei)</div>
                     <div className="text-lg font-semibold text-blue-900">
-                      {result.lowerDeviation.toFixed(3)} мм
+                      {result.lower_deviance} мм
                     </div>
                   </div>
                 
                   <div className="p-3 bg-green-50 rounded-lg">
                     <div className="text-sm text-gray-600">Минимальный размер</div>
                     <div className="text-lg font-semibold text-green-700">
-                      {result.minSize.toFixed(3)} мм
+                      {result.min_mes_value} мм
                     </div>
                   </div>
                 </div>

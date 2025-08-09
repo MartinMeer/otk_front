@@ -16,32 +16,37 @@ export interface AuthState {
   loginDemo: () => void;
 }
 
+export interface Ost22Request{
+  elementType: string;
+  size: number;
+}
+
 export interface Ost22Responce {
-  upperDeviation: string;
-  lowerDeviation: string;
-  maxMesSize: string;
-  minMesSize: string;
+  upper_deviance: string;
+  lower_deviance: string;
+  max_mes_value: string;
+  min_mes_value: string;
 }
 
 export interface EsdpResponce {
-  upperDeviation: string;
-  lowerDeviation: string;
-  maxSize: string;
-  minSize: string;
+  upper_deviance: string;
+  lower_deviance: string;
+  max_mes_value: string;
+  min_mes_value: string;
 }
 
 export interface ThreadsResponce {
   middleDiameter: {
     value: string;
-    upperDeviation: string;
-    lowerDeviation: string;
+    upper_deviance: string;
+    lower_deviance: string;
     maxValue: string;
     minValue: string;
   };
   nominalDiameter: {
     value: string;
-    upperDeviation: string;
-    lowerDeviation: string;
+    upper_deviance: string;
+    lower_deviance: string;
     maxValue: string;
     minValue: string;
   };

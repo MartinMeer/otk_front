@@ -7,7 +7,7 @@ export interface ApiRequest {
   inputString: string;
 }
 
-export interface ApiResponse {
+/*export interface ApiResponse {
   upper_deviance?: string;
   lower_deviance?: string;
   min_mes_value?: string;
@@ -24,7 +24,7 @@ export interface ApiResponse {
   min_mes_value_d?: string;
   deviation_values?: string;
   hypotenuse?: string;
-}
+}*/
 
 
 export class ApiService {
@@ -44,10 +44,11 @@ export class ApiService {
     return response.json() as Promise<T>;
   }
 
-  static async processOst22(inputString: string): Promise<Ost22Responce> {
-    return this.postData<Ost22Responce>(API_CONFIG.ENDPOINTS.OST22, { inputString }) as Promise<Ost22Responce>;
+  static async processOst22(elementType: string, size: string): Promise<Ost22Responce> {
+    const inputString = `${elementType}:${size}`;
+    return this.postData<Ost22Responce>(API_CONFIG.ENDPOINTS.OST22, { inputString });
   }
-  static async processEsdp(inputString: string): Promise<EsdpResponce> {
-    return this.postData<EsdpResponce>(API_CONFIG.ENDPOINTS.ESDP, { inputString }) as Promise<EsdpResponce>;
+  static async processEsdp(inputString: string): Promise<EsdpResponce> {    
+    return this.postData<EsdpResponce>(API_CONFIG.ENDPOINTS.ESDP, { inputString });
   }
 }

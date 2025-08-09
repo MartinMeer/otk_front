@@ -9,7 +9,7 @@ import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { Calculator, Download, FileText, X } from 'lucide-react';
-import { Ost22Responce } from '../types';
+import { Ost22Responce, Ost22Request } from '../types';
 import AdPlacement from '../components/Ads/AdPlacement';
 import { ApiService } from '../services/apiService';
 
@@ -18,28 +18,38 @@ type ElementType = 'hole' | 'shaft' | 'conditional-hole' | 'conditional-shaft' |
 
 export default function OST22Calculator() {
   const [size, setSize] = useState<string>('');
+  const [sizeError, setSizeError] = useState<string | null>(null);
+  const validateSize = (v: string): string | null => {
+    if (!v) return null; // allow empty; button will stay disabled
+    // only digits with optional fractional part using dot
+    return /^\d+(\.\d+)?$/.test(v)
+      ? null
+      : 'Размер должен быть числом. Используйте точку для дробных чисел: 0.01';
+  };
+
+
   const [elementType, setElementType] = useState<ElementType>('hole');
   const [result, setResult] = useState<Ost22Responce | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
   const [showMobileAd, setShowMobileAd] = useState(true);
 
-  const outputSection = async () => {
+  const calculateSection = async () => {
     if (!size || isNaN(Number(size))) return;
     setIsCalculating(true);
     try {
-      const resp = await ApiService.processOst22(size);
+      const resp = await ApiService.processOst22(elementType, size);
       //const sizeValue = Number(size);
-      const upperDev = resp.upperDeviation;
-      const lowerDev = resp.lowerDeviation;
-      const maxMesSize = resp.maxMesSize;
-      const minMesSize = resp.minMesSize;
+      const upperDev = resp.upper_deviance;
+      const lowerDev = resp.lower_deviance;
+      const max_mes_value = resp.max_mes_value;
+      const min_mes_value = resp.min_mes_value;             
 
 
       const calculationResult: Ost22Responce = {
-        upperDeviation: upperDev,
-        lowerDeviation: lowerDev,
-        maxMesSize: maxMesSize,
-        minMesSize: minMesSize
+        upper_deviance: upperDev,
+        lower_deviance: lowerDev,
+        max_mes_value: max_mes_value,
+        min_mes_value: min_mes_value
       };
       setResult(calculationResult);
     } catch (e) {
@@ -142,13 +152,23 @@ export default function OST22Calculator() {
                   <Label htmlFor="size">Введите размер с чертежа (мм)</Label>
                   <Input
                     id="size"
-                    type="number"
+                    type="text"
+                    inputMode="decimal"
+                    pattern="^\d+(\.\d+)?$"
                     step="0.001"
                     value={size}
-                    onChange={(e) => setSize(e.target.value)}
+                    onChange={(e) => {
+                      const v = e.target.value.trim();
+                      setSize(v);
+                      setSizeError(validateSize(v));
+                    }}
                     placeholder="Например: 10.5"
                     className="text-lg"
+                    aria-invalid={!!sizeError}
                   />
+                  {sizeError && (
+                    <div className="text-sm text-red-600">{sizeError}</div>
+                  )}
                 </div>
 
                 <div className="space-y-2">
@@ -160,17 +180,17 @@ export default function OST22Calculator() {
                     <SelectContent>
                       <SelectItem value="hole">Отверстие</SelectItem>
                       <SelectItem value="shaft">Вал</SelectItem>
-                      <SelectItem value="quasi-hole">Условное отверстие</SelectItem>
-                      <SelectItem value="quasi-shaft">Условный вал</SelectItem>
+                      <SelectItem value="quasi_hole">Условное отверстие</SelectItem>
+                      <SelectItem value="quasi_shaft">Условный вал</SelectItem>
                       <SelectItem value="undef">Ни отверстие, ни вал</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <Button 
-                  onClick={outputSection} 
+                  onClick={calculateSection} 
                   className="w-full bg-blue-600 hover:bg-blue-700"
-                  disabled={!size || isCalculating}
+                  disabled={!size || !!sizeError || isCalculating}
                 >
                   {isCalculating ? 'Расчет...' : 'Рассчитать'}
                 </Button>
@@ -190,13 +210,13 @@ export default function OST22Calculator() {
                       <div className="p-3 bg-blue-50 rounded-lg">
                         <div className="text-sm text-gray-600">Верхнее отклонение</div>
                         <div className="text-lg font-semibold text-blue-900">
-                          {result.upperDeviation} мм
+                          {result.upper_deviance} мм
                         </div>
                       </div>
                       <div className="p-3 bg-green-50 rounded-lg">
                         <div className="text-sm text-gray-600">Максимальный размер</div>
                         <div className="text-lg font-semibold text-green-700">
-                          {result.maxMesSize} мм
+                          {result.max_mes_value} мм
                         </div>
                       </div>
                     </div>
@@ -206,13 +226,13 @@ export default function OST22Calculator() {
                       <div className="p-3 bg-blue-50 rounded-lg">
                         <div className="text-sm text-gray-600">Нижнее отклонение</div>
                         <div className="text-lg font-semibold text-blue-900">
-                          {result.lowerDeviation} мм
+                          {result.lower_deviance} мм
                         </div>
                       </div>
                       <div className="p-3 bg-green-50 rounded-lg">
                         <div className="text-sm text-gray-600">Минимальный размер</div>
                         <div className="text-lg font-semibold text-green-700">
-                          {result.minMesSize} мм
+                          {result.min_mes_value} мм
                         </div>
                       </div>
                     </div>
@@ -304,13 +324,23 @@ export default function OST22Calculator() {
                 <Label htmlFor="size-mobile">Введите размер с чертежа (мм)</Label>
                 <Input
                   id="size-mobile"
-                  type="number"
+                  type="text"
+                  inputMode="decimal"
+                  pattern="^\d+(\.\d+)?$"
                   step="0.001"
                   value={size}
-                  onChange={(e) => setSize(e.target.value)}
+                  onChange={(e) => {
+                    const v = e.target.value.trim();
+                    setSize(v);
+                    setSizeError(validateSize(v));
+                  }}
                   placeholder="Например: 10.5"
                   className="text-lg"
+                  aria-invalid={!!sizeError}
                 />
+                {sizeError && (
+                  <div className="text-sm text-red-600">{sizeError}</div>
+                )}
               </div>
 
               <div className="space-y-2">
@@ -322,17 +352,17 @@ export default function OST22Calculator() {
                   <SelectContent>
                     <SelectItem value="hole">Отверстие</SelectItem>
                     <SelectItem value="shaft">Вал</SelectItem>
-                    <SelectItem value="quasi-hole">Условное отверстие</SelectItem>
-                    <SelectItem value="quasi-shaft">Условный вал</SelectItem>
+                    <SelectItem value="quasi_hole">Условное отверстие</SelectItem>
+                    <SelectItem value="quasi_shaft">Условный вал</SelectItem>
                     <SelectItem value="undef">Ни отверстие, ни вал</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <Button 
-                onClick={outputSection} 
+                onClick={calculateSection} 
                 className="w-full bg-blue-600 hover:bg-blue-700"
-                disabled={!size || isCalculating}
+                disabled={!size || !!sizeError || isCalculating}
               >
                 {isCalculating ? 'Расчет...' : 'Рассчитать'}
               </Button>
@@ -352,13 +382,13 @@ export default function OST22Calculator() {
                     <div className="p-3 bg-blue-50 rounded-lg">
                       <div className="text-sm text-gray-600">Верхнее отклонение</div>
                       <div className="text-lg font-semibold text-blue-900">
-                        {result.upperDeviation} мм
+                        {result.upper_deviance} мм
                       </div>
                     </div>
                     <div className="p-3 bg-green-50 rounded-lg">
                       <div className="text-sm text-gray-600">Максимальный размер</div>
                       <div className="text-lg font-semibold text-green-700">
-                        {result.maxMesSize} мм
+                        {result.max_mes_value} мм
                       </div>
                     </div>
                   </div>
@@ -368,13 +398,13 @@ export default function OST22Calculator() {
                     <div className="p-3 bg-blue-50 rounded-lg">
                       <div className="text-sm text-gray-600">Нижнее отклонение</div>
                       <div className="text-lg font-semibold text-blue-900">
-                        {result.lowerDeviation} мм
+                        {result.lower_deviance} мм
                       </div>
                     </div>
                     <div className="p-3 bg-green-50 rounded-lg">
                       <div className="text-sm text-gray-600">Минимальный размер</div>
                       <div className="text-lg font-semibold text-green-700">
-                        {result.minMesSize} мм
+                        {result.min_mes_value} мм
                       </div>
                     </div>
                   </div>
