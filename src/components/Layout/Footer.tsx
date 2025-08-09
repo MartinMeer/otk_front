@@ -31,7 +31,7 @@ export default function Footer() {
               <ul className="space-y-1 text-sm">
                 <li><a href="#home" className="hover:text-blue-400 transition-colors">Главная</a></li>
                 <li><a href="#ost22" className="hover:text-blue-400 transition-colors">ОСТ 22</a></li>
-                <li><a href="#tolerances" className="hover:text-blue-400 transition-colors">Допуски и посадки</a></li>
+                <li><a href="#esdp" className="hover:text-blue-400 transition-colors">Допуски и посадки</a></li>
                 <li><a href="#thread" className="hover:text-blue-400 transition-colors">Метрическая резьба</a></li>
               </ul>
             </div>

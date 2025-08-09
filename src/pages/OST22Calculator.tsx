@@ -3,14 +3,15 @@
  */
 
 import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { Button } from '../ui/button';
-import { Input } from '../ui/input';
-import { Label } from '../ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { Button } from '../components/ui/button';
+import { Input } from '../components/ui/input';
+import { Label } from '../components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { Calculator, Download, FileText, X } from 'lucide-react';
-import { CalculatorResult } from '../../types';
-import AdPlacement from '../Ads/AdPlacement';
+import { Ost22Responce } from '../types';
+import AdPlacement from '../components/Ads/AdPlacement';
+import { ApiService } from '../services/apiService';
 
 
 type ElementType = 'hole' | 'shaft' | 'conditional-hole' | 'conditional-shaft' | 'neither';
@@ -18,67 +19,34 @@ type ElementType = 'hole' | 'shaft' | 'conditional-hole' | 'conditional-shaft' |
 export default function OST22Calculator() {
   const [size, setSize] = useState<string>('');
   const [elementType, setElementType] = useState<ElementType>('hole');
-  const [result, setResult] = useState<CalculatorResult | null>(null);
+  const [result, setResult] = useState<Ost22Responce | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
   const [showMobileAd, setShowMobileAd] = useState(true);
 
-  const calculateTolerance = async () => {
+  const outputSection = async () => {
     if (!size || isNaN(Number(size))) return;
-    
     setIsCalculating(true);
-    
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 500));
-    
-    // Mock calculation logic - in real implementation this would use actual OST 22 tables
-    const sizeValue = Number(size);
-    let upperDev = 0;
-    let lowerDev = 0;
-    
-    // Simplified calculation based on size ranges and element type
-    if (elementType === 'hole') {
-      if (sizeValue <= 3) {
-        upperDev = 0.1;
-        lowerDev = 0;
-      } else if (sizeValue <= 6) {
-        upperDev = 0.12;
-        lowerDev = 0;
-      } else if (sizeValue <= 30) {
-        upperDev = 0.2;
-        lowerDev = 0;
-      } else {
-        upperDev = 0.3;
-        lowerDev = 0;
-      }
-    } else if (elementType === 'shaft') {
-      if (sizeValue <= 3) {
-        upperDev = 0;
-        lowerDev = -0.1;
-      } else if (sizeValue <= 6) {
-        upperDev = 0;
-        lowerDev = -0.12;
-      } else if (sizeValue <= 30) {
-        upperDev = 0;
-        lowerDev = -0.2;
-      } else {
-        upperDev = 0;
-        lowerDev = -0.3;
-      }
-    } else {
-      // For other types, use intermediate values
-      upperDev = 0.15;
-      lowerDev = -0.15;
+    try {
+      const resp = await ApiService.processOst22(size);
+      //const sizeValue = Number(size);
+      const upperDev = resp.upperDeviation;
+      const lowerDev = resp.lowerDeviation;
+      const maxMesSize = resp.maxMesSize;
+      const minMesSize = resp.minMesSize;
+
+
+      const calculationResult: Ost22Responce = {
+        upperDeviation: upperDev,
+        lowerDeviation: lowerDev,
+        maxMesSize: maxMesSize,
+        minMesSize: minMesSize
+      };
+      setResult(calculationResult);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsCalculating(false);
     }
-
-    const calculationResult: CalculatorResult = {
-      upperDeviation: upperDev,
-      lowerDeviation: lowerDev,
-      maxSize: sizeValue + upperDev,
-      minSize: sizeValue + lowerDev
-    };
-
-    setResult(calculationResult);
-    setIsCalculating(false);
   };
 
   return (
@@ -166,7 +134,7 @@ export default function OST22Calculator() {
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Calculator className="w-5 h-5 mr-2 text-blue-600" />
-                  Расчет отклонений
+                  Расчет предельных отклонений
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -192,15 +160,15 @@ export default function OST22Calculator() {
                     <SelectContent>
                       <SelectItem value="hole">Отверстие</SelectItem>
                       <SelectItem value="shaft">Вал</SelectItem>
-                      <SelectItem value="conditional-hole">Условное отверстие</SelectItem>
-                      <SelectItem value="conditional-shaft">Условный вал</SelectItem>
-                      <SelectItem value="neither">Ни отверстие, ни вал</SelectItem>
+                      <SelectItem value="quasi-hole">Условное отверстие</SelectItem>
+                      <SelectItem value="quasi-shaft">Условный вал</SelectItem>
+                      <SelectItem value="undef">Ни отверстие, ни вал</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <Button 
-                  onClick={calculateTolerance} 
+                  onClick={outputSection} 
                   className="w-full bg-blue-600 hover:bg-blue-700"
                   disabled={!size || isCalculating}
                 >
@@ -222,13 +190,13 @@ export default function OST22Calculator() {
                       <div className="p-3 bg-blue-50 rounded-lg">
                         <div className="text-sm text-gray-600">Верхнее отклонение</div>
                         <div className="text-lg font-semibold text-blue-900">
-                          {result.upperDeviation > 0 ? '+' : ''}{result.upperDeviation.toFixed(3)} мм
+                          {result.upperDeviation} мм
                         </div>
                       </div>
                       <div className="p-3 bg-green-50 rounded-lg">
                         <div className="text-sm text-gray-600">Максимальный размер</div>
                         <div className="text-lg font-semibold text-green-700">
-                          {result.maxSize.toFixed(3)} мм
+                          {result.maxMesSize} мм
                         </div>
                       </div>
                     </div>
@@ -238,13 +206,13 @@ export default function OST22Calculator() {
                       <div className="p-3 bg-blue-50 rounded-lg">
                         <div className="text-sm text-gray-600">Нижнее отклонение</div>
                         <div className="text-lg font-semibold text-blue-900">
-                          {result.lowerDeviation.toFixed(3)} мм
+                          {result.lowerDeviation} мм
                         </div>
                       </div>
                       <div className="p-3 bg-green-50 rounded-lg">
                         <div className="text-sm text-gray-600">Минимальный размер</div>
                         <div className="text-lg font-semibold text-green-700">
-                          {result.minSize.toFixed(3)} мм
+                          {result.minMesSize} мм
                         </div>
                       </div>
                     </div>
@@ -329,8 +297,7 @@ export default function OST22Calculator() {
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Calculator className="w-5 h-5 mr-2 text-blue-600" />
-                Расчет отклонений
-              </CardTitle>
+                Расчет предельных отклонений              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -355,15 +322,15 @@ export default function OST22Calculator() {
                   <SelectContent>
                     <SelectItem value="hole">Отверстие</SelectItem>
                     <SelectItem value="shaft">Вал</SelectItem>
-                    <SelectItem value="conditional-hole">Условное отверстие</SelectItem>
-                    <SelectItem value="conditional-shaft">Условный вал</SelectItem>
-                    <SelectItem value="neither">Ни отверстие, ни вал</SelectItem>
+                    <SelectItem value="quasi-hole">Условное отверстие</SelectItem>
+                    <SelectItem value="quasi-shaft">Условный вал</SelectItem>
+                    <SelectItem value="undef">Ни отверстие, ни вал</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <Button 
-                onClick={calculateTolerance} 
+                onClick={outputSection} 
                 className="w-full bg-blue-600 hover:bg-blue-700"
                 disabled={!size || isCalculating}
               >
@@ -385,13 +352,13 @@ export default function OST22Calculator() {
                     <div className="p-3 bg-blue-50 rounded-lg">
                       <div className="text-sm text-gray-600">Верхнее отклонение</div>
                       <div className="text-lg font-semibold text-blue-900">
-                        {result.upperDeviation > 0 ? '+' : ''}{result.upperDeviation.toFixed(3)} мм
+                        {result.upperDeviation} мм
                       </div>
                     </div>
                     <div className="p-3 bg-green-50 rounded-lg">
                       <div className="text-sm text-gray-600">Максимальный размер</div>
                       <div className="text-lg font-semibold text-green-700">
-                        {result.maxSize.toFixed(3)} мм
+                        {result.maxMesSize} мм
                       </div>
                     </div>
                   </div>
@@ -401,13 +368,13 @@ export default function OST22Calculator() {
                     <div className="p-3 bg-blue-50 rounded-lg">
                       <div className="text-sm text-gray-600">Нижнее отклонение</div>
                       <div className="text-lg font-semibold text-blue-900">
-                        {result.lowerDeviation.toFixed(3)} мм
+                        {result.lowerDeviation} мм
                       </div>
                     </div>
                     <div className="p-3 bg-green-50 rounded-lg">
                       <div className="text-sm text-gray-600">Минимальный размер</div>
                       <div className="text-lg font-semibold text-green-700">
-                        {result.minSize.toFixed(3)} мм
+                        {result.minMesSize} мм
                       </div>
                     </div>
                   </div>

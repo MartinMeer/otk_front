@@ -19,8 +19,8 @@ import { useCookieConsent } from './hooks/use-cookie-consent';
 
 // Page components
 import HomePage from './pages/Home';
-import OST22Calculator from './components/Calculators/OST22Calculator';
-import ToleranceCalculator from './components/Calculators/ToleranceCalculator';
+import OST22Calculator from './pages/OST22Calculator';
+import Edsp from './pages/Esdp';
 
 // Service Worker registration
 function registerServiceWorker() {
@@ -107,12 +107,12 @@ export default function App() {
             <Footer />
           </div>
         );
-      case 'tolerances':
+      case 'esdp':
         return (
           <div className="min-h-screen bg-gray-50 flex flex-col">
             <Header />
             <main className="flex-grow container mx-auto px-4 py-8">
-              <ToleranceCalculator />
+              <Edsp/>
             </main>
             <Footer />
           </div>

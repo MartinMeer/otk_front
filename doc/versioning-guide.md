@@ -1,183 +1,104 @@
-# Page Versioning System
+# Cache-Control and Versioning
 
-This document explains the automatic page versioning system implemented to prevent users from needing to manually clear browser caches when the site updates.
+This document explains the production cache-control and versioning strategy used to prevent users from needing to manually clear browser caches after updates.
 
-## Overview
+## Goals
+- Ensure users always get the latest code when a new version is released
+- Keep assets aggressively cached for performance
+- Avoid breaking development workflow
 
-The versioning system consists of several components working together:
+## Components
 
-1. **Build-time versioning** - Adds content hashes to file names
-2. **Service Worker** - Manages caching and updates
-3. **Version detection** - Checks for new versions automatically
-4. **Update notifications** - Notifies users when updates are available
+- Build script: `scripts/build.mjs`
+- Service worker: `public/sw.js`
+- Version check hook: `src/hooks/use-version.ts`
+- Update UI: `src/components/UpdateNotification.tsx`
+- Deployment helper: `scripts/deploy.mjs`
 
-## How It Works
+## How it works (Production)
 
-### 1. Build Process
+1. Build produces static assets in `dist/`:
+   - `main.css`, `main.js`
+   - `index.html`
+   - `version.json` with `{ version, timestamp }`
 
-When you run `npm run build` or `npm run deploy`:
+2. Cache-busting via query params:
+   - During prod build, the script appends a version query to asset URLs in `index.html`:
+     - `main.css?v=<version>`
+     - `main.js?v=<version>`
+   - The version is an 8-char md5 of the build timestamp by default.
 
-- A unique version hash is generated based on timestamp
-- CSS and JS files are renamed with the hash (e.g., `main.abc12345.css`)
-- A `version.json` file is created with version information
-- The `index.html` is updated to reference the versioned files
+3. Service worker caching and update:
+   - Caches core static files for offline usage
+   - Always fetches `version.json` with no-cache headers
+   - Cleans up old caches on activate
+   - Prefers network for `.js`/`.css` to pick up updates, falls back to cache offline
 
-### 2. Service Worker
+4. Client update detection:
+   - `useVersion` fetches `/version.json` (no-cache) on app load and every 5 minutes
+   - If a new version is detected, `UpdateNotification` offers an Update button
+   - Clicking Update reloads the page to load the fresh assets
 
-The service worker (`public/sw.js`) handles:
+5. Server cache headers:
+   - `npm run deploy` generates `dist/_headers` for common hosts/CDNs:
+     - `main.css` and `main.js`: cache for 1 year (immutable), cache-busted via `?v=`
+     - `images/*`: cache for 1 year (immutable)
+     - `version.json`, `deployment.json`, `sw.js`: no-cache
 
-- **Caching strategy**: Static files cached immediately, dynamic files cached on first access
-- **Update detection**: Always fetches fresh version information
-- **Cache invalidation**: Automatically cleans up old caches
-- **Offline support**: Serves cached content when offline
+## Development vs Production
 
-### 3. Version Detection
+- Development (`npm run dev`):
+  - No versioning of URLs
+  - Hot-reload remains active (EventSource)
+- Production (`npm run build` or `npm run deploy`):
+  - Adds `?v=<version>` to CSS/JS in `dist/index.html`
+  - Removes dev-only hot-reload snippet from `index.html`
+  - Generates `version.json`
 
-The `useVersion` hook (`src/hooks/use-version.ts`):
+## Commands
 
-- Checks for updates every 5 minutes
-- Compares current version with latest version
-- Stores version information in localStorage
-- Triggers update notifications when new versions are detected
+- Development:
+  ```bash
+  npm run dev
+  ```
+- Production build:
+  ```bash
+  npm run build
+  ```
+- Build + generate headers for hosting/CDN:
+  ```bash
+  npm run deploy
+  ```
 
-### 4. Update Notifications
+## Verifying in Production
 
-The `UpdateNotification` component:
+- Open DevTools → Application → Service Workers: ensure `sw.js` is active
+- Network tab:
+  - `version.json` has `Cache-Control: no-cache`
+  - `main.css` and `main.js` requests include `?v=<version>` in URL
+  - Static assets (images) return long-lived cache headers
+- `dist/index.html` contains versioned URLs for CSS/JS
+- `dist/version.json` exists and has the latest timestamp
 
-- Shows a notification when updates are available
-- Provides a one-click update button
-- Automatically reloads the page to apply updates
+## Hosting notes
 
-## Usage
+- If your host ignores `dist/_headers`, configure your server manually:
+  - NGINX example:
+    ```nginx
+    location = /version.json { add_header Cache-Control "no-cache, no-store, must-revalidate" always; }
+    location = /deployment.json { add_header Cache-Control "no-cache, no-store, must-revalidate" always; }
+    location = /sw.js { add_header Cache-Control "no-cache, no-store, must-revalidate" always; }
+    location ~* ^/(main\.css|main\.js)$ { add_header Cache-Control "public, max-age=31536000, immutable"; }
+    location /images/ { add_header Cache-Control "public, max-age=31536000, immutable"; }
+    ```
 
-### Development
+## Customization
 
-```bash
-npm run dev
-```
+- Change version generator (e.g., git hash): edit `generateVersionHash()` in `scripts/build.mjs`.
+- Update check frequency: change the interval in `src/hooks/use-version.ts`.
+- Add more static files to SW pre-cache: edit `STATIC_FILES` in `public/sw.js`.
 
-In development mode, files are not versioned and hot reloading works normally.
+## FAQ
 
-### Production Build
-
-```bash
-npm run build
-```
-
-Creates a production build with versioned files in the `dist/` folder.
-
-### Deployment
-
-```bash
-npm run deploy
-```
-
-Builds the project and generates deployment files including cache headers.
-
-## File Structure
-
-```
-dist/
-├── index.html              # Updated with versioned asset references
-├── main.abc12345.css      # Versioned CSS file
-├── main.abc12345.js       # Versioned JS file
-├── version.json           # Version information
-├── deployment.json        # Deployment manifest
-├── _headers              # Cache control headers
-├── sw.js                 # Service worker
-└── images/               # Static assets
-```
-
-## Cache Control
-
-The system uses different caching strategies:
-
-- **Versioned assets** (CSS, JS): Long-term cache (1 year)
-- **Static assets** (images): Long-term cache (1 year)
-- **Version files**: No cache (always fresh)
-- **Service worker**: No cache (always fresh)
-
-## Browser Support
-
-The versioning system works in all modern browsers that support:
-
-- Service Workers
-- Fetch API
-- localStorage
-
-For older browsers, the system gracefully degrades to standard caching behavior.
-
-## Configuration
-
-### Update Check Interval
-
-To change how often updates are checked, modify the interval in `src/hooks/use-version.ts`:
-
-```typescript
-// Check every 5 minutes (default)
-const interval = setInterval(checkForUpdates, 5 * 60 * 1000)
-```
-
-### Cache Duration
-
-To modify cache durations, update the `_headers` file generated during deployment.
-
-### Service Worker Scope
-
-The service worker is registered at the root scope (`/`) to control all pages on your domain.
-
-## Troubleshooting
-
-### Users Still See Old Content
-
-1. Check that the service worker is registered (check browser dev tools)
-2. Verify that `version.json` is being fetched correctly
-3. Ensure cache headers are properly configured on your web server
-
-### Update Notifications Not Showing
-
-1. Check browser console for errors
-2. Verify that the `useVersion` hook is working
-3. Check that `localStorage` is available and not blocked
-
-### Service Worker Not Updating
-
-1. Clear browser cache and reload
-2. Check that the service worker file is being served correctly
-3. Verify that the service worker has the correct scope
-
-## Best Practices
-
-1. **Always use `npm run deploy`** for production deployments
-2. **Test the versioning system** in a staging environment first
-3. **Monitor service worker registration** in production
-4. **Keep version files small** to minimize network requests
-5. **Use appropriate cache headers** for your hosting environment
-
-## Advanced Configuration
-
-### Custom Version Generation
-
-To use a different versioning strategy, modify the `generateVersionHash` function in `scripts/build.mjs`:
-
-```javascript
-function generateVersionHash() {
-  // Use git commit hash instead of timestamp
-  const gitHash = execSync('git rev-parse --short HEAD').toString().trim()
-  return gitHash
-}
-```
-
-### Custom Update Intervals
-
-To implement different update check intervals for different user activities:
-
-```typescript
-// Check on page focus
-window.addEventListener('focus', checkForUpdates)
-
-// Check on network reconnection
-window.addEventListener('online', checkForUpdates)
-```
-
-This versioning system ensures that users always get the latest version of your application without manual intervention, while maintaining good performance through intelligent caching. 
+- Why not hashed filenames? Using `?v=` keeps the dev/prod output consistent and is simpler for static hosts. Browsers and CDNs treat query params as unique URLs, so long-lived caching is safe.
+- What if CDN ignores query params? Use server rules to include the query string in cache key or switch to filename hashing. 

@@ -45,7 +45,7 @@ export default function Header() {
               <a href="#ost22" className="text-blue-100 hover:text-white transition-colors">
                 ОСТ 22
               </a>
-              <a href="#tolerances" className="text-blue-100 hover:text-white transition-colors">
+              <a href="#esdp" className="text-blue-100 hover:text-white transition-colors">
                 Допуски
               </a>
               <a href="#thread" className="text-blue-100 hover:text-white transition-colors">
@@ -120,7 +120,7 @@ export default function Header() {
                 ОСТ 22
               </a>
               <a 
-                href="#tolerances" 
+                href="#esdp" 
                 className="text-blue-100 hover:text-white py-2 px-4 rounded transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >

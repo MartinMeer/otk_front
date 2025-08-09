@@ -188,7 +188,7 @@ Ads are targeted based on multiple criteria:
 ```tsx
 // In adStore.ts
 const targeting = {
-  calculatorTypes: ['ost-22', 'tolerances'],
+  calculatorTypes: ['ost-22', 'esdp'],
   keywords: ['measurement', 'precision', 'quality control'],
   industry: ['manufacturing', 'automotive', 'aerospace'],
   userRoles: ['controller', 'admin']

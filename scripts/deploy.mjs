@@ -23,18 +23,18 @@ async function deploy() {
       version,
       timestamp: new Date().toISOString(),
       buildHash: createHash('md5').update(version).digest('hex'),
-      files: versionData.files || []
+      files: ['main.css', 'main.js']
     }
     
     await writeFile('dist/deployment.json', JSON.stringify(deploymentManifest, null, 2))
     
-    // Generate cache headers file for web server
+    // Generate cache headers file for web server/CDN (Netlify-style _headers)
     const cacheHeaders = `
-# Cache control headers for versioned assets
-/main.*.js
+# Cache control headers for versioned assets via query params
+/main.js
   Cache-Control: public, max-age=31536000, immutable
 
-/main.*.css
+/main.css
   Cache-Control: public, max-age=31536000, immutable
 
 /images/*

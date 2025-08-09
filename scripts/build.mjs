@@ -58,14 +58,18 @@ async function copyPublicFolder() {
 
 await copyPublicFolder()
 
+// Ensure index.html exists in dist before we modify it later
+await mkdir('dist', { recursive: true })
+await copyFile('index.html', 'dist/index.html')
+
 /**
  * @type {esbuild.BuildOptions}
  */
 const esbuildOpts = {
   color: true,
-  entryPoints: ['src/main.tsx', 'index.html'],
+  entryPoints: ['src/main.tsx'],
   outdir: 'dist',
-  entryNames: isProd ? '[name].[hash]' : '[name]',
+  entryNames: '[name]',
   write: true,
   bundle: true,
   format: 'iife',
@@ -87,24 +91,29 @@ const esbuildOpts = {
 }
 
 if (isProd) {
-  const result = await esbuild.build(esbuildOpts)
+  await esbuild.build(esbuildOpts)
   
   // Generate version manifest
   const manifest = {
     version: versionHash,
-    timestamp: new Date().toISOString(),
-    files: result.metafile ? Object.keys(result.metafile.outputs) : []
+    timestamp: new Date().toISOString()
   }
   
   await writeFile('dist/version.json', JSON.stringify(manifest, null, 2))
   
-  // Update index.html with versioned assets
+  // Update index.html with versioned assets via query params
   const indexPath = 'dist/index.html'
   let indexContent = await readFile(indexPath, 'utf-8')
   
-  // Replace asset references with versioned ones
-  indexContent = indexContent.replace(/main\.css/g, `main.${versionHash}.css`)
-  indexContent = indexContent.replace(/main\.js/g, `main.${versionHash}.js`)
+  // Remove dev-only EventSource hot-reload lines if present
+  indexContent = indexContent
+    .split('\n')
+    .filter(line => !line.includes('/esbuild'))
+    .join('\n')
+  
+  // Append version query params to bust caches
+  indexContent = indexContent.replace(/main\.css(?!\?v=)/g, `main.css?v=${versionHash}`)
+  indexContent = indexContent.replace(/main\.js(?!\?v=)/g, `main.js?v=${versionHash}`)
   
   await writeFile(indexPath, indexContent)
   

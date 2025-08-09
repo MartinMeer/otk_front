@@ -30,7 +30,7 @@ export const generateSitemapEntries = (baseUrl: string): SitemapEntry[] => {
       priority: 0.9
     },
     {
-      url: `${baseUrl}/#tolerances`,
+      url: `${baseUrl}/#esdp`,
       lastmod: currentDate,
       changefreq: 'monthly', 
       priority: 0.9
@@ -88,7 +88,7 @@ export const generateAISitemapJSON = (baseUrl: string) => {
     'keywords': [
       'quality control',
       'engineering calculations', 
-      'manufacturing tolerances',
+      'manufacturing esdp',
       'GOST standards',
       'precision measurement'
     ],

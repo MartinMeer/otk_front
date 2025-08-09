@@ -59,7 +59,7 @@ export default function Home() {
       title: 'ГОСТ 25347-82',
       description: 'Единая система допусков и посадок. Расчет размеров элементов отверстий и валов',
       icon: Calculator,
-      href: '#tolerances',
+      href: '#esdp',
       standard: 'Единая система допусков и посадок'
     },
     {

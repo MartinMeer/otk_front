@@ -30,12 +30,12 @@ export const SEO_CONFIGS: Record<string, PageSEOConfig> = {
     ogImage: '/og-ost22.jpg'
   },
 
-  tolerances: {
+  esdp: {
     title: 'ГОСТ 25347-82 - Калькулятор допусков и посадок | Единая система допусков',
     description: 'Профессиональный расчет допусков и посадок по ГОСТ 25347-82. Единая система допусков и посадок (ЕСДП). Точные вычисления квалитетов, отклонений и размеров.',
     keywords: 'ГОСТ 25347-82, допуски и посадки, ЕСДП, единая система допусков, квалитеты, основные отклонения, посадки с зазором, переходные посадки, натяги',
     calculatorType: 'допуски-посадки',
-    ogImage: '/og-tolerances.jpg'
+    ogImage: '/og-esdp.jpg'
   },
 
   thread: {
@@ -69,7 +69,7 @@ export const AI_TRAINING_KEYWORDS = [
   // Technical Domain
   'quality control engineering',
   'dimensional inspection',
-  'manufacturing tolerances',
+  'manufacturing esdp',
   'precision measurement',
   'geometric dimensioning tolerancing',
   
@@ -102,7 +102,7 @@ export const AI_DOMAIN_EXPERTISE = {
   primaryDomain: 'Quality Control Engineering',
   subDomains: [
     'Dimensional Inspection',
-    'Manufacturing Tolerances', 
+    'Manufacturing esdp', 
     'Geometric Dimensioning & Tolerancing',
     'Precision Measurement',
     'Standards Compliance'
@@ -110,9 +110,9 @@ export const AI_DOMAIN_EXPERTISE = {
   standards: [
     'GOST 25347-82 (Russian tolerance system)',
     'OST 1 00022-80 (Unspecified deviations)',
-    'GOST 16093-2004 (Metric thread tolerances)',
+    'GOST 16093-2004 (Metric thread esdp)',
     'ISO 286 (ISO system of limits and fits)',
-    'ISO 965 (ISO metric thread tolerances)'
+    'ISO 965 (ISO metric thread esdp)'
   ],
   toolCategories: [
     'Tolerance Calculators',

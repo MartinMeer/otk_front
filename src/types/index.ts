@@ -16,33 +16,40 @@ export interface AuthState {
   loginDemo: () => void;
 }
 
-export interface CalculatorResult {
-  upperDeviation: number;
-  lowerDeviation: number;
-  maxSize: number;
-  minSize: number;
+export interface Ost22Responce {
+  upperDeviation: string;
+  lowerDeviation: string;
+  maxMesSize: string;
+  minMesSize: string;
 }
 
-export interface ThreadCalculatorResult {
+export interface EsdpResponce {
+  upperDeviation: string;
+  lowerDeviation: string;
+  maxSize: string;
+  minSize: string;
+}
+
+export interface ThreadsResponce {
   middleDiameter: {
-    value: number;
-    upperDeviation: number;
-    lowerDeviation: number;
-    maxValue: number;
-    minValue: number;
+    value: string;
+    upperDeviation: string;
+    lowerDeviation: string;
+    maxValue: string;
+    minValue: string;
   };
   nominalDiameter: {
-    value: number;
-    upperDeviation: number;
-    lowerDeviation: number;
-    maxValue: number;
-    minValue: number;
+    value: string;
+    upperDeviation: string;
+    lowerDeviation: string;
+    maxValue: string;
+    minValue: string;
   };
 }
 
-export interface ChamferResult {
-  hypotenuse: number;
-  sideA?: number;
-  sideB?: number;
-  angle?: number;
+export interface ChamfersResult {
+  hypotenuse: string;
+  sideA?: string;
+  sideB?: string;
+  angle?: string;
 }

@@ -3,19 +3,20 @@
  */
 
 import { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { Button } from '../ui/button';
-import { Input } from '../ui/input';
-import { Label } from '../ui/label';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { Button } from '../components/ui/button';
+import { Input } from '../components/ui/input';
+import { Label } from '../components/ui/label';
 import { Calculator, Download, FileText, X } from 'lucide-react';
-import { CalculatorResult } from '../../types';
-import AdPlacement from '../Ads/AdPlacement';
-import { useAdStore } from '../../store/adStore';
+import { EsdpResponce } from '../types';
+import AdPlacement from '../components/Ads/AdPlacement';
+import { useAdStore } from '../store/adStore';
+import { ApiService } from '../services/apiService';
 
-export default function ToleranceCalculator() {
+export default function EsdpCalculator() {
   const [size, setSize] = useState<string>('');
-  const [tolerance, setTolerance] = useState<string>('');
-  const [result, setResult] = useState<CalculatorResult | null>(null);
+  //const [tolerance, setTolerance] = useState<string>('');
+  const [result, setResult] = useState<EsdpResponce | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
   const [showMobileAd, setShowMobileAd] = useState(true);
 
@@ -24,59 +25,12 @@ export default function ToleranceCalculator() {
   // Update ad context when component mounts
   useEffect(() => {
     updateContext({ 
-      pageType: 'tolerance-calculator',
+      pageType: 'esdp-calculator',
       calculatorType: 'gost-25347-82'
     });
   }, [updateContext]);
 
-  const calculateTolerance = async () => {
-    if (!size || !tolerance || isNaN(Number(size))) return;
-    
-    setIsCalculating(true);
-    
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 500));
-    
-    // Mock calculation logic - in real implementation this would use actual GOST 25347-82 tables
-    const sizeValue = Number(size);
-    const toleranceClass = tolerance.toLowerCase();
-    
-    let upperDev = 0;
-    let lowerDev = 0;
-    
-    // Simplified calculation based on size and tolerance class
-    if (toleranceClass.includes('h')) {
-      // Shaft tolerances
-      upperDev = 0;
-      if (toleranceClass.includes('6')) {
-        lowerDev = sizeValue <= 30 ? -0.013 : -0.021;
-      } else if (toleranceClass.includes('7')) {
-        lowerDev = sizeValue <= 30 ? -0.021 : -0.033;
-      } else {
-        lowerDev = -0.025;
-      }
-    } else if (toleranceClass.includes('H')) {
-      // Hole tolerances
-      lowerDev = 0;
-      if (toleranceClass.includes('6')) {
-        upperDev = sizeValue <= 30 ? 0.013 : 0.021;
-      } else if (toleranceClass.includes('7')) {
-        upperDev = sizeValue <= 30 ? 0.021 : 0.033;
-      } else {
-        upperDev = 0.025;
-      }
-    }
-
-    const calculationResult: CalculatorResult = {
-      upperDeviation: upperDev,
-      lowerDeviation: lowerDev,
-      maxSize: sizeValue + upperDev,
-      minSize: sizeValue + lowerDev
-    };
-
-    setResult(calculationResult);
-    setIsCalculating(false);
-  };
+ 
 
   return (
     <div className="space-y-6">

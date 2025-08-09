@@ -232,7 +232,7 @@ export default function SEODev() {
                   <Badge variant="secondary">0.9</Badge>
                 </div>
                 <div className="flex justify-between">
-                  <span>Tolerances</span>
+                  <span>Esdp</span>
                   <Badge variant="secondary">0.9</Badge>
                 </div>
                 <div className="flex justify-between">

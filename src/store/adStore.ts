@@ -42,7 +42,7 @@ const defaultAdUnits: AdUnit[] = [
     priority: 9,
     active: true,
     targeting: {
-      calculatorTypes: ['ost-22', 'tolerances'],
+      calculatorTypes: ['ost-22', 'esdp'],
       keywords: ['measurement', 'precision', 'quality control'],
       industry: ['manufacturing', 'automotive', 'aerospace']
     },
@@ -59,9 +59,9 @@ const defaultAdUnits: AdUnit[] = [
     priority: 8,
     active: true,
     targeting: {
-      calculatorTypes: ['tolerances', 'chamfer'],
+      calculatorTypes: ['esdp', 'chamfer'],
       userRoles: ['controller', 'admin'],
-      keywords: ['manufacturing', 'design', 'tolerances']
+      keywords: ['manufacturing', 'design', 'esdp']
     },
     metrics: { impressions: 0, clicks: 0, ctr: 0, lastShown: new Date() }
   },
@@ -92,7 +92,7 @@ const defaultAdUnits: AdUnit[] = [
     priority: 6,
     active: true,
     targeting: {
-      calculatorTypes: ['tolerances', 'thread'],
+      calculatorTypes: ['esdp', 'thread'],
       keywords: ['GD&T', 'tolerancing', 'standards']
     },
     metrics: { impressions: 0, clicks: 0, ctr: 0, lastShown: new Date() }
@@ -108,7 +108,7 @@ const defaultAdUnits: AdUnit[] = [
     priority: 8,
     active: true,
     targeting: {
-      calculatorTypes: ['ost-22', 'tolerances'],
+      calculatorTypes: ['ost-22', 'esdp'],
       keywords: ['inspection', 'measurement', 'precision'],
       industry: ['automotive', 'aerospace', 'medical']
     },
