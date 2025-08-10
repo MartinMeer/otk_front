@@ -40,7 +40,9 @@ export default function Footer() {
             <div>
               <h3 className="text-white font-semibold mb-3">Контакты</h3>
               <p className="text-sm">
-                email@example.com<br />
+                <a href="mailto:webmaster@martinmeer.com" className="hover:text-blue-400 underline">
+                  webmaster@martinmeer.com
+                </a><br />
                 Обновлено: {new Date().toLocaleDateString('ru-RU')}
               </p>
             </div>

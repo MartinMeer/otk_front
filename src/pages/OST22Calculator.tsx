@@ -14,7 +14,7 @@ import AdPlacement from '../components/Ads/AdPlacement';
 import { ApiService } from '../services/apiService';
 
 
-type ElementType = 'hole' | 'shaft' | 'conditional-hole' | 'conditional-shaft' | 'neither';
+type ElementType = 'hole' | 'shaft' | 'quasi_hole' | 'quasi_shaft' | 'undef';
 
 export default function OST22Calculator() {
   const [size, setSize] = useState<string>('');

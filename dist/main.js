@@ -30958,7 +30958,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
           /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
             /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h3", { className: "text-white font-semibold mb-3", children: "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B" }),
             /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("p", { className: "text-sm", children: [
-              "email@example.com",
+              /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("a", { href: "mailto:webmaster@martinmeer.com", className: "hover:text-blue-400 underline", children: "webmaster@martinmeer.com" }),
               /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("br", {}),
               "\u041E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u043E: ",
               (/* @__PURE__ */ new Date()).toLocaleDateString("ru-RU")
