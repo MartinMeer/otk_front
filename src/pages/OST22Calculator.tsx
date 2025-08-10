@@ -18,6 +18,15 @@ type ElementType = 'hole' | 'shaft' | 'quasi_hole' | 'quasi_shaft' | 'undef';
 
 export default function OST22Calculator() {
   const [size, setSize] = useState<string>('');
+  const [sizeError, setSizeError] = useState<string | null>(null);
+
+  const validateSize = (v: string): string | null => {
+    if (!v) return null; // allow empty; button will stay disabled
+    // only digits with optional fractional part using dot
+    return /^\d+(\.\d+)?$/.test(v)
+      ? null
+      : 'Размер должен быть числом. Используйте точку для дробных чисел: 0.01';
+  };
   const [elementType, setElementType] = useState<ElementType>('hole');
   const [result, setResult] = useState<Ost22Responce | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
@@ -66,16 +75,16 @@ export default function OST22Calculator() {
             <Card className="p-4 group">
               <h3 className="font-semibold text-sm text-center mb-2">Размеры элементов отверстий</h3>
               <div className="relative">
-                <img 
-                  src="/images/ost22-hole.webp" 
+                <img
+                  src="/images/ost22-hole.webp"
                   alt="Размеры элементов отверстий"
                   className="w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
                 />
                 {/* Full view overlay for desktop */}
                 <div className="hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <div className="bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200">
-                    <img 
-                      src="/images/ost22-hole.webp" 
+                    <img
+                      src="/images/ost22-hole.webp"
                       alt="Размеры элементов отверстий - полный вид"
                       className="w-full h-auto object-contain max-h-80"
                     />
@@ -87,16 +96,16 @@ export default function OST22Calculator() {
             <Card className="p-4 group">
               <h3 className="font-semibold text-sm text-center mb-2">Размеры элементов валов</h3>
               <div className="relative">
-                <img 
-                  src="/images/ost22-shaft.webp" 
+                <img
+                  src="/images/ost22-shaft.webp"
                   alt="Размеры элементов валов"
                   className="w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
                 />
                 {/* Full view overlay for desktop */}
                 <div className="hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <div className="bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200">
-                    <img 
-                      src="/images/ost22-shaft.webp" 
+                    <img
+                      src="/images/ost22-shaft.webp"
                       alt="Размеры элементов валов - полный вид"
                       className="w-full h-auto object-contain max-h-80"
                     />
@@ -108,16 +117,16 @@ export default function OST22Calculator() {
             <Card className="p-4 group">
               <h3 className="font-semibold text-sm text-center mb-2">Размеры элементов, не относящихся к отверстиям и валам</h3>
               <div className="relative">
-                <img 
-                  src="/images/ost22-undef.webp" 
+                <img
+                  src="/images/ost22-undef.webp"
                   alt="Размеры элементов, не относящихся к отверстиям и валам"
                   className="w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
                 />
                 {/* Full view overlay for desktop */}
                 <div className="hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <div className="bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200">
-                    <img 
-                      src="/images/ost22-undef.webp" 
+                    <img
+                      src="/images/ost22-undef.webp"
                       alt="Размеры элементов, не относящихся к отверстиям и валам - полный вид"
                       className="w-full h-auto object-contain max-h-80"
                     />
@@ -142,13 +151,24 @@ export default function OST22Calculator() {
                   <Label htmlFor="size">Введите размер с чертежа (мм)</Label>
                   <Input
                     id="size"
-                    type="number"
+                    type="text"
+                    inputMode="decimal"
+                    pattern="^\d+(\.\d+)?$"
                     step="0.001"
                     value={size}
-                    onChange={(e) => setSize(e.target.value)}
+                    onChange={(e) => {
+                      const v = e.target.value.trim();
+                      setSize(v);
+                      setSizeError(validateSize(v));
+                    }}
                     placeholder="Например: 10.5"
                     className="text-lg"
+                    aria-invalid={!!sizeError}
                   />
+                  {sizeError && (
+                    <div className="text-sm text-red-600">{sizeError}</div>
+                  )}
+
                 </div>
 
                 <div className="space-y-2">
@@ -167,10 +187,10 @@ export default function OST22Calculator() {
                   </Select>
                 </div>
 
-                <Button 
-                  onClick={outputSection} 
+                <Button
+                  onClick={outputSection}
                   className="w-full bg-blue-600 hover:bg-blue-700"
-                  disabled={!size || isCalculating}
+                  disabled={!size || !!sizeError || isCalculating}
                 >
                   {isCalculating ? 'Расчет...' : 'Рассчитать'}
                 </Button>
@@ -200,7 +220,7 @@ export default function OST22Calculator() {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Row 2: Нижнее отклонение | Минимальный размер */}
                     <div className="grid grid-cols-2 gap-4">
                       <div className="p-3 bg-blue-50 rounded-lg">
@@ -238,7 +258,7 @@ export default function OST22Calculator() {
                     ОСТ 1 00022-80 PDF
                   </a>
                 </Button>
-               
+
               </div>
             </CardContent>
           </Card>
@@ -248,8 +268,8 @@ export default function OST22Calculator() {
         <div className="lg:col-span-1 space-y-6">
           {/* Ad Section 1 - Near Images */}
           <div className="sticky top-6">
-            <AdPlacement 
-              placement="sidebar-primary" 
+            <AdPlacement
+              placement="sidebar-primary"
               title="Рекомендуемые инструменты"
               maxAds={2}
             />
@@ -264,8 +284,8 @@ export default function OST22Calculator() {
           <Card className="p-4 group">
             <h3 className="font-semibold text-sm text-center mb-2">Размеры элементов отверстий</h3>
             <div className="relative">
-              <img 
-                src="/images/ost22-hole.webp" 
+              <img
+                src="/images/ost22-hole.webp"
                 alt="Размеры элементов отверстий"
                 className="w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
               />
@@ -274,8 +294,8 @@ export default function OST22Calculator() {
           <Card className="p-4 group">
             <h3 className="font-semibold text-sm text-center mb-2">Размеры элементов валов</h3>
             <div className="relative">
-              <img 
-                src="/images/ost22-shaft.webp" 
+              <img
+                src="/images/ost22-shaft.webp"
                 alt="Размеры элементов валов"
                 className="w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
               />
@@ -284,8 +304,8 @@ export default function OST22Calculator() {
           <Card className="p-4 group">
             <h3 className="font-semibold text-sm text-center mb-2">Размеры элементов, не относящихся к отверстиям и валам</h3>
             <div className="relative">
-              <img 
-                src="/images/ost22-undef.webp" 
+              <img
+                src="/images/ost22-undef.webp"
                 alt="Размеры элементов, не относящихся к отверстиям и валам"
                 className="w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
               />
@@ -305,14 +325,24 @@ export default function OST22Calculator() {
               <div className="space-y-2">
                 <Label htmlFor="size-mobile">Введите размер с чертежа (мм)</Label>
                 <Input
-                  id="size-mobile"
-                  type="number"
+                  id="size"
+                  type="text"
+                  inputMode="decimal"
+                  pattern="^\d+(\.\d+)?$"
                   step="0.001"
                   value={size}
-                  onChange={(e) => setSize(e.target.value)}
+                  onChange={(e) => {
+                    const v = e.target.value.trim();
+                    setSize(v);
+                    setSizeError(validateSize(v));
+                  }}
                   placeholder="Например: 10.5"
                   className="text-lg"
+                  aria-invalid={!!sizeError}
                 />
+                {sizeError && (
+                  <div className="text-sm text-red-600">{sizeError}</div>
+                )}
               </div>
 
               <div className="space-y-2">
@@ -331,10 +361,10 @@ export default function OST22Calculator() {
                 </Select>
               </div>
 
-              <Button 
-                onClick={outputSection} 
+              <Button
+                onClick={outputSection}
                 className="w-full bg-blue-600 hover:bg-blue-700"
-                disabled={!size || isCalculating}
+                disabled={!size || !!sizeError || isCalculating}
               >
                 {isCalculating ? 'Расчет...' : 'Рассчитать'}
               </Button>
@@ -364,7 +394,7 @@ export default function OST22Calculator() {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Row 2: Нижнее отклонение | Минимальный размер */}
                   <div className="grid grid-cols-2 gap-4">
                     <div className="p-3 bg-blue-50 rounded-lg">
@@ -396,13 +426,13 @@ export default function OST22Calculator() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button asChild variant="outline" className="bg-transparent justify-start">
+              <Button asChild variant="outline" className="bg-transparent justify-start">
                 <a href="/downloads/ost-1-00022-80.pdf" target="_blank" rel="noopener noreferrer">
                   <Download className="w-4 h-4 mr-2" />
                   ОСТ 1 00022-80 PDF
                 </a>
               </Button>
-             
+
             </div>
           </CardContent>
         </Card>
@@ -419,8 +449,8 @@ export default function OST22Calculator() {
             >
               <X className="w-4 h-4" />
             </button>
-            <AdPlacement 
-              placement="mobile-sticky" 
+            <AdPlacement
+              placement="mobile-sticky"
               maxAds={1}
             />
           </div>
