@@ -31815,7 +31815,6 @@ ${xmlEntries}
     const [latestVersion, setLatestVersion] = (0, import_react12.useState)(null);
     const [isLoading, setIsLoading] = (0, import_react12.useState)(false);
     const checkForUpdates = (0, import_react12.useCallback)(async () => {
-      if (window.location.hostname === "localhost") return;
       setIsLoading(true);
       try {
         const response = await fetch("/version.json", {
@@ -36582,7 +36581,7 @@ ${xmlEntries}
 
   // config/api.ts
   var API_CONFIG = {
-    BASE_URL: window.location.hostname === "localhost" ? "http://localhost:9000" : "https://api.otk-help.martinmeer.com",
+    BASE_URL: "https://api.otk-help.martinmeer.com",
     ENDPOINTS: {
       OST22: "/ost22",
       ESDP: "/esdp",
@@ -36606,8 +36605,7 @@ ${xmlEntries}
       }
       return response.json();
     }
-    static async processOst22(elementType, size4) {
-      const inputString = `${elementType}:${size4}`;
+    static async processOst22(inputString) {
       return this.postData(API_CONFIG.ENDPOINTS.OST22, { inputString });
     }
     static async processEsdp(inputString) {
@@ -36619,29 +36617,24 @@ ${xmlEntries}
   var import_jsx_runtime41 = __toESM(require_jsx_runtime());
   function OST22Calculator() {
     const [size4, setSize] = (0, import_react23.useState)("");
-    const [sizeError, setSizeError] = (0, import_react23.useState)(null);
-    const validateSize = (v) => {
-      if (!v) return null;
-      return /^\d+(\.\d+)?$/.test(v) ? null : "\u0420\u0430\u0437\u043C\u0435\u0440 \u0434\u043E\u043B\u0436\u0435\u043D \u0431\u044B\u0442\u044C \u0447\u0438\u0441\u043B\u043E\u043C. \u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u0442\u043E\u0447\u043A\u0443 \u0434\u043B\u044F \u0434\u0440\u043E\u0431\u043D\u044B\u0445 \u0447\u0438\u0441\u0435\u043B: 0.01";
-    };
     const [elementType, setElementType] = (0, import_react23.useState)("hole");
     const [result, setResult] = (0, import_react23.useState)(null);
     const [isCalculating, setIsCalculating] = (0, import_react23.useState)(false);
     const [showMobileAd, setShowMobileAd] = (0, import_react23.useState)(true);
-    const calculateSection = async () => {
+    const outputSection = async () => {
       if (!size4 || isNaN(Number(size4))) return;
       setIsCalculating(true);
       try {
-        const resp = await ApiService.processOst22(elementType, size4);
-        const upperDev = resp.upper_deviance;
-        const lowerDev = resp.lower_deviance;
-        const max_mes_value = resp.max_mes_value;
-        const min_mes_value = resp.min_mes_value;
+        const resp = await ApiService.processOst22(size4);
+        const upperDev = resp.upperDeviation;
+        const lowerDev = resp.lowerDeviation;
+        const maxMesSize = resp.maxMesSize;
+        const minMesSize = resp.minMesSize;
         const calculationResult = {
-          upper_deviance: upperDev,
-          lower_deviance: lowerDev,
-          max_mes_value,
-          min_mes_value
+          upperDeviation: upperDev,
+          lowerDeviation: lowerDev,
+          maxMesSize,
+          minMesSize
         };
         setResult(calculationResult);
       } catch (e) {
@@ -36744,22 +36737,14 @@ ${xmlEntries}
                     Input,
                     {
                       id: "size",
-                      type: "text",
-                      inputMode: "decimal",
-                      pattern: "^\\d+(\\.\\d+)?$",
+                      type: "number",
                       step: "0.001",
                       value: size4,
-                      onChange: (e) => {
-                        const v = e.target.value.trim();
-                        setSize(v);
-                        setSizeError(validateSize(v));
-                      },
+                      onChange: (e) => setSize(e.target.value),
                       placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 10.5",
-                      className: "text-lg",
-                      "aria-invalid": !!sizeError
+                      className: "text-lg"
                     }
-                  ),
-                  sizeError && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-red-600", children: sizeError })
+                  )
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-2", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Label2, { htmlFor: "element-type", children: "\u0422\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }),
@@ -36768,8 +36753,8 @@ ${xmlEntries}
                     /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(SelectContent2, { children: [
                       /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "hole", children: "\u041E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
                       /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "shaft", children: "\u0412\u0430\u043B" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "quasi_hole", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "quasi_shaft", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u044B\u0439 \u0432\u0430\u043B" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "quasi-hole", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "quasi-shaft", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u044B\u0439 \u0432\u0430\u043B" }),
                       /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "undef", children: "\u041D\u0438 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435, \u043D\u0438 \u0432\u0430\u043B" })
                     ] })
                   ] })
@@ -36777,9 +36762,9 @@ ${xmlEntries}
                 /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
                   Button,
                   {
-                    onClick: calculateSection,
+                    onClick: outputSection,
                     className: "w-full bg-blue-600 hover:bg-blue-700",
-                    disabled: !size4 || !!sizeError || isCalculating,
+                    disabled: !size4 || isCalculating,
                     children: isCalculating ? "\u0420\u0430\u0441\u0447\u0435\u0442..." : "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C"
                   }
                 )
@@ -36792,14 +36777,14 @@ ${xmlEntries}
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
                     /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
                     /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                      result.upper_deviance,
+                      result.upperDeviation,
                       " \u043C\u043C"
                     ] })
                   ] }),
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                     /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                     /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                      result.max_mes_value,
+                      result.maxMesSize,
                       " \u043C\u043C"
                     ] })
                   ] })
@@ -36808,14 +36793,14 @@ ${xmlEntries}
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
                     /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
                     /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                      result.lower_deviance,
+                      result.lowerDeviation,
                       " \u043C\u043C"
                     ] })
                   ] }),
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                     /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                     /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                      result.min_mes_value,
+                      result.minMesSize,
                       " \u043C\u043C"
                     ] })
                   ] })
@@ -36828,10 +36813,10 @@ ${xmlEntries}
               /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
               "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Button, { asChild: true, variant: "outline", className: "bg-transparent justify-start", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("a", { href: "/downloads/ost-1-00022-80.pdf", target: "_blank", rel: "noopener noreferrer", children: [
               /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Download, { className: "w-4 h-4 mr-2" }),
               "\u041E\u0421\u0422 1 00022-80 PDF"
-            ] }) }) })
+            ] }) }) }) })
           ] })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "lg:col-span-1 space-y-6", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "sticky top-6", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
@@ -36892,22 +36877,14 @@ ${xmlEntries}
                   Input,
                   {
                     id: "size-mobile",
-                    type: "text",
-                    inputMode: "decimal",
-                    pattern: "^\\d+(\\.\\d+)?$",
+                    type: "number",
                     step: "0.001",
                     value: size4,
-                    onChange: (e) => {
-                      const v = e.target.value.trim();
-                      setSize(v);
-                      setSizeError(validateSize(v));
-                    },
+                    onChange: (e) => setSize(e.target.value),
                     placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 10.5",
-                    className: "text-lg",
-                    "aria-invalid": !!sizeError
+                    className: "text-lg"
                   }
-                ),
-                sizeError && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-red-600", children: sizeError })
+                )
               ] }),
               /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-2", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Label2, { htmlFor: "element-type-mobile", children: "\u0422\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }),
@@ -36916,8 +36893,8 @@ ${xmlEntries}
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(SelectContent2, { children: [
                     /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "hole", children: "\u041E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
                     /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "shaft", children: "\u0412\u0430\u043B" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "quasi_hole", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "quasi_shaft", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u044B\u0439 \u0432\u0430\u043B" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "quasi-hole", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "quasi-shaft", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u044B\u0439 \u0432\u0430\u043B" }),
                     /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "undef", children: "\u041D\u0438 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435, \u043D\u0438 \u0432\u0430\u043B" })
                   ] })
                 ] })
@@ -36925,9 +36902,9 @@ ${xmlEntries}
               /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
                 Button,
                 {
-                  onClick: calculateSection,
+                  onClick: outputSection,
                   className: "w-full bg-blue-600 hover:bg-blue-700",
-                  disabled: !size4 || !!sizeError || isCalculating,
+                  disabled: !size4 || isCalculating,
                   children: isCalculating ? "\u0420\u0430\u0441\u0447\u0435\u0442..." : "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C"
                 }
               )
@@ -36940,14 +36917,14 @@ ${xmlEntries}
                 /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                    result.upper_deviance,
+                    result.upperDeviation,
                     " \u043C\u043C"
                   ] })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                    result.max_mes_value,
+                    result.maxMesSize,
                     " \u043C\u043C"
                   ] })
                 ] })
@@ -36956,14 +36933,14 @@ ${xmlEntries}
                 /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                    result.lower_deviance,
+                    result.lowerDeviation,
                     " \u043C\u043C"
                   ] })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                   /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                    result.min_mes_value,
+                    result.minMesSize,
                     " \u043C\u043C"
                   ] })
                 ] })
@@ -36976,10 +36953,10 @@ ${xmlEntries}
             /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
             "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Button, { asChild: true, variant: "outline", className: "bg-transparent justify-start", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("a", { href: "/downloads/ost-1-00022-80.pdf", target: "_blank", rel: "noopener noreferrer", children: [
             /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Download, { className: "w-4 h-4 mr-2" }),
             "\u041E\u0421\u0422 1 00022-80 PDF"
-          ] }) }) })
+          ] }) }) }) })
         ] })
       ] }),
       showMobileAd && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "lg:hidden fixed bottom-4 left-4 right-4 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "relative", children: [
@@ -37018,28 +36995,6 @@ ${xmlEntries}
         calculatorType: "gost-25347-82"
       });
     }, [updateContext]);
-    const calculateSection = async () => {
-      if (!size4.trim()) return;
-      setIsCalculating(true);
-      try {
-        const resp = await ApiService.processEsdp(size4.trim());
-        const upperDev = resp.upper_deviance;
-        const lowerDev = resp.lower_deviance;
-        const max_mes_value = resp.max_mes_value;
-        const min_mes_value = resp.min_mes_value;
-        const calculationResult = {
-          upper_deviance: upperDev,
-          lower_deviance: lowerDev,
-          max_mes_value,
-          min_mes_value
-        };
-        setResult(calculationResult);
-      } catch (e) {
-        console.error(e);
-      } finally {
-        setIsCalculating(false);
-      }
-    };
     return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-6", children: [
       /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-center", children: [
         /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-2", children: "\u0413\u041E\u0421\u0422 25347-82" }),
@@ -37060,10 +37015,11 @@ ${xmlEntries}
                     Input,
                     {
                       id: "size",
-                      type: "text",
+                      type: "number",
+                      step: "0.001",
                       value: size4,
                       onChange: (e) => setSize(e.target.value),
-                      placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 18.12H7",
+                      placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 18.123H7",
                       className: "text-lg"
                     }
                   )
@@ -37071,9 +37027,9 @@ ${xmlEntries}
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                   Button,
                   {
-                    onClick: calculateSection,
+                    onClick: calculateTolerance,
                     className: "w-full bg-blue-600 hover:bg-blue-700",
-                    disabled: !size4.trim() || isCalculating,
+                    disabled: !size4 || !tolerance || isCalculating,
                     children: isCalculating ? "\u0420\u0430\u0441\u0447\u0435\u0442..." : "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C"
                   }
                 )
@@ -37085,28 +37041,29 @@ ${xmlEntries}
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                    result.upper_deviance,
+                    result.upperDeviation > 0 ? "+" : "",
+                    result.upperDeviation.toFixed(3),
                     " \u043C\u043C"
                   ] })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                    result.max_mes_value,
+                    result.maxSize.toFixed(3),
                     " \u043C\u043C"
                   ] })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (EI/ei)" }),
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                    result.lower_deviance,
+                    result.lowerDeviation.toFixed(3),
                     " \u043C\u043C"
                   ] })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                    result.min_mes_value,
+                    result.minSize.toFixed(3),
                     " \u043C\u043C"
                   ] })
                 ] })
@@ -37147,7 +37104,8 @@ ${xmlEntries}
                   Input,
                   {
                     id: "size-mobile",
-                    type: "text",
+                    type: "number",
+                    step: "0.001",
                     value: size4,
                     onChange: (e) => setSize(e.target.value),
                     placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 18.123H7",
@@ -37158,9 +37116,9 @@ ${xmlEntries}
               /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                 Button,
                 {
-                  onClick: calculateSection,
+                  onClick: calculateTolerance,
                   className: "w-full bg-blue-600 hover:bg-blue-700",
-                  disabled: !size4.trim() || isCalculating,
+                  disabled: !size4 || !tolerance || isCalculating,
                   children: isCalculating ? "\u0420\u0430\u0441\u0447\u0435\u0442..." : "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C"
                 }
               )
@@ -37172,28 +37130,29 @@ ${xmlEntries}
               /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                  result.upper_deviance,
+                  result.upperDeviation > 0 ? "+" : "",
+                  result.upperDeviation.toFixed(3),
                   " \u043C\u043C"
                 ] })
               ] }),
               /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                  result.max_mes_value,
+                  result.maxSize.toFixed(3),
                   " \u043C\u043C"
                 ] })
               ] }),
               /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (EI/ei)" }),
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                  result.lower_deviance,
+                  result.lowerDeviation.toFixed(3),
                   " \u043C\u043C"
                 ] })
               ] }),
               /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                  result.min_mes_value,
+                  result.minSize.toFixed(3),
                   " \u043C\u043C"
                 ] })
               ] })
@@ -37235,7 +37194,7 @@ ${xmlEntries}
   // src/App.tsx
   var import_jsx_runtime43 = __toESM(require_jsx_runtime());
   function registerServiceWorker() {
-    if ("serviceWorker" in navigator && window.location.hostname !== "localhost") {
+    if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker.register("/sw.js").then((registration) => {
           console.log("Service Worker registered successfully:", registration.scope);

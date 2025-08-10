@@ -21,7 +21,6 @@ export function useVersion(): UseVersionReturn {
   const [isLoading, setIsLoading] = useState(false)
 
   const checkForUpdates = useCallback(async () => {
-    if (window.location.hostname === 'localhost') return;
     setIsLoading(true)
     try {
       const response = await fetch('/version.json', {

@@ -10,9 +10,14 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     
-    <link href="main.css?v=f912b95e" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
   </head>
   <script>
+    // Development hot reload
+    new EventSource('/esbuild').addEventListener('change', () =>
+      location.reload()
+    )
+    
     // Service Worker registration for production
     if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
       window.addEventListener('load', () => {
@@ -28,6 +33,6 @@
   </script>
   <body>
     <div id="app"></div>
-    <script src="main.js?v=f912b95e"></script>
+    <script src="main.js"></script>
   </body>
 </html>

@@ -51,6 +51,21 @@ async function copyPublicFolder() {
         await copyFile(join(imagesDir, file.name), join(distImagesDir, file.name))
       }
     }
+
+    // Copy downloads folder
+    const downloadsDir = join(publicDir, 'downloads')
+    const distDownloadsDir = join(distDir, 'downloads')
+    await mkdir(distDownloadsDir, { recursive: true })
+    try {
+      const downloadFiles = await readdir(downloadsDir, { withFileTypes: true })
+      for (const file of downloadFiles) {
+        if (file.isFile()) {
+          await copyFile(join(downloadsDir, file.name), join(distDownloadsDir, file.name))
+        }
+      }
+    } catch (err) {
+      // Optional folder; ignore if missing
+    }
   } catch (error) {
     console.log('No public folder found or error copying files:', error.message)
   }
