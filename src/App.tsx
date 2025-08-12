@@ -23,7 +23,7 @@ import OST22Calculator from './pages/OST22Calculator';
 import Edsp from './pages/Esdp';
 
 // Service Worker registration
-function registerServiceWorker() {
+/*function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js')
@@ -47,7 +47,7 @@ function registerServiceWorker() {
         });
     });
   }
-}
+}*/
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -58,9 +58,9 @@ export default function App() {
   const seoConfig = getSEOConfig(currentPage);
 
   // Register service worker on mount
-  useEffect(() => {
+  /*useEffect(() => {
     registerServiceWorker();
-  }, []);
+  }, []);*/
 
   // Handle hash-based routing
   useEffect(() => {
