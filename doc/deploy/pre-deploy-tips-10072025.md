@@ -43,7 +43,7 @@
 - Keep runtime `FaviconTags` if desired, but static tags improve detection.
 - **Acceptance**: Lighthouse PWA audit detects manifest/theme color without JS.
 
-### 5) De-duplicate Service Worker registration
+FIXED ### 5) De-duplicate Service Worker registration
 - **Action**: Keep SW registration in one place (prefer `index.html` for earliest registration). Remove `registerServiceWorker()` from `src/App.tsx` and its `useEffect` call.
 - **Acceptance**: Single SW registration in console; scope remains `/`.
 

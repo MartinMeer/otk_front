@@ -93,6 +93,8 @@ export default function App() {
   }, [isAuthenticated]);
   */
 
+  
+
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
@@ -148,6 +150,8 @@ export default function App() {
     }
   };
 
+  
+
   const { consentState } = useCookieConsent();
 
   // For home page, render it directly (it includes its own Header/Footer)
@@ -188,7 +192,7 @@ export default function App() {
       <CookieConsent />
       {/* LoginModal temporarily disabled */}
       
-      <SEODev />
+      {__DEV__ && <SEODev />}
     </>
   );
 }

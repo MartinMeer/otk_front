@@ -37301,7 +37301,7 @@ ${xmlEntries}
       renderPage(),
       /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(UpdateNotification, {}),
       /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CookieConsent, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(SEODev, {})
+      __DEV__ && /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(SEODev, {})
     ] });
   }
 

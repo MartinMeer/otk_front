@@ -96,6 +96,7 @@ const esbuildOpts = {
     '.html': 'copy',
     '.png': 'file',
   },
+  define: { __DEV__: isProd ? 'false' : 'true' },
   plugins: [
     stylePlugin({
       postcss: {
@@ -104,6 +105,7 @@ const esbuildOpts = {
     }),
   ],
 }
+
 
 if (isProd) {
   await esbuild.build(esbuildOpts)
