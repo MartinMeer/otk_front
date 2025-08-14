@@ -12,6 +12,7 @@ import { Calculator, Download, FileText, X } from 'lucide-react';
 import { Ost22Responce } from '../types';
 import AdPlacement from '../components/Ads/AdPlacement';
 import { ApiService } from '../services/apiService';
+import { DesktopHoverOverlayImage } from '@/components/UIutils/HoverOverlayImage';
 
 
 type ElementType = 'hole' | 'shaft' | 'quasi_hole' | 'quasi_shaft' | 'undef';
@@ -72,68 +73,35 @@ export default function OST22Calculator() {
         <div className="lg:col-span-3 space-y-6">
           {/* Technical Images */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            {/* Hole card */}
             <Card className="p-4 group">
               <h3 className="font-semibold text-sm text-center mb-2">Размеры элементов отверстий</h3>
-              <div className="relative">
-                <img
-                  src="/images/ost22-hole.webp"
-                  alt="Размеры элементов отверстий"
-                  className="w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
-                />
-                {/* Full view overlay for desktop */}
-                <div className="hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <div className="bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200">
-                    <img
-                      src="/images/ost22-hole.webp"
-                      alt="Размеры элементов отверстий - полный вид"
-                      className="w-full h-auto object-contain max-h-80"
-                    />
-                    <p className="text-sm text-gray-600 mt-2 text-center">Размеры элементов отверстий</p>
-                  </div>
-                </div>
-              </div>
+              <DesktopHoverOverlayImage
+                src="/images/ost22-hole.webp"
+                alt="Размеры элементов отверстий"
+                caption="Размеры элементов отверстий"
+              />
             </Card>
+            {/* Shaft card */}
             <Card className="p-4 group">
               <h3 className="font-semibold text-sm text-center mb-2">Размеры элементов валов</h3>
-              <div className="relative">
-                <img
-                  src="/images/ost22-shaft.webp"
-                  alt="Размеры элементов валов"
-                  className="w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
-                />
-                {/* Full view overlay for desktop */}
-                <div className="hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <div className="bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200">
-                    <img
-                      src="/images/ost22-shaft.webp"
-                      alt="Размеры элементов валов - полный вид"
-                      className="w-full h-auto object-contain max-h-80"
-                    />
-                    <p className="text-sm text-gray-600 mt-2 text-center">Размеры элементов валов</p>
-                  </div>
-                </div>
-              </div>
+              <DesktopHoverOverlayImage
+                src="/images/ost22-shaft.webp"
+                alt="Размеры элементов валов"
+                caption="Размеры элементов валов"
+              
+              />
             </Card>
+            {/* Undefined card */}
             <Card className="p-4 group">
-              <h3 className="font-semibold text-sm text-center mb-2">Размеры элементов, не относящихся к отверстиям и валам</h3>
-              <div className="relative">
-                <img
-                  src="/images/ost22-undef.webp"
-                  alt="Размеры элементов, не относящихся к отверстиям и валам"
-                  className="w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
-                />
-                {/* Full view overlay for desktop */}
-                <div className="hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <div className="bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200">
-                    <img
-                      src="/images/ost22-undef.webp"
-                      alt="Размеры элементов, не относящихся к отверстиям и валам - полный вид"
-                      className="w-full h-auto object-contain max-h-80"
-                    />
-                    <p className="text-sm text-gray-600 mt-2 text-center">Размеры элементов, не относящихся к отверстиям и валам</p>
-                  </div>
-                </div>
-              </div>
+              <h3 className="font-semibold text-sm text-center mb-2">
+                Размеры элементов, не относящихся к отверстиям и валам
+              </h3>
+              <DesktopHoverOverlayImage
+                src="/images/ost22-undef.webp"
+                alt="Размеры элементов, не относящихся к отверстиям и валам"
+                caption="Размеры элементов, не относящихся к отверстиям и валам"
+              />
             </Card>
           </div>
 

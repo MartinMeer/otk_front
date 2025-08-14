@@ -19,7 +19,10 @@
     )
     
     // Service Worker registration for production
-    if ('serviceWorker' in navigator && window.location.hostname !== 'localhost') {
+    if ('serviceWorker' in navigator &&
+    window.location.hostname !== 'localhost' &&
+    window.location.hostname !== '127.0.0.1:8001'
+    ) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
           .then(registration => {

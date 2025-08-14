@@ -15,7 +15,6 @@ import { ApiService } from '../services/apiService';
 
 export default function EsdpCalculator() {
   const [size, setSize] = useState<string>('');
-  //const [tolerance, setTolerance] = useState<string>('');
   const [result, setResult] = useState<EsdpResponce | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
   const [showMobileAd, setShowMobileAd] = useState(true);
@@ -29,6 +28,28 @@ export default function EsdpCalculator() {
       calculatorType: 'gost-25347-82'
     });
   }, [updateContext]);
+
+  const calculateTolerance = async () => {
+    if (!size) return;
+    
+    setIsCalculating(true);
+    try {
+      const resp = await ApiService.processEsdp(size);
+      
+      const calculationResult: EsdpResponce = {
+        upperDeviation: resp.upperDeviation,
+        lowerDeviation: resp.lowerDeviation,
+        maxSize: resp.maxSize,
+        minSize: resp.minSize
+      };
+      setResult(calculationResult);
+    } catch (e) {
+      console.error('Error calculating tolerance:', e);
+      // You might want to add error handling UI here
+    } finally {
+      setIsCalculating(false);
+    }
+  };
 
  
 
@@ -85,7 +106,7 @@ export default function EsdpCalculator() {
                 <Button 
                   onClick={calculateTolerance} 
                   className="w-full bg-blue-600 hover:bg-blue-700"
-                  disabled={!size || !tolerance || isCalculating}
+                  disabled={!size || isCalculating}
                 >
                   {isCalculating ? 'Расчет...' : 'Рассчитать'}
                 </Button>
@@ -215,7 +236,7 @@ export default function EsdpCalculator() {
               <Button 
                 onClick={calculateTolerance} 
                 className="w-full bg-blue-600 hover:bg-blue-700"
-                disabled={!size || !tolerance || isCalculating}
+                disabled={!size || isCalculating}
               >
                 {isCalculating ? 'Расчет...' : 'Рассчитать'}
               </Button>

@@ -24465,11 +24465,11 @@
               return jsxWithValidation(type, props, key, false);
             }
           }
-          var jsx44 = jsxWithValidationDynamic;
-          var jsxs22 = jsxWithValidationStatic;
+          var jsx45 = jsxWithValidationDynamic;
+          var jsxs23 = jsxWithValidationStatic;
           exports.Fragment = REACT_FRAGMENT_TYPE;
-          exports.jsx = jsx44;
-          exports.jsxs = jsxs22;
+          exports.jsx = jsx45;
+          exports.jsxs = jsxs23;
         })();
       }
     }
@@ -36613,8 +36613,45 @@ ${xmlEntries}
     }
   };
 
-  // src/pages/OST22Calculator.tsx
+  // src/components/UIutils/HoverOverlayImage.tsx
   var import_jsx_runtime41 = __toESM(require_jsx_runtime());
+  function DesktopHoverOverlayImage({
+    src,
+    alt,
+    caption,
+    className,
+    thumbHClass,
+    overlayMaxHClass
+  }) {
+    const thumbH = thumbHClass ?? "h-48";
+    const overlayMaxH = overlayMaxHClass ?? "max-h-80";
+    return /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: `relative ${className ?? ""}`, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+        "img",
+        {
+          src,
+          alt,
+          loading: "lazy",
+          className: `w-full ${thumbH} object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105`
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "hidden md:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "absolute inset-0 bg-black/50 rounded" }),
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+          "img",
+          {
+            src,
+            alt: `${alt} - \u043F\u043E\u043B\u043D\u044B\u0439 \u0432\u0438\u0434`,
+            className: `absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${overlayMaxH} w-auto h-auto object-contain rounded-lg shadow-2xl`
+          }
+        ),
+        caption ? /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-white text-center px-2", children: caption }) : null
+      ] })
+    ] });
+  }
+
+  // src/pages/OST22Calculator.tsx
+  var import_jsx_runtime42 = __toESM(require_jsx_runtime());
   function OST22Calculator() {
     const [size4, setSize] = (0, import_react23.useState)("");
     const [sizeError, setSizeError] = (0, import_react23.useState)(null);
@@ -36648,97 +36685,58 @@ ${xmlEntries}
         setIsCalculating(false);
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-2", children: "\u041E\u0421\u0422 1 00022-80" }),
-        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-gray-600", children: "\u041D\u0435\u0443\u043A\u0430\u0437\u0430\u043D\u043D\u044B\u0435 \u043F\u0440\u0435\u0434\u0435\u043B\u044C\u043D\u044B\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F" })
+    return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-6", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-2", children: "\u041E\u0421\u0422 1 00022-80" }),
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("p", { className: "text-gray-600", children: "\u041D\u0435\u0443\u043A\u0430\u0437\u0430\u043D\u043D\u044B\u0435 \u043F\u0440\u0435\u0434\u0435\u043B\u044C\u043D\u044B\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "hidden lg:grid lg:grid-cols-4 lg:gap-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "lg:col-span-3 space-y-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-6", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { className: "p-4 group", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" }),
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "relative", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
-                  "img",
-                  {
-                    src: "/images/ost22-hole.webp",
-                    alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439",
-                    className: "w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
-                    "img",
-                    {
-                      src: "/images/ost22-hole.webp",
-                      alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439 - \u043F\u043E\u043B\u043D\u044B\u0439 \u0432\u0438\u0434",
-                      className: "w-full h-auto object-contain max-h-80"
-                    }
-                  ),
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-sm text-gray-600 mt-2 text-center", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" })
-                ] }) })
-              ] })
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "hidden lg:grid lg:grid-cols-4 lg:gap-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "lg:col-span-3 space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { className: "p-4 group", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" }),
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
+                DesktopHoverOverlayImage,
+                {
+                  src: "/images/ost22-hole.webp",
+                  alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439",
+                  caption: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439"
+                }
+              )
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { className: "p-4 group", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432" }),
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "relative", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
-                  "img",
-                  {
-                    src: "/images/ost22-shaft.webp",
-                    alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432",
-                    className: "w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
-                    "img",
-                    {
-                      src: "/images/ost22-shaft.webp",
-                      alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432 - \u043F\u043E\u043B\u043D\u044B\u0439 \u0432\u0438\u0434",
-                      className: "w-full h-auto object-contain max-h-80"
-                    }
-                  ),
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-sm text-gray-600 mt-2 text-center", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432" })
-                ] }) })
-              ] })
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { className: "p-4 group", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432" }),
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
+                DesktopHoverOverlayImage,
+                {
+                  src: "/images/ost22-shaft.webp",
+                  alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432",
+                  caption: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432"
+                }
+              )
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { className: "p-4 group", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C" }),
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "relative", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
-                  "img",
-                  {
-                    src: "/images/ost22-undef.webp",
-                    alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C",
-                    className: "w-full h-48 object-contain rounded bg-gray-50 transition-transform duration-200 group-hover:scale-105"
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "hidden md:block absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded flex items-center justify-center opacity-0 group-hover:opacity-100", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "bg-white p-4 rounded-lg shadow-2xl max-w-2xl max-h-96 transform scale-90 group-hover:scale-100 transition-transform duration-200", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
-                    "img",
-                    {
-                      src: "/images/ost22-undef.webp",
-                      alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C - \u043F\u043E\u043B\u043D\u044B\u0439 \u0432\u0438\u0434",
-                      className: "w-full h-auto object-contain max-h-80"
-                    }
-                  ),
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-sm text-gray-600 mt-2 text-center", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C" })
-                ] }) })
-              ] })
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { className: "p-4 group", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C" }),
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
+                DesktopHoverOverlayImage,
+                {
+                  src: "/images/ost22-undef.webp",
+                  alt: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C",
+                  caption: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C"
+                }
+              )
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(CardTitle, { className: "flex items-center", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardTitle, { className: "flex items-center", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
                 "\u0420\u0430\u0441\u0447\u0435\u0442 \u043F\u0440\u0435\u0434\u0435\u043B\u044C\u043D\u044B\u0445 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0439"
               ] }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(CardContent, { className: "space-y-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Label2, { htmlFor: "size", children: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0440\u0430\u0437\u043C\u0435\u0440 \u0441 \u0447\u0435\u0440\u0442\u0435\u0436\u0430 (\u043C\u043C)" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardContent, { className: "space-y-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Label2, { htmlFor: "size", children: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0440\u0430\u0437\u043C\u0435\u0440 \u0441 \u0447\u0435\u0440\u0442\u0435\u0436\u0430 (\u043C\u043C)" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                     Input,
                     {
                       id: "size",
@@ -36757,22 +36755,22 @@ ${xmlEntries}
                       "aria-invalid": !!sizeError
                     }
                   ),
-                  sizeError && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-red-600", children: sizeError })
+                  sizeError && /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-red-600", children: sizeError })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Label2, { htmlFor: "element-type", children: "\u0422\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Select2, { value: elementType, onValueChange: (value) => setElementType(value), children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectTrigger2, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectValue2, { placeholder: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }) }),
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(SelectContent2, { children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "hole", children: "\u041E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "shaft", children: "\u0412\u0430\u043B" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "quasi-hole", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "quasi-shaft", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u044B\u0439 \u0432\u0430\u043B" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "undef", children: "\u041D\u0438 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435, \u043D\u0438 \u0432\u0430\u043B" })
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Label2, { htmlFor: "element-type", children: "\u0422\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Select2, { value: elementType, onValueChange: (value) => setElementType(value), children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectTrigger2, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectValue2, { placeholder: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(SelectContent2, { children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectItem2, { value: "hole", children: "\u041E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectItem2, { value: "shaft", children: "\u0412\u0430\u043B" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectItem2, { value: "quasi-hole", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectItem2, { value: "quasi-shaft", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u044B\u0439 \u0432\u0430\u043B" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectItem2, { value: "undef", children: "\u041D\u0438 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435, \u043D\u0438 \u0432\u0430\u043B" })
                     ] })
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                   Button,
                   {
                     onClick: outputSection,
@@ -36783,36 +36781,36 @@ ${xmlEntries}
                 )
               ] })
             ] }),
-            result && /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-3", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+            result && /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
                       result.upperDeviation,
                       " \u043C\u043C"
                     ] })
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
                       result.maxMesSize,
                       " \u043C\u043C"
                     ] })
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
                       result.lowerDeviation,
                       " \u043C\u043C"
                     ] })
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
                       result.minMesSize,
                       " \u043C\u043C"
                     ] })
@@ -36821,18 +36819,18 @@ ${xmlEntries}
               ] }) })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(CardTitle, { className: "flex items-center", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardTitle, { className: "flex items-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
               "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Button, { asChild: true, variant: "outline", className: "bg-transparent justify-start", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("a", { href: "/downloads/ost-1-00022-80.pdf", target: "_blank", rel: "noopener noreferrer", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Download, { className: "w-4 h-4 mr-2" }),
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Button, { asChild: true, variant: "outline", className: "bg-transparent justify-start", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("a", { href: "/downloads/ost-1-00022-80.pdf", target: "_blank", rel: "noopener noreferrer", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Download, { className: "w-4 h-4 mr-2" }),
               "\u041E\u0421\u0422 1 00022-80 PDF"
             ] }) }) }) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "lg:col-span-1 space-y-6", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "sticky top-6", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "lg:col-span-1 space-y-6", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "sticky top-6", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
           AdPlacement,
           {
             placement: "sidebar-primary",
@@ -36841,11 +36839,11 @@ ${xmlEntries}
           }
         ) }) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "lg:hidden space-y-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { className: "p-4 group", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" }),
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "lg:hidden space-y-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4 mb-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { className: "p-4 group", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0439" }),
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
               "img",
               {
                 src: "/images/ost22-hole.webp",
@@ -36854,9 +36852,9 @@ ${xmlEntries}
               }
             ) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { className: "p-4 group", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432" }),
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { className: "p-4 group", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432 \u0432\u0430\u043B\u043E\u0432" }),
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
               "img",
               {
                 src: "/images/ost22-shaft.webp",
@@ -36865,9 +36863,9 @@ ${xmlEntries}
               }
             ) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { className: "p-4 group", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C" }),
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { className: "p-4 group", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h3", { className: "font-semibold text-sm text-center mb-2", children: "\u0420\u0430\u0437\u043C\u0435\u0440\u044B \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u043E\u0432, \u043D\u0435 \u043E\u0442\u043D\u043E\u0441\u044F\u0449\u0438\u0445\u0441\u044F \u043A \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u044F\u043C \u0438 \u0432\u0430\u043B\u0430\u043C" }),
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "relative", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
               "img",
               {
                 src: "/images/ost22-undef.webp",
@@ -36877,16 +36875,16 @@ ${xmlEntries}
             ) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(CardTitle, { className: "flex items-center", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardTitle, { className: "flex items-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
               "\u0420\u0430\u0441\u0447\u0435\u0442 \u043F\u0440\u0435\u0434\u0435\u043B\u044C\u043D\u044B\u0445 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0439              "
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(CardContent, { className: "space-y-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Label2, { htmlFor: "size-mobile", children: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0440\u0430\u0437\u043C\u0435\u0440 \u0441 \u0447\u0435\u0440\u0442\u0435\u0436\u0430 (\u043C\u043C)" }),
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardContent, { className: "space-y-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Label2, { htmlFor: "size-mobile", children: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0440\u0430\u0437\u043C\u0435\u0440 \u0441 \u0447\u0435\u0440\u0442\u0435\u0436\u0430 (\u043C\u043C)" }),
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                   Input,
                   {
                     id: "size",
@@ -36905,22 +36903,22 @@ ${xmlEntries}
                     "aria-invalid": !!sizeError
                   }
                 ),
-                sizeError && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-red-600", children: sizeError })
+                sizeError && /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-red-600", children: sizeError })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Label2, { htmlFor: "element-type-mobile", children: "\u0422\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }),
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Select2, { value: elementType, onValueChange: (value) => setElementType(value), children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectTrigger2, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectValue2, { placeholder: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }) }),
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(SelectContent2, { children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "hole", children: "\u041E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "shaft", children: "\u0412\u0430\u043B" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "quasi-hole", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "quasi-shaft", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u044B\u0439 \u0432\u0430\u043B" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(SelectItem2, { value: "undef", children: "\u041D\u0438 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435, \u043D\u0438 \u0432\u0430\u043B" })
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Label2, { htmlFor: "element-type-mobile", children: "\u0422\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }),
+                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Select2, { value: elementType, onValueChange: (value) => setElementType(value), children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectTrigger2, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectValue2, { placeholder: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(SelectContent2, { children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectItem2, { value: "hole", children: "\u041E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectItem2, { value: "shaft", children: "\u0412\u0430\u043B" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectItem2, { value: "quasi-hole", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectItem2, { value: "quasi-shaft", children: "\u0423\u0441\u043B\u043E\u0432\u043D\u044B\u0439 \u0432\u0430\u043B" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(SelectItem2, { value: "undef", children: "\u041D\u0438 \u043E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435, \u043D\u0438 \u0432\u0430\u043B" })
                   ] })
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
                 Button,
                 {
                   onClick: outputSection,
@@ -36931,250 +36929,39 @@ ${xmlEntries}
               )
             ] })
           ] }),
-          result && /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "space-y-3", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                    result.upperDeviation,
-                    " \u043C\u043C"
-                  ] })
-                ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                    result.maxMesSize,
-                    " \u043C\u043C"
-                  ] })
-                ] })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                    result.lowerDeviation,
-                    " \u043C\u043C"
-                  ] })
-                ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                    result.minMesSize,
-                    " \u043C\u043C"
-                  ] })
-                ] })
-              ] })
-            ] }) })
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(Card, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(CardTitle, { className: "flex items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
-            "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
-          ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Button, { asChild: true, variant: "outline", className: "bg-transparent justify-start", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("a", { href: "/downloads/ost-1-00022-80.pdf", target: "_blank", rel: "noopener noreferrer", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Download, { className: "w-4 h-4 mr-2" }),
-            "\u041E\u0421\u0422 1 00022-80 PDF"
-          ] }) }) }) })
-        ] })
-      ] }),
-      showMobileAd && /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "lg:hidden fixed bottom-4 left-4 right-4 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "relative", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
-          "button",
-          {
-            onClick: () => setShowMobileAd(false),
-            className: "absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 transition-colors z-10",
-            title: "\u0417\u0430\u043A\u0440\u044B\u0442\u044C \u0440\u0435\u043A\u043B\u0430\u043C\u0443",
-            children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(X, { className: "w-4 h-4" })
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(
-          AdPlacement,
-          {
-            placement: "mobile-sticky",
-            maxAds: 1
-          }
-        )
-      ] }) })
-    ] });
-  }
-
-  // src/pages/Esdp.tsx
-  var import_react24 = __toESM(require_react());
-  var import_jsx_runtime42 = __toESM(require_jsx_runtime());
-  function EsdpCalculator() {
-    const [size4, setSize] = (0, import_react24.useState)("");
-    const [result, setResult] = (0, import_react24.useState)(null);
-    const [isCalculating, setIsCalculating] = (0, import_react24.useState)(false);
-    const [showMobileAd, setShowMobileAd] = (0, import_react24.useState)(true);
-    const { updateContext } = useAdStore();
-    (0, import_react24.useEffect)(() => {
-      updateContext({
-        pageType: "esdp-calculator",
-        calculatorType: "gost-25347-82"
-      });
-    }, [updateContext]);
-    return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-2", children: "\u0413\u041E\u0421\u0422 25347-82" }),
-        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("p", { className: "text-gray-600", children: "\u0415\u0434\u0438\u043D\u0430\u044F \u0441\u0438\u0441\u0442\u0435\u043C\u0430 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A" })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "hidden lg:grid lg:grid-cols-4 lg:gap-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "lg:col-span-3 space-y-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardTitle, { className: "flex items-center", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
-                "\u0420\u0430\u0441\u0447\u0435\u0442 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A"
-              ] }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardContent, { className: "space-y-4", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Label2, { htmlFor: "size", children: "\u041D\u043E\u043C\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 (\u043C\u043C) \u0438 \u043F\u043E\u043B\u0435 \u0434\u043E\u043F\u0443\u0441\u043A\u0430 " }),
-                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
-                    Input,
-                    {
-                      id: "size",
-                      type: "number",
-                      step: "0.001",
-                      value: size4,
-                      onChange: (e) => setSize(e.target.value),
-                      placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 18.123H7",
-                      className: "text-lg"
-                    }
-                  )
-                ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
-                  Button,
-                  {
-                    onClick: calculateTolerance,
-                    className: "w-full bg-blue-600 hover:bg-blue-700",
-                    disabled: !size4 || !tolerance || isCalculating,
-                    children: isCalculating ? "\u0420\u0430\u0441\u0447\u0435\u0442..." : "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C"
-                  }
-                )
-              ] })
-            ] }),
-            result && /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+          result && /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                    result.upperDeviation > 0 ? "+" : "",
-                    result.upperDeviation.toFixed(3),
+                    result.upperDeviation,
                     " \u043C\u043C"
                   ] })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                    result.maxSize.toFixed(3),
+                    result.maxMesSize,
                     " \u043C\u043C"
                   ] })
-                ] }),
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (EI/ei)" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                    result.lowerDeviation.toFixed(3),
+                    result.lowerDeviation,
                     " \u043C\u043C"
                   ] })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                   /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                    result.minSize.toFixed(3),
+                    result.minMesSize,
                     " \u043C\u043C"
                   ] })
-                ] })
-              ] }) })
-            ] })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardTitle, { className: "flex items-center", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
-              "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
-            ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Download, { className: "w-4 h-4 mr-2" }),
-              "\u0413\u041E\u0421\u0422 25347-82 PDF"
-            ] }) }) })
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "lg:col-span-1 space-y-6", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "sticky top-6", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
-          AdPlacement,
-          {
-            placement: "sidebar-primary",
-            title: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0443\u0435\u043C\u044B\u0435 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B",
-            maxAds: 2
-          }
-        ) }) })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "lg:hidden space-y-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardTitle, { className: "flex items-center", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
-              "\u0420\u0430\u0441\u0447\u0435\u0442 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A"
-            ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(CardContent, { className: "space-y-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "space-y-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Label2, { htmlFor: "size-mobile", children: "\u041D\u043E\u043C\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 (\u043C\u043C) \u0438 \u043F\u043E\u043B\u0435 \u0434\u043E\u043F\u0443\u0441\u043A\u0430 " }),
-                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
-                  Input,
-                  {
-                    id: "size-mobile",
-                    type: "number",
-                    step: "0.001",
-                    value: size4,
-                    onChange: (e) => setSize(e.target.value),
-                    placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 18.123H7",
-                    className: "text-lg"
-                  }
-                )
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
-                Button,
-                {
-                  onClick: calculateTolerance,
-                  className: "w-full bg-blue-600 hover:bg-blue-700",
-                  disabled: !size4 || !tolerance || isCalculating,
-                  children: isCalculating ? "\u0420\u0430\u0441\u0447\u0435\u0442..." : "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C"
-                }
-              )
-            ] })
-          ] }),
-          result && /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Card, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
-                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                  result.upperDeviation > 0 ? "+" : "",
-                  result.upperDeviation.toFixed(3),
-                  " \u043C\u043C"
-                ] })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                  result.maxSize.toFixed(3),
-                  " \u043C\u043C"
-                ] })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (EI/ei)" }),
-                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                  result.lowerDeviation.toFixed(3),
-                  " \u043C\u043C"
-                ] })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
-                /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                  result.minSize.toFixed(3),
-                  " \u043C\u043C"
                 ] })
               ] })
             ] }) })
@@ -37185,10 +36972,10 @@ ${xmlEntries}
             /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
             "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Button, { asChild: true, variant: "outline", className: "bg-transparent justify-start", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("a", { href: "/downloads/ost-1-00022-80.pdf", target: "_blank", rel: "noopener noreferrer", children: [
             /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Download, { className: "w-4 h-4 mr-2" }),
-            "\u0413\u041E\u0421\u0422 25347-82 PDF"
-          ] }) }) })
+            "\u041E\u0421\u0422 1 00022-80 PDF"
+          ] }) }) }) })
         ] })
       ] }),
       showMobileAd && /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "lg:hidden fixed bottom-4 left-4 right-4 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "relative", children: [
@@ -37212,8 +36999,237 @@ ${xmlEntries}
     ] });
   }
 
-  // src/App.tsx
+  // src/pages/Esdp.tsx
+  var import_react24 = __toESM(require_react());
   var import_jsx_runtime43 = __toESM(require_jsx_runtime());
+  function EsdpCalculator() {
+    const [size4, setSize] = (0, import_react24.useState)("");
+    const [result, setResult] = (0, import_react24.useState)(null);
+    const [isCalculating, setIsCalculating] = (0, import_react24.useState)(false);
+    const [showMobileAd, setShowMobileAd] = (0, import_react24.useState)(true);
+    const { updateContext } = useAdStore();
+    (0, import_react24.useEffect)(() => {
+      updateContext({
+        pageType: "esdp-calculator",
+        calculatorType: "gost-25347-82"
+      });
+    }, [updateContext]);
+    const calculateTolerance = async () => {
+      if (!size4) return;
+      setIsCalculating(true);
+      try {
+        const resp = await ApiService.processEsdp(size4);
+        const calculationResult = {
+          upperDeviation: resp.upperDeviation,
+          lowerDeviation: resp.lowerDeviation,
+          maxSize: resp.maxSize,
+          minSize: resp.minSize
+        };
+        setResult(calculationResult);
+      } catch (e) {
+        console.error("Error calculating tolerance:", e);
+      } finally {
+        setIsCalculating(false);
+      }
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "space-y-6", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-2", children: "\u0413\u041E\u0421\u0422 25347-82" }),
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-gray-600", children: "\u0415\u0434\u0438\u043D\u0430\u044F \u0441\u0438\u0441\u0442\u0435\u043C\u0430 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A" })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "hidden lg:grid lg:grid-cols-4 lg:gap-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "lg:col-span-3 space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(Card, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(CardTitle, { className: "flex items-center", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
+                "\u0420\u0430\u0441\u0447\u0435\u0442 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A"
+              ] }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(CardContent, { className: "space-y-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "space-y-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Label2, { htmlFor: "size", children: "\u041D\u043E\u043C\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 (\u043C\u043C) \u0438 \u043F\u043E\u043B\u0435 \u0434\u043E\u043F\u0443\u0441\u043A\u0430 " }),
+                  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+                    Input,
+                    {
+                      id: "size",
+                      type: "number",
+                      step: "0.001",
+                      value: size4,
+                      onChange: (e) => setSize(e.target.value),
+                      placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 18.123H7",
+                      className: "text-lg"
+                    }
+                  )
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+                  Button,
+                  {
+                    onClick: calculateTolerance,
+                    className: "w-full bg-blue-600 hover:bg-blue-700",
+                    disabled: !size4 || isCalculating,
+                    children: isCalculating ? "\u0420\u0430\u0441\u0447\u0435\u0442..." : "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C"
+                  }
+                )
+              ] })
+            ] }),
+            result && /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(Card, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+                    result.upperDeviation > 0 ? "+" : "",
+                    result.upperDeviation.toFixed(3),
+                    " \u043C\u043C"
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                    result.maxSize.toFixed(3),
+                    " \u043C\u043C"
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (EI/ei)" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+                    result.lowerDeviation.toFixed(3),
+                    " \u043C\u043C"
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                    result.minSize.toFixed(3),
+                    " \u043C\u043C"
+                  ] })
+                ] })
+              ] }) })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(CardTitle, { className: "flex items-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
+              "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Download, { className: "w-4 h-4 mr-2" }),
+              "\u0413\u041E\u0421\u0422 25347-82 PDF"
+            ] }) }) })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "lg:col-span-1 space-y-6", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "sticky top-6", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+          AdPlacement,
+          {
+            placement: "sidebar-primary",
+            title: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0443\u0435\u043C\u044B\u0435 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B",
+            maxAds: 2
+          }
+        ) }) })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "lg:hidden space-y-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(CardTitle, { className: "flex items-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Calculator, { className: "w-5 h-5 mr-2 text-blue-600" }),
+              "\u0420\u0430\u0441\u0447\u0435\u0442 \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A"
+            ] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(CardContent, { className: "space-y-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Label2, { htmlFor: "size-mobile", children: "\u041D\u043E\u043C\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 (\u043C\u043C) \u0438 \u043F\u043E\u043B\u0435 \u0434\u043E\u043F\u0443\u0441\u043A\u0430 " }),
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+                  Input,
+                  {
+                    id: "size-mobile",
+                    type: "number",
+                    step: "0.001",
+                    value: size4,
+                    onChange: (e) => setSize(e.target.value),
+                    placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 18.123H7",
+                    className: "text-lg"
+                  }
+                )
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+                Button,
+                {
+                  onClick: calculateTolerance,
+                  className: "w-full bg-blue-600 hover:bg-blue-700",
+                  disabled: !size4 || isCalculating,
+                  children: isCalculating ? "\u0420\u0430\u0441\u0447\u0435\u0442..." : "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C"
+                }
+              )
+            ] })
+          ] }),
+          result && /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(Card, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CardTitle, { className: "text-blue-900", children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CardContent, { className: "space-y-4", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "grid grid-cols-2 gap-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+                  result.upperDeviation > 0 ? "+" : "",
+                  result.upperDeviation.toFixed(3),
+                  " \u043C\u043C"
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                  result.maxSize.toFixed(3),
+                  " \u043C\u043C"
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (EI/ei)" }),
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
+                  result.lowerDeviation.toFixed(3),
+                  " \u043C\u043C"
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
+                /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
+                  result.minSize.toFixed(3),
+                  " \u043C\u043C"
+                ] })
+              ] })
+            ] }) })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(Card, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(CardTitle, { className: "flex items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(FileText, { className: "w-5 h-5 mr-2 text-blue-600" }),
+            "\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u044B\u0435 \u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044B"
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CardContent, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(Button, { variant: "outline", className: "bg-transparent justify-start", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Download, { className: "w-4 h-4 mr-2" }),
+            "\u0413\u041E\u0421\u0422 25347-82 PDF"
+          ] }) }) })
+        ] })
+      ] }),
+      showMobileAd && /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "lg:hidden fixed bottom-4 left-4 right-4 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "relative", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+          "button",
+          {
+            onClick: () => setShowMobileAd(false),
+            className: "absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 transition-colors z-10",
+            title: "\u0417\u0430\u043A\u0440\u044B\u0442\u044C \u0440\u0435\u043A\u043B\u0430\u043C\u0443",
+            children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(X, { className: "w-4 h-4" })
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+          AdPlacement,
+          {
+            placement: "mobile-sticky",
+            maxAds: 1
+          }
+        )
+      ] }) })
+    ] });
+  }
+
+  // src/App.tsx
+  var import_jsx_runtime44 = __toESM(require_jsx_runtime());
   function App() {
     const [currentPage, setCurrentPage] = (0, import_react25.useState)("home");
     const { isAuthenticated } = useAuthStore();
@@ -37230,46 +37246,46 @@ ${xmlEntries}
     const renderPage = () => {
       switch (currentPage) {
         case "home":
-          return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Home, {});
+          return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Home, {});
         case "ost22":
-          return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Header, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(OST22Calculator, {}) }),
-            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Footer, {})
+          return /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Header, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(OST22Calculator, {}) }),
+            /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Footer, {})
           ] });
         case "esdp":
-          return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Header, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(EsdpCalculator, {}) }),
-            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Footer, {})
+          return /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Header, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(EsdpCalculator, {}) }),
+            /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Footer, {})
           ] });
         case "thread":
-          return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Header, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-center py-16", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-4", children: "\u0413\u041E\u0421\u0422 16093-2004" }),
-              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-gray-600", children: "\u041A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440 \u043C\u0435\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u0440\u0435\u0437\u044C\u0431\u044B \u0432 \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0435" })
+          return /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Header, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "text-center py-16", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-4", children: "\u0413\u041E\u0421\u0422 16093-2004" }),
+              /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "text-gray-600", children: "\u041A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440 \u043C\u0435\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u0440\u0435\u0437\u044C\u0431\u044B \u0432 \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0435" })
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Footer, {})
+            /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Footer, {})
           ] });
         case "chamfer":
-          return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Header, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-center py-16", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-4", children: "\u0420\u0430\u0441\u0447\u0435\u0442 \u0444\u0430\u0441\u043E\u043A" }),
-              /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-gray-600", children: "\u041A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440 \u0444\u0430\u0441\u043E\u043A \u0432 \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0435" })
+          return /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "min-h-screen bg-gray-50 flex flex-col", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Header, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("main", { className: "flex-grow container mx-auto px-4 py-8", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "text-center py-16", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("h1", { className: "text-3xl font-bold text-blue-900 mb-4", children: "\u0420\u0430\u0441\u0447\u0435\u0442 \u0444\u0430\u0441\u043E\u043A" }),
+              /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "text-gray-600", children: "\u041A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u043E\u0440 \u0444\u0430\u0441\u043E\u043A \u0432 \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0435" })
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Footer, {})
+            /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Footer, {})
           ] });
         default:
-          return /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Home, {});
+          return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Home, {});
       }
     };
     const { consentState } = useCookieConsent();
     if (currentPage === "home") {
-      return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(import_jsx_runtime43.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(FaviconTags, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)(import_jsx_runtime44.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(FaviconTags, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
           SEOMetaTags,
           {
             title: seoConfig.title,
@@ -37280,14 +37296,14 @@ ${xmlEntries}
             ogImage: seoConfig.ogImage
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Home, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(UpdateNotification, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CookieConsent, {})
+        /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Home, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(UpdateNotification, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(CookieConsent, {})
       ] });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(import_jsx_runtime43.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(FaviconTags, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)(import_jsx_runtime44.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(FaviconTags, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(
         SEOMetaTags,
         {
           title: seoConfig.title,
@@ -37299,16 +37315,16 @@ ${xmlEntries}
         }
       ),
       renderPage(),
-      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(UpdateNotification, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CookieConsent, {}),
-      __DEV__ && /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(SEODev, {})
+      /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(UpdateNotification, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(CookieConsent, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(SEODev, {})
     ] });
   }
 
   // src/main.tsx
-  var import_jsx_runtime44 = __toESM(require_jsx_runtime());
+  var import_jsx_runtime45 = __toESM(require_jsx_runtime());
   var root = (0, import_client.createRoot)(document.getElementById("app"));
-  root.render(/* @__PURE__ */ (0, import_jsx_runtime44.jsx)(App, {}));
+  root.render(/* @__PURE__ */ (0, import_jsx_runtime45.jsx)(App, {}));
 })();
 /*! Bundled license information:
 
