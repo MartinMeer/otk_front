@@ -15,6 +15,14 @@ import { ApiService } from '../services/apiService';
 
 export default function EsdpCalculator() {
   const [size, setSize] = useState<string>('');
+  const [sizeError, setSizeError] = useState<string | null>(null);
+  const validateSize = (v: string): string | null => {
+    if (!v) return null; // allow empty; button will stay disabled
+    // only digits with optional fractional part using dot
+    return /^\d+(\.\d+)?$/.test(v)
+      ? null
+      : 'Размер должен быть числом. Используйте точку для дробных чисел: 0.01';
+  };
   const [result, setResult] = useState<EsdpResponce | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
   const [showMobileAd, setShowMobileAd] = useState(true);
@@ -71,21 +79,31 @@ export default function EsdpCalculator() {
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Calculator className="w-5 h-5 mr-2 text-blue-600" />
-                  Расчет допусков и посадок
+                  Значения предельных отклонений
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="size">Номинальный размер (мм) и поле допуска </Label>
+                  <Label htmlFor="size">Введите номинальный размер (мм) </Label>
                   <Input
                     id="size"
-                    type="number"
+                    type="text"
+                    inputMode="numeric"
+                    pattern="^\d+(\.\d+)?$"
                     step="0.001"
                     value={size}
-                    onChange={(e) => setSize(e.target.value)}
-                    placeholder="Например: 18.123H7"
+                    onChange={(e) => {
+                      const v = e.target.value.trim();
+                      setSize(v);
+                      setSizeError(validateSize(v));
+                    }}
+                    placeholder="Например: 10.5"
                     className="text-lg"
+                    aria-invalid={!!sizeError}
                   />
+                  {sizeError && (
+                    <div className="text-sm text-red-600">{sizeError}</div>
+                  )}
                 </div>
 
                 {/*<div className="space-y-2">
@@ -201,12 +219,12 @@ export default function EsdpCalculator() {
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Calculator className="w-5 h-5 mr-2 text-blue-600" />
-                Расчет допусков и посадок
+                Значения предельных отклонений
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="size-mobile">Номинальный размер (мм) и поле допуска </Label>
+                <Label htmlFor="size-mobile">Веедите номинальный размер (мм)</Label>
                 <Input
                   id="size-mobile"
                   type="number"

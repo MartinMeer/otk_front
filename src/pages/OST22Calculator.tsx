@@ -5,14 +5,13 @@
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
-import { Input } from '../components/ui/input';
-import { Label } from '../components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { Calculator, Download, FileText, X } from 'lucide-react';
 import { Ost22Responce } from '../types';
 import AdPlacement from '../components/Ads/AdPlacement';
 import { ApiService } from '../services/apiService';
 import { DesktopHoverOverlayImage } from '@/components/UIutils/HoverOverlayImage';
+import Ost22Form from '../components/Ost22Form';
+import Ost22Results from '../components/Ost22Results';
 
 
 type ElementType = 'hole' | 'shaft' | 'quasi_hole' | 'quasi_shaft' | 'undef';
@@ -111,103 +110,30 @@ export default function OST22Calculator() {
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Calculator className="w-5 h-5 mr-2 text-blue-600" />
-                  Расчет предельных отклонений
+                  Значения предельных отклонений
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="size">Введите размер с чертежа (мм)</Label>
-                  <Input
-                    id="size"
-                    type="text"
-                    inputMode="decimal"
-                    pattern="^\d+(\.\d+)?$"
-                    step="0.001"
-                    value={size}
-                    onChange={(e) => {
-                      const v = e.target.value.trim();
-                      setSize(v);
-                      setSizeError(validateSize(v));
-                    }}
-                    placeholder="Например: 10.5"
-                    className="text-lg"
-                    aria-invalid={!!sizeError}
-                  />
-                  {sizeError && (
-                    <div className="text-sm text-red-600">{sizeError}</div>
-                  )}
-
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="element-type">Тип элемента</Label>
-                  <Select value={elementType} onValueChange={(value: ElementType) => setElementType(value)}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Выберите тип элемента" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="hole">Отверстие</SelectItem>
-                      <SelectItem value="shaft">Вал</SelectItem>
-                      <SelectItem value="quasi-hole">Условное отверстие</SelectItem>
-                      <SelectItem value="quasi-shaft">Условный вал</SelectItem>
-                      <SelectItem value="undef">Ни отверстие, ни вал</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <Button
-                  onClick={outputSection}
-                  className="w-full bg-blue-600 hover:bg-blue-700"
-                  disabled={!size || !!sizeError || isCalculating}
-                >
-                  {isCalculating ? 'Расчет...' : 'Рассчитать'}
-                </Button>
+              <CardContent>
+                <Ost22Form
+                  size={size}
+                  sizeError={sizeError}
+                  elementType={elementType}
+                  onSizeChange={(value) => {
+                    const v = value.trim();
+                    setSize(v);
+                    setSizeError(validateSize(v));
+                  }}
+                  onElementTypeChange={(value) => setElementType(value as ElementType)}
+                  onSubmit={outputSection}
+                  isCalculating={isCalculating}
+                  idSuffix="desktop"
+                  inputMode="decimal"
+                />
               </CardContent>
             </Card>
 
             {/* Results */}
-            {result && (
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-blue-900">Результаты расчета</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    {/* Row 1: Верхнее отклонение | Максимальный размер */}
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="p-3 bg-blue-50 rounded-lg">
-                        <div className="text-sm text-gray-600">Верхнее отклонение</div>
-                        <div className="text-lg font-semibold text-blue-900">
-                          {result.upperDeviation} мм
-                        </div>
-                      </div>
-                      <div className="p-3 bg-green-50 rounded-lg">
-                        <div className="text-sm text-gray-600">Максимальный размер</div>
-                        <div className="text-lg font-semibold text-green-700">
-                          {result.maxMesSize} мм
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Row 2: Нижнее отклонение | Минимальный размер */}
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="p-3 bg-blue-50 rounded-lg">
-                        <div className="text-sm text-gray-600">Нижнее отклонение</div>
-                        <div className="text-lg font-semibold text-blue-900">
-                          {result.lowerDeviation} мм
-                        </div>
-                      </div>
-                      <div className="p-3 bg-green-50 rounded-lg">
-                        <div className="text-sm text-gray-600">Минимальный размер</div>
-                        <div className="text-lg font-semibold text-green-700">
-                          {result.minMesSize} мм
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
+            {result && <Ost22Results result={result} />}
           </div>
 
           {/* Reference Documents */}
@@ -287,101 +213,29 @@ export default function OST22Calculator() {
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Calculator className="w-5 h-5 mr-2 text-blue-600" />
-                Расчет предельных отклонений              </CardTitle>
+                Значения предельных отклонений              </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="size-mobile">Введите размер с чертежа (мм)</Label>
-                <Input
-                  id="size"
-                  type="text"
-                  inputMode="decimal"
-                  pattern="^\d+(\.\d+)?$"
-                  step="0.001"
-                  value={size}
-                  onChange={(e) => {
-                    const v = e.target.value.trim();
-                    setSize(v);
-                    setSizeError(validateSize(v));
-                  }}
-                  placeholder="Например: 10.5"
-                  className="text-lg"
-                  aria-invalid={!!sizeError}
-                />
-                {sizeError && (
-                  <div className="text-sm text-red-600">{sizeError}</div>
-                )}
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="element-type-mobile">Тип элемента</Label>
-                <Select value={elementType} onValueChange={(value: ElementType) => setElementType(value)}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Выберите тип элемента" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="hole">Отверстие</SelectItem>
-                    <SelectItem value="shaft">Вал</SelectItem>
-                    <SelectItem value="quasi-hole">Условное отверстие</SelectItem>
-                    <SelectItem value="quasi-shaft">Условный вал</SelectItem>
-                    <SelectItem value="undef">Ни отверстие, ни вал</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <Button
-                onClick={outputSection}
-                className="w-full bg-blue-600 hover:bg-blue-700"
-                disabled={!size || !!sizeError || isCalculating}
-              >
-                {isCalculating ? 'Расчет...' : 'Рассчитать'}
-              </Button>
+            <CardContent>
+              <Ost22Form
+                size={size}
+                sizeError={sizeError}
+                elementType={elementType}
+                onSizeChange={(value) => {
+                  const v = value.trim();
+                  setSize(v);
+                  setSizeError(validateSize(v));
+                }}
+                onElementTypeChange={(value) => setElementType(value as ElementType)}
+                onSubmit={outputSection}
+                isCalculating={isCalculating}
+                idSuffix="mobile"
+                inputMode="numeric"
+              />
             </CardContent>
           </Card>
 
           {/* Results */}
-          {result && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-blue-900">Результаты расчета</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-3">
-                  {/* Row 1: Верхнее отклонение | Максимальный размер */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-3 bg-blue-50 rounded-lg">
-                      <div className="text-sm text-gray-600">Верхнее отклонение</div>
-                      <div className="text-lg font-semibold text-blue-900">
-                        {result.upperDeviation} мм
-                      </div>
-                    </div>
-                    <div className="p-3 bg-green-50 rounded-lg">
-                      <div className="text-sm text-gray-600">Максимальный размер</div>
-                      <div className="text-lg font-semibold text-green-700">
-                        {result.maxMesSize} мм
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Row 2: Нижнее отклонение | Минимальный размер */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-3 bg-blue-50 rounded-lg">
-                      <div className="text-sm text-gray-600">Нижнее отклонение</div>
-                      <div className="text-lg font-semibold text-blue-900">
-                        {result.lowerDeviation} мм
-                      </div>
-                    </div>
-                    <div className="p-3 bg-green-50 rounded-lg">
-                      <div className="text-sm text-gray-600">Минимальный размер</div>
-                      <div className="text-lg font-semibold text-green-700">
-                        {result.minMesSize} мм
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+          {result && <Ost22Results result={result} />}
         </div>
 
         {/* Reference Documents */}
