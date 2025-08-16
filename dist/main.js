@@ -36722,14 +36722,14 @@ ${xmlEntries}
           /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
             /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
             /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-              result.upperDeviation,
+              result.upper_deviance,
               " \u043C\u043C"
             ] })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
             /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
             /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-              result.maxMesSize,
+              result.max_mes_value,
               " \u043C\u043C"
             ] })
           ] })
@@ -36738,14 +36738,14 @@ ${xmlEntries}
           /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
             /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
             /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-              result.lowerDeviation,
+              result.lower_deviance,
               " \u043C\u043C"
             ] })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
             /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
             /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-              result.minMesSize,
+              result.min_mes_value,
               " \u043C\u043C"
             ] })
           ] })
@@ -36772,15 +36772,15 @@ ${xmlEntries}
       setIsCalculating(true);
       try {
         const resp = await ApiService.processOst22(size4);
-        const upperDev = resp.upperDeviation;
-        const lowerDev = resp.lowerDeviation;
-        const maxMesSize = resp.maxMesSize;
-        const minMesSize = resp.minMesSize;
+        const upperDev = resp.upper_deviance;
+        const lowerDev = resp.lower_deviance;
+        const max_mes_value = resp.max_mes_value;
+        const min_mes_value = resp.min_mes_value;
         const calculationResult = {
-          upperDeviation: upperDev,
-          lowerDeviation: lowerDev,
-          maxMesSize,
-          minMesSize
+          upper_deviance: upperDev,
+          lower_deviance: lowerDev,
+          max_mes_value: min_mes_value,
+          min_mes_value
         };
         setResult(calculationResult);
       } catch (e) {
@@ -36999,10 +36999,10 @@ ${xmlEntries}
       try {
         const resp = await ApiService.processEsdp(size4);
         const calculationResult = {
-          upperDeviation: resp.upperDeviation,
-          lowerDeviation: resp.lowerDeviation,
-          maxSize: resp.maxSize,
-          minSize: resp.minSize
+          upper_deviance: resp.upper_deviance,
+          lower_deviance: resp.lower_deviance,
+          max_mes_value: resp.max_mes_value,
+          min_mes_value: resp.min_mes_value
         };
         setResult(calculationResult);
       } catch (e) {
@@ -37065,29 +37065,28 @@ ${xmlEntries}
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
                   /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                    result.upperDeviation > 0 ? "+" : "",
-                    result.upperDeviation.toFixed(3),
+                    result.upper_deviance,
                     " \u043C\u043C"
                   ] })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                   /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                    result.maxSize.toFixed(3),
+                    result.max_mes_value,
                     " \u043C\u043C"
                   ] })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (EI/ei)" }),
                   /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                    result.lowerDeviation.toFixed(3),
+                    result.lower_deviance,
                     " \u043C\u043C"
                   ] })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                   /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                    result.minSize.toFixed(3),
+                    result.min_mes_value,
                     " \u043C\u043C"
                   ] })
                 ] })
@@ -37154,29 +37153,28 @@ ${xmlEntries}
               /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-sm text-gray-600", children: "\u0412\u0435\u0440\u0445\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (ES/es)" }),
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                  result.upperDeviation > 0 ? "+" : "",
-                  result.upperDeviation.toFixed(3),
+                  result.upper_deviance,
                   " \u043C\u043C"
                 ] })
               ] }),
               /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                  result.maxSize.toFixed(3),
+                  result.max_mes_value,
                   " \u043C\u043C"
                 ] })
               ] }),
               /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "p-3 bg-blue-50 rounded-lg", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-sm text-gray-600", children: "\u041D\u0438\u0436\u043D\u0435\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435 (EI/ei)" }),
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "text-lg font-semibold text-blue-900", children: [
-                  result.lowerDeviation.toFixed(3),
+                  result.lower_deviance,
                   " \u043C\u043C"
                 ] })
               ] }),
               /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "p-3 bg-green-50 rounded-lg", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-sm text-gray-600", children: "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440" }),
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "text-lg font-semibold text-green-700", children: [
-                  result.minSize.toFixed(3),
+                  result.min_mes_value,
                   " \u043C\u043C"
                 ] })
               ] })

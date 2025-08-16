@@ -17,31 +17,31 @@ export interface AuthState {
 }
 
 export interface Ost22Responce {
-  upperDeviation: string;
-  lowerDeviation: string;
-  maxMesSize: string;
-  minMesSize: string;
+  upper_deviance: string;
+  lower_deviance: string;
+  max_mes_value: string;
+  min_mes_value: string;
 }
 
 export interface EsdpResponce {
-  upperDeviation: string;
-  lowerDeviation: string;
-  maxSize: string;
-  minSize: string;
+  upper_deviance: string;
+  lower_deviance: string;
+  max_mes_value: string;
+  min_mes_value: string;
 }
 
 export interface ThreadsResponce {
   middleDiameter: {
     value: string;
-    upperDeviation: string;
-    lowerDeviation: string;
+    upper_deviance: string;
+    lower_deviance: string;
     maxValue: string;
     minValue: string;
   };
   nominalDiameter: {
     value: string;
-    upperDeviation: string;
-    lowerDeviation: string;
+    upper_deviance: string;
+    lower_deviance: string;
     maxValue: string;
     minValue: string;
   };
@@ -53,3 +53,8 @@ export interface ChamfersResult {
   sideB?: string;
   angle?: string;
 }
+
+declare global {
+  const __DEV__: boolean;
+}
+export {};

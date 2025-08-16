@@ -19,13 +19,13 @@ export default function Ost22Results({ result }: Ost22ResultsProps) {
             <div className="p-3 bg-blue-50 rounded-lg">
               <div className="text-sm text-gray-600">Верхнее отклонение</div>
               <div className="text-lg font-semibold text-blue-900">
-                {result.upperDeviation} мм
+                {result.upper_deviance} мм
               </div>
             </div>
             <div className="p-3 bg-green-50 rounded-lg">
               <div className="text-sm text-gray-600">Максимальный размер</div>
               <div className="text-lg font-semibold text-green-700">
-                {result.maxMesSize} мм
+                {result.max_mes_value} мм
               </div>
             </div>
           </div>
@@ -35,13 +35,13 @@ export default function Ost22Results({ result }: Ost22ResultsProps) {
             <div className="p-3 bg-blue-50 rounded-lg">
               <div className="text-sm text-gray-600">Нижнее отклонение</div>
               <div className="text-lg font-semibold text-blue-900">
-                {result.lowerDeviation} мм
+                {result.lower_deviance} мм
               </div>
             </div>
             <div className="p-3 bg-green-50 rounded-lg">
               <div className="text-sm text-gray-600">Минимальный размер</div>
               <div className="text-lg font-semibold text-green-700">
-                {result.minMesSize} мм
+                {result.min_mes_value} мм
               </div>
             </div>
           </div>

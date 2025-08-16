@@ -38,17 +38,17 @@ export default function OST22Calculator() {
     try {
       const resp = await ApiService.processOst22(size);
       //const sizeValue = Number(size);
-      const upperDev = resp.upperDeviation;
-      const lowerDev = resp.lowerDeviation;
-      const maxMesSize = resp.maxMesSize;
-      const minMesSize = resp.minMesSize;
+      const upperDev = resp.upper_deviance;
+      const lowerDev = resp.lower_deviance;
+      const max_mes_value = resp.max_mes_value;
+      const min_mes_value = resp.min_mes_value;
 
 
       const calculationResult: Ost22Responce = {
-        upperDeviation: upperDev,
-        lowerDeviation: lowerDev,
-        maxMesSize: maxMesSize,
-        minMesSize: minMesSize
+        upper_deviance: upperDev,
+        lower_deviance: lowerDev,
+        max_mes_value: min_mes_value,
+        min_mes_value: min_mes_value
       };
       setResult(calculationResult);
     } catch (e) {

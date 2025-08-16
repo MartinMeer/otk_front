@@ -45,10 +45,10 @@ export default function EsdpCalculator() {
       const resp = await ApiService.processEsdp(size);
       
       const calculationResult: EsdpResponce = {
-        upperDeviation: resp.upperDeviation,
-        lowerDeviation: resp.lowerDeviation,
-        maxSize: resp.maxSize,
-        minSize: resp.minSize
+        upper_deviance: resp.upper_deviance,
+        lower_deviance: resp.lower_deviance,
+        max_mes_value: resp.max_mes_value,
+        min_mes_value: resp.min_mes_value
       };
       setResult(calculationResult);
     } catch (e) {
@@ -142,26 +142,26 @@ export default function EsdpCalculator() {
                     <div className="p-3 bg-blue-50 rounded-lg">
                       <div className="text-sm text-gray-600">Верхнее отклонение (ES/es)</div>
                       <div className="text-lg font-semibold text-blue-900">
-                        {result.upperDeviation > 0 ? '+' : ''}{result.upperDeviation.toFixed(3)} мм
+                        {result.upper_deviance} мм
                       </div>
                     </div>
                     <div className="p-3 bg-green-50 rounded-lg">
                       <div className="text-sm text-gray-600">Максимальный размер</div>
                       <div className="text-lg font-semibold text-green-700">
-                        {result.maxSize.toFixed(3)} мм
+                        {result.max_mes_value} мм
                       </div>
                     </div>
                     <div className="p-3 bg-blue-50 rounded-lg">
                       <div className="text-sm text-gray-600">Нижнее отклонение (EI/ei)</div>
                       <div className="text-lg font-semibold text-blue-900">
-                        {result.lowerDeviation.toFixed(3)} мм
+                        {result.lower_deviance} мм
                       </div>
                     </div>
                   
                     <div className="p-3 bg-green-50 rounded-lg">
                       <div className="text-sm text-gray-600">Минимальный размер</div>
                       <div className="text-lg font-semibold text-green-700">
-                        {result.minSize.toFixed(3)} мм
+                        {result.min_mes_value} мм
                       </div>
                     </div>
                   </div>
@@ -272,26 +272,26 @@ export default function EsdpCalculator() {
                   <div className="p-3 bg-blue-50 rounded-lg">
                     <div className="text-sm text-gray-600">Верхнее отклонение (ES/es)</div>
                     <div className="text-lg font-semibold text-blue-900">
-                      {result.upperDeviation > 0 ? '+' : ''}{result.upperDeviation.toFixed(3)} мм
+                      {result.upper_deviance} мм
                     </div>
                   </div>
                   <div className="p-3 bg-green-50 rounded-lg">
                     <div className="text-sm text-gray-600">Максимальный размер</div>
                     <div className="text-lg font-semibold text-green-700">
-                      {result.maxSize.toFixed(3)} мм
+                      {result.max_mes_value} мм
                     </div>
                   </div>
                   <div className="p-3 bg-blue-50 rounded-lg">
                     <div className="text-sm text-gray-600">Нижнее отклонение (EI/ei)</div>
                     <div className="text-lg font-semibold text-blue-900">
-                      {result.lowerDeviation.toFixed(3)} мм
+                      {result.lower_deviance} мм
                     </div>
                   </div>
                 
                   <div className="p-3 bg-green-50 rounded-lg">
                     <div className="text-sm text-gray-600">Минимальный размер</div>
                     <div className="text-lg font-semibold text-green-700">
-                      {result.minSize.toFixed(3)} мм
+                      {result.min_mes_value} мм
                     </div>
                   </div>
                 </div>
