@@ -229,7 +229,7 @@ export default function OST22Calculator() {
                 onSubmit={outputSection}
                 isCalculating={isCalculating}
                 idSuffix="mobile"
-                inputMode="numeric"
+                inputMode="text"
               />
             </CardContent>
           </Card>

@@ -22,7 +22,7 @@ export interface Ost22FormProps {
 	/** Suffix to make input/label ids unique across instances (e.g., 'desktop' | 'mobile') */
 	idSuffix?: string;
 	/** Input mode to use for the size field. Desktop often uses 'decimal', mobile can prefer 'numeric'. */
-	inputMode?: 'decimal' | 'numeric';
+	inputMode?: 'decimal' | 'numeric' | 'text';
 }
 
 export function Ost22Form(props: Ost22FormProps) {
@@ -35,7 +35,7 @@ export function Ost22Form(props: Ost22FormProps) {
 		onSubmit,
 		isCalculating = false,
 		idSuffix = 'default',
-		inputMode = 'decimal'
+		inputMode = 'text'
 	} = props;
 
 	const sizeInputId = `size-${idSuffix}`;

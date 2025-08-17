@@ -362,7 +362,7 @@ export default function EsdpCalculator() {
                 <Input
                   id="size-mobile"
                   type="text"
-                  inputMode="numeric"
+                  inputMode="text"
                   pattern="^\\d+(\\.\\d+)?$"
                   step="0.001"
                   value={size}

@@ -36662,7 +36662,7 @@ ${xmlEntries}
       onSubmit,
       isCalculating = false,
       idSuffix = "default",
-      inputMode = "decimal"
+      inputMode = "text"
     } = props;
     const sizeInputId = `size-${idSuffix}`;
     const elementTypeId = `element-type-${idSuffix}`;
@@ -36935,7 +36935,7 @@ ${xmlEntries}
                 onSubmit: outputSection,
                 isCalculating,
                 idSuffix: "mobile",
-                inputMode: "numeric"
+                inputMode: "text"
               }
             ) })
           ] }),
@@ -37243,7 +37243,7 @@ ${xmlEntries}
                   {
                     id: "size-mobile",
                     type: "text",
-                    inputMode: "numeric",
+                    inputMode: "text",
                     pattern: "^\\\\d+(\\\\.\\\\d+)?$",
                     step: "0.001",
                     value: size4,
