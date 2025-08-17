@@ -1,63 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { X, Settings, CheckCircle } from 'lucide-react';
-import { useCookies } from '../../hooks/use-cookies';
+import { useCookieConsent } from '../../hooks/use-cookie-consent';
+import { CookieSettings } from './CookieSettings';
 
 interface CookieConsentProps {
   onConsentChange?: (consent: boolean) => void;
 }
 
 export const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange }) => {
-  const { setCookie, getCookie } = useCookies();
-  const [isVisible, setIsVisible] = useState(false);
+  const { showBanner, isLoaded, acceptAll, declineAll } = useCookieConsent();
   const [showDetails, setShowDetails] = useState(false);
-
-  useEffect(() => {
-    // Check if user has already made a choice
-    const consent = getCookie('cookie_consent');
-    if (!consent) {
-      setIsVisible(true);
-    }
-  }, [getCookie]);
-
-  const handleAccept = () => {
-    setCookie('cookie_consent', 'accepted', {
-      maxAge: 365 * 24 * 60 * 60, // 1 year
-      path: '/',
-      sameSite: 'Lax'
-    });
-    
-    // Set analytics consent
-    setCookie('analytics_consent', 'true', {
-      maxAge: 365 * 24 * 60 * 60,
-      path: '/',
-      sameSite: 'Lax'
-    });
-    
-    setIsVisible(false);
-    onConsentChange?.(true);
-  };
-
-  const handleDecline = () => {
-    setCookie('cookie_consent', 'declined', {
-      maxAge: 365 * 24 * 60 * 60, // 1 year
-      path: '/',
-      sameSite: 'Lax'
-    });
-    
-    // Set analytics consent to false
-    setCookie('analytics_consent', 'false', {
-      maxAge: 365 * 24 * 60 * 60,
-      path: '/',
-      sameSite: 'Lax'
-    });
-    
-    setIsVisible(false);
-    onConsentChange?.(false);
-  };
-
-  if (!isVisible) return null;
+  const [showSettings, setShowSettings] = useState(false);
+  
+  if (!isLoaded || !showBanner) return null;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-black/80 backdrop-blur-sm">
@@ -87,7 +44,10 @@ export const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange })
               
               <div className="flex flex-wrap gap-3">
                 <Button 
-                  onClick={handleAccept}
+                  onClick={() => {
+                    acceptAll();
+                    onConsentChange?.(true);
+                  }}
                   className="bg-blue-600 hover:bg-blue-700"
                 >
                   <CheckCircle className="w-4 h-4 mr-2" />
@@ -96,9 +56,20 @@ export const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange })
                 
                 <Button 
                   variant="outline" 
-                  onClick={handleDecline}
+                  onClick={() => {
+                    declineAll();
+                    onConsentChange?.(false);
+                  }}
                 >
                   Отклонить
+                </Button>
+                
+                <Button 
+                  variant="secondary" 
+                  onClick={() => setShowSettings(true)}
+                >
+                  <Settings className="w-4 h-4 mr-2" />
+                  Настроить
                 </Button>
                 
                 <Button 
@@ -106,7 +77,6 @@ export const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange })
                   size="sm"
                   onClick={() => setShowDetails(!showDetails)}
                 >
-                  <Settings className="w-4 h-4 mr-2" />
                   {showDetails ? 'Скрыть детали' : 'Подробнее'}
                 </Button>
               </div>
@@ -115,7 +85,10 @@ export const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange })
             <Button 
               variant="ghost" 
               size="sm"
-              onClick={handleDecline}
+              onClick={() => {
+                declineAll();
+                onConsentChange?.(false);
+              }}
               className="ml-4"
             >
               <X className="w-4 h-4" />
@@ -123,6 +96,11 @@ export const CookieConsent: React.FC<CookieConsentProps> = ({ onConsentChange })
           </div>
         </CardContent>
       </Card>
+      
+      <CookieSettings 
+        isOpen={showSettings} 
+        onClose={() => setShowSettings(false)} 
+      />
     </div>
   );
 }; 

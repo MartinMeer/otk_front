@@ -5,6 +5,8 @@ import { Switch } from '../ui/switch';
 import { Label } from '../ui/label';
 import { Separator } from '../ui/separator';
 import { useCookies } from '../../hooks/use-cookies';
+import { useCookieConsent } from '../../hooks/use-cookie-consent';
+import { COOKIE_DEFAULTS, COOKIE_NAMES, CONSENT_VALUES } from '../../config/cookieConfig';
 import { Settings, Save } from 'lucide-react';
 
 interface CookieSettingsProps {
@@ -14,6 +16,7 @@ interface CookieSettingsProps {
 
 export const CookieSettings: React.FC<CookieSettingsProps> = ({ isOpen, onClose }) => {
   const { setCookie, getCookie } = useCookies();
+  const { refreshConsent } = useCookieConsent();
   const [settings, setSettings] = useState({
     necessary: true, // Always true, can't be disabled
     analytics: false,
@@ -23,8 +26,8 @@ export const CookieSettings: React.FC<CookieSettingsProps> = ({ isOpen, onClose 
   useEffect(() => {
     if (isOpen) {
       // Load current settings
-      const analytics = getCookie('analytics_consent') === 'true';
-      const functional = getCookie('functional_consent') === 'true';
+      const analytics = getCookie(COOKIE_NAMES.ANALYTICS_CONSENT) === 'true';
+      const functional = getCookie(COOKIE_NAMES.FUNCTIONAL_CONSENT) === 'true';
       
       setSettings({
         necessary: true,
@@ -36,25 +39,16 @@ export const CookieSettings: React.FC<CookieSettingsProps> = ({ isOpen, onClose 
 
   const handleSave = () => {
     // Save analytics consent
-    setCookie('analytics_consent', settings.analytics ? 'true' : 'false', {
-      maxAge: 365 * 24 * 60 * 60,
-      path: '/',
-      sameSite: 'Lax'
-    });
+    setCookie(COOKIE_NAMES.ANALYTICS_CONSENT, settings.analytics ? 'true' : 'false', COOKIE_DEFAULTS);
 
     // Save functional consent
-    setCookie('functional_consent', settings.functional ? 'true' : 'false', {
-      maxAge: 365 * 24 * 60 * 60,
-      path: '/',
-      sameSite: 'Lax'
-    });
+    setCookie(COOKIE_NAMES.FUNCTIONAL_CONSENT, settings.functional ? 'true' : 'false', COOKIE_DEFAULTS);
 
     // Update main consent
-    setCookie('cookie_consent', 'custom', {
-      maxAge: 365 * 24 * 60 * 60,
-      path: '/',
-      sameSite: 'Lax'
-    });
+    setCookie(COOKIE_NAMES.CONSENT, CONSENT_VALUES.CUSTOM, COOKIE_DEFAULTS);
+
+    // Refresh global consent state immediately
+    refreshConsent();
 
     onClose();
   };

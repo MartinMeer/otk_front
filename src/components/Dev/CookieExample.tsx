@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useCookies } from '../../hooks/use-cookies';
+import { createCookieOptions } from '../../config/cookieConfig';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
@@ -15,11 +16,9 @@ export const CookieExample: React.FC = () => {
   const [currentValue, setCurrentValue] = useState<string | null>(null);
 
   const handleSetCookie = () => {
-    const success = setCookie(cookieName, cookieValue, {
-      maxAge: 3600, // 1 hour
-      path: '/',
-      sameSite: 'Lax'
-    });
+    const success = setCookie(cookieName, cookieValue, createCookieOptions({
+      maxAge: 3600 // 1 hour override for demo
+    }));
     
     if (success) {
       alert('Cookie set successfully!');

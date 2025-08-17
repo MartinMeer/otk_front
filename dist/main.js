@@ -1097,7 +1097,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect29(create2, deps) {
+          function useEffect28(create2, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create2, deps);
           }
@@ -1109,11 +1109,11 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useLayoutEffect(create2, deps);
           }
-          function useCallback11(callback, deps) {
+          function useCallback12(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
-          function useMemo8(create2, deps) {
+          function useMemo9(create2, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useMemo(create2, deps);
           }
@@ -1876,16 +1876,16 @@
           exports.memo = memo;
           exports.startTransition = startTransition;
           exports.unstable_act = act;
-          exports.useCallback = useCallback11;
+          exports.useCallback = useCallback12;
           exports.useContext = useContext4;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect29;
+          exports.useEffect = useEffect28;
           exports.useId = useId2;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect2;
           exports.useLayoutEffect = useLayoutEffect5;
-          exports.useMemo = useMemo8;
+          exports.useMemo = useMemo9;
           exports.useReducer = useReducer3;
           exports.useRef = useRef16;
           exports.useState = useState29;
@@ -28378,10 +28378,10 @@
   }
 
   // src/components/Layout/Footer.tsx
-  var import_react8 = __toESM(require_react());
+  var import_react9 = __toESM(require_react());
 
   // src/components/Layout/CookieSettings.tsx
-  var import_react7 = __toESM(require_react());
+  var import_react8 = __toESM(require_react());
 
   // src/components/ui/dialog.tsx
   var React27 = __toESM(require_react());
@@ -30754,13 +30754,26 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   // src/utils/cookies.ts
   var setCookie = (name, value, options = {}) => {
     let cookieString = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
-    if (options.maxAge) {
-      cookieString += `; max-age=${options.maxAge}`;
+    if (typeof options.maxAge === "number") {
+      cookieString += `; Max-Age=${Math.floor(options.maxAge)}`;
+    }
+    if (options.expires !== void 0) {
+      const expires = options.expires instanceof Date ? options.expires : typeof options.expires === "number" ? new Date(options.expires) : new Date(options.expires);
+      cookieString += `; Expires=${expires.toUTCString()}`;
     }
     if (options.path) {
-      cookieString += `; path=${options.path}`;
+      cookieString += `; Path=${options.path}`;
     } else {
-      cookieString += "; path=/";
+      cookieString += "; Path=/";
+    }
+    if (options.domain) {
+      cookieString += `; Domain=${options.domain}`;
+    }
+    if (options.sameSite) {
+      cookieString += `; SameSite=${options.sameSite}`;
+    }
+    if (options.secure) {
+      cookieString += "; Secure";
     }
     document.cookie = cookieString;
   };
@@ -30775,14 +30788,23 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     }
     return null;
   };
-  var deleteCookie = (name) => {
-    setCookie(name, "", { maxAge: 0 });
+  var deleteCookie = (name, options = {}) => {
+    setCookie(name, "", {
+      maxAge: 0,
+      expires: /* @__PURE__ */ new Date(0),
+      path: options.path ?? "/",
+      domain: options.domain
+    });
   };
   var areCookiesEnabled = () => {
+    if (typeof navigator !== "undefined" && typeof navigator.cookieEnabled === "boolean") {
+      return navigator.cookieEnabled;
+    }
     try {
-      setCookie("test", "test");
-      const enabled = getCookie("test") === "test";
-      deleteCookie("test");
+      const testName = "cookie_test__enabled";
+      setCookie(testName, "1", { path: "/" });
+      const enabled = getCookie(testName) === "1";
+      deleteCookie(testName, { path: "/" });
       return enabled;
     } catch {
       return false;
@@ -30827,7 +30849,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
         return false;
       }
       try {
-        deleteCookie(name, path);
+        deleteCookie(name, { path: path ?? "/" });
         return true;
       } catch (error) {
         onError?.(error);
@@ -30843,20 +30865,127 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     };
   };
 
+  // src/hooks/use-cookie-consent.ts
+  var import_react7 = __toESM(require_react());
+
+  // src/config/cookieConfig.ts
+  var COOKIE_DEFAULTS = {
+    maxAge: 365 * 24 * 60 * 60,
+    // 1 year in seconds
+    path: "/",
+    sameSite: "Lax"
+  };
+  var COOKIE_NAMES = {
+    CONSENT: "cookie_consent",
+    ANALYTICS_CONSENT: "analytics_consent",
+    FUNCTIONAL_CONSENT: "functional_consent"
+  };
+  var CONSENT_VALUES = {
+    ACCEPTED: "accepted",
+    DECLINED: "declined",
+    CUSTOM: "custom"
+  };
+
+  // src/hooks/use-cookie-consent.ts
+  var useCookieConsent = () => {
+    const { setCookie: setCookie2 } = useCookies();
+    const [isLoaded, setIsLoaded] = (0, import_react7.useState)(false);
+    const [consentState, setConsentState] = (0, import_react7.useState)({
+      hasConsented: false,
+      consentType: null,
+      analytics: false,
+      functional: false,
+      necessary: true
+    });
+    (0, import_react7.useEffect)(() => {
+      const consent = getCookie(COOKIE_NAMES.CONSENT);
+      const analytics = getCookie(COOKIE_NAMES.ANALYTICS_CONSENT) === "true";
+      const functional = getCookie(COOKIE_NAMES.FUNCTIONAL_CONSENT) === "true";
+      setConsentState({
+        hasConsented: !!consent,
+        consentType: consent || null,
+        analytics,
+        functional,
+        necessary: true
+      });
+      setIsLoaded(true);
+    }, []);
+    const loadConsentState = (0, import_react7.useCallback)(() => {
+      const consent = getCookie(COOKIE_NAMES.CONSENT);
+      const analytics = getCookie(COOKIE_NAMES.ANALYTICS_CONSENT) === "true";
+      const functional = getCookie(COOKIE_NAMES.FUNCTIONAL_CONSENT) === "true";
+      setConsentState({
+        hasConsented: !!consent,
+        consentType: consent || null,
+        analytics,
+        functional,
+        necessary: true
+      });
+    }, []);
+    const showBanner = (0, import_react7.useMemo)(() => {
+      return isLoaded && !consentState.consentType;
+    }, [isLoaded, consentState.consentType]);
+    const isAnalyticsAllowed = (0, import_react7.useMemo)(() => consentState.analytics, [consentState.analytics]);
+    const isFunctionalAllowed = (0, import_react7.useMemo)(() => consentState.functional, [consentState.functional]);
+    const acceptAll = () => {
+      setCookie2(COOKIE_NAMES.CONSENT, CONSENT_VALUES.ACCEPTED, COOKIE_DEFAULTS);
+      setCookie2(COOKIE_NAMES.ANALYTICS_CONSENT, "true", COOKIE_DEFAULTS);
+      setCookie2(COOKIE_NAMES.FUNCTIONAL_CONSENT, "true", COOKIE_DEFAULTS);
+      setConsentState({
+        hasConsented: true,
+        consentType: "accepted",
+        analytics: true,
+        functional: true,
+        necessary: true
+      });
+    };
+    const declineAll = () => {
+      setCookie2(COOKIE_NAMES.CONSENT, CONSENT_VALUES.DECLINED, COOKIE_DEFAULTS);
+      setCookie2(COOKIE_NAMES.ANALYTICS_CONSENT, "false", COOKIE_DEFAULTS);
+      setCookie2(COOKIE_NAMES.FUNCTIONAL_CONSENT, "false", COOKIE_DEFAULTS);
+      setConsentState({
+        hasConsented: true,
+        consentType: "declined",
+        analytics: false,
+        functional: false,
+        necessary: true
+      });
+    };
+    const updateSettings = (settings) => {
+      const newState = { ...consentState, ...settings };
+      setCookie2(COOKIE_NAMES.CONSENT, CONSENT_VALUES.CUSTOM, COOKIE_DEFAULTS);
+      setCookie2(COOKIE_NAMES.ANALYTICS_CONSENT, newState.analytics ? "true" : "false", COOKIE_DEFAULTS);
+      setCookie2(COOKIE_NAMES.FUNCTIONAL_CONSENT, newState.functional ? "true" : "false", COOKIE_DEFAULTS);
+      setConsentState(newState);
+    };
+    return {
+      consentState,
+      isLoaded,
+      showBanner,
+      isAnalyticsAllowed,
+      isFunctionalAllowed,
+      acceptAll,
+      declineAll,
+      updateSettings,
+      refreshConsent: loadConsentState
+    };
+  };
+
   // src/components/Layout/CookieSettings.tsx
   var import_jsx_runtime17 = __toESM(require_jsx_runtime());
   var CookieSettings = ({ isOpen, onClose }) => {
     const { setCookie: setCookie2, getCookie: getCookie2 } = useCookies();
-    const [settings, setSettings] = (0, import_react7.useState)({
+    const { refreshConsent } = useCookieConsent();
+    const [settings, setSettings] = (0, import_react8.useState)({
       necessary: true,
       // Always true, can't be disabled
       analytics: false,
       functional: false
     });
-    (0, import_react7.useEffect)(() => {
+    (0, import_react8.useEffect)(() => {
       if (isOpen) {
-        const analytics = getCookie2("analytics_consent") === "true";
-        const functional = getCookie2("functional_consent") === "true";
+        const analytics = getCookie2(COOKIE_NAMES.ANALYTICS_CONSENT) === "true";
+        const functional = getCookie2(COOKIE_NAMES.FUNCTIONAL_CONSENT) === "true";
         setSettings({
           necessary: true,
           analytics,
@@ -30865,21 +30994,10 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
       }
     }, [isOpen, getCookie2]);
     const handleSave = () => {
-      setCookie2("analytics_consent", settings.analytics ? "true" : "false", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
-      setCookie2("functional_consent", settings.functional ? "true" : "false", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
-      setCookie2("cookie_consent", "custom", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
+      setCookie2(COOKIE_NAMES.ANALYTICS_CONSENT, settings.analytics ? "true" : "false", COOKIE_DEFAULTS);
+      setCookie2(COOKIE_NAMES.FUNCTIONAL_CONSENT, settings.functional ? "true" : "false", COOKIE_DEFAULTS);
+      setCookie2(COOKIE_NAMES.CONSENT, CONSENT_VALUES.CUSTOM, COOKIE_DEFAULTS);
+      refreshConsent();
       onClose();
     };
     return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Dialog2, { open: isOpen, onOpenChange: onClose, children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(DialogContent2, { className: "max-w-md", children: [
@@ -30938,7 +31056,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   var import_jsx_runtime18 = __toESM(require_jsx_runtime());
   function Footer() {
     const currentYear = (/* @__PURE__ */ new Date()).getFullYear();
-    const [showCookieSettings, setShowCookieSettings] = (0, import_react8.useState)(false);
+    const [showCookieSettings, setShowCookieSettings] = (0, import_react9.useState)(false);
     return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(import_jsx_runtime18.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("footer", { className: "bg-gray-900 text-gray-300 py-8 mt-auto", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "container mx-auto px-4", children: [
         /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-6", children: [
@@ -30997,9 +31115,9 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   }
 
   // src/components/SEO/FaviconTags.tsx
-  var import_react9 = __toESM(require_react());
+  var import_react10 = __toESM(require_react());
   function FaviconTags() {
-    (0, import_react9.useEffect)(() => {
+    (0, import_react10.useEffect)(() => {
       const existingLinks = document.querySelectorAll('link[rel*="icon"], link[rel*="apple-touch-icon"], link[rel="manifest"]');
       existingLinks.forEach((link) => link.remove());
       const faviconLinks = [
@@ -31058,7 +31176,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   }
 
   // src/components/SEO/SEOMetaTags.tsx
-  var import_react10 = __toESM(require_react());
+  var import_react11 = __toESM(require_react());
   function SEOMetaTags({
     title = "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043D\u0442 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440\u0430 \u041E\u0422\u041A - \u041F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0435 \u0440\u0430\u0441\u0447\u0435\u0442\u044B \u0434\u043E\u043F\u0443\u0441\u043A\u043E\u0432 \u0438 \u043F\u043E\u0441\u0430\u0434\u043E\u043A",
     description = "\u041F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442 \u0434\u043B\u044F \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u0440\u043E\u0432 \u041E\u0422\u041A. \u0420\u0430\u0441\u0447\u0435\u0442\u044B \u043F\u043E \u041E\u0421\u0422 22, \u0413\u041E\u0421\u0422 25347-82, \u043C\u0435\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u0440\u0435\u0437\u044C\u0431\u044B \u0438 \u0444\u0430\u0441\u043E\u043A. \u0422\u043E\u0447\u043D\u044B\u0435 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0435 \u0432\u044B\u0447\u0438\u0441\u043B\u0435\u043D\u0438\u044F \u0441 \u043C\u0433\u043D\u043E\u0432\u0435\u043D\u043D\u044B\u043C\u0438 \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u0430\u043C\u0438.",
@@ -31069,7 +31187,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
     calculatorType,
     lastModified = (/* @__PURE__ */ new Date()).toISOString()
   }) {
-    (0, import_react10.useEffect)(() => {
+    (0, import_react11.useEffect)(() => {
       const metaSelectors = [
         'meta[name="description"]',
         'meta[name="keywords"]',
@@ -31341,7 +31459,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   }
 
   // src/components/Dev/SEODev.tsx
-  var import_react11 = __toESM(require_react());
+  var import_react12 = __toESM(require_react());
 
   // src/components/ui/badge.tsx
   var import_jsx_runtime19 = __toESM(require_jsx_runtime());
@@ -31576,8 +31694,8 @@ ${xmlEntries}
   // src/components/Dev/SEODev.tsx
   var import_jsx_runtime20 = __toESM(require_jsx_runtime());
   function SEODev() {
-    const [isVisible, setIsVisible] = (0, import_react11.useState)(false);
-    const [activeTab, setActiveTab] = (0, import_react11.useState)("seo");
+    const [isVisible, setIsVisible] = (0, import_react12.useState)(false);
+    const [activeTab, setActiveTab] = (0, import_react12.useState)("seo");
     if (!isVisible) {
       return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "fixed bottom-4 right-20 z-50", children: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
         Button,
@@ -31809,12 +31927,12 @@ ${xmlEntries}
   }
 
   // src/hooks/use-version.ts
-  var import_react12 = __toESM(require_react());
+  var import_react13 = __toESM(require_react());
   function useVersion() {
-    const [currentVersion, setCurrentVersion] = (0, import_react12.useState)(null);
-    const [latestVersion, setLatestVersion] = (0, import_react12.useState)(null);
-    const [isLoading, setIsLoading] = (0, import_react12.useState)(false);
-    const checkForUpdates = (0, import_react12.useCallback)(async () => {
+    const [currentVersion, setCurrentVersion] = (0, import_react13.useState)(null);
+    const [latestVersion, setLatestVersion] = (0, import_react13.useState)(null);
+    const [isLoading, setIsLoading] = (0, import_react13.useState)(false);
+    const checkForUpdates = (0, import_react13.useCallback)(async () => {
       setIsLoading(true);
       try {
         const response = await fetch("/version.json", {
@@ -31839,10 +31957,10 @@ ${xmlEntries}
         setIsLoading(false);
       }
     }, [currentVersion]);
-    const applyUpdate = (0, import_react12.useCallback)(() => {
+    const applyUpdate = (0, import_react13.useCallback)(() => {
       window.location.reload();
     }, []);
-    (0, import_react12.useEffect)(() => {
+    (0, import_react13.useEffect)(() => {
       const storedVersion = localStorage.getItem("app-version");
       if (storedVersion) {
         setCurrentVersion(storedVersion);
@@ -31851,7 +31969,7 @@ ${xmlEntries}
       const interval = setInterval(checkForUpdates, 5 * 60 * 1e3);
       return () => clearInterval(interval);
     }, [checkForUpdates]);
-    (0, import_react12.useEffect)(() => {
+    (0, import_react13.useEffect)(() => {
       if (latestVersion) {
         localStorage.setItem("app-version", latestVersion);
         setCurrentVersion(latestVersion);
@@ -31940,7 +32058,7 @@ ${xmlEntries}
   }
 
   // src/components/Layout/CookieConsent.tsx
-  var import_react13 = __toESM(require_react());
+  var import_react14 = __toESM(require_react());
 
   // src/components/ui/card.tsx
   var React38 = __toESM(require_react());
@@ -31999,213 +32117,105 @@ ${xmlEntries}
   // src/components/Layout/CookieConsent.tsx
   var import_jsx_runtime24 = __toESM(require_jsx_runtime());
   var CookieConsent = ({ onConsentChange }) => {
-    const { setCookie: setCookie2, getCookie: getCookie2 } = useCookies();
-    const [isVisible, setIsVisible] = (0, import_react13.useState)(false);
-    const [showDetails, setShowDetails] = (0, import_react13.useState)(false);
-    (0, import_react13.useEffect)(() => {
-      const consent = getCookie2("cookie_consent");
-      if (!consent) {
-        setIsVisible(true);
-      }
-    }, [getCookie2]);
-    const handleAccept = () => {
-      setCookie2("cookie_consent", "accepted", {
-        maxAge: 365 * 24 * 60 * 60,
-        // 1 year
-        path: "/",
-        sameSite: "Lax"
-      });
-      setCookie2("analytics_consent", "true", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
-      setIsVisible(false);
-      onConsentChange?.(true);
-    };
-    const handleDecline = () => {
-      setCookie2("cookie_consent", "declined", {
-        maxAge: 365 * 24 * 60 * 60,
-        // 1 year
-        path: "/",
-        sameSite: "Lax"
-      });
-      setCookie2("analytics_consent", "false", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
-      setIsVisible(false);
-      onConsentChange?.(false);
-    };
-    if (!isVisible) return null;
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "fixed bottom-0 left-0 right-0 z-50 p-4 bg-black/80 backdrop-blur-sm", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Card, { className: "max-w-4xl mx-auto", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(CardContent, { className: "p-6", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "flex items-start justify-between", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "flex-1", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h3", { className: "text-lg font-semibold text-gray-900 mb-2", children: "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435 \u0444\u0430\u0439\u043B\u043E\u0432 cookie" }),
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "text-gray-600 text-sm mb-4", children: "\u041C\u044B \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u043C \u0444\u0430\u0439\u043B\u044B cookie \u0434\u043B\u044F \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F \u0440\u0430\u0431\u043E\u0442\u044B \u0441\u0430\u0439\u0442\u0430, \u0430\u043D\u0430\u043B\u0438\u0437\u0430 \u0442\u0440\u0430\u0444\u0438\u043A\u0430 \u0438 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u0438 \u043A\u043E\u043D\u0442\u0435\u043D\u0442\u0430. \u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u044F \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0441\u0430\u0439\u0442, \u0432\u044B \u0441\u043E\u0433\u043B\u0430\u0448\u0430\u0435\u0442\u0435\u0441\u044C \u0441 \u043D\u0430\u0448\u0435\u0439 \u043F\u043E\u043B\u0438\u0442\u0438\u043A\u043E\u0439 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u044F \u0444\u0430\u0439\u043B\u043E\u0432 cookie." }),
-        showDetails && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "bg-gray-50 p-4 rounded-lg mb-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h4", { className: "font-medium text-gray-900 mb-2", children: "\u0422\u0438\u043F\u044B \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u043C\u044B\u0445 cookie:" }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("ul", { className: "text-sm text-gray-600 space-y-1", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("li", { children: [
-              "\u2022 ",
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("strong", { children: "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B\u0435:" }),
-              " \u0414\u043B\u044F \u0431\u0430\u0437\u043E\u0432\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u044B \u0441\u0430\u0439\u0442\u0430"
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("li", { children: [
-              "\u2022 ",
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("strong", { children: "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0435:" }),
-              " \u0414\u043B\u044F \u0430\u043D\u0430\u043B\u0438\u0437\u0430 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u044F \u0441\u0430\u0439\u0442\u0430"
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("li", { children: [
-              "\u2022 ",
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("strong", { children: "\u0424\u0443\u043D\u043A\u0446\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0435:" }),
-              " \u0414\u043B\u044F \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u044F \u0432\u0430\u0448\u0438\u0445 \u043D\u0430\u0441\u0442\u0440\u043E\u0435\u043A"
+    const { showBanner, isLoaded, acceptAll, declineAll } = useCookieConsent();
+    const [showDetails, setShowDetails] = (0, import_react14.useState)(false);
+    const [showSettings, setShowSettings] = (0, import_react14.useState)(false);
+    if (!isLoaded || !showBanner) return null;
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "fixed bottom-0 left-0 right-0 z-50 p-4 bg-black/80 backdrop-blur-sm", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Card, { className: "max-w-4xl mx-auto", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(CardContent, { className: "p-6", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "flex items-start justify-between", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "flex-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h3", { className: "text-lg font-semibold text-gray-900 mb-2", children: "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435 \u0444\u0430\u0439\u043B\u043E\u0432 cookie" }),
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "text-gray-600 text-sm mb-4", children: "\u041C\u044B \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u043C \u0444\u0430\u0439\u043B\u044B cookie \u0434\u043B\u044F \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044F \u0440\u0430\u0431\u043E\u0442\u044B \u0441\u0430\u0439\u0442\u0430, \u0430\u043D\u0430\u043B\u0438\u0437\u0430 \u0442\u0440\u0430\u0444\u0438\u043A\u0430 \u0438 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u0438 \u043A\u043E\u043D\u0442\u0435\u043D\u0442\u0430. \u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u044F \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0441\u0430\u0439\u0442, \u0432\u044B \u0441\u043E\u0433\u043B\u0430\u0448\u0430\u0435\u0442\u0435\u0441\u044C \u0441 \u043D\u0430\u0448\u0435\u0439 \u043F\u043E\u043B\u0438\u0442\u0438\u043A\u043E\u0439 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u044F \u0444\u0430\u0439\u043B\u043E\u0432 cookie." }),
+          showDetails && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "bg-gray-50 p-4 rounded-lg mb-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h4", { className: "font-medium text-gray-900 mb-2", children: "\u0422\u0438\u043F\u044B \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u043C\u044B\u0445 cookie:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("ul", { className: "text-sm text-gray-600 space-y-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("li", { children: [
+                "\u2022 ",
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("strong", { children: "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B\u0435:" }),
+                " \u0414\u043B\u044F \u0431\u0430\u0437\u043E\u0432\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u044B \u0441\u0430\u0439\u0442\u0430"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("li", { children: [
+                "\u2022 ",
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("strong", { children: "\u0410\u043D\u0430\u043B\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0435:" }),
+                " \u0414\u043B\u044F \u0430\u043D\u0430\u043B\u0438\u0437\u0430 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u044F \u0441\u0430\u0439\u0442\u0430"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("li", { children: [
+                "\u2022 ",
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("strong", { children: "\u0424\u0443\u043D\u043A\u0446\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0435:" }),
+                " \u0414\u043B\u044F \u0441\u043E\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u044F \u0432\u0430\u0448\u0438\u0445 \u043D\u0430\u0441\u0442\u0440\u043E\u0435\u043A"
+              ] })
             ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "flex flex-wrap gap-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
+              Button,
+              {
+                onClick: () => {
+                  acceptAll();
+                  onConsentChange?.(true);
+                },
+                className: "bg-blue-600 hover:bg-blue-700",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(CircleCheckBig, { className: "w-4 h-4 mr-2" }),
+                  "\u041F\u0440\u0438\u043D\u044F\u0442\u044C \u0432\u0441\u0435"
+                ]
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+              Button,
+              {
+                variant: "outline",
+                onClick: () => {
+                  declineAll();
+                  onConsentChange?.(false);
+                },
+                children: "\u041E\u0442\u043A\u043B\u043E\u043D\u0438\u0442\u044C"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
+              Button,
+              {
+                variant: "secondary",
+                onClick: () => setShowSettings(true),
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Settings, { className: "w-4 h-4 mr-2" }),
+                  "\u041D\u0430\u0441\u0442\u0440\u043E\u0438\u0442\u044C"
+                ]
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+              Button,
+              {
+                variant: "ghost",
+                size: "sm",
+                onClick: () => setShowDetails(!showDetails),
+                children: showDetails ? "\u0421\u043A\u0440\u044B\u0442\u044C \u0434\u0435\u0442\u0430\u043B\u0438" : "\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435"
+              }
+            )
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "flex flex-wrap gap-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
-            Button,
-            {
-              onClick: handleAccept,
-              className: "bg-blue-600 hover:bg-blue-700",
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(CircleCheckBig, { className: "w-4 h-4 mr-2" }),
-                "\u041F\u0440\u0438\u043D\u044F\u0442\u044C \u0432\u0441\u0435"
-              ]
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-            Button,
-            {
-              variant: "outline",
-              onClick: handleDecline,
-              children: "\u041E\u0442\u043A\u043B\u043E\u043D\u0438\u0442\u044C"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
-            Button,
-            {
-              variant: "ghost",
-              size: "sm",
-              onClick: () => setShowDetails(!showDetails),
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Settings, { className: "w-4 h-4 mr-2" }),
-                showDetails ? "\u0421\u043A\u0440\u044B\u0442\u044C \u0434\u0435\u0442\u0430\u043B\u0438" : "\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435"
-              ]
-            }
-          )
-        ] })
-      ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+          Button,
+          {
+            variant: "ghost",
+            size: "sm",
+            onClick: () => {
+              declineAll();
+              onConsentChange?.(false);
+            },
+            className: "ml-4",
+            children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(X, { className: "w-4 h-4" })
+          }
+        )
+      ] }) }) }),
       /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-        Button,
+        CookieSettings,
         {
-          variant: "ghost",
-          size: "sm",
-          onClick: handleDecline,
-          className: "ml-4",
-          children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(X, { className: "w-4 h-4" })
+          isOpen: showSettings,
+          onClose: () => setShowSettings(false)
         }
       )
-    ] }) }) }) });
-  };
-
-  // src/hooks/use-cookie-consent.ts
-  var import_react14 = __toESM(require_react());
-  var useCookieConsent = () => {
-    const { getCookie: getCookie2, setCookie: setCookie2 } = useCookies();
-    const [consentState, setConsentState] = (0, import_react14.useState)({
-      hasConsented: false,
-      consentType: null,
-      analytics: false,
-      functional: false,
-      necessary: true
-    });
-    (0, import_react14.useEffect)(() => {
-      const consent = getCookie2("cookie_consent");
-      const analytics = getCookie2("analytics_consent") === "true";
-      const functional = getCookie2("functional_consent") === "true";
-      setConsentState({
-        hasConsented: !!consent,
-        consentType: consent || null,
-        analytics,
-        functional,
-        necessary: true
-      });
-    }, [getCookie2]);
-    const acceptAll = () => {
-      setCookie2("cookie_consent", "accepted", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
-      setCookie2("analytics_consent", "true", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
-      setCookie2("functional_consent", "true", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
-      setConsentState({
-        hasConsented: true,
-        consentType: "accepted",
-        analytics: true,
-        functional: true,
-        necessary: true
-      });
-    };
-    const declineAll = () => {
-      setCookie2("cookie_consent", "declined", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
-      setCookie2("analytics_consent", "false", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
-      setCookie2("functional_consent", "false", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
-      setConsentState({
-        hasConsented: true,
-        consentType: "declined",
-        analytics: false,
-        functional: false,
-        necessary: true
-      });
-    };
-    const updateSettings = (settings) => {
-      const newState = { ...consentState, ...settings };
-      setCookie2("cookie_consent", "custom", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
-      setCookie2("analytics_consent", newState.analytics ? "true" : "false", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
-      setCookie2("functional_consent", newState.functional ? "true" : "false", {
-        maxAge: 365 * 24 * 60 * 60,
-        path: "/",
-        sameSite: "Lax"
-      });
-      setConsentState(newState);
-    };
-    return {
-      consentState,
-      acceptAll,
-      declineAll,
-      updateSettings
-    };
+    ] });
   };
 
   // src/pages/Home.tsx
@@ -37408,7 +37418,6 @@ ${xmlEntries}
           return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(Home, {});
       }
     };
-    const { consentState } = useCookieConsent();
     if (currentPage === "home") {
       return /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)(import_jsx_runtime46.Fragment, { children: [
         /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(FaviconTags, {}),

@@ -55,7 +55,8 @@ export const useCookies = (options: UseCookiesOptions = {}) => {
     }
 
     try {
-      deleteCookie(name, path);
+      // Ensure deletion matches default set path
+      deleteCookie(name, { path: path ?? '/' });
       return true;
     } catch (error) {
       onError?.(error as Error);

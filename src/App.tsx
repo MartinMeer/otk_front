@@ -13,9 +13,7 @@ import SEOMetaTags from './components/SEO/SEOMetaTags';
 import SEODev from './components/Dev/SEODev';
 import { UpdateNotification } from './components/UpdateNotification';
 import { getSEOConfig } from './utils/seoConfig';
-import { CookieBanner } from './components/Layout/CookieBanner';
 import { CookieConsent } from './components/Layout/CookieConsent';
-import { useCookieConsent } from './hooks/use-cookie-consent';
 
 // Page components
 import HomePage from './pages/Home';
@@ -152,7 +150,7 @@ export default function App() {
 
   
 
-  const { consentState } = useCookieConsent();
+  // Cookie consent handled by <CookieConsent /> and banner visibility
 
   // For home page, render it directly (it includes its own Header/Footer)
   if (currentPage === 'home') {
