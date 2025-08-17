@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { Calculator, Download, FileText, X } from 'lucide-react';
 import { EsdpResponce } from '../types';
 import AdPlacement from '../components/Ads/AdPlacement';
@@ -23,6 +24,94 @@ export default function EsdpCalculator() {
       ? null
       : 'Размер должен быть числом. Используйте точку для дробных чисел: 0.01';
   };
+  type ElementType = 'hole' | 'shaft';
+  const [elementType, setElementType] = useState<ElementType>('hole');
+  const [fundamental, setFundamental] = useState<string>('');
+  const [grade, setGrade] = useState<string>('');
+
+  // FundamentalTolerance -> available grades
+  const HOLE_TOLERANCE_TO_GRADES: Record<string, string[]> = {
+    A: ['9','10','11','12','13'],
+    B: ['8','9','10','11','12','13'],
+    C: ['8','9','10','11','12','13'],
+    CD: ['6','7','8','9','10'],
+    D: ['6','7','8','9','10','11','12','13'],
+    E: ['5','6','7','8','9','10'],
+    EF: ['3','4','5','6','7','8','9','10'],
+    F: ['3','4','5','6','7','8','9','10'],
+    FG: ['3','4','5','6','7','8','9','10'],
+    G: ['3','4','5','6','7','8','9','10'],
+    H: ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18'],
+    J: ['6','7','8'],
+    JS: ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18'],
+    K: ['3','4','5','6','7','8','9','10'],
+    M: ['3','4','5','6','7','8','9','10'],
+    N: ['3','4','5','6','7','8','9','10','11'],
+    P: ['3','4','5','6','7','8','9','10'],
+    R: ['3','4','5','6','7','8','9','10'],
+    S: ['3','4','5','6','7','8','9','10'],
+    T: ['5','6','7','8'],
+    U: ['5','6','7','8','9','10'],
+    V: ['5','6','7','8'],
+    X: ['5','6','7','8','9','10'],
+    Y: ['6','7','8','9','10'],
+    Z: ['6','7','8','9','10','11'],
+    ZA: ['6','7','8','9','10','11'],
+    ZB: ['7','8','9','10','11'],
+    ZC: ['7','8','9','10','11'],
+  };
+  const SHAFT_TOLERANCE_TO_GRADES: Record<string, string[]> = {
+    a: ['9','10','11','12','13'],
+    b: ['8','9','10','11','12','13'],
+    c: ['8','9','10','11','12'],
+    cd: ['5','6','7','8','9','10'],
+    d: ['5','6','7','8','9','10','11','12','13'],
+    e: ['5','6','7','8','9','10'],
+    ef: ['3','4','5','6','7','8','9','10'],
+    f: ['3','4','5','6','7','8','9','10'],
+    fg: ['3','4','5','6','7','8','9','10'],
+    g: ['3','4','5','6','7','8','9','10'],
+    h: ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18'],
+    j: ['5','6','7','8'],
+    js: ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18'],
+    k: ['3','4','5','6','7','8','9','10','11','12','13'],
+    m: ['3','4','5','6','7','8','9'],
+    n: ['3','4','5','6','7','8','9'],
+    p: ['3','4','5','6','7','8','9','10'],
+    r: ['3','4','5','6','7','8','9','10'],
+    s: ['3','4','5','6','7','8','9','10'],
+    t: ['5','6','7','8'],
+    u: ['5','6','7','8','9'],
+    v: ['5','6','7','8'],
+    x: ['5','6','7','8','9','10'],
+    y: ['6','7','8','9','10'],
+    za: ['6','7','8','9','10','11'],
+    zb: ['7','8','9','10','11'],
+    zc: ['7','8','9','10','11'],
+    z: ['6','7','8','9','10','11'],
+  };
+
+  const fundamentalsForType = elementType === 'hole'
+    ? Object.keys(HOLE_TOLERANCE_TO_GRADES)
+    : Object.keys(SHAFT_TOLERANCE_TO_GRADES);
+
+  const gradesForSelected = () => {
+    if (!fundamental) return [] as string[];
+    const map = elementType === 'hole' ? HOLE_TOLERANCE_TO_GRADES : SHAFT_TOLERANCE_TO_GRADES;
+    return map[fundamental] || [];
+  };
+
+  useEffect(() => {
+    setFundamental('');
+    setGrade('');
+  }, [elementType]);
+  useEffect(() => {
+    setGrade('');
+  }, [fundamental]);
+
+  const suggestion = size && !sizeError && fundamental && grade
+    ? `${size}${fundamental}${grade}`
+    : '';
   const [result, setResult] = useState<EsdpResponce | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
   const [showMobileAd, setShowMobileAd] = useState(true);
@@ -38,11 +127,11 @@ export default function EsdpCalculator() {
   }, [updateContext]);
 
   const calculateTolerance = async () => {
-    if (!size) return;
+    if (!suggestion) return;
     
     setIsCalculating(true);
     try {
-      const resp = await ApiService.processEsdp(size);
+      const resp = await ApiService.processEsdp(suggestion);
       
       const calculationResult: EsdpResponce = {
         upper_deviance: resp.upper_deviance,
@@ -84,7 +173,20 @@ export default function EsdpCalculator() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="size">Введите номинальный размер (мм) </Label>
+                  <Label htmlFor="element-type">Выберите тип элемента</Label>
+                  <Select value={elementType} onValueChange={(v: string) => setElementType(v as ElementType)}>
+                    <SelectTrigger id="element-type">
+                      <SelectValue placeholder="Выберите тип элемента" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="hole">Отверстие</SelectItem>
+                      <SelectItem value="shaft">Вал</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="size">Введите размер с чертежа (мм) </Label>
                   <Input
                     id="size"
                     type="text"
@@ -106,25 +208,44 @@ export default function EsdpCalculator() {
                   )}
                 </div>
 
-                {/*<div className="space-y-2">
-                  <Label htmlFor="tolerance">Обозначение поля допуска</Label>
-                  <Input
-                    id="tolerance"
-                    type="text"
-                    value={tolerance}
-                    onChange={(e) => setTolerance(e.target.value)}
-                    placeholder="Например: H7, h6, F8"
-                    className="text-lg"
-                  />
-                  <div className="text-xs text-gray-500">
-                    Примеры: H6, H7, h6, h7, f7, g6, k6, n6, p6, r6, s6
-                  </div>
-                </div>*/}
+                <div className="space-y-2">
+                  <Label htmlFor="fundamental">Основное отклонение</Label>
+                  <Select value={fundamental} onValueChange={(v: string) => setFundamental(v)}>
+                    <SelectTrigger id="fundamental">
+                      <SelectValue placeholder="Выберите основное отклонение" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {fundamentalsForType.map((code) => (
+                        <SelectItem key={code} value={code}>{code}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="grade">Квалитет (IT)</Label>
+                  <Select value={grade} onValueChange={(v: string) => setGrade(v)} disabled={!fundamental}>
+                    <SelectTrigger id="grade">
+                      <SelectValue placeholder={fundamental ? 'Выберите квалитет' : 'Сначала выберите основное отклонение'} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {gradesForSelected().map((g) => (
+                        <SelectItem key={g} value={g}>{g}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-1">
+                  <Label>Строка для расчета</Label>
+                  <div className="text-lg font-bold min-h-6">{suggestion || '—'}</div>
+                  <div className="text-xs text-gray-500">Проверка строки выполняется на сервере.</div>
+                </div>
 
                 <Button 
                   onClick={calculateTolerance} 
                   className="w-full bg-blue-600 hover:bg-blue-700"
-                  disabled={!size || isCalculating}
+                  disabled={!suggestion || isCalculating}
                 >
                   {isCalculating ? 'Расчет...' : 'Рассчитать'}
                 </Button>
@@ -224,37 +345,79 @@ export default function EsdpCalculator() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="size-mobile">Веедите номинальный размер (мм)</Label>
-                <Input
-                  id="size-mobile"
-                  type="number"
-                  step="0.001"
-                  value={size}
-                  onChange={(e) => setSize(e.target.value)}
-                  placeholder="Например: 18.123H7"
-                  className="text-lg"
-                />
+                <Label htmlFor="element-type-mobile">Выберите тип элемента</Label>
+                <Select value={elementType} onValueChange={(v: string) => setElementType(v as ElementType)}>
+                  <SelectTrigger id="element-type-mobile">
+                    <SelectValue placeholder="Выберите тип элемента" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="hole">Отверстие</SelectItem>
+                    <SelectItem value="shaft">Вал</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
-              {/*<div className="space-y-2">
-                <Label htmlFor="tolerance-mobile">Обозначение поля допуска</Label>
+              <div className="space-y-2">
+                <Label htmlFor="size-mobile">Введите размер с чертежа (мм)</Label>
                 <Input
-                  id="tolerance-mobile"
+                  id="size-mobile"
                   type="text"
-                  value={tolerance}
-                  onChange={(e) => setTolerance(e.target.value)}
-                  placeholder="Например: H7, h6, F8"
+                  inputMode="numeric"
+                  pattern="^\\d+(\\.\\d+)?$"
+                  step="0.001"
+                  value={size}
+                  onChange={(e) => {
+                    const v = e.target.value.trim();
+                    setSize(v);
+                    setSizeError(validateSize(v));
+                  }}
+                  placeholder="Например: 10.5"
                   className="text-lg"
+                  aria-invalid={!!sizeError}
                 />
-                <div className="text-xs text-gray-500">
-                  Примеры: H6, H7, h6, h7, f7, g6, k6, n6, p6, r6, s6
-                </div>
-              </div>*/}
+                {sizeError && (
+                  <div className="text-sm text-red-600">{sizeError}</div>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="fundamental-mobile">Основное отклонение</Label>
+                <Select value={fundamental} onValueChange={(v: string) => setFundamental(v)}>
+                  <SelectTrigger id="fundamental-mobile">
+                    <SelectValue placeholder="Выберите основное отклонение" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {fundamentalsForType.map((code) => (
+                      <SelectItem key={code} value={code}>{code}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="grade-mobile">Квалитет (IT)</Label>
+                <Select value={grade} onValueChange={(v: string) => setGrade(v)} disabled={!fundamental}>
+                  <SelectTrigger id="grade-mobile">
+                    <SelectValue placeholder={fundamental ? 'Выберите квалитет' : 'Сначала выберите основное отклонение'} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {gradesForSelected().map((g) => (
+                      <SelectItem key={g} value={g}>{g}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-1">
+                <Label>Строка для расчета</Label>
+                <div className="text-lg font-bold min-h-6">{suggestion || '—'}</div>
+                <div className="text-xs text-gray-500">Проверка строки выполняется на сервере.</div>
+              </div>
 
               <Button 
                 onClick={calculateTolerance} 
                 className="w-full bg-blue-600 hover:bg-blue-700"
-                disabled={!size || isCalculating}
+                disabled={!suggestion || isCalculating}
               >
                 {isCalculating ? 'Расчет...' : 'Рассчитать'}
               </Button>

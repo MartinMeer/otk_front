@@ -1,57 +1,23 @@
-a
-b
-c
-cd
-d
-e
-ef
-f
-fg
-g
-h
-js
-j
-k
-m
-n
-p
-r
-s
-t
-u
-v
-x
-y
-z
-za
-zb
-zc
+Let's implement the FundamentalTolerance and IT selector in input section:
 
-A
-B
-C
-CD
-D
-E
-EF
-F
-FG
-G
-H
-JS
-J
-K
-M
-N
-P
-R
-S
-T
-U
-V
-X
-Y
-Z
-ZA
-ZB
-ZC
+
+(line 1) Hole/Shaft selector (Title: Выберите тип элемента)
+(line 2) size input field, FundamentalTolerance selector,  Grade selector (Title: Введите размер с чертежа)
+(line 3) Suggestion field, Рассчитать button
+User flow: 
+    user select a type of element (hole or shaft)
+    -> input nominal size in decimal #.###
+    -> select a FundamentalTolerance (e.g. 'A')
+    -> select a Grade available for concrete FundamentalTolerance (e.g. '6')
+Simultaneosily in Suggestion field must appear a result input string (bold font) for user's approving
+
+I append a file with FundamentalTolerances and corresponded grades, for holes and shafts.
+
+The validation of size input: as inplemented on Ost22Calculator.
+The validation of whole result string must be on backend side.
+The result string go to backend
+
+The result section still as implemented
+
+
+

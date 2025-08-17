@@ -36983,6 +36983,83 @@ ${xmlEntries}
       if (!v) return null;
       return /^\d+(\.\d+)?$/.test(v) ? null : "\u0420\u0430\u0437\u043C\u0435\u0440 \u0434\u043E\u043B\u0436\u0435\u043D \u0431\u044B\u0442\u044C \u0447\u0438\u0441\u043B\u043E\u043C. \u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u0442\u043E\u0447\u043A\u0443 \u0434\u043B\u044F \u0434\u0440\u043E\u0431\u043D\u044B\u0445 \u0447\u0438\u0441\u0435\u043B: 0.01";
     };
+    const [elementType, setElementType] = (0, import_react24.useState)("hole");
+    const [fundamental, setFundamental] = (0, import_react24.useState)("");
+    const [grade, setGrade] = (0, import_react24.useState)("");
+    const HOLE_TOLERANCE_TO_GRADES = {
+      A: ["9", "10", "11", "12", "13"],
+      B: ["8", "9", "10", "11", "12", "13"],
+      C: ["8", "9", "10", "11", "12", "13"],
+      CD: ["6", "7", "8", "9", "10"],
+      D: ["6", "7", "8", "9", "10", "11", "12", "13"],
+      E: ["5", "6", "7", "8", "9", "10"],
+      EF: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      F: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      FG: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      G: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      H: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"],
+      J: ["6", "7", "8"],
+      JS: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"],
+      K: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      M: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      N: ["3", "4", "5", "6", "7", "8", "9", "10", "11"],
+      P: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      R: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      S: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      T: ["5", "6", "7", "8"],
+      U: ["5", "6", "7", "8", "9", "10"],
+      V: ["5", "6", "7", "8"],
+      X: ["5", "6", "7", "8", "9", "10"],
+      Y: ["6", "7", "8", "9", "10"],
+      Z: ["6", "7", "8", "9", "10", "11"],
+      ZA: ["6", "7", "8", "9", "10", "11"],
+      ZB: ["7", "8", "9", "10", "11"],
+      ZC: ["7", "8", "9", "10", "11"]
+    };
+    const SHAFT_TOLERANCE_TO_GRADES = {
+      a: ["9", "10", "11", "12", "13"],
+      b: ["8", "9", "10", "11", "12", "13"],
+      c: ["8", "9", "10", "11", "12"],
+      cd: ["5", "6", "7", "8", "9", "10"],
+      d: ["5", "6", "7", "8", "9", "10", "11", "12", "13"],
+      e: ["5", "6", "7", "8", "9", "10"],
+      ef: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      f: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      fg: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      g: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      h: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"],
+      j: ["5", "6", "7", "8"],
+      js: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"],
+      k: ["3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"],
+      m: ["3", "4", "5", "6", "7", "8", "9"],
+      n: ["3", "4", "5", "6", "7", "8", "9"],
+      p: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      r: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      s: ["3", "4", "5", "6", "7", "8", "9", "10"],
+      t: ["5", "6", "7", "8"],
+      u: ["5", "6", "7", "8", "9"],
+      v: ["5", "6", "7", "8"],
+      x: ["5", "6", "7", "8", "9", "10"],
+      y: ["6", "7", "8", "9", "10"],
+      za: ["6", "7", "8", "9", "10", "11"],
+      zb: ["7", "8", "9", "10", "11"],
+      zc: ["7", "8", "9", "10", "11"],
+      z: ["6", "7", "8", "9", "10", "11"]
+    };
+    const fundamentalsForType = elementType === "hole" ? Object.keys(HOLE_TOLERANCE_TO_GRADES) : Object.keys(SHAFT_TOLERANCE_TO_GRADES);
+    const gradesForSelected = () => {
+      if (!fundamental) return [];
+      const map = elementType === "hole" ? HOLE_TOLERANCE_TO_GRADES : SHAFT_TOLERANCE_TO_GRADES;
+      return map[fundamental] || [];
+    };
+    (0, import_react24.useEffect)(() => {
+      setFundamental("");
+      setGrade("");
+    }, [elementType]);
+    (0, import_react24.useEffect)(() => {
+      setGrade("");
+    }, [fundamental]);
+    const suggestion = size4 && !sizeError && fundamental && grade ? `${size4}${fundamental}${grade}` : "";
     const [result, setResult] = (0, import_react24.useState)(null);
     const [isCalculating, setIsCalculating] = (0, import_react24.useState)(false);
     const [showMobileAd, setShowMobileAd] = (0, import_react24.useState)(true);
@@ -36994,10 +37071,10 @@ ${xmlEntries}
       });
     }, [updateContext]);
     const calculateTolerance = async () => {
-      if (!size4) return;
+      if (!suggestion) return;
       setIsCalculating(true);
       try {
-        const resp = await ApiService.processEsdp(size4);
+        const resp = await ApiService.processEsdp(suggestion);
         const calculationResult = {
           upper_deviance: resp.upper_deviance,
           lower_deviance: resp.lower_deviance,
@@ -37026,7 +37103,17 @@ ${xmlEntries}
               ] }) }),
               /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(CardContent, { className: "space-y-4", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "space-y-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Label2, { htmlFor: "size", children: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u043E\u043C\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 (\u043C\u043C) " }),
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Label2, { htmlFor: "element-type", children: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(Select2, { value: elementType, onValueChange: (v) => setElementType(v), children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectTrigger2, { id: "element-type", children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectValue2, { placeholder: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(SelectContent2, { children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectItem2, { value: "hole", children: "\u041E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectItem2, { value: "shaft", children: "\u0412\u0430\u043B" })
+                    ] })
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "space-y-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Label2, { htmlFor: "size", children: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0440\u0430\u0437\u043C\u0435\u0440 \u0441 \u0447\u0435\u0440\u0442\u0435\u0436\u0430 (\u043C\u043C) " }),
                   /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
                     Input,
                     {
@@ -37048,12 +37135,31 @@ ${xmlEntries}
                   ),
                   sizeError && /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-sm text-red-600", children: sizeError })
                 ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "space-y-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Label2, { htmlFor: "fundamental", children: "\u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(Select2, { value: fundamental, onValueChange: (v) => setFundamental(v), children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectTrigger2, { id: "fundamental", children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectValue2, { placeholder: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectContent2, { children: fundamentalsForType.map((code) => /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectItem2, { value: code, children: code }, code)) })
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "space-y-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Label2, { htmlFor: "grade", children: "\u041A\u0432\u0430\u043B\u0438\u0442\u0435\u0442 (IT)" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(Select2, { value: grade, onValueChange: (v) => setGrade(v), disabled: !fundamental, children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectTrigger2, { id: "grade", children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectValue2, { placeholder: fundamental ? "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043A\u0432\u0430\u043B\u0438\u0442\u0435\u0442" : "\u0421\u043D\u0430\u0447\u0430\u043B\u0430 \u0432\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectContent2, { children: gradesForSelected().map((g) => /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectItem2, { value: g, children: g }, g)) })
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "space-y-1", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Label2, { children: "\u0421\u0442\u0440\u043E\u043A\u0430 \u0434\u043B\u044F \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-lg font-bold min-h-6", children: suggestion || "\u2014" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-xs text-gray-500", children: "\u041F\u0440\u043E\u0432\u0435\u0440\u043A\u0430 \u0441\u0442\u0440\u043E\u043A\u0438 \u0432\u044B\u043F\u043E\u043B\u043D\u044F\u0435\u0442\u0441\u044F \u043D\u0430 \u0441\u0435\u0440\u0432\u0435\u0440\u0435." })
+                ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
                   Button,
                   {
                     onClick: calculateTolerance,
                     className: "w-full bg-blue-600 hover:bg-blue-700",
-                    disabled: !size4 || isCalculating,
+                    disabled: !suggestion || isCalculating,
                     children: isCalculating ? "\u0420\u0430\u0441\u0447\u0435\u0442..." : "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C"
                   }
                 )
@@ -37122,26 +37228,63 @@ ${xmlEntries}
             ] }) }),
             /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(CardContent, { className: "space-y-4", children: [
               /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "space-y-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Label2, { htmlFor: "size-mobile", children: "\u0412\u0435\u0435\u0434\u0438\u0442\u0435 \u043D\u043E\u043C\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0440\u0430\u0437\u043C\u0435\u0440 (\u043C\u043C)" }),
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Label2, { htmlFor: "element-type-mobile", children: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }),
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(Select2, { value: elementType, onValueChange: (v) => setElementType(v), children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectTrigger2, { id: "element-type-mobile", children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectValue2, { placeholder: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0438\u043F \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(SelectContent2, { children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectItem2, { value: "hole", children: "\u041E\u0442\u0432\u0435\u0440\u0441\u0442\u0438\u0435" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectItem2, { value: "shaft", children: "\u0412\u0430\u043B" })
+                  ] })
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Label2, { htmlFor: "size-mobile", children: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0440\u0430\u0437\u043C\u0435\u0440 \u0441 \u0447\u0435\u0440\u0442\u0435\u0436\u0430 (\u043C\u043C)" }),
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
                   Input,
                   {
                     id: "size-mobile",
-                    type: "number",
+                    type: "text",
+                    inputMode: "numeric",
+                    pattern: "^\\\\d+(\\\\.\\\\d+)?$",
                     step: "0.001",
                     value: size4,
-                    onChange: (e) => setSize(e.target.value),
-                    placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 18.123H7",
-                    className: "text-lg"
+                    onChange: (e) => {
+                      const v = e.target.value.trim();
+                      setSize(v);
+                      setSizeError(validateSize(v));
+                    },
+                    placeholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: 10.5",
+                    className: "text-lg",
+                    "aria-invalid": !!sizeError
                   }
-                )
+                ),
+                sizeError && /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-sm text-red-600", children: sizeError })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Label2, { htmlFor: "fundamental-mobile", children: "\u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }),
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(Select2, { value: fundamental, onValueChange: (v) => setFundamental(v), children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectTrigger2, { id: "fundamental-mobile", children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectValue2, { placeholder: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectContent2, { children: fundamentalsForType.map((code) => /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectItem2, { value: code, children: code }, code)) })
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Label2, { htmlFor: "grade-mobile", children: "\u041A\u0432\u0430\u043B\u0438\u0442\u0435\u0442 (IT)" }),
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)(Select2, { value: grade, onValueChange: (v) => setGrade(v), disabled: !fundamental, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectTrigger2, { id: "grade-mobile", children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectValue2, { placeholder: fundamental ? "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043A\u0432\u0430\u043B\u0438\u0442\u0435\u0442" : "\u0421\u043D\u0430\u0447\u0430\u043B\u0430 \u0432\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0435 \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectContent2, { children: gradesForSelected().map((g) => /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(SelectItem2, { value: g, children: g }, g)) })
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "space-y-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Label2, { children: "\u0421\u0442\u0440\u043E\u043A\u0430 \u0434\u043B\u044F \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }),
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-lg font-bold min-h-6", children: suggestion || "\u2014" }),
+                /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-xs text-gray-500", children: "\u041F\u0440\u043E\u0432\u0435\u0440\u043A\u0430 \u0441\u0442\u0440\u043E\u043A\u0438 \u0432\u044B\u043F\u043E\u043B\u043D\u044F\u0435\u0442\u0441\u044F \u043D\u0430 \u0441\u0435\u0440\u0432\u0435\u0440\u0435." })
               ] }),
               /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
                 Button,
                 {
                   onClick: calculateTolerance,
                   className: "w-full bg-blue-600 hover:bg-blue-700",
-                  disabled: !size4 || isCalculating,
+                  disabled: !suggestion || isCalculating,
                   children: isCalculating ? "\u0420\u0430\u0441\u0447\u0435\u0442..." : "\u0420\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044C"
                 }
               )
