@@ -37151,8 +37151,7 @@ ${xmlEntries}
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "space-y-1", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(Label2, { children: "\u0421\u0442\u0440\u043E\u043A\u0430 \u0434\u043B\u044F \u0440\u0430\u0441\u0447\u0435\u0442\u0430" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-lg font-bold min-h-6", children: suggestion || "\u2014" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-xs text-gray-500", children: "\u041F\u0440\u043E\u0432\u0435\u0440\u043A\u0430 \u0441\u0442\u0440\u043E\u043A\u0438 \u0432\u044B\u043F\u043E\u043B\u043D\u044F\u0435\u0442\u0441\u044F \u043D\u0430 \u0441\u0435\u0440\u0432\u0435\u0440\u0435." })
+                  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "text-lg font-bold min-h-6", children: suggestion || "\u2014" })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(
                   Button,

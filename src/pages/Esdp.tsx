@@ -239,7 +239,7 @@ export default function EsdpCalculator() {
                 <div className="space-y-1">
                   <Label>Строка для расчета</Label>
                   <div className="text-lg font-bold min-h-6">{suggestion || '—'}</div>
-                  <div className="text-xs text-gray-500">Проверка строки выполняется на сервере.</div>
+                  {/*<div className="text-xs text-gray-500">Проверка строки выполняется на сервере.</div>*/}
                 </div>
 
                 <Button 
