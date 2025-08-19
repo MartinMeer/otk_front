@@ -1,0 +1,106 @@
+openapi: 3.0.3
+info:
+  title: OTK API
+  version: 0.1.0
+  description: Minimal OpenAPI spec for existing calculation endpoints.
+servers:
+  - url: https://api.otk-help.martinmeer.com
+tags:
+  - name: Calculations
+    description: Calculation endpoints
+paths:
+  /ost22:
+    post:
+      tags:
+        - Calculations
+      summary: Calculate OST22 values
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiRequest'
+            examples:
+              sample:
+                value:
+                  inputString: "M10x1.5 6H"
+      responses:
+        '200':
+          description: Successful calculation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalculationResponse'
+              examples:
+                sample:
+                  value:
+                    upper_deviance: "0.020"
+                    lower_deviance: "-0.010"
+                    max_mes_value: "10.015"
+                    min_mes_value: "9.995"
+        '400':
+          description: Bad request
+        '500':
+          description: Server error
+  /esdp:
+    post:
+      tags:
+        - Calculations
+      summary: Calculate ESDP values
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiRequest'
+            examples:
+              sample:
+                value:
+                  inputString: "12 6h"
+      responses:
+        '200':
+          description: Successful calculation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalculationResponse'
+              examples:
+                sample:
+                  value:
+                    upper_deviance: "0.012"
+                    lower_deviance: "-0.006"
+                    max_mes_value: "12.008"
+                    min_mes_value: "11.996"
+        '400':
+          description: Bad request
+        '500':
+          description: Server error
+components:
+  schemas:
+    ApiRequest:
+      type: object
+      required:
+        - inputString
+      properties:
+        inputString:
+          type: string
+          description: Free-form input string as expected by the backend parser
+      additionalProperties: false
+    CalculationResponse:
+      type: object
+      required:
+        - upper_deviance
+        - lower_deviance
+        - max_mes_value
+        - min_mes_value
+      properties:
+        upper_deviance:
+          type: string
+        lower_deviance:
+          type: string
+        max_mes_value:
+          type: string
+        min_mes_value:
+          type: string
+      additionalProperties: false
+
