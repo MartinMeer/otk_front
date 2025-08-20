@@ -47,7 +47,7 @@ export default function OST22Calculator() {
       const calculationResult: Ost22Responce = {
         upper_deviance: upperDev,
         lower_deviance: lowerDev,
-        max_mes_value: min_mes_value,
+        max_mes_value: max_mes_value,
         min_mes_value: min_mes_value
       };
       setResult(calculationResult);
