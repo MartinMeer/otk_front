@@ -1,19 +1,23 @@
-openapi: 3.0.3
+openapi: 3.0.4
 info:
   title: OTK API
   version: 0.1.0
   description: Minimal OpenAPI spec for existing calculation endpoints.
 servers:
   - url: https://api.otk-help.martinmeer.com
+  - url: http://localhost
 tags:
-  - name: Calculations
-    description: Calculation endpoints
+  - name: OST22 deviations calc
+    description: OST22Calculator endpoints
+  - name: Esdp deviations calc
+    description: esdp endpoints
+
 paths:
   /ost22:
     post:
       tags:
-        - Calculations
-      summary: Calculate OST22 values
+        - OST22 deviations calc
+      summary: Calculate OST22 deviations & measuring sizes
       requestBody:
         required: true
         content:
@@ -23,21 +27,21 @@ paths:
             examples:
               sample:
                 value:
-                  inputString: "M10x1.5 6H"
+                  inputString: "quasi_hole:42.111"
       responses:
         '200':
           description: Successful calculation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CalculationResponse'
+                $ref: '#/components/schemas/Ost22AndEsdpResponse'  
               examples:
                 sample:
                   value:
-                    upper_deviance: "0.020"
-                    lower_deviance: "-0.010"
-                    max_mes_value: "10.015"
-                    min_mes_value: "9.995"
+                    upper_deviance: "0.620"
+                    lower_deviance: "0"
+                    max_mes_value: "42.731"
+                    min_mes_value: "42.111"
         '400':
           description: Bad request
         '500':
@@ -45,8 +49,8 @@ paths:
   /esdp:
     post:
       tags:
-        - Calculations
-      summary: Calculate ESDP values
+        - Esdp deviations calc
+      summary: Calculate ESDP deviations & measuring sizes
       requestBody:
         required: true
         content:
@@ -56,21 +60,21 @@ paths:
             examples:
               sample:
                 value:
-                  inputString: "12 6h"
+                  inputString: "shaft:42.111:6:j"
       responses:
         '200':
           description: Successful calculation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CalculationResponse'
+                $ref: '#/components/schemas/Ost22AndEsdpResponse'
               examples:
                 sample:
                   value:
-                    upper_deviance: "0.012"
-                    lower_deviance: "-0.006"
-                    max_mes_value: "12.008"
-                    min_mes_value: "11.996"
+                    upper_deviance: "0.011"
+                    lower_deviance: "-0.005"
+                    max_mes_value: "42.116"
+                    min_mes_value: "42.106"
         '400':
           description: Bad request
         '500':
@@ -84,9 +88,9 @@ components:
       properties:
         inputString:
           type: string
-          description: Free-form input string as expected by the backend parser
+          description: Combined input string as expected by the backend parser
       additionalProperties: false
-    CalculationResponse:
+    Ost22AndEsdpResponse:
       type: object
       required:
         - upper_deviance
