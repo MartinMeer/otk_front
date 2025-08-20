@@ -15,6 +15,7 @@ tags:
 paths:
   /ost22:
     post:
+      operationId: calculateOst22
       tags:
         - OST22 deviations calc
       summary: Calculate OST22 deviations & measuring sizes
@@ -25,7 +26,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ApiRequest'
             examples:
-              sample:
+              numericSizeOnly:
                 value:
                   inputString: "quasi_hole:42.111"
       responses:
@@ -48,6 +49,7 @@ paths:
           description: Server error
   /esdp:
     post:
+      operationId: calculateEsdp
       tags:
         - Esdp deviations calc
       summary: Calculate ESDP deviations & measuring sizes
@@ -58,7 +60,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ApiRequest'
             examples:
-              sample:
+              holeExample:
                 value:
                   inputString: "shaft:42.111:6:j"
       responses:
@@ -88,7 +90,10 @@ components:
       properties:
         inputString:
           type: string
-          description: Combined input string as expected by the backend parser
+          description: |
+            Combined input string as expected by the backend parser.
+            For OST22 it is just a decimal size, e.g. "42.111".
+            For ESDP it is size + fundamental + grade, e.g. "10H7" (hole) or "10j6" (shaft).
       additionalProperties: false
     Ost22AndEsdpResponse:
       type: object
