@@ -9,7 +9,7 @@ import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { Calculator, Download, FileText, X } from 'lucide-react';
-import { EsdpResponce } from '../types';
+import { EsdpResponse } from '../types';
 import AdPlacement from '../components/Ads/AdPlacement';
 import { useAdStore } from '../store/adStore';
 import { ApiService } from '../services/apiService';
@@ -112,7 +112,7 @@ export default function EsdpCalculator() {
   const suggestion = size && !sizeError && fundamental && grade
     ? `${size}${fundamental}${grade}`
     : '';
-  const [result, setResult] = useState<EsdpResponce | null>(null);
+  const [result, setResult] = useState<EsdpResponse | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
   const [showMobileAd, setShowMobileAd] = useState(true);
 
@@ -131,9 +131,14 @@ export default function EsdpCalculator() {
     
     setIsCalculating(true);
     try {
-      const resp = await ApiService.processEsdp(suggestion);
+      const resp = await ApiService.processEsdp({
+        elementType,
+        size: Number(size),
+        fundamental,
+        grade
+      });
       
-      const calculationResult: EsdpResponce = {
+      const calculationResult: EsdpResponse = {
         upper_deviance: resp.upper_deviance,
         lower_deviance: resp.lower_deviance,
         max_mes_value: resp.max_mes_value,

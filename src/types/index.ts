@@ -16,21 +16,21 @@ export interface AuthState {
   loginDemo: () => void;
 }
 
-export interface Ost22Responce {
+export interface Ost22Response {
   upper_deviance: string;
   lower_deviance: string;
   max_mes_value: string;
   min_mes_value: string;
 }
 
-export interface EsdpResponce {
+export interface EsdpResponse {
   upper_deviance: string;
   lower_deviance: string;
   max_mes_value: string;
   min_mes_value: string;
 }
 
-export interface ThreadsResponce {
+export interface ThreadsResponse {
   middleDiameter: {
     value: string;
     upper_deviance: string;

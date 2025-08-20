@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Calculator, Download, FileText, X } from 'lucide-react';
-import { Ost22Responce } from '../types';
+import { Ost22Response } from '../types';
 import AdPlacement from '../components/Ads/AdPlacement';
 import { ApiService } from '../services/apiService';
 import { DesktopHoverOverlayImage } from '@/components/UIutils/HoverOverlayImage';
@@ -28,7 +28,7 @@ export default function OST22Calculator() {
       : 'Размер должен быть числом. Используйте точку для дробных чисел: 0.01';
   };
   const [elementType, setElementType] = useState<ElementType>('hole');
-  const [result, setResult] = useState<Ost22Responce | null>(null);
+  const [result, setResult] = useState<Ost22Response | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
   const [showMobileAd, setShowMobileAd] = useState(true);
 
@@ -44,7 +44,7 @@ export default function OST22Calculator() {
       const min_mes_value = resp.min_mes_value;
 
 
-      const calculationResult: Ost22Responce = {
+      const calculationResult: Ost22Response = {
         upper_deviance: upperDev,
         lower_deviance: lowerDev,
         max_mes_value: max_mes_value,

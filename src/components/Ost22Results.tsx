@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Ost22Responce } from '@/types';
+import { Ost22Response } from '@/types';
 
 export interface Ost22ResultsProps {
-  result: Ost22Responce;
+  result: Ost22Response;
 }
 
 export default function Ost22Results({ result }: Ost22ResultsProps) {

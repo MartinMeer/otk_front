@@ -62,7 +62,10 @@ paths:
             examples:
               holeExample:
                 value:
-                  inputString: "shaft:42.111:6:j"
+                  inputString: "42.111H7"
+              shaftExample:
+                value:
+                  inputString: "42.111j6"
       responses:
         '200':
           description: Successful calculation

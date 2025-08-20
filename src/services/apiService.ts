@@ -1,8 +1,15 @@
 // src/services/apiService.ts
 import { API_CONFIG } from '../../config/api';
-import { Ost22Responce, EsdpResponce } from '../types/index'
+import { Ost22Response, EsdpResponse } from '../types/index'
 
-export interface ApiRequest {
+export interface EsdpRequest {
+  elementType: string;
+  size: number;
+  fundamental: string;
+  grade: string;
+}
+
+export interface Ost22Request {
   //pageId: string; now request sends to dedicated api for each page
   inputString: string;
 }
@@ -28,7 +35,7 @@ export interface ApiResponse {
 
 
 export class ApiService {
-  static async postData<T>(endpoint: string, data: ApiRequest): Promise<T> {
+  static async postData<T, R>(endpoint: string, data: R): Promise<T> {
     const url = `${API_CONFIG.BASE_URL}${endpoint}`;
     const response = await fetch(url, {
       method: 'POST',
@@ -44,10 +51,10 @@ export class ApiService {
     return response.json() as Promise<T>;
   }
 
-  static async processOst22(inputString: string): Promise<Ost22Responce> {
-    return this.postData<Ost22Responce>(API_CONFIG.ENDPOINTS.OST22, { inputString }) as Promise<Ost22Responce>;
+  static async processOst22(data: Ost22Request): Promise<Ost22Response> {
+    return this.postData<Ost22Response, Ost22Request>(API_CONFIG.ENDPOINTS.OST22, data);
   }
-  static async processEsdp(inputString: string): Promise<EsdpResponce> {
-    return this.postData<EsdpResponce>(API_CONFIG.ENDPOINTS.ESDP, { inputString }) as Promise<EsdpResponce>;
+  static async processEsdp(data: EsdpRequest): Promise<EsdpResponse> {
+    return this.postData<EsdpResponse, EsdpRequest>(API_CONFIG.ENDPOINTS.ESDP, data);
   }
 }
