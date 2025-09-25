@@ -33079,11 +33079,11 @@ ${xmlEntries}
       }
       return response.json();
     }
-    static async processOst22(inputString) {
-      return this.postData(API_CONFIG.ENDPOINTS.OST22, { inputString });
+    static async processOst22(data) {
+      return this.postData(API_CONFIG.ENDPOINTS.OST22, data);
     }
-    static async processEsdp(inputString) {
-      return this.postData(API_CONFIG.ENDPOINTS.ESDP, { inputString });
+    static async processEsdp(data) {
+      return this.postData(API_CONFIG.ENDPOINTS.ESDP, data);
     }
   };
 
@@ -36789,7 +36789,7 @@ ${xmlEntries}
         const calculationResult = {
           upper_deviance: upperDev,
           lower_deviance: lowerDev,
-          max_mes_value: min_mes_value,
+          max_mes_value,
           min_mes_value
         };
         setResult(calculationResult);
@@ -37084,7 +37084,12 @@ ${xmlEntries}
       if (!suggestion) return;
       setIsCalculating(true);
       try {
-        const resp = await ApiService.processEsdp(suggestion);
+        const resp = await ApiService.processEsdp({
+          elementType,
+          size: Number(size4),
+          fundamental,
+          grade
+        });
         const calculationResult = {
           upper_deviance: resp.upper_deviance,
           lower_deviance: resp.lower_deviance,
