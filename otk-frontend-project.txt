@@ -1,0 +1,290 @@
+total 292
+drwxrwxr-x  13 oleg oleg   4096 Sep 25 22:02 ./
+drwxrwxr-x   4 oleg oleg   4096 Jan 30  2025 ../
+drwxrwxr-x   2 oleg oleg   4096 Aug 10 17:22 config/
+drwxrwxr-x   4 oleg oleg   4096 Sep 21 20:43 dist/
+drwxrwxr-x   6 oleg oleg   4096 Sep 21 20:42 doc/
+drwxrwxr-x   8 oleg oleg   4096 Sep 21 20:42 .git/
+drwxrwxr-x   3 oleg oleg   4096 Feb 11  2025 .github/
+-rw-rw-r--   1 oleg oleg     13 Aug  7 22:53 .gitignore
+-rw-rw-r--   1 oleg oleg   1251 Aug 16 17:40 index.html
+drwxrwxr-x 257 oleg oleg  12288 Sep 21 20:43 node_modules/
+drwxrwxr-x   7 oleg oleg   4096 Aug  7 22:51 OLD-version/
+drwxrwxr-x   2 oleg oleg   4096 Sep 21 20:42 openapi/
+-rw-rw-r--   1 oleg oleg      0 Sep 25 22:02 otk-frontend-project.txt
+-rw-rw-r--   1 oleg oleg   2408 Aug  9 16:43 package.json
+-rw-rw-r--   1 oleg oleg 205814 Sep 21 20:43 package-lock.json
+-rw-rw-r--   1 oleg oleg    164 Jun 21 13:22 .phcode.json
+drwxrwxr-x   4 oleg oleg   4096 Aug 10 17:22 public/
+-rw-rw-r--   1 oleg oleg     40 Jan 24  2025 README.md
+drwxrwxr-x   2 oleg oleg   4096 Aug 10 17:22 scripts/
+drwxrwxr-x  11 oleg oleg   4096 Aug 17 20:13 src/
+-rw-r--r--   1 oleg oleg   2744 Aug  7 22:46 tailwind.config.js
+-rw-r--r--   1 oleg oleg    522 Aug  7 22:46 tsconfig.json
+/src  [error opening dir]
+
+0 directories, 0 files
+/home/oleg/frontend/otk-front/src
+├── App.tsx
+├── components
+│   ├── Ads
+│   │   ├── AdPlacement.tsx
+│   │   ├── AdSettings.tsx
+│   │   └── AdUnit.tsx
+│   ├── Auth
+│   │   └── LoginModal.tsx
+│   ├── Dev
+│   │   ├── CookieExample.tsx
+│   │   └── SEODev.tsx
+│   ├── Home
+│   │   ├── CalculatorCard.tsx
+│   │   └── WelcomeSection.tsx
+│   ├── Layout
+│   │   ├── CookieConsent.tsx
+│   │   ├── CookieSettings.tsx
+│   │   ├── Footer.tsx
+│   │   └── Header.tsx
+│   ├── Ost22Form.tsx
+│   ├── Ost22Results.tsx
+│   ├── SEO
+│   │   ├── FaviconTags.tsx
+│   │   └── SEOMetaTags.tsx
+│   ├── ui
+│   │   ├── accordion.tsx
+│   │   ├── alert-dialog.tsx
+│   │   ├── alert.tsx
+│   │   ├── aspect-ratio.tsx
+│   │   ├── avatar.tsx
+│   │   ├── badge.tsx
+│   │   ├── breadcrumb.tsx
+│   │   ├── button.tsx
+│   │   ├── calendar.tsx
+│   │   ├── card.tsx
+│   │   ├── carousel.tsx
+│   │   ├── chart.tsx
+│   │   ├── checkbox.tsx
+│   │   ├── collapsible.tsx
+│   │   ├── command.tsx
+│   │   ├── context-menu.tsx
+│   │   ├── dialog.tsx
+│   │   ├── drawer.tsx
+│   │   ├── dropdown-menu.tsx
+│   │   ├── form.tsx
+│   │   ├── hover-card.tsx
+│   │   ├── input-otp.tsx
+│   │   ├── input.tsx
+│   │   ├── label.tsx
+│   │   ├── menubar.tsx
+│   │   ├── navigation-menu.tsx
+│   │   ├── pagination.tsx
+│   │   ├── popover.tsx
+│   │   ├── progress.tsx
+│   │   ├── radio-group.tsx
+│   │   ├── resizable.tsx
+│   │   ├── scroll-area.tsx
+│   │   ├── select.tsx
+│   │   ├── separator.tsx
+│   │   ├── sheet.tsx
+│   │   ├── sidebar.tsx
+│   │   ├── skeleton.tsx
+│   │   ├── slider.tsx
+│   │   ├── sonner.tsx
+│   │   ├── switch.tsx
+│   │   ├── table.tsx
+│   │   ├── tabs.tsx
+│   │   ├── textarea.tsx
+│   │   ├── toaster.tsx
+│   │   ├── toast.tsx
+│   │   ├── toggle-group.tsx
+│   │   ├── toggle.tsx
+│   │   └── tooltip.tsx
+│   ├── UIutils
+│   │   └── HoverOverlayImage.tsx
+│   └── UpdateNotification.tsx
+├── config
+│   └── cookieConfig.ts
+├── hooks
+│   ├── use-cookie-consent.ts
+│   ├── use-cookies.ts
+│   ├── use-mobile.tsx
+│   ├── use-toast.ts
+│   └── use-version.ts
+├── lib
+│   └── utils.ts
+├── main.tsx
+├── pages
+│   ├── Esdp.tsx
+│   ├── Home.tsx
+│   └── OST22Calculator.tsx
+├── services
+│   └── apiService.ts
+├── shadcn.css
+├── store
+│   ├── adStore.ts
+│   └── authStore.ts
+├── types
+│   ├── ads.ts
+│   └── index.ts
+└── utils
+    ├── cookies.ts
+    ├── seoConfig.ts
+    └── sitemapGenerator.ts
+
+18 directories, 87 files
+import * as esbuild from 'esbuild'
+import { rimraf } from 'rimraf'
+import stylePlugin from 'esbuild-style-plugin'
+import autoprefixer from 'autoprefixer'
+import tailwindcss from 'tailwindcss'
+import { copyFile, mkdir, writeFile, readFile } from 'fs/promises'
+import { readdir } from 'fs/promises'
+import { join } from 'path'
+import { spawn } from 'child_process'
+import { createHash } from 'crypto'
+
+const args = process.argv.slice(2)
+const isProd = args[0] === '--production'
+
+await rimraf('dist')
+
+// Generate version hash for cache busting
+function generateVersionHash() {
+  const timestamp = Date.now().toString()
+  const hash = createHash('md5').update(timestamp).digest('hex').slice(0, 8)
+  return hash
+}
+
+const versionHash = generateVersionHash()
+
+// Copy public folder to dist
+async function copyPublicFolder() {
+  try {
+    const publicDir = 'public'
+    const distDir = 'dist'
+    
+    // Create dist directory if it doesn't exist
+    await mkdir(distDir, { recursive: true })
+    
+    // Copy all files from public to dist
+    const files = await readdir(publicDir, { withFileTypes: true })
+    for (const file of files) {
+      if (file.isFile()) {
+        await copyFile(join(publicDir, file.name), join(distDir, file.name))
+      }
+    }
+    
+    // Copy images folder
+    const imagesDir = join(publicDir, 'images')
+    const distImagesDir = join(distDir, 'images')
+    await mkdir(distImagesDir, { recursive: true })
+    
+    const imageFiles = await readdir(imagesDir, { withFileTypes: true })
+    for (const file of imageFiles) {
+      if (file.isFile()) {
+        await copyFile(join(imagesDir, file.name), join(distImagesDir, file.name))
+      }
+    }
+
+    // Copy downloads folder
+    const downloadsDir = join(publicDir, 'downloads')
+    const distDownloadsDir = join(distDir, 'downloads')
+    await mkdir(distDownloadsDir, { recursive: true })
+    try {
+      const downloadFiles = await readdir(downloadsDir, { withFileTypes: true })
+      for (const file of downloadFiles) {
+        if (file.isFile()) {
+          await copyFile(join(downloadsDir, file.name), join(distDownloadsDir, file.name))
+        }
+      }
+    } catch (err) {
+      // Optional folder; ignore if missing
+    }
+  } catch (error) {
+    console.log('No public folder found or error copying files:', error.message)
+  }
+}
+
+await copyPublicFolder()
+
+// Ensure index.html exists in dist before we modify it later
+await mkdir('dist', { recursive: true })
+await copyFile('index.html', 'dist/index.html')
+
+/**
+ * @type {esbuild.BuildOptions}
+ */
+const esbuildOpts = {
+  color: true,
+  entryPoints: ['src/main.tsx'],
+  outdir: 'dist',
+  entryNames: '[name]',
+  write: true,
+  bundle: true,
+  format: 'iife',
+  sourcemap: isProd ? false : 'linked',
+  minify: isProd,
+  treeShaking: true,
+  jsx: 'automatic',
+  loader: {
+    '.html': 'copy',
+    '.png': 'file',
+  },
+  define: { __DEV__: isProd ? 'false' : 'true' },
+  plugins: [
+    stylePlugin({
+      postcss: {
+        plugins: [tailwindcss, autoprefixer],
+      },
+    }),
+  ],
+}
+
+
+if (isProd) {
+  await esbuild.build(esbuildOpts)
+  
+  // Generate version manifest
+  const manifest = {
+    version: versionHash,
+    timestamp: new Date().toISOString()
+  }
+  
+  await writeFile('dist/version.json', JSON.stringify(manifest, null, 2))
+  
+  // Update index.html with versioned assets via query params
+  const indexPath = 'dist/index.html'
+  let indexContent = await readFile(indexPath, 'utf-8')
+  
+  // Remove dev-only EventSource hot-reload lines if present
+  indexContent = indexContent
+    .split('\n')
+    .filter(line => !line.includes('/esbuild'))
+    .join('\n')
+  
+  // Append version query params to bust caches
+  indexContent = indexContent.replace(/main\.css(?!\?v=)/g, `main.css?v=${versionHash}`)
+  indexContent = indexContent.replace(/main\.js(?!\?v=)/g, `main.js?v=${versionHash}`)
+  
+  await writeFile(indexPath, indexContent)
+  
+  console.log(`Build completed with version: ${versionHash}`)
+} else {
+  const ctx = await esbuild.context(esbuildOpts)
+  await ctx.watch()
+  
+  // Start a static file server for the dist folder
+  const serveProcess = spawn('npx', ['serve', 'dist', '-p', '8001'], {
+    stdio: 'inherit',
+    shell: true
+  })
+  
+  console.log(`Running on:`)
+  console.log(`http://127.0.0.1:8001`)
+  console.log(`http://172.20.10.2:8001`)
+  
+  // Handle process termination
+  process.on('SIGINT', () => {
+    serveProcess.kill()
+    process.exit()
+  })
+}
