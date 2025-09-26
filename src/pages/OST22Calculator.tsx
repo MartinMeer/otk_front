@@ -36,7 +36,8 @@ export default function OST22Calculator() {
     if (!size || isNaN(Number(size))) return;
     setIsCalculating(true);
     try {
-      const resp = await ApiService.processOst22(size);
+      const requestPayload = { inputString: `${elementType}:${size}` };
+      const resp = await ApiService.processOst22(requestPayload);
       //const sizeValue = Number(size);
       const upperDev = resp.upper_deviance;
       const lowerDev = resp.lower_deviance;

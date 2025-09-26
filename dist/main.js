@@ -33055,12 +33055,13 @@ ${xmlEntries}
 
   // config/api.ts
   var API_CONFIG = {
-    BASE_URL: "https://api.otk-help.martinmeer.com",
+    //BASE_URL: 'https://api.otk-help.martinmeer.com',
+    BASE_URL: "http://localhost:8080/",
     ENDPOINTS: {
-      OST22: "/ost22",
-      ESDP: "/esdp",
-      THREADS: "/threads",
-      CHAMFERS: "/chamfers"
+      OST22: `api/ost22`,
+      ESDP: `api/esdp`,
+      THREADS: `api/threads`,
+      CHAMFERS: `api/chamfers`
     }
   };
 
@@ -33079,11 +33080,11 @@ ${xmlEntries}
       }
       return response.json();
     }
-    static async processOst22(inputString) {
-      return this.postData(API_CONFIG.ENDPOINTS.OST22, { inputString });
+    static async processOst22(data) {
+      return this.postData(API_CONFIG.ENDPOINTS.OST22, data);
     }
-    static async processEsdp(inputString) {
-      return this.postData(API_CONFIG.ENDPOINTS.ESDP, { inputString });
+    static async processEsdp(data) {
+      return this.postData(API_CONFIG.ENDPOINTS.ESDP, data);
     }
   };
 
@@ -36781,7 +36782,8 @@ ${xmlEntries}
       if (!size4 || isNaN(Number(size4))) return;
       setIsCalculating(true);
       try {
-        const resp = await ApiService.processOst22(size4);
+        const requestPayload = { inputString: `${elementType}:${size4}` };
+        const resp = await ApiService.processOst22(requestPayload);
         const upperDev = resp.upper_deviance;
         const lowerDev = resp.lower_deviance;
         const max_mes_value = resp.max_mes_value;
@@ -36789,7 +36791,7 @@ ${xmlEntries}
         const calculationResult = {
           upper_deviance: upperDev,
           lower_deviance: lowerDev,
-          max_mes_value: min_mes_value,
+          max_mes_value,
           min_mes_value
         };
         setResult(calculationResult);
@@ -37084,7 +37086,12 @@ ${xmlEntries}
       if (!suggestion) return;
       setIsCalculating(true);
       try {
-        const resp = await ApiService.processEsdp(suggestion);
+        const resp = await ApiService.processEsdp({
+          elementType,
+          size: Number(size4),
+          fundamental,
+          grade
+        });
         const calculationResult = {
           upper_deviance: resp.upper_deviance,
           lower_deviance: resp.lower_deviance,
