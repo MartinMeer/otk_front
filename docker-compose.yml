@@ -1,0 +1,60 @@
+# Production Docker Compose for OTK Frontend + Backend
+# Deploy this file on your production server
+
+version: '3.8'
+
+services:
+  # Backend API Container  
+  backend:
+    image: martinmeer/otk-backend:latest
+    container_name: backend  # ⭐ IMPORTANT: Must be named 'backend' for nginx proxy
+    expose:
+      - "8081"  # Internal port only - not exposed to host
+    environment:
+      # Add your backend environment variables here
+      - SPRING_PROFILES_ACTIVE=prod
+      - SERVER_PORT=8081
+      # Example database config (adjust for your setup):
+      # - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/otk
+      # - SPRING_DATASOURCE_USERNAME=otk_user
+      # - SPRING_DATASOURCE_PASSWORD=your_password
+    networks:
+      - app-network
+    restart: unless-stopped
+    # Uncomment if you need backend logs
+    # volumes:
+    #   - ./logs:/app/logs
+
+  # Frontend with Nginx Proxy
+  frontend:
+    image: martinmeer/otk-frontend:latest
+    container_name: frontend
+    ports:
+      - "80:80"  # ⭐ Only frontend exposed to host
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # Optional: Add PostgreSQL if backend needs database
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: postgres
+  #   environment:
+  #     POSTGRES_DB: otk
+  #     POSTGRES_USER: otk_user
+  #     POSTGRES_PASSWORD: your_password
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   networks:
+  #     - app-network
+  #   restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
+
+# Volumes for data persistence
+# volumes:
+#   postgres_data:

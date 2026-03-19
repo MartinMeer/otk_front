@@ -72,8 +72,8 @@ export function Ost22Form(props: Ost22FormProps) {
 						{/* Keep values consistent with existing usage */}
 						<SelectItem value="hole">Отверстие</SelectItem>
 						<SelectItem value="shaft">Вал</SelectItem>
-						<SelectItem value="quasi-hole">Условное отверстие</SelectItem>
-						<SelectItem value="quasi-shaft">Условный вал</SelectItem>
+						<SelectItem value="quasi_hole">Условное отверстие</SelectItem>
+						<SelectItem value="quasi_shaft">Условный вал</SelectItem>
 						<SelectItem value="undef">Ни отверстие, ни вал</SelectItem>
 					</SelectContent>
 				</Select>
