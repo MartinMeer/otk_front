@@ -1,0 +1,2 @@
+   1. Alignment with OST22 1.2 needed.
+When choosing 'hole' add checkdox 'Выполнено сверлом?' with comment "На диаметр отверстия, выполненного сверлом, допускается минусовое отклонение, равное половине предельного отклонения по H12" (if yes, request to esdp, add to responce)
